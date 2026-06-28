@@ -9,6 +9,10 @@ interface UseSpeechRecognitionProps {
   onFinalTranscript: (transcript: string) => void;
 }
 
+type StopRecordingOptions = {
+  discard?: boolean;
+};
+
 const maxRecordingMs = 15_000;
 const minRecordingMs = 900;
 const silenceStopMs = 1_300;
@@ -26,8 +30,17 @@ export function useSpeechRecognition({
   const maxRecordingTimeoutRef = useRef<number | null>(null);
   const recordingStartedAtRef = useRef(0);
   const silenceStartedAtRef = useRef<number | null>(null);
+  const discardOnStopRef = useRef(false);
+  const transcriptionAbortControllerRef = useRef<AbortController | null>(null);
+  const transcriptionRequestIdRef = useRef(0);
   const [isListening, setIsListening] = useState(false);
   const [isSupported, setIsSupported] = useState(false);
+
+  const cancelPendingTranscription = useCallback(() => {
+    transcriptionRequestIdRef.current += 1;
+    transcriptionAbortControllerRef.current?.abort();
+    transcriptionAbortControllerRef.current = null;
+  }, []);
 
   useEffect(() => {
     setIsSupported(
@@ -36,20 +49,23 @@ export function useSpeechRecognition({
     );
 
     return () => {
+      discardOnStopRef.current = true;
+      cancelPendingTranscription();
       mediaRecorderRef.current?.stop();
       stopAudioAnalysis();
       streamRef.current?.getTracks().forEach((track) => track.stop());
     };
-  }, []);
+  }, [cancelPendingTranscription]);
 
   const stopStream = useCallback(() => {
     streamRef.current?.getTracks().forEach((track) => track.stop());
     streamRef.current = null;
   }, []);
 
-  const stopRecording = useCallback(() => {
+  const stopRecording = useCallback((options?: StopRecordingOptions) => {
     const recorder = mediaRecorderRef.current;
     if (!recorder || recorder.state === 'inactive') return;
+    discardOnStopRef.current = options?.discard ?? false;
     recorder.stop();
     setIsListening(false);
   }, []);
@@ -59,10 +75,19 @@ export function useSpeechRecognition({
       if (!audioBlob.size) return;
 
       onInterimTranscript('음성을 텍스트로 변환하고 있습니다.');
+      const requestId = transcriptionRequestIdRef.current + 1;
+      transcriptionRequestIdRef.current = requestId;
+      transcriptionAbortControllerRef.current?.abort();
+      const abortController = new AbortController();
+      transcriptionAbortControllerRef.current = abortController;
 
       try {
         const formData = new FormData();
-        formData.append('audio', audioBlob, `voice.${fileExtensionFor(audioBlob.type)}`);
+        formData.append(
+          'audio',
+          audioBlob,
+          `voice.${fileExtensionFor(audioBlob.type)}`,
+        );
         debugConversation('speech.transcription.request', {
           apiBaseUrl,
           audioType: audioBlob.type,
@@ -72,17 +97,33 @@ export function useSpeechRecognition({
         const response = await fetch(`${apiBaseUrl}/speech/transcriptions`, {
           method: 'POST',
           body: formData,
+          signal: abortController.signal,
         });
+
+        if (
+          abortController.signal.aborted ||
+          requestId !== transcriptionRequestIdRef.current
+        ) {
+          return;
+        }
 
         if (!response.ok) {
           const text = await response.text();
-          throw new Error(text || `Transcription failed with ${response.status}`);
+          throw new Error(
+            text || `Transcription failed with ${response.status}`,
+          );
         }
 
         const data = (await response.json()) as { text?: string };
         const transcript = data.text?.trim();
         if (!transcript) {
           throw new Error('Empty transcription result');
+        }
+        if (
+          abortController.signal.aborted ||
+          requestId !== transcriptionRequestIdRef.current
+        ) {
+          return;
         }
 
         debugConversation('speech.transcription.response', {
@@ -91,10 +132,20 @@ export function useSpeechRecognition({
         });
         onFinalTranscript(transcript);
       } catch (error) {
+        if (
+          abortController.signal.aborted ||
+          requestId !== transcriptionRequestIdRef.current
+        ) {
+          return;
+        }
         debugConversation('speech.transcription.error', {
           detail: error instanceof Error ? error.message : 'Unknown STT error',
         });
         onInterimTranscript('음성 인식에 실패했습니다. 다시 시도해 주세요.');
+      } finally {
+        if (transcriptionAbortControllerRef.current === abortController) {
+          transcriptionAbortControllerRef.current = null;
+        }
       }
     },
     [onFinalTranscript, onInterimTranscript],
@@ -105,6 +156,7 @@ export function useSpeechRecognition({
 
     const recorder = mediaRecorderRef.current;
     if (isListening) {
+      discardOnStopRef.current = false;
       recorder?.stop();
       setIsListening(false);
       return;
@@ -143,6 +195,8 @@ export function useSpeechRecognition({
       };
 
       mediaRecorder.onstop = () => {
+        const shouldDiscard = discardOnStopRef.current;
+        discardOnStopRef.current = false;
         stopAudioAnalysis();
         const audioBlob = new Blob(chunksRef.current, {
           type: mediaRecorder.mimeType || mimeType || 'audio/webm',
@@ -155,6 +209,14 @@ export function useSpeechRecognition({
         chunksRef.current = [];
         mediaRecorderRef.current = null;
         stopStream();
+        setIsListening(false);
+        if (shouldDiscard) {
+          debugConversation('speech.recording.discarded', {
+            audioType: audioBlob.type,
+            audioSize: audioBlob.size,
+          });
+          return;
+        }
         void transcribe(audioBlob);
       };
 
@@ -189,7 +251,12 @@ export function useSpeechRecognition({
     transcribe,
   ]);
 
-  return { isListening, isSupported, toggle };
+  const cancel = useCallback(() => {
+    cancelPendingTranscription();
+    stopRecording({ discard: true });
+  }, [cancelPendingTranscription, stopRecording]);
+
+  return { cancel, isListening, isSupported, stop: stopRecording, toggle };
 
   function startAudioAnalysis(stream: MediaStream, onSilence: () => void) {
     stopAudioAnalysis();
@@ -268,7 +335,9 @@ function preferredMimeType() {
     'audio/ogg;codecs=opus',
   ];
 
-  return supportedTypes.find((type) => MediaRecorder.isTypeSupported(type)) ?? '';
+  return (
+    supportedTypes.find((type) => MediaRecorder.isTypeSupported(type)) ?? ''
+  );
 }
 
 function fileExtensionFor(mimeType: string) {

@@ -165,7 +165,7 @@ export default function ChatSidebar({
 
       <div className="voice-panel">
         <div className="voice-status">
-          <span>{isLoading ? '환자 응답 생성 중' : voice.isListening ? '듣는 중' : session ? '진료 대기' : '세션 준비 중'}</span>
+          <span>{isLoading ? '환자 응답 생성 중' : voice.isSpeaking ? '환자 음성 재생 중' : voice.isListening ? '듣는 중' : session ? '진료 대기' : '세션 준비 중'}</span>
           {voice.transcript ? <p>{voice.transcript}</p> : <p>{isCompleted ? '채점이 완료된 세션입니다.' : '마이크를 눌러 환자에게 질문하세요.'}</p>}
           {error ? <p className="voice-error">{error}</p> : null}
         </div>
@@ -173,7 +173,7 @@ export default function ChatSidebar({
           <button
             aria-label={voice.isListening ? '음성 입력 중지' : '음성 입력 시작'}
             className={voice.isListening ? 'mic-button active' : 'mic-button'}
-            disabled={!session || isCompleted || isLoading || !voice.isSupported}
+            disabled={!session || isCompleted || isLoading || voice.isSpeaking || !voice.isSupported}
             onClick={voice.toggle}
             title={voice.isSupported ? '음성 입력 시작/중지' : '이 브라우저는 음성 입력을 지원하지 않습니다'}
             type="button"
