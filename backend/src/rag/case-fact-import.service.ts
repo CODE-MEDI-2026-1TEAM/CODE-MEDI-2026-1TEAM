@@ -138,7 +138,9 @@ export class CaseFactImportService {
   }
 
   computeHash(text: string): string {
-    return createHash('sha256').update(text).digest('hex');
+    return createHash('sha256')
+      .update([this.embeddingsService.getCacheKey(), text].join('\n'))
+      .digest('hex');
   }
 
   private validateInput(input: ImportInput): void {

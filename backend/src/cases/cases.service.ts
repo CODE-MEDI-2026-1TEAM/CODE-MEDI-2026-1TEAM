@@ -8,6 +8,7 @@ export class CasesService {
   async findAllPublic() {
     const cases = await this.prisma.case.findMany({
       where: {
+        difficulty: 'simulation',
         simulationCaseId: {
           startsWith: 'seizure_case_',
         },

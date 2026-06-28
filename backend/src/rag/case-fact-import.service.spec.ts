@@ -29,6 +29,7 @@ function makeEmbeddings(): jest.Mocked<EmbeddingsService> {
   return {
     embed: jest.fn().mockResolvedValue(Array(1536).fill(0.1)),
     embedBatch: jest.fn(),
+    getCacheKey: jest.fn().mockReturnValue('model=test;dimensions=1536'),
   } as unknown as jest.Mocked<EmbeddingsService>;
 }
 

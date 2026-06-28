@@ -26,6 +26,7 @@ type WitnessInfo = {
 
 type BasicInfo = {
   source: 'patient' | 'caregiver';
+  이름?: string;
   성함?: string;
   생년월일?: string;
   성별: string;
@@ -116,6 +117,32 @@ function computeHash(text: string): string {
   return createHash('sha256').update(text).digest('hex');
 }
 
+function getEmbeddingModel(): string {
+  return process.env.OPENAI_EMBEDDING_MODEL ?? 'text-embedding-3-large';
+}
+
+function getEmbeddingDimensions(): number | undefined {
+  const raw = process.env.OPENAI_EMBEDDING_DIMENSIONS;
+  if (!raw) return undefined;
+
+  const dimensions = Number(raw);
+  if (!Number.isInteger(dimensions) || dimensions <= 0) {
+    throw new Error('OPENAI_EMBEDDING_DIMENSIONS must be a positive integer');
+  }
+
+  return dimensions;
+}
+
+function computeEmbeddingHash(text: string): string {
+  const dimensions = getEmbeddingDimensions();
+  return computeHash(
+    [
+      `model=${getEmbeddingModel()};dimensions=${dimensions ?? 'default'}`,
+      text,
+    ].join('\n'),
+  );
+}
+
 // ==================== Serialization ====================
 
 const SKIP_KEYS = new Set([
@@ -143,10 +170,7 @@ function serializeObj(obj: Record<string, unknown>): string {
     } else if (typeof v === 'number') {
       parts.push(`${k}: ${v}`);
     } else if (Array.isArray(v)) {
-      const joined = v
-        .filter(Boolean)
-        .map(String)
-        .join(', ');
+      const joined = v.filter(Boolean).map(String).join(', ');
       if (joined) parts.push(`${k}: ${joined}`);
     } else if (typeof v === 'object') {
       const nested = v as Record<string, unknown>;
@@ -154,7 +178,8 @@ function serializeObj(obj: Record<string, unknown>): string {
         const present = nested.있음 as boolean;
         const details = Object.entries(nested)
           .filter(
-            ([dk]) => dk !== '있음' && !SKIP_KEYS.has(dk) && nested[dk] !== null,
+            ([dk]) =>
+              dk !== '있음' && !SKIP_KEYS.has(dk) && nested[dk] !== null,
           )
           .map(([dk, dv]) =>
             typeof dv === 'boolean'
@@ -189,6 +214,7 @@ function extractPatientName(환자상황: string): string | null {
 
 function patientName(caseRecord: CaseRecord): string | null {
   return (
+    caseRecord.문진및신체진찰정보.기본정보.이름 ??
     caseRecord.문진및신체진찰정보.기본정보.성함 ??
     extractPatientName(caseRecord.상황지시.환자상황)
   );
@@ -227,8 +253,9 @@ function normalizeRelation(relation: string | null | undefined): string | null {
 
 function extractGuardianRole(caseRecord: CaseRecord): string | null {
   const info = caseRecord.문진및신체진찰정보;
-  const social = (info.사회력_가족력 ??
-    info.사회력_가족력_여성력) as Record<string, unknown> | undefined;
+  const social = (info.사회력_가족력 ?? info.사회력_가족력_여성력) as
+    | Record<string, unknown>
+    | undefined;
   if (social?.주양육자) return social.주양육자 as string;
   if (social?.양육자) return social.양육자 as string;
   return normalizeRelation(caseRecord.목격자정보.관계 ?? null);
@@ -271,7 +298,11 @@ function buildChecklist(caseRecord: CaseRecord): string[] {
 
   for (const key of ['O', 'L', 'D', 'Co', 'Ex'] as const) {
     const field = oldcoe[key];
-    if (field && field.원문표기 !== '-' && (field.값 !== null || field.지속시간)) {
+    if (
+      field &&
+      field.원문표기 !== '-' &&
+      (field.값 !== null || field.지속시간)
+    ) {
       labels.push(`문진: ${key}`);
     }
   }
@@ -333,8 +364,8 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
   push(
     'initial',
     'chief_complaint',
-    `${caseRecord.상황지시.환자상황}\n주호소: ${info.기본정보.주소}`,
-    'station',
+    `주호소: ${info.기본정보.주소}`,
+    info.기본정보.source,
   );
 
   // 3. O / L / D / Co / Ex
@@ -349,7 +380,8 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
   for (const [key, section] of FIELD_SECTIONS) {
     const field = info.O_L_D_Co_Ex[key];
     if (!field) continue;
-    if (field.원문표기 === '-' || (field.값 === null && !field.지속시간)) continue;
+    if (field.원문표기 === '-' || (field.값 === null && !field.지속시간))
+      continue;
 
     let valueText: string;
     if (Array.isArray(field.값)) {
@@ -444,9 +476,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
   if (eoa.E !== null && eoa.E !== undefined) {
     const e = eoa.E;
     const eStr =
-      typeof e === 'string'
-        ? e
-        : serializeObj(e as Record<string, unknown>);
+      typeof e === 'string' ? e : serializeObj(e as Record<string, unknown>);
     if (eStr) pastParts.push(`건강검진: ${eStr}`);
   }
   for (const key of ['주산기', '산모', '신생아'] as const) {
@@ -456,21 +486,14 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     }
   }
   if (pastParts.length > 0) {
-    push(
-      'past',
-      'history_past',
-      `[과거력] ${pastParts.join(' ')}`,
-      eoaSource,
-    );
+    push('past', 'history_past', `[과거력] ${pastParts.join(' ')}`, eoaSource);
   }
 
   // 5b. Trauma
   if (eoa.외 !== null && eoa.외 !== undefined) {
     const 외 = eoa.외;
     const 외str =
-      typeof 외 === 'string'
-        ? 외
-        : serializeObj(외 as Record<string, unknown>);
+      typeof 외 === 'string' ? 외 : serializeObj(외 as Record<string, unknown>);
     if (외str) push('trauma', 'history_trauma', `[외상] ${외str}`, eoaSource);
   }
   if (typeof eoa.외상_과거력 === 'string' && eoa.외상_과거력) {
@@ -486,19 +509,23 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
   if (eoa.약 !== null && eoa.약 !== undefined) {
     const 약 = eoa.약;
     const 약str =
-      typeof 약 === 'string'
-        ? 약
-        : serializeObj(약 as Record<string, unknown>);
+      typeof 약 === 'string' ? 약 : serializeObj(약 as Record<string, unknown>);
     if (약str)
       push('medication', 'history_medication', `[약물] ${약str}`, eoaSource);
   }
 
   // 7. Social & family history
-  const social = (info.사회력_가족력 ??
-    info.사회력_가족력_여성력) as Record<string, unknown> | undefined;
+  const social = (info.사회력_가족력 ?? info.사회력_가족력_여성력) as
+    | Record<string, unknown>
+    | undefined;
   if (social) {
     const socialSource = (social.source as string) ?? 'patient';
-    const { source: _ss, 가족력, 여성력, ...socialData } = social as {
+    const {
+      source: _ss,
+      가족력,
+      여성력,
+      ...socialData
+    } = social as {
       source?: unknown;
       가족력?: unknown;
       여성력?: unknown;
@@ -507,12 +534,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
 
     const socialText = serializeObj(socialData as Record<string, unknown>);
     if (socialText)
-      push(
-        'social',
-        'history_social',
-        `[사회력] ${socialText}`,
-        socialSource,
-      );
+      push('social', 'history_social', `[사회력] ${socialText}`, socialSource);
 
     if (가족력 !== null && 가족력 !== undefined && 가족력 !== '-') {
       const 가족Text =
@@ -520,12 +542,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
           ? 가족력
           : serializeObj(가족력 as Record<string, unknown>);
       if (가족Text)
-        push(
-          'family',
-          'history_family',
-          `[가족력] ${가족Text}`,
-          socialSource,
-        );
+        push('family', 'history_family', `[가족력] ${가족Text}`, socialSource);
     }
 
     if (여성력) {
@@ -559,8 +576,9 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
   }
 
   // 9. Physical exam
-  const pe = (info.P_E ??
-    info.P_E_및_특이사항) as Record<string, unknown> | undefined;
+  const pe = (info.P_E ?? info.P_E_및_특이사항) as
+    | Record<string, unknown>
+    | undefined;
   if (pe) {
     const peSource = (pe.source as string) ?? 'exam';
     const {
@@ -697,7 +715,7 @@ async function upsertChunk(
   chunk: PatientVisibleChunk,
   caseId: string,
 ): Promise<{ id: string; text: string; needsEmbedding: boolean }> {
-  const contentHash = computeHash(chunk.text);
+  const contentHash = computeEmbeddingHash(chunk.text);
   const existing = await pool.query<{
     id: string;
     content_hash: string | null;
@@ -779,11 +797,9 @@ async function embedAndSave(
 ): Promise<number> {
   if (items.length === 0) return 0;
 
-  const model =
-    process.env.OPENAI_EMBEDDING_MODEL ?? 'text-embedding-3-small';
-  const batchSize = Number(
-    process.env.SIMULATION_RAG_EMBED_BATCH_SIZE ?? 64,
-  );
+  const model = getEmbeddingModel();
+  const dimensions = getEmbeddingDimensions();
+  const batchSize = Number(process.env.SIMULATION_RAG_EMBED_BATCH_SIZE ?? 64);
   let embedded = 0;
 
   for (let start = 0; start < items.length; start += batchSize) {
@@ -791,6 +807,7 @@ async function embedAndSave(
     const response = await openai.embeddings.create({
       model,
       input: batch.map((item) => item.text),
+      ...(dimensions ? { dimensions } : {}),
     });
 
     for (let i = 0; i < batch.length; i++) {

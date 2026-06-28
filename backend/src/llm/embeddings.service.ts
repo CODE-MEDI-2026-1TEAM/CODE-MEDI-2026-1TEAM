@@ -6,11 +6,15 @@ import OpenAI from 'openai';
 export class EmbeddingsService {
   private readonly logger = new Logger(EmbeddingsService.name);
   private readonly model: string;
+  private readonly dimensions?: number;
 
   constructor(private readonly configService: ConfigService) {
     this.model =
       this.configService.get<string>('OPENAI_EMBEDDING_MODEL') ??
-      'text-embedding-3-small';
+      'text-embedding-3-large';
+    this.dimensions = this.parseDimensions(
+      this.configService.get<string>('OPENAI_EMBEDDING_DIMENSIONS'),
+    );
   }
 
   async embed(text: string): Promise<number[]> {
@@ -18,6 +22,7 @@ export class EmbeddingsService {
       const response = await this.getClient().embeddings.create({
         model: this.model,
         input: text,
+        ...(this.dimensions ? { dimensions: this.dimensions } : {}),
       });
 
       const embedding = response.data[0]?.embedding;
@@ -65,6 +70,21 @@ export class EmbeddingsService {
     }
 
     return results;
+  }
+
+  getCacheKey(): string {
+    return `model=${this.model};dimensions=${this.dimensions ?? 'default'}`;
+  }
+
+  private parseDimensions(value?: string): number | undefined {
+    if (!value) return undefined;
+
+    const dimensions = Number(value);
+    if (!Number.isInteger(dimensions) || dimensions <= 0) {
+      throw new Error('OPENAI_EMBEDDING_DIMENSIONS must be a positive integer');
+    }
+
+    return dimensions;
   }
 
   private getClient(): OpenAI {

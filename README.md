@@ -52,7 +52,7 @@ cp .env.example .env
 ```env
 DATABASE_URL="Supabase session pooler URL"
 OPENAI_API_KEY="OpenAI API key"
-OPENAI_MODEL="gpt-4.1-mini"
+OPENAI_MODEL="gpt-5.5"
 PORT=3000
 ```
 
@@ -104,7 +104,7 @@ Render Web Service 설정 예시입니다. 루트의 `render.yaml`을 Blueprint�
 ```txt
 Root Directory: backend
 Build Command: npm install && npm run prisma:generate && npm run build
-Pre-Deploy Command: npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json
+Pre-Deploy Command: npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json && npm run simulation:import
 Start Command: npm run start:prod
 Health Check Path: /health
 ```
@@ -114,7 +114,9 @@ Render Environment Variables:
 ```env
 DATABASE_URL="Supabase session pooler URL"
 OPENAI_API_KEY="OpenAI API key"
-OPENAI_MODEL="gpt-4.1-mini"
+OPENAI_MODEL="gpt-5.5"
+OPENAI_EMBEDDING_MODEL="text-embedding-3-large"
+OPENAI_EMBEDDING_DIMENSIONS=1536
 ```
 
 Render가 `PORT`를 자동으로 주입하므로 배포 환경에서는 직접 설정하지 않아도 됩니다.

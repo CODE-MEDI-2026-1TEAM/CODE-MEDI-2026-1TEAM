@@ -49,8 +49,9 @@ function makeConfig(overrides: Record<string, unknown> = {}): ConfigService {
   return {
     get: jest.fn((key: string) => {
       const defaults: Record<string, unknown> = {
-        SIMULATION_RAG_TOP_K: 3,
-        SIMULATION_RAG_MIN_SCORE: 0.3,
+        SIMULATION_RAG_TOP_K: 4,
+        SIMULATION_RAG_MIN_SCORE: 0.28,
+        SIMULATION_RAG_NEAR_MISS_SCORE: 0.18,
         ...overrides,
       };
       return defaults[key];

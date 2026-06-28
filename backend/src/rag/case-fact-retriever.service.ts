@@ -79,18 +79,18 @@ export class CaseFactRetrieverService {
     limit?: number;
   }): Promise<RetrievalResult> {
     const topK =
-      limit ?? parseInt(this.configService.get('RAG_TOP_K') ?? '3', 10);
+      limit ?? parseInt(this.configService.get('RAG_TOP_K') ?? '5', 10);
     const minScore = parseFloat(
-      this.configService.get('RAG_MIN_SCORE') ?? '0.38',
+      this.configService.get('RAG_MIN_SCORE') ?? '0.42',
     );
     const semanticMinScore = parseFloat(
-      this.configService.get('RAG_SEMANTIC_MIN_SCORE') ?? '0.30',
+      this.configService.get('RAG_SEMANTIC_MIN_SCORE') ?? '0.34',
     );
     const vectorWeight = parseFloat(
-      this.configService.get('RAG_VECTOR_WEIGHT') ?? '0.75',
+      this.configService.get('RAG_VECTOR_WEIGHT') ?? '0.85',
     );
     const keywordWeight = parseFloat(
-      this.configService.get('RAG_KEYWORD_WEIGHT') ?? '0.25',
+      this.configService.get('RAG_KEYWORD_WEIGHT') ?? '0.15',
     );
 
     const normalized = question.trim().toLowerCase();

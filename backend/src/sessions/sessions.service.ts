@@ -137,6 +137,10 @@ export class SessionsService {
     );
 
     const patientProfile = session.case.patientProfile as {
+      name?: string | null;
+      birthDate?: string | null;
+      ageRaw?: string | null;
+      sex?: string | null;
       tone?: string;
       isGuardianCase?: boolean;
       guardianRole?: string | null;
@@ -146,6 +150,10 @@ export class SessionsService {
 
     const patientReply = await this.patientResponseService.generateReply({
       patientPersona: {
+        name: patientProfile?.name ?? null,
+        birthDate: patientProfile?.birthDate ?? null,
+        ageRaw: patientProfile?.ageRaw ?? null,
+        sex: patientProfile?.sex ?? null,
         tone: patientProfile?.tone ?? '불안하지만 협조적',
         isGuardianCase: patientProfile?.isGuardianCase ?? false,
         guardianRole: patientProfile?.guardianRole ?? null,
@@ -165,10 +173,9 @@ export class SessionsService {
       })),
       isFallback: retrieval.isFallback,
       fallbackType: retrieval.fallbackType,
-      patientPrompt:
-        retrieval.fallbackType === 'OUT_OF_SCOPE'
-          ? session.case.patientPrompt
-          : undefined,
+      patientPrompt: retrieval.isFallback
+        ? session.case.patientPrompt
+        : undefined,
     });
 
     const assistantMessage = await this.prisma.message.create({

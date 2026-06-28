@@ -6,7 +6,7 @@ services:
     region: singapore
     rootDir: backend
     buildCommand: npm install --include=dev && npm run build
-    preDeployCommand: npm run prisma:deploy && npm run prisma:seed && if [ -n "$OPENAI_API_KEY" ] && [ "$OPENAI_API_KEY" != "sk-your-api-key" ]; then npm run rag:import -- data/cases/seizure-21m.json; else echo "Skipping RAG import because OPENAI_API_KEY is not configured"; fi
+    preDeployCommand: npm run prisma:deploy && npm run prisma:seed && if [ -n "$OPENAI_API_KEY" ] && [ "$OPENAI_API_KEY" != "sk-your-api-key" ]; then npm run rag:import -- data/cases/seizure-21m.json && npm run simulation:import; else echo "Skipping RAG imports because OPENAI_API_KEY is not configured"; fi
     startCommand: npm run start:prod
     healthCheckPath: /health
     envVars:
@@ -17,29 +17,31 @@ services:
       - key: OPENAI_API_KEY
         sync: false
       - key: OPENAI_MODEL
-        value: gpt-4.1-mini
+        value: gpt-5.5
       - key: OPENAI_TRANSCRIPTION_MODEL
         value: gpt-4o-mini-transcribe
       - key: OPENAI_TTS_MODEL
         value: gpt-4o-mini-tts
       - key: OPENAI_EMBEDDING_MODEL
-        value: text-embedding-3-small
+        value: text-embedding-3-large
+      - key: OPENAI_EMBEDDING_DIMENSIONS
+        value: "1536"
       - key: RAG_TOP_K
-        value: "3"
+        value: "5"
       - key: RAG_MIN_SCORE
-        value: "0.38"
+        value: "0.42"
       - key: RAG_SEMANTIC_MIN_SCORE
-        value: "0.30"
+        value: "0.34"
       - key: RAG_VECTOR_WEIGHT
-        value: "0.75"
+        value: "0.85"
       - key: RAG_KEYWORD_WEIGHT
-        value: "0.25"
+        value: "0.15"
       - key: SIMULATION_RAG_TOP_K
-        value: "3"
+        value: "4"
       - key: SIMULATION_RAG_MIN_SCORE
-        value: "0.20"
+        value: "0.28"
       - key: SIMULATION_RAG_NEAR_MISS_SCORE
-        value: "0.10"
+        value: "0.18"
       - key: SIMULATION_RAG_EMBED_BATCH_SIZE
         value: "64"
       - key: ENABLE_RAG_DEBUG

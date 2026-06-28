@@ -21,11 +21,11 @@ function makeConfig(overrides: Record<string, unknown> = {}): ConfigService {
   return {
     get: jest.fn((key: string) => {
       const defaults: Record<string, unknown> = {
-        RAG_TOP_K: 3,
-        RAG_MIN_SCORE: 0.38, // 프로덕션 .env와 동일
-        RAG_SEMANTIC_MIN_SCORE: 0.3, // 신규: semantic 하한선
-        RAG_VECTOR_WEIGHT: 0.75,
-        RAG_KEYWORD_WEIGHT: 0.25,
+        RAG_TOP_K: 5,
+        RAG_MIN_SCORE: 0.42, // 프로덕션 .env와 동일
+        RAG_SEMANTIC_MIN_SCORE: 0.34,
+        RAG_VECTOR_WEIGHT: 0.85,
+        RAG_KEYWORD_WEIGHT: 0.15,
         ...overrides,
       };
       return defaults[key];
@@ -71,7 +71,7 @@ describe('CaseFactRetrieverService', () => {
     expect(repo.searchByCaseId.mock.calls).toContainEqual([
       CASE_A,
       DUMMY_EMBEDDING,
-      3,
+      5,
     ]);
   });
 
@@ -153,7 +153,7 @@ describe('CaseFactRetrieverService', () => {
 
   // Test 5: finalScore < minScore → isFallback: true (OUT_OF_SCOPE)
   it('returns OUT_OF_SCOPE fallback when all facts score below threshold', async () => {
-    // semanticScore=0.2 → finalScore=0.15 (threshold 0.38 미달)
+    // semanticScore=0.2 → finalScore=0.17 (threshold 0.42 미달)
     const lowScoreFact = { ...factA, semanticScore: 0.2 };
     const repo = makeRepo([lowScoreFact]);
     const embeddings = makeEmbeddings();
@@ -283,11 +283,11 @@ describe('CaseFactRetrieverService', () => {
 
   // Test 11: semanticMinScore 하한선 — keyword boost로 finalScore가 minScore를 넘어도 semantic이 낮으면 차단
   it('blocks a fact whose semanticScore is below semanticMinScore even after keyword boost', async () => {
-    // semanticScore=0.25(< 0.30), keywordScore=1.0 → finalScore=0.4375(> 0.38)
+    // semanticScore=0.33(< 0.34), keywordScore=1.0 → finalScore=0.4305(> 0.42)
     // → semantic 하한선에서 걸러져야 함
     const noisyFact = {
       ...factA,
-      semanticScore: 0.25,
+      semanticScore: 0.33,
       triggerKeywords: ['언제부터', '시작', '발병'],
     };
     const repo = makeRepo([noisyFact]);
@@ -295,7 +295,7 @@ describe('CaseFactRetrieverService', () => {
     const retriever = new CaseFactRetrieverService(
       repo,
       embeddings,
-      makeConfig({ RAG_MIN_SCORE: 0.38, RAG_SEMANTIC_MIN_SCORE: 0.3 }),
+      makeConfig({ RAG_MIN_SCORE: 0.42, RAG_SEMANTIC_MIN_SCORE: 0.34 }),
     );
 
     const result = await retriever.retrieve({
