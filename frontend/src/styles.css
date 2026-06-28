@@ -279,12 +279,6 @@ h1 {
 
   color: #617178;
 }
-.case-option-complaint {
-  @apply text-label-05;
-
-  align-self: end;
-  color: #9a3b2f;
-}
 .case-option-empty {
   display: grid;
   grid-column: 1 / -1;

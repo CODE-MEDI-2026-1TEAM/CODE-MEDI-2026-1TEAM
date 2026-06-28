@@ -176,9 +176,6 @@ export default function App() {
                       <span className="case-option-meta">
                         {formatCaseMeta(cpxCase)}
                       </span>
-                      <span className="case-option-complaint">
-                        {cpxCase.chiefComplaint}
-                      </span>
                     </button>
                   );
                 })
