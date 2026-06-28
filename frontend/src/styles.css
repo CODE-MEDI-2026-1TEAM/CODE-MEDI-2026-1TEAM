@@ -736,8 +736,7 @@ h1 {
 .evaluation-domain-heading span,
 .evaluation-hygiene-card span,
 .evaluation-physical-card > div:first-child span,
-.evaluation-priority-card span,
-.evaluation-metric-card span {
+.evaluation-priority-card span {
   @apply text-label-05;
 
   color: #617178;
@@ -812,35 +811,6 @@ h1 {
 }
 .evaluation-workup-status.missed {
   color: #c0392b;
-}
-.evaluation-metric-grid {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-.evaluation-metric-card {
-  display: grid;
-  gap: 4px;
-  min-width: 0;
-  padding: 16px 18px;
-  background: #fff;
-  border: 1px solid #dce5e7;
-  border-radius: 8px;
-}
-.evaluation-metric-card strong {
-  @apply text-head-02;
-
-  color: #17242a;
-}
-.evaluation-metric-card.positive {
-  border-color: #b9ded2;
-}
-.evaluation-metric-card.warning {
-  border-color: #f0c4b8;
-}
-.evaluation-metric-card.neutral {
-  border-color: #cbd9ee;
 }
 .evaluation-domain-card {
   grid-column: 1 / -1;
@@ -1798,9 +1768,6 @@ h1 {
   .evaluation-score-ring {
     width: 118px;
     height: 118px;
-  }
-  .evaluation-metric-grid {
-    grid-template-columns: 1fr;
   }
   .evaluation-physical-groups {
     grid-template-columns: 1fr;

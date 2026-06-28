@@ -534,30 +534,6 @@ function EvaluationResultModal({
             <p>{evaluation.riskAssessment}</p>
           </section>
 
-          <div className="evaluation-metric-grid">
-            <EvaluationMetricCard
-              label="강점"
-              tone="positive"
-              value={evaluation.strengths.length}
-            />
-            <EvaluationMetricCard
-              label="놓친 항목"
-              tone="warning"
-              value={evaluation.missedItems.length}
-            />
-            <EvaluationMetricCard
-              label="개선 제안"
-              tone="neutral"
-              value={evaluation.suggestions.length}
-            />
-            <EvaluationMetricCard
-              label="손소독"
-              suffix="회"
-              tone={evaluation.handHygieneCount > 0 ? 'positive' : 'warning'}
-              value={evaluation.handHygieneCount}
-            />
-          </div>
-
           <EvaluationWorkupTable missedItems={evaluation.missedItems} />
 
           <section className="evaluation-hygiene-card">
@@ -823,25 +799,6 @@ function PhysicalExamChecklistGroup({
         })}
       </ul>
     </div>
-  );
-}
-
-function EvaluationMetricCard({
-  label,
-  suffix = '',
-  tone,
-  value,
-}: {
-  label: string;
-  suffix?: string;
-  tone: 'neutral' | 'positive' | 'warning';
-  value: number;
-}) {
-  return (
-    <section className={`evaluation-metric-card ${tone}`}>
-      <span>{label}</span>
-      <strong>{value}{suffix}</strong>
-    </section>
   );
 }
 
