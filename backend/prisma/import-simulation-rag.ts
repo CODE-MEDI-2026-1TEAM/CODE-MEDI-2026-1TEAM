@@ -26,6 +26,8 @@ type WitnessInfo = {
 
 type BasicInfo = {
   source: 'patient' | 'caregiver';
+  성함?: string;
+  생년월일?: string;
   성별: string;
   나이: string;
   주소: string;
@@ -185,6 +187,24 @@ function extractPatientName(환자상황: string): string | null {
   return match ? match[1] : null;
 }
 
+function patientName(caseRecord: CaseRecord): string | null {
+  return (
+    caseRecord.문진및신체진찰정보.기본정보.성함 ??
+    extractPatientName(caseRecord.상황지시.환자상황)
+  );
+}
+
+function patientIdentityMetadata(caseRecord: CaseRecord) {
+  const basic = caseRecord.문진및신체진찰정보.기본정보;
+  return {
+    patientName: patientName(caseRecord),
+    patientBirthDate: basic.생년월일 ?? null,
+    patientAge: parseAge(basic.나이),
+    patientAgeRaw: basic.나이,
+    patientSex: basic.성별,
+  };
+}
+
 function normalizeRelation(relation: string | null | undefined): string | null {
   if (!relation) return null;
   const roles = [
@@ -221,7 +241,8 @@ function buildPatientProfile(caseRecord: CaseRecord) {
   const isGuardianCase = basic.source === 'caregiver';
 
   return {
-    name: extractPatientName(caseRecord.상황지시.환자상황),
+    name: patientName(caseRecord),
+    birthDate: basic.생년월일 ?? null,
     age: parseAge(basic.나이),
     ageRaw: basic.나이,
     sex: basic.성별,
@@ -279,6 +300,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
   const chunks: PatientVisibleChunk[] = [];
   const caseId = `seizure_case_${String(caseRecord.증례번호).padStart(2, '0')}`;
   const info = caseRecord.문진및신체진찰정보;
+  const identity = patientIdentityMetadata(caseRecord);
 
   function push(key: string, section: string, text: string, source: string) {
     const trimmed = text.trim();
@@ -290,11 +312,24 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
       topic_label: TOPIC_LABEL,
       section,
       text: trimmed,
-      metadata: { scope: 'patient_dialogue', source },
+      metadata: { scope: 'patient_dialogue', source, ...identity },
     });
   }
 
-  // 1. Chief complaint
+  // 1. Patient identity
+  push(
+    'identity',
+    'patient_identity',
+    [
+      `성함: ${identity.patientName ?? '미상'}`,
+      `생년월일: ${identity.patientBirthDate ?? '미상'}`,
+      `나이: ${identity.patientAgeRaw}`,
+      `성별: ${identity.patientSex}`,
+    ].join('\n'),
+    info.기본정보.source,
+  );
+
+  // 2. Chief complaint
   push(
     'initial',
     'chief_complaint',
@@ -302,7 +337,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     'station',
   );
 
-  // 2. O / L / D / Co / Ex
+  // 3. O / L / D / Co / Ex
   const FIELD_SECTIONS: Array<[keyof ClinicalInfo['O_L_D_Co_Ex'], string]> = [
     ['O', 'history_onset'],
     ['L', 'history_location'],
@@ -334,7 +369,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     push(key, section, valueText, field.source);
   }
 
-  // 3. Character sections
+  // 4. Character sections
   const C = info.C;
 
   // 3a. Pre-seizure
@@ -377,7 +412,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     );
   }
 
-  // 4. Associated symptoms & precipitating factors (A_F)
+  // 5. Associated symptoms & precipitating factors (A_F)
   const af = info.A_F;
   const afSource = (af.source as string) ?? 'patient';
   const { source: _afs, ...afData } = af;
@@ -391,7 +426,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     );
   }
 
-  // 5. Past history, trauma, medication (E_외_과_약)
+  // 6. Past history, trauma, medication (E_외_과_약)
   const eoa = info.E_외_과_약;
   const eoaSource = (eoa.source as string) ?? 'patient';
 
@@ -458,7 +493,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
       push('medication', 'history_medication', `[약물] ${약str}`, eoaSource);
   }
 
-  // 6. Social & family history
+  // 7. Social & family history
   const social = (info.사회력_가족력 ??
     info.사회력_가족력_여성력) as Record<string, unknown> | undefined;
   if (social) {
@@ -508,7 +543,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     }
   }
 
-  // 7. Developmental history (pediatric only)
+  // 8. Developmental history (pediatric only)
   if (info.발달력) {
     const dev = info.발달력;
     const devSource = (dev.source as string) ?? 'caregiver';
@@ -523,7 +558,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
       );
   }
 
-  // 8. Physical exam
+  // 9. Physical exam
   const pe = (info.P_E ??
     info.P_E_및_특이사항) as Record<string, unknown> | undefined;
   if (pe) {
@@ -562,7 +597,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
     }
   }
 
-  // 9. Patient question from 질문_특이사항
+  // 10. Patient question from 질문_특이사항
   if (info.질문_특이사항) {
     const qa = info.질문_특이사항 as Record<string, unknown>;
     const 질문 = qa.질문 as string | null | undefined;
@@ -722,6 +757,22 @@ async function upsertChunk(
   return { id: chunk.id, text: chunk.text, needsEmbedding };
 }
 
+async function deleteStaleChunks(
+  caseId: string,
+  currentChunkIds: string[],
+): Promise<number> {
+  if (currentChunkIds.length === 0) return 0;
+
+  const result = await pool.query(
+    `DELETE FROM "SimulationChunk"
+     WHERE "caseId" = $1
+       AND NOT (id = ANY($2::text[]))`,
+    [caseId, currentChunkIds],
+  );
+
+  return result.rowCount ?? 0;
+}
+
 async function embedAndSave(
   openai: OpenAI,
   items: Array<{ id: string; text: string }>,
@@ -774,6 +825,7 @@ async function main() {
   const openai = getOpenAI();
   let importedCases = 0;
   let upsertedChunks = 0;
+  let deletedStaleChunks = 0;
   const needsEmbedding: Array<{ id: string; text: string }> = [];
 
   for (const cpxCase of cases) {
@@ -788,6 +840,10 @@ async function main() {
         needsEmbedding.push({ id: result.id, text: result.text });
       }
     }
+    deletedStaleChunks += await deleteStaleChunks(
+      caseDbId,
+      chunks.map((chunk) => chunk.id),
+    );
 
     const simulationCaseId = `seizure_case_${String(cpxCase.증례번호).padStart(2, '0')}`;
     console.log(
@@ -799,6 +855,7 @@ async function main() {
 
   console.log(`\nimported cases: ${importedCases}`);
   console.log(`upserted chunks: ${upsertedChunks}`);
+  console.log(`deleted stale chunks: ${deletedStaleChunks}`);
   console.log(`embedded chunks: ${embedded}`);
   console.log(`skipped embeddings: ${upsertedChunks - needsEmbedding.length}`);
 }

@@ -24,7 +24,8 @@
         "identity": {
           "sex": "남성",
           "age": "21세",
-          "name": "공강혁"
+          "name": "공강혁",
+          "birth_date": "2005-03-12"
         },
         "chief_complaint": "경련을 했어요.",
         "vital_signs_after_arrival": {
@@ -114,7 +115,8 @@
         "identity": {
           "sex": "남성",
           "age": "47세",
-          "name": "송창희"
+          "name": "송창희",
+          "birth_date": "1979-04-18"
         },
         "chief_complaint": "경련 증상으로 왔습니다.",
         "vital_signs_after_arrival": {
@@ -195,7 +197,8 @@
         "identity": {
           "sex": "여성",
           "age": "49세",
-          "name": "이윤주"
+          "name": "이윤주",
+          "birth_date": "1977-05-20"
         },
         "chief_complaint": "경련을 했어요.",
         "vital_signs_after_arrival": {
@@ -361,7 +364,8 @@
         "identity": {
           "sex": "남성",
           "age": "20세",
-          "name": "이용진"
+          "name": "이용진",
+          "birth_date": "2006-01-09"
         },
         "chief_complaint": "경련을 했어요.",
         "vital_signs_after_arrival": {
@@ -441,7 +445,8 @@
           "sex": "남아",
           "age": "생후 7개월",
           "name": "김정환",
-          "respondent": "어머니"
+          "respondent": "어머니",
+          "birth_date": "2025-11-28"
         },
         "chief_complaint": "우리 아이가 경련을 했어요.",
         "vital_signs_after_arrival": {

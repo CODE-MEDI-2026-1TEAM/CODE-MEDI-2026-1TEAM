@@ -8,11 +8,15 @@
     "age": 42,
     "sex": "남성",
     "opening_statement": "경련을 했어요",
-    "diagnosis": ["측두엽 뇌전증", "알코올 유발 경련"],
+    "diagnosis": [
+      "측두엽 뇌전증",
+      "알코올 유발 경련"
+    ],
     "witness_present": true,
     "witness_relation": "동료",
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "1984-01-15"
   },
   {
     "case_id": "seizure_case_02",
@@ -23,12 +27,17 @@
     "age_raw": "10개월",
     "sex": "남아",
     "opening_statement": "아이가 경련을 해요",
-    "diagnosis": ["열성 경련", "영아 연축", "뇌수막염"],
+    "diagnosis": [
+      "열성 경련",
+      "영아 연축",
+      "뇌수막염"
+    ],
     "witness_present": true,
     "witness_relation": "어머니",
     "is_guardian_case": true,
     "guardian_role": "어머니",
-    "setting": "응급실"
+    "setting": "응급실",
+    "patient_birth_date": "2025-08-28"
   },
   {
     "case_id": "seizure_case_03",
@@ -39,11 +48,16 @@
     "age": 54,
     "sex": "남성",
     "opening_statement": "경련했어요",
-    "diagnosis": ["측두엽 뇌전증", "외상성 뇌출혈", "외상성 경막하혈종"],
+    "diagnosis": [
+      "측두엽 뇌전증",
+      "외상성 뇌출혈",
+      "외상성 경막하혈종"
+    ],
     "witness_present": true,
     "witness_relation": "아내",
     "is_guardian_case": false,
-    "setting": "응급실"
+    "setting": "응급실",
+    "patient_birth_date": "1972-02-10"
   },
   {
     "case_id": "seizure_case_04",
@@ -54,11 +68,14 @@
     "age": 21,
     "sex": "남성",
     "opening_statement": "경련을 했대요",
-    "diagnosis": ["청소년 근간대뇌전증"],
+    "diagnosis": [
+      "청소년 근간대뇌전증"
+    ],
     "witness_present": true,
     "witness_relation": "어머니",
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "2005-03-12"
   },
   {
     "case_id": "seizure_case_05",
@@ -69,11 +86,14 @@
     "age": 47,
     "sex": "남성",
     "opening_statement": "경련을 했대요",
-    "diagnosis": ["뇌수막염"],
+    "diagnosis": [
+      "뇌수막염"
+    ],
     "witness_present": true,
     "witness_relation": "동료들",
     "is_guardian_case": false,
-    "setting": "응급실"
+    "setting": "응급실",
+    "patient_birth_date": "1979-04-18"
   },
   {
     "case_id": "seizure_case_06",
@@ -84,11 +104,14 @@
     "age": 49,
     "sex": "여성",
     "opening_statement": "경련을 했어요",
-    "diagnosis": ["심인성 비뇌전증 발작"],
+    "diagnosis": [
+      "심인성 비뇌전증 발작"
+    ],
     "witness_present": false,
     "witness_relation": null,
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "1977-05-20"
   },
   {
     "case_id": "seizure_case_07",
@@ -99,11 +122,15 @@
     "age": 20,
     "sex": "남성",
     "opening_statement": "경련을 했어요",
-    "diagnosis": ["청소년 근간대뇌전증", "알코올 유발 경련"],
+    "diagnosis": [
+      "청소년 근간대뇌전증",
+      "알코올 유발 경련"
+    ],
     "witness_present": true,
     "witness_relation": "아버지",
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "2006-01-09"
   },
   {
     "case_id": "seizure_case_08",
@@ -114,11 +141,15 @@
     "age_raw": "7개월",
     "sex": "남아",
     "opening_statement": "우리 아이가 경련을 했어요",
-    "diagnosis": ["영아 연축", "열성 경련"],
+    "diagnosis": [
+      "영아 연축",
+      "열성 경련"
+    ],
     "witness_present": true,
     "witness_relation": "어머니",
     "is_guardian_case": true,
     "guardian_role": "어머니",
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "2025-11-28"
   }
 ]
