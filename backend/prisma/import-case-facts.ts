@@ -37,6 +37,30 @@ function computeHash(text: string): string {
   return createHash('sha256').update(text).digest('hex');
 }
 
+function getEmbeddingModel(): string {
+  return process.env.OPENAI_EMBEDDING_MODEL ?? 'text-embedding-3-large';
+}
+
+function getEmbeddingDimensions(): number | undefined {
+  const raw = process.env.OPENAI_EMBEDDING_DIMENSIONS;
+  if (!raw) return undefined;
+
+  const dimensions = Number(raw);
+  if (!Number.isInteger(dimensions) || dimensions <= 0) {
+    throw new Error('OPENAI_EMBEDDING_DIMENSIONS must be a positive integer');
+  }
+
+  return dimensions;
+}
+
+function computeEmbeddingHash(text: string): string {
+  const dimensions = getEmbeddingDimensions();
+  return computeHash(
+    [`model=${getEmbeddingModel()};dimensions=${dimensions ?? 'default'}`, text]
+      .join('\n'),
+  );
+}
+
 function getOpenAI(): OpenAI {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey || apiKey === 'sk-your-api-key') {
@@ -46,9 +70,12 @@ function getOpenAI(): OpenAI {
 }
 
 async function embedText(openai: OpenAI, text: string): Promise<number[]> {
-  const model =
-    process.env.OPENAI_EMBEDDING_MODEL ?? 'text-embedding-3-small';
-  const response = await openai.embeddings.create({ model, input: text });
+  const dimensions = getEmbeddingDimensions();
+  const response = await openai.embeddings.create({
+    model: getEmbeddingModel(),
+    input: text,
+    ...(dimensions ? { dimensions } : {}),
+  });
   const embedding = response.data[0]?.embedding;
   if (!embedding) throw new Error('Empty embedding response');
   return embedding;
@@ -114,7 +141,7 @@ async function main() {
     }
 
     const searchText = buildSearchText(fact);
-    const contentHash = computeHash(searchText);
+    const contentHash = computeEmbeddingHash(searchText);
 
     try {
       const existing = await pool.query<{

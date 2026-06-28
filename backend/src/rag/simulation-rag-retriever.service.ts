@@ -261,14 +261,14 @@ export class SimulationRagRetrieverService {
   }): Promise<SimulationRetrievalResult> {
     const topK =
       limit ??
-      parseInt(this.configService.get('SIMULATION_RAG_TOP_K') ?? '3', 10);
+      parseInt(this.configService.get('SIMULATION_RAG_TOP_K') ?? '4', 10);
     const minScore = parseFloat(
       this.configService.get('SIMULATION_RAG_MIN_SCORE') ??
         this.configService.get('RAG_SEMANTIC_MIN_SCORE') ??
-        '0.20',
+        '0.28',
     );
     const nearMissScore = parseFloat(
-      this.configService.get('SIMULATION_RAG_NEAR_MISS_SCORE') ?? '0.10',
+      this.configService.get('SIMULATION_RAG_NEAR_MISS_SCORE') ?? '0.18',
     );
 
     const normalized = question.trim().toLowerCase();

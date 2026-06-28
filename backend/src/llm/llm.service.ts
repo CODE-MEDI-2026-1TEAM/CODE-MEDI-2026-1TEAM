@@ -32,7 +32,7 @@ export class LlmService {
 
   constructor(private readonly configService: ConfigService) {
     this.model =
-      this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-4.1-mini';
+      this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-5.5';
   }
 
   async generatePatientReply(
@@ -42,7 +42,7 @@ export class LlmService {
     try {
       const completion = await this.getClient().chat.completions.create({
         model: this.model,
-        temperature: 0.7,
+        ...this.temperatureOptions(0.7),
         messages: [
           {
             role: 'system',
@@ -77,7 +77,7 @@ export class LlmService {
     try {
       const completion = await this.getClient().chat.completions.create({
         model: this.model,
-        temperature: 0.2,
+        ...this.temperatureOptions(0.2),
         response_format: { type: 'json_object' },
         messages: [
           {
@@ -136,6 +136,18 @@ export class LlmService {
     }
 
     return new OpenAI({ apiKey });
+  }
+
+  private temperatureOptions(temperature: number) {
+    return this.supportsCustomTemperature() ? { temperature } : {};
+  }
+
+  private supportsCustomTemperature(): boolean {
+    const normalizedModel = this.model.toLowerCase();
+    return (
+      !normalizedModel.startsWith('gpt-5') &&
+      !normalizedModel.startsWith('o')
+    );
   }
 
   private buildEvaluationSystemPrompt(

@@ -7,6 +7,7 @@ export class CasesService {
 
   async findAllPublic() {
     const cases = await this.prisma.case.findMany({
+      where: { difficulty: 'simulation' },
       orderBy: { createdAt: 'asc' },
       select: {
         id: true,
