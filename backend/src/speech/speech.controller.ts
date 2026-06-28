@@ -1,11 +1,14 @@
 import {
   BadRequestException,
+  Body,
   Controller,
+  Header,
   Post,
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
+import type { SpeechSynthesisInput } from './speech.service';
 import { SpeechService } from './speech.service';
 
 type UploadedAudioFile = {
@@ -34,5 +37,12 @@ export class SpeechController {
 
     const text = await this.speechService.transcribe(audio);
     return { text };
+  }
+
+  @Post('synthesis')
+  @Header('Content-Type', 'audio/mpeg')
+  @Header('Cache-Control', 'no-store')
+  async synthesize(@Body() body: SpeechSynthesisInput) {
+    return this.speechService.synthesize(body);
   }
 }

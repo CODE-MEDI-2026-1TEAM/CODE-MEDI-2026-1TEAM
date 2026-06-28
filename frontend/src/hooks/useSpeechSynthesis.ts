@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { apiBaseUrl } from "../api";
 
 export type SpeechVoiceProfile = {
   age?: number;
@@ -9,6 +10,9 @@ export type SpeechVoiceProfile = {
 
 export function useSpeechSynthesis() {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioUrlRef = useRef<string | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
     if (!("speechSynthesis" in window)) return;
@@ -20,27 +24,92 @@ export function useSpeechSynthesis() {
     return () => window.speechSynthesis.removeEventListener("voiceschanged", loadVoices);
   }, []);
 
-  return useMemo(
-    () => ({
-      speak(content: string, profile?: SpeechVoiceProfile | null) {
-        if (!("speechSynthesis" in window)) return;
-        window.speechSynthesis.cancel();
+  const cancel = useCallback(() => {
+    abortControllerRef.current?.abort();
+    abortControllerRef.current = null;
 
-        const voicePreset = voicePresetFor(profile);
-        const utterance = new SpeechSynthesisUtterance(content);
-        utterance.lang = "ko-KR";
-        utterance.rate = voicePreset.rate;
-        utterance.pitch = voicePreset.pitch;
-        utterance.voice = selectKoreanVoice(voices, voicePreset.voicePreference);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.src = "";
+      audioRef.current = null;
+    }
 
-        window.speechSynthesis.speak(utterance);
-      },
-      cancel() {
-        if ("speechSynthesis" in window) window.speechSynthesis.cancel();
-      },
-    }),
+    if (audioUrlRef.current) {
+      URL.revokeObjectURL(audioUrlRef.current);
+      audioUrlRef.current = null;
+    }
+
+    if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+  }, []);
+
+  const speakWithBrowser = useCallback(
+    (content: string, profile?: SpeechVoiceProfile | null) => {
+      if (!("speechSynthesis" in window)) return;
+
+      window.speechSynthesis.cancel();
+
+      const voicePreset = voicePresetFor(profile);
+      const utterance = new SpeechSynthesisUtterance(content);
+      utterance.lang = "ko-KR";
+      utterance.rate = voicePreset.rate;
+      utterance.pitch = voicePreset.pitch;
+      utterance.voice = selectKoreanVoice(voices, voicePreset.voicePreference);
+
+      window.speechSynthesis.speak(utterance);
+    },
     [voices],
   );
+
+  const speak = useCallback(
+    async (content: string, profile?: SpeechVoiceProfile | null) => {
+      const trimmed = content.trim();
+      if (!trimmed) return;
+
+      cancel();
+
+      const abortController = new AbortController();
+      abortControllerRef.current = abortController;
+
+      try {
+        const response = await fetch(`${apiBaseUrl}/speech/synthesis`, {
+          body: JSON.stringify({ profile, text: trimmed }),
+          headers: { "Content-Type": "application/json" },
+          method: "POST",
+          signal: abortController.signal,
+        });
+
+        if (!response.ok) {
+          throw new Error(await response.text());
+        }
+
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+
+        audioRef.current = audio;
+        audioUrlRef.current = audioUrl;
+        audio.onended = () => {
+          URL.revokeObjectURL(audioUrl);
+          if (audioUrlRef.current === audioUrl) audioUrlRef.current = null;
+          if (audioRef.current === audio) audioRef.current = null;
+        };
+
+        await audio.play();
+      } catch (error) {
+        if (abortController.signal.aborted) return;
+        speakWithBrowser(trimmed, profile);
+      } finally {
+        if (abortControllerRef.current === abortController) {
+          abortControllerRef.current = null;
+        }
+      }
+    },
+    [cancel, speakWithBrowser],
+  );
+
+  useEffect(() => cancel, [cancel]);
+
+  return useMemo(() => ({ cancel, speak }), [cancel, speak]);
 }
 
 type VoicePreset = {
