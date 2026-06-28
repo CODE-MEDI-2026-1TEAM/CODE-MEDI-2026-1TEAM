@@ -179,7 +179,7 @@ export default function App() {
                 <>
                   <div className="case-assignment-main">
                     <div className={isAssigningCase ? 'assignment-orbit spinning' : 'assignment-orbit'}>
-                      <span />
+                      {isAssigningCase ? <span /> : null}
                       <strong>{isAssigningCase ? '배정 중' : assignedCase ? '배정 완료' : '대기 중'}</strong>
                     </div>
 
