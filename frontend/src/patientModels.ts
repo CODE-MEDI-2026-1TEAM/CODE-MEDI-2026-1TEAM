@@ -298,16 +298,26 @@ export type PatientSceneProfile = {
   seed?: string;
 };
 
-const ADULT_MALE_CASES: CaseKey[] = ["adult_m1", "adult_m2", "adult_m4", "adult_m5"];
+const ADULT_MALE_CASES: CaseKey[] = [
+  "adult_m1",
+  "adult_m2",
+  "adult_m4",
+  "adult_m5",
+];
 const ADULT_FEMALE_CASES: CaseKey[] = ["adult_f1", "adult_f3", "adult_f4"];
 const INFANT_CASES: CaseKey[] = ["child1_1", "child1_2", "child1_3"];
 
-export function choosePatientCaseKey(profile?: PatientSceneProfile | null): CaseKey {
+export function choosePatientCaseKey(
+  profile?: PatientSceneProfile | null,
+): CaseKey {
   if (!profile) return ACTIVE_CASE;
 
   const category = inferPatientCategory(profile);
   const gender = inferPatientGender(profile.sex);
-  const seed = profile.seed ?? profile.title ?? `${profile.ageRaw ?? ''}${profile.sex ?? ''}`;
+  const seed =
+    profile.seed ??
+    profile.title ??
+    `${profile.ageRaw ?? ""}${profile.sex ?? ""}`;
 
   if (category === "child") {
     if (isInfantProfile(profile)) return pickStable(INFANT_CASES, seed);
@@ -337,7 +347,7 @@ export function patientAvatarPathForCase(caseKey: CaseKey) {
 }
 
 // 지금 화면에 띄울 케이스. 이 한 줄만 바꾸면 교체됨.
-export const ACTIVE_CASE: CaseKey = "adolescent_m";
+export const ACTIVE_CASE: CaseKey = "child2_m";
 
 function inferPatientCategory(profile: PatientSceneProfile): PatientCategory {
   if (typeof profile.age === "number") {
@@ -348,7 +358,8 @@ function inferPatientCategory(profile: PatientSceneProfile): PatientCategory {
 
   const searchableText = `${profile.ageRaw ?? ""} ${profile.title ?? ""}`;
 
-  if (/생후|개월|영유아|소아|아동|어린이|초등/.test(searchableText)) return "child";
+  if (/생후|개월|영유아|소아|아동|어린이|초등/.test(searchableText))
+    return "child";
   if (/청소년|중학생|고등학생|고등/.test(searchableText)) return "adolescent";
 
   const ageMatch = searchableText.match(/(\d+)\s*세/);
@@ -377,6 +388,9 @@ function isInfantProfile(profile: PatientSceneProfile) {
 }
 
 function pickStable<T>(items: T[], seed: string) {
-  const hash = Array.from(seed).reduce((sum, char) => sum + char.charCodeAt(0), 0);
+  const hash = Array.from(seed).reduce(
+    (sum, char) => sum + char.charCodeAt(0),
+    0,
+  );
   return items[hash % items.length];
 }
