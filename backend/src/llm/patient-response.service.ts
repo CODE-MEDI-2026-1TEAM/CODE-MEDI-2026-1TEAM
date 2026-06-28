@@ -164,7 +164,6 @@ export class PatientResponseService {
     try {
       const completion = await this.getClient().chat.completions.create({
         model: this.model,
-        temperature: 0.3,
         messages: [
           { role: 'system', content: systemPrompt },
           ...input.recentConversation.map((m) => ({
