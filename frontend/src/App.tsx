@@ -12,7 +12,7 @@ export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
   const [selectedCaseSlug, setSelectedCaseSlug] = useState('');
   const [assignedCase, setAssignedCase] = useState<CpxCase | null>(null);
-  const [isCaseModalOpen, setIsCaseModalOpen] = useState(false); // TEMP: 모달 비활성화 (씬 확인용)
+  const [isCaseModalOpen, setIsCaseModalOpen] = useState(true);
   const [isAssigningCase, setIsAssigningCase] = useState(false);
   const [isManualSelectionOpen, setIsManualSelectionOpen] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
