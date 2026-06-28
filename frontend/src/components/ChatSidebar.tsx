@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
+import { choosePatientCaseKey, PATIENT_CASES } from '../patientModels';
 import type { CpxCase, Session } from '../types';
 
 const vitalSigns = [
@@ -37,11 +38,32 @@ export default function ChatSidebar({
   const displayAge = profile?.age
     ? `${profile.age}세`
     : (profile?.ageRaw ?? '-');
+  const avatarCaseKey = choosePatientCaseKey(
+    activeCase
+      ? {
+          age: activeCase.patientProfile.age,
+          ageRaw: activeCase.patientProfile.ageRaw,
+          name: activeCase.patientProfile.name,
+          seed: activeCase.slug,
+          sex: activeCase.patientProfile.sex,
+          title: activeCase.title,
+        }
+      : null,
+  );
+  const avatarCase = PATIENT_CASES[avatarCaseKey];
+  const avatarGender = /female|여성|여자|여아/i.test(profile?.sex ?? '')
+    ? 'female'
+    : 'male';
 
   return (
     <aside className="chat-sidebar" aria-label="환자 대화 기록">
       <header className="patient-summary">
-        <div className="profile-image-slot" aria-label="환자 프로필 이미지 영역">환자</div>
+        <PatientAvatar
+          category={avatarCase.category}
+          gender={avatarGender}
+          hasGuardian={Boolean(profile?.respondent)}
+          name={profile?.name ?? activeCase?.title}
+        />
         <div className="patient-heading">
           <p>환자 정보</p>
           <h2>{profile?.name ?? activeCase?.title ?? '환자 연결 중'}</h2>
@@ -89,5 +111,35 @@ export default function ChatSidebar({
         </div>
       </div>
     </aside>
+  );
+}
+
+function PatientAvatar({
+  category,
+  gender,
+  hasGuardian,
+  name,
+}: {
+  category: 'child' | 'adolescent' | 'adult';
+  gender?: 'male' | 'female';
+  hasGuardian: boolean;
+  name?: string;
+}) {
+  const avatarClassName = [
+    'profile-avatar',
+    `profile-avatar-${category}`,
+    `profile-avatar-${gender ?? 'male'}`,
+  ].join(' ');
+
+  return (
+    <div className={avatarClassName} aria-label={`${name ?? '환자'} 아바타`}>
+      <span className="avatar-hair" />
+      <span className="avatar-face">
+        <span className="avatar-eye left" />
+        <span className="avatar-eye right" />
+        <span className="avatar-mouth" />
+      </span>
+      {hasGuardian ? <span className="avatar-guardian">보</span> : null}
+    </div>
   );
 }
