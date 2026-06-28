@@ -1,0 +1,190 @@
+{
+  "case": {
+    "id": "seizure-21m",
+    "title": "21세 남성 경련 환자"
+  },
+  "facts": [
+    {
+      "category": "onset",
+      "label": "경련 발생 시점",
+      "answer": "어제 한 번 그랬다고 들었어요.",
+      "questionExamples": [
+        "언제 경련했나요?",
+        "발작은 언제 있었어요?",
+        "증상이 언제 시작됐나요?"
+      ],
+      "triggerKeywords": ["언제", "어제", "시작", "발생", "발작"],
+      "priority": 90,
+      "isCritical": true
+    },
+    {
+      "category": "situation",
+      "label": "경련 당시 상황",
+      "answer": "누워 있다가 그랬고, 어머니가 보셨다고 했어요.",
+      "questionExamples": [
+        "어떤 상황에서 경련했나요?",
+        "그때 자세가 어땠나요?",
+        "목격자가 있었나요?"
+      ],
+      "triggerKeywords": ["상황", "자세", "누워", "목격", "어머니"],
+      "priority": 90,
+      "isCritical": true
+    },
+    {
+      "category": "duration",
+      "label": "경련 지속 시간과 횟수",
+      "answer": "수십 초 동안 그랬고 전체 상황은 10분 안쪽이었다고 들었어요. 한 번이었어요.",
+      "questionExamples": [
+        "얼마나 오래 경련했나요?",
+        "몇 번이나 했나요?",
+        "발작이 반복됐나요?"
+      ],
+      "triggerKeywords": ["얼마나", "지속", "몇 번", "반복", "횟수"],
+      "priority": 90,
+      "isCritical": true
+    },
+    {
+      "category": "prodrome",
+      "label": "경련 전 전조 증상",
+      "answer": "특별히 이상한 느낌이나 전조 증상은 없었어요.",
+      "questionExamples": [
+        "경련 전에 이상한 느낌이 있었나요?",
+        "전조 증상이 있었나요?",
+        "발작 전에 메스껍거나 가슴이 답답했나요?"
+      ],
+      "triggerKeywords": ["전조", "전에", "이상한 느낌", "메스껍", "답답"],
+      "priority": 85,
+      "isCritical": true
+    },
+    {
+      "category": "ictal_features",
+      "label": "경련 중 양상",
+      "answer": "양쪽 팔을 떨다가 축 처졌고 눈이 위로 올라갔다고 들었어요.",
+      "questionExamples": [
+        "경련할 때 모습이 어땠나요?",
+        "팔다리를 떨었나요?",
+        "눈이나 고개가 돌아갔나요?"
+      ],
+      "triggerKeywords": ["양상", "모습", "팔", "떨", "눈", "고개"],
+      "priority": 95,
+      "isCritical": true
+    },
+    {
+      "category": "ictal_features",
+      "label": "혀 깨물림과 실금",
+      "answer": "혀를 깨물거나 대소변을 지리지는 않았다고 들었어요.",
+      "questionExamples": [
+        "혀를 깨물었나요?",
+        "소변이나 대변을 지렸나요?",
+        "침을 흘렸나요?"
+      ],
+      "triggerKeywords": ["혀", "깨물", "소변", "대변", "실금", "침"],
+      "priority": 85,
+      "isCritical": true
+    },
+    {
+      "category": "postictal",
+      "label": "경련 후 증상",
+      "answer": "끝나고 나서는 피곤했고 팔다리에 힘이 빠지는 느낌이 있었어요.",
+      "questionExamples": [
+        "경련 후에는 어땠나요?",
+        "끝나고 피곤했나요?",
+        "팔다리에 힘이 빠졌나요?"
+      ],
+      "triggerKeywords": ["후", "끝나고", "피곤", "힘", "마비"],
+      "priority": 90,
+      "isCritical": true
+    },
+    {
+      "category": "associated_symptoms",
+      "label": "동반 증상",
+      "answer": "열이나 두통, 목이 뻣뻣한 증상은 없었어요.",
+      "questionExamples": [
+        "열이 있었나요?",
+        "두통이나 목 뻣뻣함이 있었나요?",
+        "시야 이상이나 보행 장애가 있었나요?"
+      ],
+      "triggerKeywords": ["열", "발열", "두통", "목", "시야", "보행"],
+      "priority": 80,
+      "isCritical": true
+    },
+    {
+      "category": "trigger",
+      "label": "유발 요인",
+      "answer": "전날 술을 평소보다 많이 마셨고 잠도 잘 못 잤어요.",
+      "questionExamples": [
+        "최근 잠을 못 잤나요?",
+        "술을 마셨나요?",
+        "스트레스가 많았나요?"
+      ],
+      "triggerKeywords": ["잠", "수면", "술", "음주", "스트레스", "유발"],
+      "priority": 85,
+      "isCritical": true
+    },
+    {
+      "category": "past_episode",
+      "label": "과거 유사 증상",
+      "answer": "고등학교 때 몸이 떨린 적이 있고, 전날 과식하고 쓰러진 적도 있었어요.",
+      "questionExamples": [
+        "이전에도 이런 적이 있었나요?",
+        "예전에 경련하거나 쓰러진 적 있나요?",
+        "처음인가요?"
+      ],
+      "triggerKeywords": ["이전", "예전", "처음", "과거", "쓰러"],
+      "priority": 80,
+      "isCritical": false
+    },
+    {
+      "category": "trauma_history",
+      "label": "두부 외상 병력",
+      "answer": "어릴 때 자전거를 타다가 머리를 다친 적은 있는데 심하게 다친 건 아니었어요.",
+      "questionExamples": [
+        "머리를 다친 적 있나요?",
+        "두부 외상이 있었나요?",
+        "경련하면서 다친 곳은 있나요?"
+      ],
+      "triggerKeywords": ["머리", "두부", "외상", "다친", "자전거"],
+      "priority": 75,
+      "isCritical": false
+    },
+    {
+      "category": "past_history",
+      "label": "뇌수막염 병력",
+      "answer": "고등학교 때 뇌수막염을 앓았는데 지금은 다 나았어요.",
+      "questionExamples": [
+        "예전에 뇌수막염을 앓은 적 있나요?",
+        "과거 병력이 있나요?",
+        "큰 병을 앓은 적 있나요?"
+      ],
+      "triggerKeywords": ["뇌수막염", "과거력", "병력", "큰 병"],
+      "priority": 75,
+      "isCritical": false
+    },
+    {
+      "category": "medication",
+      "label": "복용 약물",
+      "answer": "지금 먹는 약은 없어요.",
+      "questionExamples": [
+        "복용 중인 약이 있나요?",
+        "항경련제를 먹고 있나요?",
+        "약 드시는 게 있나요?"
+      ],
+      "triggerKeywords": ["약", "복용", "항경련제", "먹는 약"],
+      "priority": 70,
+      "isCritical": false
+    },
+    {
+      "category": "social_history",
+      "label": "음주와 흡연",
+      "answer": "담배는 안 피우고, 술은 보통 한 달에 한두 번 정도 마셔요.",
+      "questionExamples": [
+        "술이나 담배는 하시나요?",
+        "평소 음주는 어느 정도 하나요?",
+        "흡연하시나요?"
+      ],
+      "triggerKeywords": ["술", "음주", "담배", "흡연"],
+      "priority": 70,
+      "isCritical": false
+    }
+  ]
+}
