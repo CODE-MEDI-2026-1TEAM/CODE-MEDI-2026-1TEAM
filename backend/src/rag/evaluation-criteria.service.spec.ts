@@ -1,0 +1,36 @@
+import { EvaluationCriteriaService } from './evaluation-criteria.service';
+
+describe('EvaluationCriteriaService', () => {
+  it('maps the seizure MVP case to the seizure evaluation module', () => {
+    const service = new EvaluationCriteriaService();
+
+    const criteriaPack = service.buildCriteriaPack({
+      slug: 'seizure-21m',
+      title: '21세 남성 경련 환자',
+      chiefComplaint: '경련',
+      checklist: ['경련 발생 시점'],
+      redFlags: ['경련 후 의식 회복 지연'],
+    });
+
+    expect(criteriaPack?.selectedModule.moduleId).toBe('cpx-34-seizure');
+    expect(criteriaPack?.selectedModule.title).toBe('경련');
+    expect(criteriaPack?.globalRubric.dimensions.length).toBeGreaterThan(0);
+    expect(criteriaPack?.moduleRubric.historyTakingText).toContain(
+      '언제부터 발작',
+    );
+  });
+
+  it('falls back to chief complaint matching when a case slug is unknown', () => {
+    const service = new EvaluationCriteriaService();
+
+    const criteriaPack = service.buildCriteriaPack({
+      slug: 'custom-case',
+      title: '외래 경련 환자',
+      chiefComplaint: '발작',
+      checklist: [],
+      redFlags: [],
+    });
+
+    expect(criteriaPack?.selectedModule.moduleId).toBe('cpx-34-seizure');
+  });
+});
