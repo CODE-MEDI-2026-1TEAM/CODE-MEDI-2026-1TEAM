@@ -200,9 +200,13 @@ describe('SimulationRagRetrieverService', () => {
     repo.searchByCaseId.mockResolvedValue([
       {
         id: 'chest_pain-001:history_factors',
+        simulationCaseId: 'chest_pain-001',
+        topicId: 'chest_pain',
+        topicLabel: '가슴통증',
         section: 'history_factors',
         text: '운동/움직일 때 심해짐',
         semanticScore: 0.15,
+        metadata: null,
       },
     ]);
 
