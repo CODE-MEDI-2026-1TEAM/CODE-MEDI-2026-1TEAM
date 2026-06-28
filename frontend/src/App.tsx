@@ -8,6 +8,7 @@ import { choosePatientCaseKey } from './patientModels';
 import type {
   CpxCase,
   Evaluation,
+  HandHygienePhase,
   Message,
   Session,
   SystemTimelineEvent,
@@ -214,13 +215,22 @@ export default function App() {
     if (!session || session.status === 'completed') return;
 
     setError(null);
+    const phase = determineHandHygienePhase(session, viewMode);
+    const label = handHygienePhaseLabel(phase);
 
     try {
       const data = await request<{
+        handHygieneEvent: {
+          createdAt: string;
+          label: string;
+          messageCount: number;
+          phase: HandHygienePhase;
+        };
         handHygieneCount: number;
         session: Session;
       }>(`/sessions/${session.id}/hand-hygiene`, {
         method: 'POST',
+        body: JSON.stringify({ label, phase }),
       });
       setSession(data.session);
       setSystemTimelineEvents((events) => [
@@ -230,7 +240,7 @@ export default function App() {
             typeof crypto.randomUUID === 'function'
               ? crypto.randomUUID()
               : `hand-hygiene-${Date.now()}`,
-          content: `손소독을 하였습니다. 총 ${data.handHygieneCount}회`,
+          content: `${data.handHygieneEvent.label}을 하였습니다. 총 ${data.handHygieneCount}회`,
           createdAt: new Date().toISOString(),
         },
       ]);
@@ -239,7 +249,7 @@ export default function App() {
         err instanceof Error ? err.message : '손소독 기록에 실패했습니다.',
       );
     }
-  }, [session]);
+  }, [session, viewMode]);
 
   useEffect(() => {
     request<{ cases: CpxCase[] }>('/cases')
@@ -528,6 +538,22 @@ function EvaluationResultModal({
             />
           </div>
 
+          <section className="evaluation-hygiene-card">
+            <span>손소독 타이밍</span>
+            {evaluation.handHygieneMoments?.length ? (
+              <ul>
+                {evaluation.handHygieneMoments.map((moment, index) => (
+                  <li key={`${moment.createdAt}-${index}`}>
+                    {moment.label}
+                    <em>{moment.messageCount === 0 ? '문진 전' : `질문 ${moment.messageCount}개 후`}</em>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>기록된 손소독 타이밍이 없습니다.</p>
+            )}
+          </section>
+
           <section className="evaluation-domain-card">
             <div className="evaluation-domain-heading">
               <div>
@@ -588,6 +614,37 @@ function debugConversation(event: string, payload: Record<string, unknown>) {
   if (!isConversationDebugEnabled) return;
 
   console.info(`[conversation-debug] ${event}`, payload);
+}
+
+function determineHandHygienePhase(
+  session: Session,
+  viewMode: 'bed' | 'desk',
+): HandHygienePhase {
+  const userMessageCount = session.messages.filter(
+    (message) => message.role === 'user',
+  ).length;
+
+  if (userMessageCount === 0) {
+    return 'initial_greeting';
+  }
+
+  if (viewMode === 'bed') {
+    return 'before_patient_contact';
+  }
+
+  return 'during_interview';
+}
+
+function handHygienePhaseLabel(phase: HandHygienePhase) {
+  if (phase === 'initial_greeting') {
+    return '환자 맞이 전 손소독';
+  }
+
+  if (phase === 'before_patient_contact') {
+    return '환자 접촉 전 손소독';
+  }
+
+  return '문진 중 손소독';
 }
 
 function EvaluationMetricCard({

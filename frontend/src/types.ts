@@ -63,12 +63,26 @@ export type SystemTimelineEvent = {
   createdAt: string;
 };
 
+export type HandHygienePhase =
+  | 'before_patient_contact'
+  | 'during_interview'
+  | 'initial_greeting';
+
+export type HandHygieneEvent = {
+  id?: string;
+  phase: HandHygienePhase;
+  label: string;
+  messageCount: number;
+  createdAt: string;
+};
+
 export type Session = {
   id: string;
   status: 'active' | 'completed';
   startedAt: string;
   endedAt?: string | null;
   handHygieneCount: number;
+  handHygieneEvents?: HandHygieneEvent[];
   case: CpxCase;
   messages: Message[];
   evaluation?: Evaluation | null;
@@ -82,5 +96,6 @@ export type Evaluation = {
   riskAssessment: string;
   suggestions: string[];
   handHygieneCount: number;
+  handHygieneMoments?: HandHygieneEvent[];
   createdAt: string;
 };

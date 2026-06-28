@@ -17,6 +17,11 @@ import { CreateMessageDto } from './dto/create-message.dto';
 import { CreateSessionDto } from './dto/create-session.dto';
 
 const INITIAL_PATIENT_GREETING = '안녕하세요.';
+const HAND_HYGIENE_PHASES = new Set([
+  'initial_greeting',
+  'before_patient_contact',
+  'during_interview',
+]);
 
 @Injectable()
 export class SessionsService {
@@ -268,7 +273,10 @@ export class SessionsService {
     return response;
   }
 
-  async recordHandHygiene(sessionId: string) {
+  async recordHandHygiene(
+    sessionId: string,
+    input?: { label?: string; phase?: string },
+  ) {
     const session = await this.getSessionForWork(sessionId);
 
     if (session.status === SessionStatus.completed) {
@@ -277,15 +285,58 @@ export class SessionsService {
       );
     }
 
-    const updatedSession = await this.prisma.session.update({
-      where: { id: sessionId },
-      data: {
-        handHygieneCount: {
-          increment: 1,
-        },
+    const phase = this.normalizeHandHygienePhase(input?.phase);
+    const label = this.handHygienePhaseLabel(phase, input?.label);
+    const messageCount = await this.prisma.message.count({
+      where: {
+        sessionId,
+        role: MessageRole.user,
       },
-      include: this.sessionInclude(),
     });
+
+    const { handHygieneEvent, updatedSession } =
+      await this.prisma.$transaction(async (tx) => {
+        const createdEvent = await tx.handHygieneEvent.create({
+          data: {
+            sessionId,
+            phase,
+            label,
+            messageCount,
+          },
+        });
+
+        const nextSession = await tx.session.update({
+          where: { id: sessionId },
+          data: {
+            handHygieneCount: {
+              increment: 1,
+            },
+          },
+          include: this.sessionInclude(),
+        });
+
+        return {
+          handHygieneEvent: createdEvent,
+          updatedSession: nextSession,
+        };
+      });
+
+    const handHygieneEvents = await this.prisma.handHygieneEvent.findMany({
+      where: { sessionId },
+      orderBy: { createdAt: 'asc' },
+      select: {
+        id: true,
+        phase: true,
+        label: true,
+        messageCount: true,
+        createdAt: true,
+      },
+    });
+
+    const sessionWithEvents = {
+      ...updatedSession,
+      handHygieneEvents,
+    };
 
     this.logger.log(
       JSON.stringify({
@@ -293,12 +344,19 @@ export class SessionsService {
         sessionId,
         caseId: updatedSession.caseId,
         handHygieneCount: updatedSession.handHygieneCount,
+        handHygieneEvent: {
+          id: handHygieneEvent.id,
+          label: handHygieneEvent.label,
+          messageCount: handHygieneEvent.messageCount,
+          phase: handHygieneEvent.phase,
+        },
       }),
     );
 
     return {
       handHygieneCount: updatedSession.handHygieneCount,
-      session: updatedSession,
+      handHygieneEvent,
+      session: sessionWithEvents,
     };
   }
 
@@ -313,6 +371,16 @@ export class SessionsService {
       where: { sessionId },
       orderBy: { createdAt: 'asc' },
       select: { role: true, content: true },
+    });
+    const handHygieneEvents = await this.prisma.handHygieneEvent.findMany({
+      where: { sessionId },
+      orderBy: { createdAt: 'asc' },
+      select: {
+        phase: true,
+        label: true,
+        messageCount: true,
+        createdAt: true,
+      },
     });
 
     const criteriaPack = this.evaluationCriteriaService.buildCriteriaPack(
@@ -334,6 +402,12 @@ export class SessionsService {
       criteriaPack,
       {
         handHygieneCount: session.handHygieneCount,
+        handHygieneEvents: handHygieneEvents.map((event) => ({
+          createdAt: event.createdAt.toISOString(),
+          label: event.label,
+          messageCount: event.messageCount,
+          phase: event.phase,
+        })),
       },
     );
 
@@ -347,6 +421,12 @@ export class SessionsService {
           riskAssessment: evaluation.riskAssessment,
           suggestions: evaluation.suggestions,
           handHygieneCount: session.handHygieneCount,
+          handHygieneMoments: handHygieneEvents.map((event) => ({
+            createdAt: event.createdAt.toISOString(),
+            label: event.label,
+            messageCount: event.messageCount,
+            phase: event.phase,
+          })),
         },
       });
 
@@ -399,6 +479,9 @@ export class SessionsService {
       messages: {
         orderBy: { createdAt: 'asc' as const },
       },
+      handHygieneEvents: {
+        orderBy: { createdAt: 'asc' as const },
+      },
       evaluation: true,
     };
   }
@@ -419,5 +502,29 @@ export class SessionsService {
     return value.length > maxLength
       ? `${value.slice(0, maxLength)}...`
       : value;
+  }
+
+  private normalizeHandHygienePhase(phase?: string) {
+    if (phase && HAND_HYGIENE_PHASES.has(phase)) {
+      return phase;
+    }
+
+    return 'during_interview';
+  }
+
+  private handHygienePhaseLabel(phase: string, label?: string) {
+    if (label?.trim()) {
+      return label.trim();
+    }
+
+    if (phase === 'initial_greeting') {
+      return '환자 맞이 전 손소독';
+    }
+
+    if (phase === 'before_patient_contact') {
+      return '환자 접촉 전 손소독';
+    }
+
+    return '문진 중 손소독';
   }
 }
