@@ -84,7 +84,7 @@ export type HandHygieneEvent = {
 
 export type PatientPosition = 'sitting' | 'supine';
 
-export type PhysicalExamStatus = 'abnormal' | 'normal' | 'unavailable';
+export type PhysicalExamStatus = 'abnormal' | 'normal' | 'unclear' | 'unavailable';
 
 export type PhysicalExamEvent = {
   id?: string;

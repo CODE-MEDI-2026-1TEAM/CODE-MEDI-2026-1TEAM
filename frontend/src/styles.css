@@ -790,6 +790,10 @@ h1 {
   color: #9a3412;
   background: #fed7aa;
 }
+.evaluation-physical-group li.unclear span {
+  color: #854d0e;
+  background: #fef3c7;
+}
 .evaluation-physical-group li p {
   @apply text-body-03;
 
@@ -799,6 +803,12 @@ h1 {
 .evaluation-physical-group li em {
   font-style: normal;
   color: #617178;
+}
+.evaluation-physical-empty {
+  @apply text-body-02;
+
+  margin: 14px 0 0;
+  color: #55656d;
 }
 .evaluation-hygiene-card ul {
   display: flex;
@@ -1326,6 +1336,10 @@ h1 {
   border-left-color: #7a8790;
   background: #f3f6f7;
 }
+.physical-exam-card.unclear {
+  border-left-color: #ca8a04;
+  background: #fffbeb;
+}
 .physical-exam-card > div {
   display: flex;
   gap: 8px;
@@ -1372,6 +1386,10 @@ h1 {
 .physical-exam-card.unavailable footer em {
   color: #46545c;
   background: #e1e8eb;
+}
+.physical-exam-card.unclear footer em {
+  color: #854d0e;
+  background: #fef3c7;
 }
 .physical-exam-card footer span {
   @apply text-label-05;

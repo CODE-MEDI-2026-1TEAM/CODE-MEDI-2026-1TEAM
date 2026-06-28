@@ -15,6 +15,11 @@ import { EvaluationCriteriaService } from '../rag/evaluation-criteria.service';
 import { SimulationRagRetrieverService } from '../rag/simulation-rag-retriever.service';
 import { CreateMessageDto } from './dto/create-message.dto';
 import { CreateSessionDto } from './dto/create-session.dto';
+import {
+  getPhysicalExamCriteriaForCase,
+  getPhysicalExamCriteriaItemsForEventKey,
+  normalizePhysicalExamStatus,
+} from './physical-exam-criteria';
 
 const INITIAL_PATIENT_GREETING = '안녕하세요.';
 const HAND_HYGIENE_PHASES = new Set([
@@ -33,6 +38,148 @@ type PhysicalExamDefinition = {
 };
 
 const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
+  {
+    expectedPosition: 'sitting',
+    key: 'vital_signs',
+    label: '활력징후 확인',
+    patterns: [
+      /(활력징후|v\/?s|바이탈|혈압|맥박|호흡수|체온).*(확인|측정|재보|보겠|볼게)?/i,
+    ],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'growth_chart_review',
+    label: '성장곡선 자료 확인',
+    patterns: [/(성장곡선|키.*체중|머리둘레).*(확인|자료|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'conjunctiva_exam',
+    label: '결막 확인',
+    patterns: [/(결막|눈꺼풀).*(확인|살펴|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'sclera_exam',
+    label: '공막 확인',
+    patterns: [/(공막|눈 흰자|황달).*(확인|살펴|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'thyroid_exam',
+    label: '갑상샘 촉진',
+    patterns: [/(갑상샘|갑상선).*(촉진|확인|만져|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'cervical_lymph_node',
+    label: '경부 림프절 촉진',
+    patterns: [/(림프절|목.*멍울).*(촉진|확인|만져|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'dehydration_exam',
+    label: '탈수 소견 확인',
+    patterns: [/(탈수|입술.*건조|입.*건조).*(확인|살펴|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'skin_turgor_exam',
+    label: '피부긴장도 확인',
+    patterns: [/(피부긴장도|피부 탄력|skin turgor).*(확인|검사|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'pitting_edema_exam',
+    label: '오목부종 확인',
+    patterns: [/(오목부종|함요부종|부종).*(확인|눌러|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'head_trauma_inspection',
+    label: '두부외상 시진',
+    patterns: [
+      /(두부|머리|외상|상처|멍).*(시진|흔적|확인|살펴|보겠|볼게)/i,
+    ],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'head_trauma_palpation',
+    label: '두부외상 촉진',
+    patterns: [/(두부|머리).*(촉진|만져|압통|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'eye_exam',
+    label: '눈 진찰',
+    patterns: [/(눈 상태|눈 진찰).*(확인|살펴|보겠|볼게)?/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'pupil_light_reflex',
+    label: '동공반사',
+    patterns: [/(동공반사|light reflex|빛.*반사).*(확인|검사|보겠|볼게)?/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'extraocular_movement',
+    label: '안구운동 검사',
+    patterns: [/(안구.?운동|눈.*움직).*(확인|검사|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'visual_field',
+    label: '시야검사',
+    patterns: [/(시야검사|시야).*(확인|검사|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'facial_sensation',
+    label: '얼굴감각 검사',
+    patterns: [/(얼굴|안면).*(감각).*(확인|검사|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'facial_motor',
+    label: '얼굴운동 검사',
+    patterns: [/(얼굴|안면).*(운동|근력|움직).*(확인|검사|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'facial_reflex',
+    label: '얼굴반사 검사',
+    patterns: [/(얼굴|안면).*(반사).*(확인|검사|보겠|볼게)/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'finger_to_nose',
+    label: 'Finger-to-nose',
+    patterns: [/(finger.?to.?nose|손가락.*코|코.*찍).*(검사|확인|해보|보겠|볼게)?/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'rapid_alternating',
+    label: 'Rapid alternating movement',
+    patterns: [/(rapid alternating|교대운동|손바닥.*뒤집|빠른.*운동).*(검사|확인|해보|보겠|볼게)?/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'tandem_gait',
+    label: 'Tandem gait',
+    patterns: [/(tandem|일자로.*걷|일자.*보행).*(검사|확인|해보|보겠|볼게)?/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'gait_exam',
+    label: '보행검사',
+    patterns: [/(보행검사|걸어보|걸음걸이).*(검사|확인|해보|보겠|볼게)?/i],
+  },
+  {
+    expectedPosition: 'sitting',
+    key: 'extremity_neuro_exam',
+    label: '팔다리 감각/운동 검사',
+    patterns: [/(팔다리|사지).*(감각.*운동|운동.*감각).*(확인|검사|보겠|볼게)?/i],
+  },
   {
     expectedPosition: 'sitting',
     key: 'head_inspection_palpation',
@@ -61,19 +208,13 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'sitting',
     key: 'cranial_nerve_exam',
     label: '뇌신경검사',
-    patterns: [
-      /(뇌신경|동공|안구.?운동|시야|얼굴.?감각|얼굴.?운동|light reflex).*(검사|확인|보겠|볼게)/i,
-      /눈.*움직.*(검사|확인|보겠|볼게)/i,
-    ],
+    patterns: [/(뇌신경).*(검사|확인|보겠|볼게)/i],
   },
   {
     expectedPosition: 'sitting',
     key: 'cerebellar_exam',
     label: '소뇌기능검사',
-    patterns: [
-      /(소뇌|finger.?to.?nose|rapid alternating|tandem).*(검사|확인|해보|보겠|볼게)?/i,
-      /(손가락.*코|코.*찍|일자로.*걸|균형|보행검사).*(검사|확인|해보|보겠|볼게)?/i,
-    ],
+    patterns: [/(소뇌).*(검사|확인|해보|보겠|볼게)?/i],
   },
   {
     expectedPosition: 'supine',
@@ -220,6 +361,7 @@ export class SessionsService {
         Promise.all(
           physicalExamMatches.map((match) => {
             const finding = this.buildPhysicalExamFinding(
+              session.case.slug,
               session.case.patientPrompt,
               match,
             );
@@ -584,6 +726,9 @@ export class SessionsService {
       messages,
       criteriaPack,
       {
+        expectedPhysicalExamChecklist: getPhysicalExamCriteriaForCase(
+          session.case.slug,
+        ).items,
         handHygieneCount: session.handHygieneCount,
         handHygieneEvents: handHygieneEvents.map((event) => ({
           createdAt: event.createdAt.toISOString(),
@@ -749,9 +894,39 @@ export class SessionsService {
   }
 
   private buildPhysicalExamFinding(
+    caseSlug: string,
     patientPrompt: string,
     definition: PhysicalExamDefinition,
   ) {
+    const criteria = getPhysicalExamCriteriaForCase(caseSlug);
+    const caseItems = getPhysicalExamCriteriaItemsForEventKey(
+      caseSlug,
+      definition.key,
+    );
+
+    if (caseItems.length > 0) {
+      const status = caseItems.some((item) => item.status === 'abnormal')
+        ? 'abnormal'
+        : caseItems.some((item) => item.status === 'unclear')
+          ? 'unclear'
+          : 'normal';
+
+      return {
+        result: caseItems
+          .map((item) => `${item.label}: ${item.result}`)
+          .join(' / '),
+        status: normalizePhysicalExamStatus(status),
+      };
+    }
+
+    if (criteria.items.length > 0 || !criteria.physicalExamPerformed) {
+      return {
+        result:
+          '이 증례 자료에는 해당 신체진찰 결과가 제시되어 있지 않습니다. 케이스별로 필요한 진찰 항목을 우선 확인하세요.',
+        status: 'unavailable',
+      };
+    }
+
     const sourceText = patientPrompt.toLowerCase();
 
     if (

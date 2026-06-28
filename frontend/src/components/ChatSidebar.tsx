@@ -255,7 +255,9 @@ function PhysicalExamResultCard({ event }: { event: PhysicalExamEvent }) {
       ? '비정상'
       : event.status === 'unavailable'
         ? '확인 불가'
-        : '정상';
+        : event.status === 'unclear'
+          ? '불명확'
+          : '정상';
   const positionLabel = event.position === 'supine' ? '누움' : '앉음';
   const expectedLabel = event.expectedPosition === 'supine' ? '누움' : '앉음';
 
