@@ -1,6 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
+import {
+  physicalExamMediaForEvent,
+  type PhysicalExamMedia,
+} from '../physicalExamCriteria';
 import type {
   CpxCase,
   PhysicalExamEvent,
@@ -39,6 +43,9 @@ export default function ChatSidebar({
 }: ChatSidebarProps) {
   const chatEndRef = useRef<HTMLDivElement>(null);
   const autoEvaluationSessionIdRef = useRef<string | null>(null);
+  const lastOpenedPhysicalExamMediaKeyRef = useRef<string | null>(null);
+  const [openPhysicalExamMedia, setOpenPhysicalExamMedia] =
+    useState<PhysicalExamMedia | null>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
   const isCompleted = session?.status === 'completed';
   const vitalSigns = [
@@ -126,6 +133,21 @@ export default function ChatSidebar({
     [session?.messages, session?.physicalExamEvents, systemTimelineEvents],
   );
 
+  useEffect(() => {
+    const events = session?.physicalExamEvents ?? [];
+    const latestEvent = events[events.length - 1];
+    if (!latestEvent) return;
+
+    const media = physicalExamMediaForEvent(activeCase?.slug, latestEvent);
+    if (!media) return;
+
+    const eventKey = `${latestEvent.id ?? latestEvent.createdAt}-${media.imageSrc}`;
+    if (lastOpenedPhysicalExamMediaKeyRef.current === eventKey) return;
+
+    lastOpenedPhysicalExamMediaKeyRef.current = eventKey;
+    setOpenPhysicalExamMedia(media);
+  }, [activeCase?.slug, session?.physicalExamEvents]);
+
   return (
     <aside className="chat-sidebar" aria-label="환자 대화 기록">
       <header className="patient-summary">
@@ -212,7 +234,12 @@ export default function ChatSidebar({
                 <p>{item.event.content}</p>
               </article>
             ) : item.kind === 'physicalExam' ? (
-              <PhysicalExamResultCard event={item.event} key={item.id} />
+              <PhysicalExamResultCard
+                event={item.event}
+                key={item.id}
+                media={physicalExamMediaForEvent(activeCase?.slug, item.event)}
+                onOpenMedia={setOpenPhysicalExamMedia}
+              />
             ) : (
               <article className={`message ${item.message.role === 'user' ? 'user-message' : 'patient-message'}`} key={item.id}>
                 <span>{item.message.role === 'user' ? '의료진' : chatPatientLabel}</span>
@@ -245,11 +272,25 @@ export default function ChatSidebar({
           <label className="voice-toggle"><input type="checkbox" checked={voice.isVoiceReplyEnabled} onChange={(event) => voice.setVoiceReplyEnabled(event.target.checked)} /> 음성 재생</label>
         </div>
       </div>
+      {openPhysicalExamMedia ? (
+        <PhysicalExamMediaModal
+          media={openPhysicalExamMedia}
+          onClose={() => setOpenPhysicalExamMedia(null)}
+        />
+      ) : null}
     </aside>
   );
 }
 
-function PhysicalExamResultCard({ event }: { event: PhysicalExamEvent }) {
+function PhysicalExamResultCard({
+  event,
+  media,
+  onOpenMedia,
+}: {
+  event: PhysicalExamEvent;
+  media: PhysicalExamMedia | null;
+  onOpenMedia: (media: PhysicalExamMedia) => void;
+}) {
   const statusLabel =
     event.status === 'abnormal'
       ? '비정상'
@@ -275,7 +316,58 @@ function PhysicalExamResultCard({ event }: { event: PhysicalExamEvent }) {
           {event.position !== event.expectedPosition ? ` / 권장 ${expectedLabel}` : ''}
         </span>
       </footer>
+      {media ? (
+        <button
+          className="physical-exam-media-button"
+          onClick={() => onOpenMedia(media)}
+          type="button"
+        >
+          검사 이미지 보기
+        </button>
+      ) : null}
     </article>
+  );
+}
+
+function PhysicalExamMediaModal({
+  media,
+  onClose,
+}: {
+  media: PhysicalExamMedia;
+  onClose: () => void;
+}) {
+  return (
+    <div className="physical-exam-media-backdrop" role="presentation">
+      <section
+        aria-labelledby="physical-exam-media-title"
+        aria-modal="true"
+        className="physical-exam-media-modal"
+        role="dialog"
+      >
+        <header>
+          <div>
+            <p>{media.subtitle}</p>
+            <h2 id="physical-exam-media-title">{media.title}</h2>
+          </div>
+          <button aria-label="검사 이미지 닫기" onClick={onClose} type="button">
+            <CloseIcon />
+          </button>
+        </header>
+        <figure>
+          <img alt={media.alt} src={media.imageSrc} />
+        </figure>
+        <div className="physical-exam-media-content">
+          <section>
+            <span>의료진 워딩</span>
+            <p>{media.guide}</p>
+          </section>
+          <section>
+            <span>출력 결과</span>
+            <p>{media.finding}</p>
+          </section>
+        </div>
+      </section>
+    </div>
   );
 }
 
@@ -321,6 +413,14 @@ function StopIcon() {
   return (
     <svg aria-hidden="true" fill="none" height="24" viewBox="0 0 24 24" width="24">
       <rect height="10" rx="2" stroke="currentColor" strokeWidth="2" width="10" x="7" y="7" />
+    </svg>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="20" viewBox="0 0 24 24" width="20">
+      <path d="M18 6 6 18M6 6l12 12" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
     </svg>
   );
 }

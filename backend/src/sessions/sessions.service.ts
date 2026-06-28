@@ -254,13 +254,19 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'supine',
     key: 'kernig_sign',
     label: 'Kernig',
-    patterns: [/(kernig|커니그).*(검사|징후|확인|보겠|볼게)?/i],
+    patterns: [
+      /(kernig|커니그).*(검사|징후|확인|보겠|볼게)?/i,
+      /(다리.*(들|올리).*(무릎.*굽).*(펴|피)|무릎.*굽.*(펴|피)|다리\s*뒤쪽.*통증)/i,
+    ],
   },
   {
     expectedPosition: 'supine',
     key: 'brudzinski_sign',
     label: 'Brudzinski',
-    patterns: [/(brudzinski|브루진스키).*(검사|징후|확인|보겠|볼게)?/i],
+    patterns: [
+      /(brudzinski|브루진스키).*(검사|징후|확인|보겠|볼게)?/i,
+      /목.*(앞으로|천천히).*(숙|굽).*(허리|고관절|무릎|반사)/i,
+    ],
   },
   {
     expectedPosition: 'supine',

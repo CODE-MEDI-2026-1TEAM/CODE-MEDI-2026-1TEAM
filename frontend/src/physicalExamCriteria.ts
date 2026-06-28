@@ -89,6 +89,9 @@ const PHYSICAL_EXAM_CRITERIA_BY_CASE: Record<
       ['facial_sensation', '얼굴감각 검사', 'sitting'],
       ['facial_reflex', '얼굴반사 검사', 'sitting'],
       ['meningeal_sign', '수막자극징후', 'supine'],
+      ['kernig_sign', 'Kernig sign', 'supine'],
+      ['brudzinski_sign', 'Brudzinski sign', 'supine'],
+      ['neck_stiffness', '경부강직', 'supine'],
       ['motor_exam', '팔다리 근력검사', 'sitting'],
       ['sensory_exam', '팔다리 감각검사', 'sitting'],
       ['dtr_exam', '팔다리 반사검사', 'sitting'],
@@ -158,6 +161,59 @@ export function physicalExamFindingForCriteriaItem(
   return findings.find((finding) =>
     physicalExamKeysEquivalent(item.examKey, finding.examKey),
   );
+}
+
+export type PhysicalExamMedia = {
+  alt: string;
+  finding: string;
+  guide: string;
+  imageSrc: string;
+  subtitle: string;
+  title: string;
+};
+
+const SONG_CHANG_HEE_MENINGEAL_MEDIA: Record<string, PhysicalExamMedia> = {
+  brudzinski_sign: {
+    alt: 'Brudzinski sign 양성 반응을 보이는 환자 그림',
+    finding:
+      '목을 굽힐 때 환자가 의도하지 않았는데도 양쪽 고관절과 무릎이 반사적으로 굽혀지면 양성입니다.',
+    guide:
+      '이번에는 목을 천천히 앞으로 숙여보겠습니다. 몸에 힘을 빼고 계시고, 목이나 허리가 아프면 바로 말씀해주세요.',
+    imageSrc: '/exam-media/meningeal/brudzinski-sign.png',
+    subtitle: '수막자극징후 검사',
+    title: 'Brudzinski sign 양성',
+  },
+  kernig_sign: {
+    alt: 'Kernig sign 양성 반응을 보이는 환자 그림',
+    finding:
+      '무릎을 펴려고 할 때 허리/목/햄스트링 부위 통증, 저항, 무릎 신전 제한이 있으면 양성입니다.',
+    guide:
+      '한쪽 다리를 들어서 무릎을 굽혔다가 펴보겠습니다. 허리나 목, 다리 뒤쪽에 통증이 있으면 말씀해주세요.',
+    imageSrc: '/exam-media/meningeal/kernig-sign.png',
+    subtitle: '수막자극징후 검사',
+    title: 'Kernig sign 양성',
+  },
+  neck_stiffness: {
+    alt: '경부강직 양성 반응을 보이는 환자 그림',
+    finding:
+      '목을 앞으로 굽히기 어렵거나 심한 저항감, 통증, 목 굴곡 제한이 있으면 경부강직 양성입니다.',
+    guide:
+      '목이 뻣뻣한지 확인하겠습니다. 힘을 빼고 계세요. 제가 머리를 받치고 천천히 앞으로 숙여보겠습니다.',
+    imageSrc: '/exam-media/meningeal/neck-stiffness.png',
+    subtitle: '수막자극징후 검사',
+    title: '경부강직 양성',
+  },
+};
+
+export function physicalExamMediaForEvent(
+  caseSlug: string | null | undefined,
+  event: PhysicalExamEvent,
+) {
+  if (caseSlug !== 'seizure_case_05' || event.status !== 'abnormal') {
+    return null;
+  }
+
+  return SONG_CHANG_HEE_MENINGEAL_MEDIA[event.examKey] ?? null;
 }
 
 function physicalExamKeysEquivalent(expectedKey: string, eventKey: string) {
