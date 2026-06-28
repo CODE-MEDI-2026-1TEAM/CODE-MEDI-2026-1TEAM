@@ -6,7 +6,7 @@ services:
     region: singapore
     rootDir: backend
     buildCommand: npm install --include=dev && npm run build
-    preDeployCommand: npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json
+    preDeployCommand: npm run prisma:deploy && npm run prisma:seed && if [ -n "$OPENAI_API_KEY" ] && [ "$OPENAI_API_KEY" != "sk-your-api-key" ]; then npm run rag:import -- data/cases/seizure-21m.json; else echo "Skipping RAG import because OPENAI_API_KEY is not configured"; fi
     startCommand: npm run start:prod
     healthCheckPath: /health
     envVars:
