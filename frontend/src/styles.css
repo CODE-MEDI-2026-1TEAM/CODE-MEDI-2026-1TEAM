@@ -1052,6 +1052,7 @@ h1 {
   content: '-';
   flex-shrink: 0;
   color: #43545b;
+}
 .evaluation-status-section li {
   display: grid;
   gap: 4px;
