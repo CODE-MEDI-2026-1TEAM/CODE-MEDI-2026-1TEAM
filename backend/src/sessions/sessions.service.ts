@@ -85,12 +85,14 @@ export class SessionsService {
       },
     });
 
-    const recentConversation = await this.prisma.message.findMany({
-      where: { sessionId },
-      orderBy: { createdAt: 'asc' },
-      select: { role: true, content: true },
-      take: 20,
-    });
+    const recentConversation = (
+      await this.prisma.message.findMany({
+        where: { sessionId },
+        orderBy: { createdAt: 'desc' },
+        select: { role: true, content: true },
+        take: 10,
+      })
+    ).reverse();
 
     const simulationCaseId = session.case.simulationCaseId;
 
@@ -256,6 +258,8 @@ export class SessionsService {
           missedItems: evaluation.missedItems,
           riskAssessment: evaluation.riskAssessment,
           suggestions: evaluation.suggestions,
+          caseInstructionStatus: evaluation.caseInstructionStatus,
+          patientEducationStatus: evaluation.patientEducationStatus,
         },
       });
 

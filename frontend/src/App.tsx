@@ -5,7 +5,13 @@ import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
-import type { CpxCase, Evaluation, Message, Session } from './types';
+import type {
+  CpxCase,
+  Evaluation,
+  EvaluationItemStatus,
+  Message,
+  Session,
+} from './types';
 
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
@@ -430,12 +436,52 @@ function EvaluationResultModal({
             items={evaluation.suggestions}
             title="개선 제안"
           />
+          <EvaluationStatusSection
+            items={evaluation.caseInstructionStatus ?? []}
+            title="상황지침 평가"
+          />
+          <EvaluationStatusSection
+            items={evaluation.patientEducationStatus ?? []}
+            title="환자교육 평가"
+          />
         </div>
 
         <footer className="evaluation-modal-actions">
           <button onClick={onClose} type="button">닫기</button>
         </footer>
       </div>
+    </section>
+  );
+}
+
+function EvaluationStatusSection({
+  items,
+  title,
+}: {
+  items: EvaluationItemStatus[];
+  title: string;
+}) {
+  return (
+    <section className="evaluation-result-section evaluation-status-section">
+      <h3>{title}</h3>
+      {items.length > 0 ? (
+        <ul>
+          {items.map((item) => (
+            <li key={`${item.category ?? 'item'}-${item.item}`}>
+              <span className={`evaluation-status-pill ${item.status}`}>
+                {statusLabel(item.status)}
+              </span>
+              <strong>{item.item}</strong>
+              {item.feedback ? <p>{item.feedback}</p> : null}
+              {item.evidence.length > 0 ? (
+                <small>근거: {item.evidence.join(' / ')}</small>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>평가 항목이 없습니다.</p>
+      )}
     </section>
   );
 }
@@ -459,6 +505,12 @@ function EvaluationResultSection({
       )}
     </section>
   );
+}
+
+function statusLabel(status: EvaluationItemStatus['status']) {
+  if (status === 'met') return '충족';
+  if (status === 'partial') return '부분';
+  return '미충족';
 }
 
 function CloseIcon() {
