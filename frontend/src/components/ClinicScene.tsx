@@ -3,7 +3,8 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useEffect, useMemo, useRef } from 'react';
 import { CanvasTexture } from 'three';
 import type { Group, Mesh, Object3D } from 'three';
-import { ACTIVE_PATIENT, PATIENT_MODELS } from '../patientModels';
+import { ACTIVE_CASE, PATIENT_CASES, resolveCaseModel } from '../patientModels';
+import type { CaseModel, ModelPlacement } from '../patientModels';
 import { FURNITURE_MODELS } from '../furnitureModels';
 
 type ClinicSceneProps = {
@@ -16,12 +17,14 @@ type ClinicSceneProps = {
 // Move the desk → the vital screen follows automatically.
 const DESK_POSITION = FURNITURE_MODELS.Desk.position;
 const DESK_SCALE = FURNITURE_MODELS.Desk.scale;
+const ACTIVE_CASE_MODELS = PATIENT_CASES[ACTIVE_CASE].models as CaseModel[];
 
 // Preload all models
 useGLTF.preload(FURNITURE_MODELS.Desk.path);
 useGLTF.preload(FURNITURE_MODELS.Chair.path);
 useGLTF.preload(FURNITURE_MODELS.Door.path);
-useGLTF.preload(PATIENT_MODELS[ACTIVE_PATIENT].path);
+// 활성 케이스의 모든 모델(소아면 보호자+소아 둘 다) 미리 로드.
+ACTIVE_CASE_MODELS.forEach((cm) => useGLTF.preload(resolveCaseModel(cm).path));
 
 function enableShadows(scene: Object3D) {
   scene.traverse((child) => {
@@ -73,7 +76,11 @@ export default function ClinicScene({
   );
 }
 
-function ClinicRoom({ isPatientSpeaking, patientReply }: ClinicSceneProps) {
+function ClinicRoom({
+  isPatientSpeaking,
+  patientReply,
+  showPatientBubble = true,
+}: ClinicSceneProps) {
   // Shared ref: the chair acts as an occluder mask for the monitor screen.
   const chairRef = useRef<Group>(null);
   return (
@@ -84,6 +91,7 @@ function ClinicRoom({ isPatientSpeaking, patientReply }: ClinicSceneProps) {
       <PatientSeat
         isPatientSpeaking={isPatientSpeaking}
         patientReply={patientReply}
+        showPatientBubble={showPatientBubble}
         chairRef={chairRef}
       />
       <WindowBlinds />
@@ -218,16 +226,25 @@ function PatientSeat({
         <meshStandardMaterial color="#8a6858" roughness={0.88} />
       </mesh>
       <ModelChair chairRef={chairRef} />
-      <group ref={patientRef}>
-        <ModelCharacter isPatientSpeaking={isPatientSpeaking} />
-        {showPatientBubble ? (
-          <Html center position={[0.95, 1.7, 0.04]} distanceFactor={3.4}>
-            <div className={isPatientSpeaking ? 'patient-bubble speaking' : 'patient-bubble'}>
-              {patientReply}
-            </div>
-          </Html>
-        ) : null}
-      </group>
+      {ACTIVE_CASE_MODELS.map((cm, i) => {
+        const placement = resolveCaseModel(cm);
+        // 보호자(guardian)는 가만히 앉아 있고, 환자 본인(patient)만 말하기 애니메이션 + 말풍선.
+        if (cm.role === 'guardian') {
+          return <ModelCharacter key={i} placement={placement} isPatientSpeaking={false} />;
+        }
+        return (
+          <group key={i} ref={patientRef}>
+            <ModelCharacter placement={placement} isPatientSpeaking={isPatientSpeaking} />
+            {showPatientBubble ? (
+              <Html center position={[0.95, 1.7, 0.04]} distanceFactor={3.4}>
+                <div className={isPatientSpeaking ? 'patient-bubble speaking' : 'patient-bubble'}>
+                  {patientReply}
+                </div>
+              </Html>
+            ) : null}
+          </group>
+        );
+      })}
     </group>
   );
 }
@@ -243,10 +260,15 @@ function ModelChair({ chairRef }: { chairRef: React.RefObject<Group | null> }) {
   );
 }
 
-function ModelCharacter({ isPatientSpeaking }: { isPatientSpeaking: boolean }) {
-  const cfg = PATIENT_MODELS[ACTIVE_PATIENT];
+function ModelCharacter({
+  placement,
+  isPatientSpeaking: _isPatientSpeaking,
+}: {
+  placement: ModelPlacement;
+  isPatientSpeaking: boolean;
+}) {
   const groupRef = useRef<Group>(null);
-  const { scene, animations } = useGLTF(cfg.path);
+  const { scene, animations } = useGLTF(placement.path);
   const { actions, names } = useAnimations(animations, groupRef);
 
   useEffect(() => {
@@ -256,8 +278,11 @@ function ModelCharacter({ isPatientSpeaking }: { isPatientSpeaking: boolean }) {
     if (idle && actions[idle]) actions[idle]!.play();
   }, [actions, names, scene]);
 
+  // 주의: useGLTF 는 path 별로 scene 을 공유 캐시한다. 한 케이스에서 "같은 glb" 를
+  // 두 번 쓰면 같은 scene 객체가 두 부모에 붙어 충돌하므로, 그럴 땐 별도 복제가 필요.
+  // 현재 케이스들은 모델이 모두 서로 다른 파일이라 문제 없음.
   return (
-    <group ref={groupRef} position={cfg.position} scale={cfg.scale} rotation={cfg.rotation ?? [0, 0, 0]}>
+    <group ref={groupRef} position={placement.position} scale={placement.scale} rotation={placement.rotation ?? [0, 0, 0]}>
       <primitive object={scene} />
     </group>
   );
