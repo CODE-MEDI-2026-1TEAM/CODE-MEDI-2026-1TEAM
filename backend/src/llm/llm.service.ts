@@ -26,10 +26,32 @@ export type EvaluationItemStatus = {
   feedback: string;
 };
 
+export type HistoryTakingCode =
+  | 'O'
+  | 'L'
+  | 'D'
+  | 'Co'
+  | 'Ex'
+  | 'C'
+  | 'A_F'
+  | '외'
+  | '과'
+  | '약'
+  | '사'
+  | '가'
+  | '여';
+
+export type MissedItemStatus = {
+  item: string;
+  historyCode: HistoryTakingCode | null;
+  isPerformed: boolean;
+};
+
 export type EvaluationResult = {
   score: number;
   strengths: string[];
   missedItems: string[];
+  missedItemStatus: MissedItemStatus[];
   riskAssessment: string;
   suggestions: string[];
   caseInstructionStatus: EvaluationItemStatus[];
@@ -187,8 +209,13 @@ export class LlmService {
       'Evaluate only the student messages in the supplied conversation.',
       'Do not invent student actions or questions that are not present in the conversation.',
       'Return valid JSON only with this exact shape:',
-      '{"score": number, "strengths": string[], "missedItems": string[], "riskAssessment": string, "suggestions": string[], "caseInstructionStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}], "patientEducationStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}]}',
+      '{"score": number, "strengths": string[], "missedItems": string[], "missedItemStatus": [{"item": string, "historyCode": "O|L|D|Co|Ex|C|A_F|외|과|약|사|가|여|null", "isPerformed": boolean}], "riskAssessment": string, "suggestions": string[], "caseInstructionStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}], "patientEducationStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}]}',
       'score must be an integer from 0 to 100.',
+      'missedItems must remain a string array. Do not replace missedItems with objects.',
+      'missedItemStatus must contain one object for each missedItems string, using the exact same item text.',
+      'For missedItemStatus.historyCode, use one of O, L, D, Co, Ex, C, A_F, 외, 과, 약, 사, 가, 여 when the missed item belongs to a history-taking category; otherwise use null.',
+      'History-taking code mapping: O=onset/start timing, L=location, D=duration/frequency/repetition, Co=course/progression, Ex=experience/previous episodes, C=character/features before/during/after the seizure, A_F=associated symptoms and aggravating/relieving/trigger factors, 외=trauma/surgery history, 과=past medical history, 약=medication/allergy history, 사=social history, 가=family history, 여=gynecologic/obstetric history.',
+      'For missedItemStatus.isPerformed, use true only when the student substantially performed or explained the item but it still needs improvement; use false when it was not performed or not mentioned.',
       'For patient education, met requires a patient-facing explanation in understandable Korean.',
       'Mentioning a diagnosis, test, or treatment only as internal reasoning is not enough for patientEducationStatus.',
       'Use partial when the student mentioned the topic but explanation was incomplete, unclear, or not patient-facing.',
@@ -211,16 +238,21 @@ export class LlmService {
       typeof result.score === 'number' && Number.isInteger(result.score)
         ? result.score
         : 0;
+    const missedItems = this.normalizeStringArray(result.missedItems);
 
     return {
       score: Math.max(0, Math.min(100, score)),
-      strengths: Array.isArray(result.strengths) ? result.strengths : [],
-      missedItems: Array.isArray(result.missedItems) ? result.missedItems : [],
+      strengths: this.normalizeStringArray(result.strengths),
+      missedItems,
+      missedItemStatus: this.normalizeMissedItemStatus(
+        result.missedItemStatus,
+        missedItems,
+      ),
       riskAssessment:
         typeof result.riskAssessment === 'string'
           ? result.riskAssessment
           : '위험도 평가를 생성하지 못했습니다.',
-      suggestions: Array.isArray(result.suggestions) ? result.suggestions : [],
+      suggestions: this.normalizeStringArray(result.suggestions),
       caseInstructionStatus: this.normalizeItemStatuses(
         result.caseInstructionStatus,
         criteriaPack?.caseChecklist.instructionItems ?? [],
@@ -230,6 +262,110 @@ export class LlmService {
         criteriaPack?.casePatientEducation.items ?? [],
       ),
     };
+  }
+
+  private normalizeStringArray(value: unknown): string[] {
+    return Array.isArray(value)
+      ? value.filter((item): item is string => typeof item === 'string')
+      : [];
+  }
+
+  private normalizeMissedItemStatus(
+    statuses: unknown,
+    missedItems: string[],
+  ): MissedItemStatus[] {
+    const normalizedByItem = new Map<string, MissedItemStatus>();
+
+    if (Array.isArray(statuses)) {
+      for (const status of statuses) {
+        if (!status || typeof status !== 'object') continue;
+        const candidate = status as Partial<MissedItemStatus>;
+        if (typeof candidate.item !== 'string' || !candidate.item.trim()) {
+          continue;
+        }
+
+        normalizedByItem.set(candidate.item, {
+          item: candidate.item,
+          historyCode: this.normalizeHistoryCode(candidate.historyCode),
+          isPerformed: candidate.isPerformed === true,
+        });
+      }
+    }
+
+    return missedItems.map(
+      (item) =>
+        normalizedByItem.get(item) ?? {
+          item,
+          historyCode: this.inferHistoryCode(item),
+          isPerformed: false,
+        },
+    );
+  }
+
+  private normalizeHistoryCode(value: unknown): HistoryTakingCode | null {
+    const allowedCodes = new Set<HistoryTakingCode>([
+      'O',
+      'L',
+      'D',
+      'Co',
+      'Ex',
+      'C',
+      'A_F',
+      '외',
+      '과',
+      '약',
+      '사',
+      '가',
+      '여',
+    ]);
+
+    return typeof value === 'string' && allowedCodes.has(value as HistoryTakingCode)
+      ? (value as HistoryTakingCode)
+      : null;
+  }
+
+  private inferHistoryCode(item: string): HistoryTakingCode | null {
+    if (/\btrauma\b|\bsurgery\b|외상|수술|다친|손상|교통사고|두부외상|머리.*다침/i.test(item)) {
+      return '외';
+    }
+    if (/\bpast medical\b|\bmedical history\b|과거력|기저질환|진단.*병|고혈압|당뇨|뇌졸중|뇌종양|뇌수막염/i.test(item)) {
+      return '과';
+    }
+    if (/\bmedication\b|\bdrug\b|\ballergy\b|약물|복용|투약|항경련제|알레르기/i.test(item)) {
+      return '약';
+    }
+    if (/\bsocial\b|사회력|음주|흡연|직업|카페인|생활습관/i.test(item)) {
+      return '사';
+    }
+    if (/\bfamily\b|가족력|가족.*병|유전|부모|형제|자매/i.test(item)) {
+      return '가';
+    }
+    if (/\bgynecologic\b|\bobstetric\b|여성력|월경|생리|임신|출산|폐경|LMP/i.test(item)) {
+      return '여';
+    }
+    if (/\bA_F\b|associated|trigger|동반|유발|악화|완화|요인|발열|두통|수면|음주|스트레스/i.test(item)) {
+      return 'A_F';
+    }
+    if (/\bEx\b|experience|previous|이전|과거|처음|재발|경험|항경련제/i.test(item)) {
+      return 'Ex';
+    }
+    if (/\bCo\b|course|progress|악화|호전|변화|경과|점점/i.test(item)) {
+      return 'Co';
+    }
+    if (/\bD\b|duration|frequency|지속|시간|몇 분|몇 초|반복|빈도|횟수/i.test(item)) {
+      return 'D';
+    }
+    if (/\bL\b|location|부위|위치|어디/i.test(item)) {
+      return 'L';
+    }
+    if (/\bO\b|onset|시작|발생 시점|언제부터|처음 발생/i.test(item)) {
+      return 'O';
+    }
+    if (/\bC\b|character|양상|전조|의식|목격|떨림|뻣뻣|눈|고개|혀|실금|자동증|경련 전|경련 중|경련 후/i.test(item)) {
+      return 'C';
+    }
+
+    return null;
   }
 
   private normalizeItemStatuses(
