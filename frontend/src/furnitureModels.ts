@@ -13,7 +13,7 @@ export type FurnitureModelConfig = {
   rotation?: [number, number, number];
 };
 
-type FurnitureKey = "Desk" | "Chair" | "Door";
+type FurnitureKey = "Desk" | "Chair" | "Door" | "Bed";
 
 // ── 가구별 설정 ───────────────────────────────────────────────
 export const FURNITURE_MODELS: Record<FurnitureKey, FurnitureModelConfig> = {
@@ -31,6 +31,14 @@ export const FURNITURE_MODELS: Record<FurnitureKey, FurnitureModelConfig> = {
     path: "/models/Door.glb",
     scale: 0.95,
     position: [-2.05, 0, -2.91],
+    rotation: [0, 0, 0],
+  },
+  // Bed: 오른쪽 벽(x=4)에 붙여 화면 오른쪽 모서리에 보이도록 배치.
+  // 머리가 벽쪽(뒤)을 향하도록 90도 회전.
+  Bed: {
+    path: "/models/Bed Single.glb",
+    scale: 1,
+    position: [3.1, 0, -1.4],
     rotation: [0, 0, 0],
   },
 };

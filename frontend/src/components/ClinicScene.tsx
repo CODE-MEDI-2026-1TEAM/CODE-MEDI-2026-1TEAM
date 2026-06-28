@@ -23,6 +23,7 @@ const DESK_SCALE = FURNITURE_MODELS.Desk.scale;
 useGLTF.preload(FURNITURE_MODELS.Desk.path);
 useGLTF.preload(FURNITURE_MODELS.Chair.path);
 useGLTF.preload(FURNITURE_MODELS.Door.path);
+useGLTF.preload(FURNITURE_MODELS.Bed.path);
 Object.values(PATIENT_MODELS).forEach((model) => useGLTF.preload(model.path));
 
 function enableShadows(scene: Object3D) {
@@ -100,6 +101,7 @@ function ClinicRoom({
       <WindowBlinds />
       <Printer />
       <ModelDoor />
+      <ModelBed />
       <IndoorPlant />
     </group>
   );
@@ -187,6 +189,20 @@ function ModelDesk() {
 
 function ModelDoor() {
   const cfg = FURNITURE_MODELS.Door;
+  const { scene } = useGLTF(cfg.path);
+  useEffect(() => { enableShadows(scene); }, [scene]);
+  return (
+    <primitive
+      object={scene}
+      position={cfg.position}
+      rotation={cfg.rotation ?? [0, 0, 0]}
+      scale={cfg.scale}
+    />
+  );
+}
+
+function ModelBed() {
+  const cfg = FURNITURE_MODELS.Bed;
   const { scene } = useGLTF(cfg.path);
   useEffect(() => { enableShadows(scene); }, [scene]);
   return (

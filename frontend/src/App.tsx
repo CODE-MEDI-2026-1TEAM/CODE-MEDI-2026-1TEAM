@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
+import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
 import type { CpxCase, Evaluation, Message, Session } from './types';
@@ -10,7 +11,7 @@ export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
   const [selectedCaseSlug, setSelectedCaseSlug] = useState('');
   const [assignedCase, setAssignedCase] = useState<CpxCase | null>(null);
-  const [isCaseModalOpen, setIsCaseModalOpen] = useState(true);
+  const [isCaseModalOpen, setIsCaseModalOpen] = useState(false); // TEMP: 모달 비활성화 (씬 확인용)
   const [isAssigningCase, setIsAssigningCase] = useState(false);
   const [isManualSelectionOpen, setIsManualSelectionOpen] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
@@ -18,6 +19,7 @@ export default function App() {
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'desk' | 'bed'>('desk');
 
   const activeCase = useMemo(
     () =>
@@ -192,17 +194,41 @@ export default function App() {
 
   return (
     <main className={isCaseModalOpen ? 'simulation-app modal-open' : 'simulation-app'}>
-      <ClinicScene
-        isPatientSpeaking={isPatientSpeaking}
-        patientCaseKey={patientCaseKey}
-        patientReply={patientReply}
-        showPatientBubble={
-          !isCaseModalOpen &&
-          !isEvaluationModalOpen &&
-          !isEvaluating &&
-          Boolean(session)
-        }
-      />
+      {viewMode === 'bed' ? (
+        <BedsideScene
+          isPatientSpeaking={isPatientSpeaking}
+          patientCaseKey={patientCaseKey}
+          patientReply={patientReply}
+          showPatientBubble={
+            !isCaseModalOpen &&
+            !isEvaluationModalOpen &&
+            !isEvaluating &&
+            Boolean(session)
+          }
+        />
+      ) : (
+        <ClinicScene
+          isPatientSpeaking={isPatientSpeaking}
+          patientCaseKey={patientCaseKey}
+          patientReply={patientReply}
+          showPatientBubble={
+            !isCaseModalOpen &&
+            !isEvaluationModalOpen &&
+            !isEvaluating &&
+            Boolean(session)
+          }
+        />
+      )}
+
+      <div className="scene-overlay bottom-center">
+        <button
+          className="view-toggle-button"
+          onClick={() => setViewMode((mode) => (mode === 'desk' ? 'bed' : 'desk'))}
+          type="button"
+        >
+          {viewMode === 'desk' ? '침대에 눕히기' : '책상으로 돌아가기'}
+        </button>
+      </div>
 
       <div className="scene-overlay top-left">
         <p className="eyebrow">CODE MEDI Seizure Lab</p>
