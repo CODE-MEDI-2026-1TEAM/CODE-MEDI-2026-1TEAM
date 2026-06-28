@@ -3,6 +3,9 @@ import { useSpeechRecognition } from './useSpeechRecognition';
 import { useSpeechSynthesis } from './useSpeechSynthesis';
 import type { Session } from '../types';
 
+const isConversationDebugEnabled =
+  import.meta.env.VITE_ENABLE_CONVERSATION_DEBUG === 'true';
+
 interface UseVoiceConversationProps {
   session: Session | null;
   /** 메시지 전송(네트워크). 성공하면 true. */
@@ -49,10 +52,16 @@ export function useVoiceConversation({
       const trimmed = content.trim();
       if (!trimmed) return;
       setTranscript(trimmed);
+      debugConversation('voice.finalTranscript', {
+        sessionId: session?.id ?? null,
+        caseSlug: session?.case.slug ?? null,
+        transcript: trimmed,
+        transcriptLength: trimmed.length,
+      });
       const ok = await onSendMessage(trimmed);
       if (ok) setTranscript('');
     },
-    [onSendMessage],
+    [onSendMessage, session?.case.slug, session?.id],
   );
 
   const speechRecognition = useSpeechRecognition({
@@ -97,4 +106,10 @@ export function useVoiceConversation({
     isVoiceReplyEnabled,
     setVoiceReplyEnabled,
   };
+}
+
+function debugConversation(event: string, payload: Record<string, unknown>) {
+  if (!isConversationDebugEnabled) return;
+
+  console.info(`[conversation-debug] ${event}`, payload);
 }

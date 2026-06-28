@@ -7,6 +7,9 @@ import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
 import type { CpxCase, Evaluation, Message, Session } from './types';
 
+const isConversationDebugEnabled =
+  import.meta.env.VITE_ENABLE_CONVERSATION_DEBUG === 'true';
+
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
   const [selectedCaseSlug, setSelectedCaseSlug] = useState('');
@@ -129,10 +132,23 @@ export default function App() {
       setIsLoading(true);
       setError(null);
 
+      debugConversation('frontend.message.send', {
+        sessionId: session.id,
+        caseSlug: session.case.slug,
+        simulationCaseId: session.case.simulationCaseId,
+        content: trimmed,
+        contentLength: trimmed.length,
+      });
+
       try {
-        await request<{ message: Message }>(`/sessions/${session.id}/messages`, {
+        const data = await request<{ message: Message; debug?: object }>(`/sessions/${session.id}/messages`, {
           method: 'POST',
           body: JSON.stringify({ content: trimmed }),
+        });
+        debugConversation('frontend.message.response', {
+          sessionId: session.id,
+          assistantReply: data.message.content,
+          backendDebug: data.debug ?? null,
         });
         const refreshed = await request<{ session: Session }>(
           `/sessions/${session.id}`,
@@ -378,7 +394,14 @@ function EvaluationResultModal({
   evaluation: Evaluation;
   onClose: () => void;
 }) {
-  const score = Math.max(0, Math.min(100, evaluation.score));
+  const score = clampScore(evaluation.score);
+  const readiness = getEvaluationReadiness(score);
+  const categorySummaries = buildEvaluationCategorySummaries(evaluation, score);
+  const formattedDate = formatEvaluationDate(evaluation.createdAt);
+  const primaryFocus =
+    evaluation.missedItems[0] ??
+    evaluation.suggestions[0] ??
+    '현재 채점 결과에서 즉시 보완할 핵심 항목은 표시되지 않았습니다.';
 
   return (
     <section
@@ -392,6 +415,9 @@ function EvaluationResultModal({
           <div>
             <p className="eyebrow">CPX Evaluation</p>
             <h2 id="evaluation-result-title">채점 결과</h2>
+            <span className={`evaluation-readiness-badge ${readiness.tone}`}>
+              {readiness.label}
+            </span>
           </div>
           <button
             aria-label="채점 결과 닫기"
@@ -403,33 +429,95 @@ function EvaluationResultModal({
           </button>
         </header>
 
-        <div className="evaluation-score-panel">
-          <div
-            className="evaluation-score-ring"
-            style={{ '--score-percent': `${score}%` } as CSSProperties}
-          >
-            <span>총점</span>
-            <strong>{score}</strong>
-          </div>
-          <div>
-            <h3>위험도 평가</h3>
-            <p>{evaluation.riskAssessment}</p>
-          </div>
-        </div>
+        <div className="evaluation-dashboard">
+          <section className="evaluation-score-panel">
+            <div
+              className="evaluation-score-ring"
+              style={{ '--score-percent': `${score}%` } as CSSProperties}
+            >
+              <span>총점</span>
+              <strong>{score}</strong>
+              <em>/100</em>
+            </div>
+            <div className="evaluation-score-copy">
+              <h3>{readiness.title}</h3>
+              <p>{readiness.description}</p>
+              <span>채점 시간 {formattedDate}</span>
+            </div>
+          </section>
 
-        <div className="evaluation-modal-grid">
-          <EvaluationResultSection
-            items={evaluation.strengths}
-            title="잘한 점"
-          />
-          <EvaluationResultSection
-            items={evaluation.missedItems}
-            title="놓친 항목"
-          />
-          <EvaluationResultSection
-            items={evaluation.suggestions}
-            title="개선 제안"
-          />
+          <section className="evaluation-summary-card">
+            <div>
+              <span>종합 평가</span>
+              <h3>위험도 및 진료 흐름</h3>
+            </div>
+            <p>{evaluation.riskAssessment}</p>
+          </section>
+
+          <div className="evaluation-metric-grid">
+            <EvaluationMetricCard
+              label="강점"
+              tone="positive"
+              value={evaluation.strengths.length}
+            />
+            <EvaluationMetricCard
+              label="놓친 항목"
+              tone="warning"
+              value={evaluation.missedItems.length}
+            />
+            <EvaluationMetricCard
+              label="개선 제안"
+              tone="neutral"
+              value={evaluation.suggestions.length}
+            />
+          </div>
+
+          <section className="evaluation-domain-card">
+            <div className="evaluation-domain-heading">
+              <div>
+                <span>Feedback Map</span>
+                <h3>영역별 피드백 요약</h3>
+              </div>
+              <p>세부 코멘트를 문진 흐름 기준으로 묶어 한눈에 확인합니다.</p>
+            </div>
+            <div className="evaluation-domain-list">
+              {categorySummaries.map((category) => (
+                <div className="evaluation-domain-row" key={category.label}>
+                  <div>
+                    <strong>{category.label}</strong>
+                    <span>{category.note}</span>
+                  </div>
+                  <div className="evaluation-domain-track" aria-hidden="true">
+                    <span style={{ width: `${category.value}%` }} />
+                  </div>
+                  <em>{category.value}</em>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="evaluation-priority-card">
+            <span>우선 보완</span>
+            <p>{primaryFocus}</p>
+          </section>
+
+          <div className="evaluation-modal-grid">
+            <EvaluationResultSection
+              items={evaluation.strengths}
+              title="잘한 점"
+              tone="positive"
+            />
+            <EvaluationResultSection
+              items={evaluation.missedItems}
+              title="놓친 항목"
+              tone="warning"
+            />
+            <EvaluationResultSection
+              items={evaluation.suggestions}
+              title="개선 제안"
+              tone="neutral"
+            />
+          </div>
         </div>
 
         <footer className="evaluation-modal-actions">
@@ -440,15 +528,40 @@ function EvaluationResultModal({
   );
 }
 
+function debugConversation(event: string, payload: Record<string, unknown>) {
+  if (!isConversationDebugEnabled) return;
+
+  console.info(`[conversation-debug] ${event}`, payload);
+}
+
+function EvaluationMetricCard({
+  label,
+  tone,
+  value,
+}: {
+  label: string;
+  tone: 'neutral' | 'positive' | 'warning';
+  value: number;
+}) {
+  return (
+    <section className={`evaluation-metric-card ${tone}`}>
+      <span>{label}</span>
+      <strong>{value}</strong>
+    </section>
+  );
+}
+
 function EvaluationResultSection({
   items,
   title,
+  tone,
 }: {
   items: string[];
   title: string;
+  tone: 'neutral' | 'positive' | 'warning';
 }) {
   return (
-    <section className="evaluation-result-section">
+    <section className={`evaluation-result-section ${tone}`}>
       <h3>{title}</h3>
       {items.length > 0 ? (
         <ul>
@@ -459,6 +572,95 @@ function EvaluationResultSection({
       )}
     </section>
   );
+}
+
+const EVALUATION_FEEDBACK_CATEGORIES = [
+  {
+    label: '병력 청취',
+    keywords: ['문진', '병력', '증상', '경련', '발작', '과거력', '가족력', '약물', '동반'],
+    note: '증상과 배경 정보 확인',
+  },
+  {
+    label: '위험 신호',
+    keywords: ['위험', '응급', '의식', '발열', '두통', '신경', '외상', '저혈당'],
+    note: '응급도와 red flag 확인',
+  },
+  {
+    label: '환자 소통',
+    keywords: ['공감', '경청', '설명', '안심', '확인', '보호자', '관계', '의사소통'],
+    note: '공감과 이해 확인',
+  },
+  {
+    label: '진단 계획',
+    keywords: ['감별', '진단', '검사', '치료', '계획', '교육', '추적', '상담'],
+    note: '임상 추론과 다음 단계',
+  },
+];
+
+function buildEvaluationCategorySummaries(evaluation: Evaluation, score: number) {
+  const strengths = evaluation.strengths;
+  const improvementItems = [...evaluation.missedItems, ...evaluation.suggestions];
+
+  return EVALUATION_FEEDBACK_CATEGORIES.map((category) => {
+    const strengthHits = countKeywordMatches(strengths, category.keywords);
+    const improvementHits = countKeywordMatches(improvementItems, category.keywords);
+    const value = clampScore(score + strengthHits * 6 - improvementHits * 8);
+
+    return {
+      ...category,
+      value,
+    };
+  });
+}
+
+function countKeywordMatches(items: string[], keywords: string[]) {
+  return items.filter((item) =>
+    keywords.some((keyword) => item.toLowerCase().includes(keyword.toLowerCase())),
+  ).length;
+}
+
+function clampScore(score: number) {
+  return Math.max(0, Math.min(100, Math.round(score)));
+}
+
+function getEvaluationReadiness(score: number) {
+  if (score >= 85) {
+    return {
+      description: '핵심 문진 흐름과 환자 소통이 안정적으로 유지되었습니다.',
+      label: '높은 수행도',
+      title: '임상 흐름이 안정적입니다.',
+      tone: 'high',
+    };
+  }
+
+  if (score >= 65) {
+    return {
+      description: '진료 흐름은 형성되었고 일부 핵심 항목 보완이 필요합니다.',
+      label: '좋은 흐름',
+      title: '보완하면 충분히 개선됩니다.',
+      tone: 'medium',
+    };
+  }
+
+  return {
+    description: '놓친 문진 항목과 위험 신호 확인을 먼저 점검해야 합니다.',
+    label: '보완 포인트 확인',
+    title: '핵심 문진 구조를 다시 정리하세요.',
+    tone: 'low',
+  };
+}
+
+function formatEvaluationDate(createdAt: string) {
+  const date = new Date(createdAt);
+
+  if (Number.isNaN(date.getTime())) {
+    return '기록 없음';
+  }
+
+  return new Intl.DateTimeFormat('ko-KR', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  }).format(date);
 }
 
 function CloseIcon() {

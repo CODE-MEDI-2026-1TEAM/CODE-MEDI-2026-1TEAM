@@ -1,6 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { apiBaseUrl } from '../api';
 
+const isConversationDebugEnabled =
+  import.meta.env.VITE_ENABLE_CONVERSATION_DEBUG === 'true';
+
 interface UseSpeechRecognitionProps {
   onInterimTranscript: (transcript: string) => void;
   onFinalTranscript: (transcript: string) => void;
@@ -60,6 +63,11 @@ export function useSpeechRecognition({
       try {
         const formData = new FormData();
         formData.append('audio', audioBlob, `voice.${fileExtensionFor(audioBlob.type)}`);
+        debugConversation('speech.transcription.request', {
+          apiBaseUrl,
+          audioType: audioBlob.type,
+          audioSize: audioBlob.size,
+        });
 
         const response = await fetch(`${apiBaseUrl}/speech/transcriptions`, {
           method: 'POST',
@@ -77,8 +85,15 @@ export function useSpeechRecognition({
           throw new Error('Empty transcription result');
         }
 
+        debugConversation('speech.transcription.response', {
+          transcript,
+          transcriptLength: transcript.length,
+        });
         onFinalTranscript(transcript);
-      } catch {
+      } catch (error) {
+        debugConversation('speech.transcription.error', {
+          detail: error instanceof Error ? error.message : 'Unknown STT error',
+        });
         onInterimTranscript('음성 인식에 실패했습니다. 다시 시도해 주세요.');
       }
     },
@@ -113,6 +128,12 @@ export function useSpeechRecognition({
         stream,
         mimeType ? { mimeType } : undefined,
       );
+      debugConversation('speech.recording.started', {
+        mimeType: mediaRecorder.mimeType || mimeType || 'browser-default',
+        maxRecordingMs,
+        silenceStopMs,
+        silenceVolumeThreshold,
+      });
       const stopWhenSilent = () => stopRecording();
 
       mediaRecorder.ondataavailable = (event) => {
@@ -126,6 +147,11 @@ export function useSpeechRecognition({
         const audioBlob = new Blob(chunksRef.current, {
           type: mediaRecorder.mimeType || mimeType || 'audio/webm',
         });
+        debugConversation('speech.recording.stopped', {
+          audioType: audioBlob.type,
+          audioSize: audioBlob.size,
+          chunks: chunksRef.current.length,
+        });
         chunksRef.current = [];
         mediaRecorderRef.current = null;
         stopStream();
@@ -133,6 +159,9 @@ export function useSpeechRecognition({
       };
 
       mediaRecorder.onerror = () => {
+        debugConversation('speech.recording.error', {
+          mimeType: mediaRecorder.mimeType || mimeType || 'browser-default',
+        });
         chunksRef.current = [];
         stopAudioAnalysis();
         mediaRecorderRef.current = null;
@@ -248,4 +277,10 @@ function fileExtensionFor(mimeType: string) {
   if (mimeType.includes('wav')) return 'wav';
   if (mimeType.includes('mpeg')) return 'mp3';
   return 'webm';
+}
+
+function debugConversation(event: string, payload: Record<string, unknown>) {
+  if (!isConversationDebugEnabled) return;
+
+  console.info(`[conversation-debug] ${event}`, payload);
 }
