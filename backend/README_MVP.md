@@ -58,8 +58,10 @@ npm run start:dev
 
 ## Deployment Notes
 
-Use Render as a Web Service.
+Use Render as a Web Service, or connect the repository Blueprint from `render.yaml`.
 
 - Build command: `npm install && npm run prisma:generate && npm run build`
+- Pre-deploy command: `npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json`
 - Start command: `npm run start:prod`
-- Environment variables: `DATABASE_URL`, `OPENAI_API_KEY`, `OPENAI_MODEL`, `PORT`
+- Health check path: `/health`
+- Required secret environment variables: `DATABASE_URL`, `OPENAI_API_KEY`
