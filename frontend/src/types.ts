@@ -40,6 +40,7 @@ export type CpxCase = {
   patientProfile: {
     age?: number;
     ageRaw?: string;
+    birthDate?: string | null;
     name?: string;
     sex?: string;
     occupation?: string;
