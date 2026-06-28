@@ -17,6 +17,7 @@ async function main() {
     simulationTopicId: 'seizure',
     evaluationModuleId: 'cpx-34-seizure',
     patientProfile: {
+      name: '김준서',
       age: 21,
       sex: 'male',
       occupation: '대학생',

@@ -39,8 +39,11 @@ export type CpxCase = {
   evaluationModuleId?: string | null;
   patientProfile: {
     age?: number;
+    ageRaw?: string;
+    name?: string;
     sex?: string;
     occupation?: string;
+    respondent?: string;
     tone?: string;
   };
   openingStatement: string;

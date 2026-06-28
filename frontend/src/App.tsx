@@ -7,8 +7,9 @@ import type { CpxCase, Message, Session } from './types';
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
   const [selectedCaseSlug, setSelectedCaseSlug] = useState('');
-  const [pendingCaseSlug, setPendingCaseSlug] = useState('');
+  const [assignedCase, setAssignedCase] = useState<CpxCase | null>(null);
   const [isCaseModalOpen, setIsCaseModalOpen] = useState(true);
+  const [isAssigningCase, setIsAssigningCase] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -18,11 +19,6 @@ export default function App() {
       session?.case ??
       cases.find((cpxCase) => cpxCase.slug === selectedCaseSlug),
     [cases, selectedCaseSlug, session],
-  );
-
-  const pendingCase = useMemo(
-    () => cases.find((cpxCase) => cpxCase.slug === pendingCaseSlug) ?? cases[0],
-    [cases, pendingCaseSlug],
   );
 
   const latestAssistantMessage = useMemo(
@@ -66,18 +62,32 @@ export default function App() {
   }, []);
 
   const openCaseModal = useCallback(() => {
-    setPendingCaseSlug(selectedCaseSlug || cases[0]?.slug || '');
+    setAssignedCase(null);
+    setIsAssigningCase(false);
     setIsCaseModalOpen(true);
-  }, [cases, selectedCaseSlug]);
+  }, []);
 
-  const confirmCaseSelection = useCallback(() => {
-    const caseSlug = pendingCaseSlug || cases[0]?.slug;
-    if (!caseSlug) return;
+  const assignRandomCase = useCallback(() => {
+    if (cases.length === 0 || isAssigningCase || isLoading) return;
 
-    setSelectedCaseSlug(caseSlug);
+    setIsAssigningCase(true);
+    setAssignedCase(null);
+    setError(null);
+
+    window.setTimeout(() => {
+      const randomCase = cases[Math.floor(Math.random() * cases.length)];
+      setAssignedCase(randomCase);
+      setSelectedCaseSlug(randomCase.slug);
+      setIsAssigningCase(false);
+    }, 900);
+  }, [cases, isAssigningCase, isLoading]);
+
+  const startAssignedCase = useCallback(() => {
+    if (!assignedCase) return;
+
     setIsCaseModalOpen(false);
-    void startSession(caseSlug);
-  }, [cases, pendingCaseSlug, startSession]);
+    void startSession(assignedCase.slug);
+  }, [assignedCase, startSession]);
 
   const sendMessage = useCallback(
     async (content: string): Promise<boolean> => {
@@ -113,7 +123,6 @@ export default function App() {
     request<{ cases: CpxCase[] }>('/cases')
       .then((data) => {
         setCases(data.cases);
-        setPendingCaseSlug((current) => current || data.cases[0]?.slug || '');
       })
       .catch((err: Error) => setError(err.message));
   }, []);
@@ -127,10 +136,10 @@ export default function App() {
 
       <div className="scene-overlay top-left">
         <p className="eyebrow">CODE MEDI Seizure Lab</p>
-        <h1>{activeCase?.title ?? '케이스 선택 대기'}</h1>
-        <span>{activeCase?.chiefComplaint ?? '시작할 환자군을 선택하세요'}</span>
+        <h1>{activeCase ? patientDisplayName(activeCase) : '케이스 배정 대기'}</h1>
+        <span>{activeCase?.title ?? '무작위 환자 배정을 시작하세요'}</span>
         <button className="case-change-button" onClick={openCaseModal} type="button">
-          케이스 변경
+          재배정
         </button>
       </div>
 
@@ -152,33 +161,39 @@ export default function App() {
         >
           <div className="case-modal">
             <header className="case-modal-header">
-              <p className="eyebrow">Seizure CPX Case</p>
-              <h2 id="case-picker-title">환자군 선택</h2>
-              <p>소아, 청소년, 성인 경련 케이스 중 하나를 선택해 진료를 시작합니다.</p>
+              <p className="eyebrow">Seizure CPX Assignment</p>
+              <h2 id="case-picker-title">무작위 환자 배정</h2>
+              <p>실제 CPX처럼 케이스를 직접 고르지 않고, 준비된 경련 환자 중 한 명을 무작위로 배정합니다.</p>
             </header>
 
-            <div className="case-option-grid">
+            <div className="case-assignment-panel">
               {cases.length > 0 ? (
-                cases.map((cpxCase) => {
-                  const isSelected = pendingCase?.slug === cpxCase.slug;
-                  const ageGroup = getCaseAgeGroup(cpxCase);
+                <>
+                  <div className={isAssigningCase ? 'assignment-orbit spinning' : 'assignment-orbit'}>
+                    <span />
+                    <strong>{isAssigningCase ? '배정 중' : assignedCase ? '배정 완료' : '대기 중'}</strong>
+                  </div>
 
-                  return (
-                    <button
-                      aria-pressed={isSelected}
-                      className={isSelected ? 'case-option selected' : 'case-option'}
-                      key={cpxCase.id}
-                      onClick={() => setPendingCaseSlug(cpxCase.slug)}
-                      type="button"
-                    >
-                      <span className="case-option-group">{ageGroup}</span>
-                      <strong>{cpxCase.title}</strong>
-                      <span className="case-option-meta">
-                        {formatCaseMeta(cpxCase)}
-                      </span>
-                    </button>
-                  );
-                })
+                  <section className="assigned-case-card" aria-live="polite">
+                    {assignedCase ? (
+                      <>
+                        <span className="case-option-group">
+                          {getCaseAgeGroup(assignedCase)}
+                        </span>
+                        <strong>{patientDisplayName(assignedCase)}</strong>
+                        <span className="case-option-meta">
+                          {formatCaseMeta(assignedCase)}
+                        </span>
+                        <span>{assignedCase.title}</span>
+                      </>
+                    ) : (
+                      <>
+                        <strong>아직 배정된 환자가 없습니다.</strong>
+                        <span>배정 버튼을 누르면 경련 케이스 중 하나가 무작위로 선택됩니다.</span>
+                      </>
+                    )}
+                  </section>
+                </>
               ) : (
                 <div className="case-option-empty">
                   <strong>케이스를 불러오는 중입니다.</strong>
@@ -189,9 +204,17 @@ export default function App() {
 
             <footer className="case-modal-actions">
               <button
+                className="case-random-button"
+                disabled={cases.length === 0 || isAssigningCase || isLoading}
+                onClick={assignRandomCase}
+                type="button"
+              >
+                {isAssigningCase ? '배정 중' : assignedCase ? '다시 배정' : '무작위 배정'}
+              </button>
+              <button
                 className="case-start-button"
-                disabled={!pendingCase || isLoading}
-                onClick={confirmCaseSelection}
+                disabled={!assignedCase || isAssigningCase || isLoading}
+                onClick={startAssignedCase}
                 type="button"
               >
                 {isLoading ? '세션 준비 중' : '진료 시작'}
@@ -202,6 +225,10 @@ export default function App() {
       ) : null}
     </main>
   );
+}
+
+function patientDisplayName(cpxCase: CpxCase) {
+  return cpxCase.patientProfile.name ?? cpxCase.title;
 }
 
 function getCaseAgeGroup(cpxCase: CpxCase) {
@@ -220,11 +247,16 @@ function getCaseAgeGroup(cpxCase: CpxCase) {
 }
 
 function formatCaseMeta(cpxCase: CpxCase) {
-  const age = cpxCase.patientProfile.age
-    ? `${cpxCase.patientProfile.age}세`
-    : '나이 미상';
+  const age =
+    cpxCase.patientProfile.ageRaw ??
+    (cpxCase.patientProfile.age ? `${cpxCase.patientProfile.age}세` : '나이 미상');
   const sex = cpxCase.patientProfile.sex ?? '성별 미상';
   const occupation = cpxCase.patientProfile.occupation;
+  const respondent = cpxCase.patientProfile.respondent;
+
+  if (respondent) {
+    return `${age} / ${sex} / 보호자: ${respondent}`;
+  }
 
   return occupation ? `${age} / ${sex} / ${occupation}` : `${age} / ${sex}`;
 }

@@ -34,6 +34,9 @@ export default function ChatSidebar({
   }, [session?.messages, isLoading]);
 
   const profile = activeCase?.patientProfile;
+  const displayAge = profile?.age
+    ? `${profile.age}세`
+    : (profile?.ageRaw ?? '-');
 
   return (
     <aside className="chat-sidebar" aria-label="환자 대화 기록">
@@ -41,12 +44,13 @@ export default function ChatSidebar({
         <div className="profile-image-slot" aria-label="환자 프로필 이미지 영역">환자</div>
         <div className="patient-heading">
           <p>환자 정보</p>
-          <h2>{activeCase?.title ?? '환자 연결 중'}</h2>
+          <h2>{profile?.name ?? activeCase?.title ?? '환자 연결 중'}</h2>
         </div>
         <dl className="patient-details">
-          <div><dt>나이</dt><dd>{profile?.age ? `${profile.age}세` : '-'}</dd></div>
+          <div><dt>나이</dt><dd>{displayAge}</dd></div>
           <div><dt>성별</dt><dd>{profile?.sex ?? '-'}</dd></div>
           <div><dt>직업</dt><dd>{profile?.occupation ?? '-'}</dd></div>
+          {profile?.respondent ? <div><dt>응답자</dt><dd>{profile.respondent}</dd></div> : null}
           <div className="full-width"><dt>내원 이유</dt><dd>{activeCase?.chiefComplaint ?? '-'}</dd></div>
         </dl>
       </header>
