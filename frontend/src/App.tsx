@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
 import ClinicScene from './components/ClinicScene';
+import { choosePatientCaseKey } from './patientModels';
 import type { CpxCase, Message, Session } from './types';
 
 export default function App() {
@@ -28,6 +29,21 @@ export default function App() {
         .filter((message) => message.role === 'assistant')
         .at(-1),
     [session],
+  );
+  const patientCaseKey = useMemo(
+    () =>
+      choosePatientCaseKey(
+        activeCase
+          ? {
+              age: activeCase.patientProfile.age,
+              ageRaw: activeCase.patientProfile.ageRaw,
+              seed: activeCase.slug,
+              sex: activeCase.patientProfile.sex,
+              title: activeCase.title,
+            }
+          : null,
+      ),
+    [activeCase],
   );
 
   const patientReply =
@@ -139,6 +155,7 @@ export default function App() {
     <main className={isCaseModalOpen ? 'simulation-app modal-open' : 'simulation-app'}>
       <ClinicScene
         isPatientSpeaking={isPatientSpeaking}
+        patientCaseKey={patientCaseKey}
         patientReply={patientReply}
         showPatientBubble={!isCaseModalOpen && Boolean(session)}
       />
