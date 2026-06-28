@@ -242,18 +242,16 @@ h1 {
 }
 .case-assignment-panel {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  gap: 14px;
   min-height: 0;
   padding: 24px;
-  overflow-y: auto;
-  scrollbar-color: #afbec2 transparent;
+  overflow: hidden;
 }
 .case-assignment-main {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 18px;
-  min-height: 242px;
+  height: 100%;
+  min-height: 0;
 }
 .assignment-orbit {
   display: grid;
@@ -316,11 +314,6 @@ h1 {
 
   color: #617178;
 }
-.manual-case-section {
-  display: grid;
-  gap: 10px;
-  min-height: 0;
-}
 .case-manual-toggle {
   @apply text-label-03;
 
@@ -345,6 +338,15 @@ h1 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   min-height: 0;
+}
+.manual-case-panel {
+  min-height: 0;
+  padding: 12px;
+  overflow-y: auto;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+  scrollbar-color: #afbec2 transparent;
 }
 .manual-case-option {
   display: grid;

@@ -183,54 +183,54 @@ export default function App() {
                       <strong>{isAssigningCase ? '배정 중' : assignedCase ? '배정 완료' : '대기 중'}</strong>
                     </div>
 
-                    <section className="assigned-case-card" aria-live="polite">
-                      {assignedCase ? (
-                        <>
-                          <span className="case-option-group">
-                            {getCaseAgeGroup(assignedCase)}
-                          </span>
-                          <strong>{patientDisplayName(assignedCase)}</strong>
-                          <span className="case-option-meta">
-                            {formatCaseMeta(assignedCase)}
-                          </span>
-                          <span>{assignedCase.title}</span>
-                        </>
-                      ) : (
-                        <>
-                          <strong>아직 배정된 환자가 없습니다.</strong>
-                          <span>배정 버튼을 누르면 경련 케이스 중 하나가 무작위로 선택됩니다.</span>
-                        </>
-                      )}
-                    </section>
+                    {isManualSelectionOpen ? (
+                      <section className="manual-case-panel" aria-label="직접 환자 선택">
+                        <div className="manual-case-list">
+                          {cases.map((cpxCase) => {
+                            const isSelected = assignedCase?.slug === cpxCase.slug;
+
+                            return (
+                              <button
+                                aria-pressed={isSelected}
+                                className={isSelected ? 'manual-case-option selected' : 'manual-case-option'}
+                                key={cpxCase.id}
+                                onClick={() => selectCaseManually(cpxCase)}
+                                type="button"
+                              >
+                                <span className="case-option-group">
+                                  {getCaseAgeGroup(cpxCase)}
+                                </span>
+                                <strong>{patientDisplayName(cpxCase)}</strong>
+                                <span className="case-option-meta">
+                                  {formatCaseMeta(cpxCase)}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </section>
+                    ) : (
+                      <section className="assigned-case-card" aria-live="polite">
+                        {assignedCase ? (
+                          <>
+                            <span className="case-option-group">
+                              {getCaseAgeGroup(assignedCase)}
+                            </span>
+                            <strong>{patientDisplayName(assignedCase)}</strong>
+                            <span className="case-option-meta">
+                              {formatCaseMeta(assignedCase)}
+                            </span>
+                            <span>{assignedCase.title}</span>
+                          </>
+                        ) : (
+                          <>
+                            <strong>아직 배정된 환자가 없습니다.</strong>
+                            <span>배정 버튼을 누르면 경련 케이스 중 하나가 무작위로 선택됩니다.</span>
+                          </>
+                        )}
+                      </section>
+                    )}
                   </div>
-
-                  {isManualSelectionOpen ? (
-                    <div className="manual-case-section">
-                      <div className="manual-case-list">
-                        {cases.map((cpxCase) => {
-                          const isSelected = assignedCase?.slug === cpxCase.slug;
-
-                          return (
-                            <button
-                              aria-pressed={isSelected}
-                              className={isSelected ? 'manual-case-option selected' : 'manual-case-option'}
-                              key={cpxCase.id}
-                              onClick={() => selectCaseManually(cpxCase)}
-                              type="button"
-                            >
-                              <span className="case-option-group">
-                                {getCaseAgeGroup(cpxCase)}
-                              </span>
-                              <strong>{patientDisplayName(cpxCase)}</strong>
-                              <span className="case-option-meta">
-                                {formatCaseMeta(cpxCase)}
-                              </span>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
                 </>
               ) : (
                 <div className="case-option-empty">
