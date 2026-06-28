@@ -132,6 +132,7 @@ export default function App() {
       <ClinicScene
         isPatientSpeaking={isPatientSpeaking}
         patientReply={patientReply}
+        showPatientBubble={!isCaseModalOpen}
       />
 
       <div className="scene-overlay top-left">

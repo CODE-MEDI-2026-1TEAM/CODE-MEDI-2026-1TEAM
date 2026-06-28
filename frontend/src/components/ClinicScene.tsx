@@ -9,6 +9,7 @@ import { FURNITURE_MODELS } from '../furnitureModels';
 type ClinicSceneProps = {
   isPatientSpeaking: boolean;
   patientReply: string;
+  showPatientBubble?: boolean;
 };
 
 // Single source of truth for desk placement (값은 furnitureModels.ts에서 가져옴).
@@ -31,7 +32,11 @@ function enableShadows(scene: Object3D) {
   });
 }
 
-export default function ClinicScene({ isPatientSpeaking, patientReply }: ClinicSceneProps) {
+export default function ClinicScene({
+  isPatientSpeaking,
+  patientReply,
+  showPatientBubble = true,
+}: ClinicSceneProps) {
   return (
     <div className="clinic-scene" aria-label="3D CPX clinic room">
       <Canvas gl={{ preserveDrawingBuffer: true }} shadows dpr={[1, 1.5]}>
@@ -50,7 +55,11 @@ export default function ClinicScene({ isPatientSpeaking, patientReply }: ClinicS
         <pointLight position={[-2.5, 2.5, 0.5]} intensity={0.5} color="#fff0d8" distance={8} decay={2} />
         {/* Desk lamp glow */}
         <pointLight position={[0.9, 1.35, -0.62]} intensity={1.0} color="#ffa030" distance={2.5} decay={2} />
-        <ClinicRoom isPatientSpeaking={isPatientSpeaking} patientReply={patientReply} />
+        <ClinicRoom
+          isPatientSpeaking={isPatientSpeaking}
+          patientReply={patientReply}
+          showPatientBubble={showPatientBubble}
+        />
         <Environment files="/hdri/lebombo_1k.hdr" />
         <OrbitControls
           enableDamping
@@ -182,6 +191,7 @@ function ModelDoor() {
 function PatientSeat({
   isPatientSpeaking,
   patientReply,
+  showPatientBubble = true,
   chairRef,
 }: ClinicSceneProps & { chairRef: React.RefObject<Group | null> }) {
   const patientRef = useRef<Group>(null);
@@ -210,11 +220,13 @@ function PatientSeat({
       <ModelChair chairRef={chairRef} />
       <group ref={patientRef}>
         <ModelCharacter isPatientSpeaking={isPatientSpeaking} />
-        <Html center position={[0.95, 1.7, 0.04]} distanceFactor={3.4}>
-          <div className={isPatientSpeaking ? 'patient-bubble speaking' : 'patient-bubble'}>
-            {patientReply}
-          </div>
-        </Html>
+        {showPatientBubble ? (
+          <Html center position={[0.95, 1.7, 0.04]} distanceFactor={3.4}>
+            <div className={isPatientSpeaking ? 'patient-bubble speaking' : 'patient-bubble'}>
+              {patientReply}
+            </div>
+          </Html>
+        ) : null}
       </group>
     </group>
   );
