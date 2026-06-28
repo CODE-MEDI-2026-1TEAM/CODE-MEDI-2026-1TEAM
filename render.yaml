@@ -5,7 +5,7 @@ services:
     plan: free
     region: singapore
     rootDir: backend
-    buildCommand: npm install && npm run prisma:generate && npm run build
+    buildCommand: npm install --include=dev && npm run build
     preDeployCommand: npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json
     startCommand: npm run start:prod
     healthCheckPath: /health
