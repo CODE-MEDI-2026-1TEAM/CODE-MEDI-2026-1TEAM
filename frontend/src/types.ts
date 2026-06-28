@@ -40,6 +40,7 @@ export type CpxCase = {
   patientProfile: {
     age?: number;
     ageRaw?: string;
+    birthDate?: string | null;
     name?: string;
     sex?: string;
     occupation?: string;
@@ -59,6 +60,8 @@ export type Message = {
 export type Session = {
   id: string;
   status: 'active' | 'completed';
+  startedAt: string;
+  endedAt?: string | null;
   case: CpxCase;
   messages: Message[];
   evaluation?: Evaluation | null;

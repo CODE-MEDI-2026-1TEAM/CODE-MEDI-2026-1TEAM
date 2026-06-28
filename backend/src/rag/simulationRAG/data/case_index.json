@@ -13,7 +13,8 @@
     "witness_present": true,
     "witness_relation": "동료",
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "1984-03-14"
   },
   {
     "case_id": "seizure_case_02",
@@ -30,7 +31,8 @@
     "witness_relation": "어머니",
     "is_guardian_case": true,
     "guardian_role": "어머니",
-    "setting": "응급실"
+    "setting": "응급실",
+    "patient_birth_date": "2025-08-28"
   },
   {
     "case_id": "seizure_case_03",
@@ -46,7 +48,8 @@
     "witness_present": true,
     "witness_relation": "아내",
     "is_guardian_case": false,
-    "setting": "응급실"
+    "setting": "응급실",
+    "patient_birth_date": "1972-02-08"
   },
   {
     "case_id": "seizure_case_04",
@@ -62,7 +65,8 @@
     "witness_present": true,
     "witness_relation": "어머니",
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "2005-04-19"
   },
   {
     "case_id": "seizure_case_05",
@@ -78,7 +82,8 @@
     "witness_present": true,
     "witness_relation": "동료들",
     "is_guardian_case": false,
-    "setting": "응급실"
+    "setting": "응급실",
+    "patient_birth_date": "1979-05-22"
   },
   {
     "case_id": "seizure_case_06",
@@ -94,7 +99,8 @@
     "witness_present": false,
     "witness_relation": null,
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "1977-03-30"
   },
   {
     "case_id": "seizure_case_07",
@@ -110,7 +116,8 @@
     "witness_present": true,
     "witness_relation": "아버지",
     "is_guardian_case": false,
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "2006-01-17"
   },
   {
     "case_id": "seizure_case_08",
@@ -127,6 +134,7 @@
     "witness_relation": "어머니",
     "is_guardian_case": true,
     "guardian_role": "어머니",
-    "setting": "외래"
+    "setting": "외래",
+    "patient_birth_date": "2025-11-28"
   }
 ]

@@ -31,8 +31,7 @@ export class LlmService {
   private readonly model: string;
 
   constructor(private readonly configService: ConfigService) {
-    this.model =
-      this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-5.5';
+    this.model = this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-5.5';
   }
 
   async generatePatientReply(
@@ -145,8 +144,7 @@ export class LlmService {
   private supportsCustomTemperature(): boolean {
     const normalizedModel = this.model.toLowerCase();
     return (
-      !normalizedModel.startsWith('gpt-5') &&
-      !normalizedModel.startsWith('o')
+      !normalizedModel.startsWith('gpt-5') && !normalizedModel.startsWith('o')
     );
   }
 

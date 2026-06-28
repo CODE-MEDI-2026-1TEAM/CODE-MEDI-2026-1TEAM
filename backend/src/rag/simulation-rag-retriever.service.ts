@@ -37,6 +37,25 @@ const DIAGNOSIS_PATTERNS = [
 
 const INTENT_RULES: IntentRule[] = [
   {
+    name: 'patient_identity',
+    keywords: [
+      '성함',
+      '이름',
+      '누구',
+      '환자분',
+      '본인',
+      '생년월일',
+      '생년 월일',
+      '몇 년생',
+      '몇년생',
+      '나이',
+      '몇 살',
+      '몇살',
+      '연세',
+    ],
+    sectionPatterns: [/^patient_identity$/],
+  },
+  {
     name: 'chief_complaint',
     keywords: [
       '어떤 증상',
