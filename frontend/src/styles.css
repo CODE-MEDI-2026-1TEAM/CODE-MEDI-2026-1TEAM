@@ -654,6 +654,7 @@ h1 {
 }
 .evaluation-summary-card,
 .evaluation-domain-card,
+.evaluation-hygiene-card,
 .evaluation-priority-card {
   min-width: 0;
   padding: 18px;
@@ -668,6 +669,7 @@ h1 {
 }
 .evaluation-summary-card span,
 .evaluation-domain-heading span,
+.evaluation-hygiene-card span,
 .evaluation-priority-card span,
 .evaluation-metric-card span {
   @apply text-label-05;
@@ -719,6 +721,40 @@ h1 {
 }
 .evaluation-domain-card {
   grid-column: 1 / -1;
+}
+.evaluation-hygiene-card {
+  grid-column: 1 / -1;
+}
+.evaluation-hygiene-card ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.evaluation-hygiene-card li {
+  @apply text-label-04;
+
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 10px;
+  color: #17242a;
+  background: #edf7f3;
+  border: 1px solid #c8e2d8;
+  border-radius: 999px;
+}
+.evaluation-hygiene-card em {
+  font-style: normal;
+  color: #617178;
+}
+.evaluation-hygiene-card p {
+  @apply text-body-02;
+
+  margin: 10px 0 0;
+  color: #617178;
 }
 .evaluation-domain-heading {
   display: flex;
