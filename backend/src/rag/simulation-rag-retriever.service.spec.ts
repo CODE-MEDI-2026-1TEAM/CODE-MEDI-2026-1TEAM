@@ -45,6 +45,78 @@ const chunks = [
   },
 ];
 
+const lifestyleChunks = [
+  {
+    id: 'seizure_case_04:history_associated',
+    simulationCaseId: 'seizure_case_04',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'history_associated',
+    text: '[동반 증상 / 유발 인자] [F] 평소보다술많이마심(+) 음주량: 소주 2병, 맥주 2병 평소음주량: 소주 1병',
+    semanticScore: 1,
+  },
+  {
+    id: 'seizure_case_04:history_social',
+    simulationCaseId: 'seizure_case_04',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'history_social',
+    text: '[사회력] 술: 한 달 1-2번 커피: 1-2잔 담배(-) 직업: 학생 스트레스(+) 식사: 규칙적 운동(-)',
+    semanticScore: 1,
+  },
+  {
+    id: 'seizure_case_04:history_factors',
+    simulationCaseId: 'seizure_case_04',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'history_factors',
+    text: '운동할 때 심해짐',
+    semanticScore: 1,
+  },
+];
+
+const stressOnlyInAssociatedChunks = [
+  {
+    id: 'seizure_case_07:history_associated',
+    simulationCaseId: 'seizure_case_07',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'history_associated',
+    text: '[동반 증상 / 유발 인자] [F] 내원전날과음(+) 최근학업스트레스(+)',
+    semanticScore: 1,
+  },
+  {
+    id: 'seizure_case_07:history_social',
+    simulationCaseId: 'seizure_case_07',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'history_social',
+    text: '[사회력] 술: social 담배(-)',
+    semanticScore: 1,
+  },
+];
+
+const chiefComplaintAndLocationChunks = [
+  {
+    id: 'seizure_case_04:L',
+    simulationCaseId: 'seizure_case_04',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'history_location',
+    text: '누워있는 자세로 쓰러짐',
+    semanticScore: 1,
+  },
+  {
+    id: 'seizure_case_04:chief_complaint',
+    simulationCaseId: 'seizure_case_04',
+    topicId: 'seizure',
+    topicLabel: '경련',
+    section: 'chief_complaint',
+    text: '주호소: 몸이 떨렸다고 들었어요',
+    semanticScore: 1,
+  },
+];
+
 function makeConfig(overrides: Record<string, unknown> = {}): ConfigService {
   return {
     get: jest.fn((key: string) => {
@@ -90,6 +162,25 @@ describe('SimulationRagRetrieverService', () => {
 
     expect(result.isFallback).toBe(false);
     expect(result.facts[0].id).toBe('chest_pain-001:intro');
+    expect(repo.searchByCaseId.mock.calls).toHaveLength(0);
+  });
+
+  it('routes "where does it hurt" visit-reason wording to chief complaint', async () => {
+    const repo = makeRepo();
+    repo.findByCaseId.mockResolvedValue(chiefComplaintAndLocationChunks);
+    const retriever = new SimulationRagRetrieverService(
+      repo,
+      makeEmbeddings(),
+      makeConfig(),
+    );
+
+    const result = await retriever.retrieve({
+      caseId: CASE_ID,
+      question: '어디가 아프셔서 오셨어요?',
+    });
+
+    expect(result.isFallback).toBe(false);
+    expect(result.facts[0].id).toBe('seizure_case_04:chief_complaint');
     expect(repo.searchByCaseId.mock.calls).toHaveLength(0);
   });
 
@@ -193,6 +284,97 @@ describe('SimulationRagRetrieverService', () => {
 
     expect(result.isFallback).toBe(false);
     expect(result.facts[0].id).toBe('chest_pain-001:history_factors');
+  });
+
+  it('prioritizes social history for follow-up monthly drinking questions', async () => {
+    const repo = makeRepo();
+    repo.findByCaseId.mockResolvedValue(lifestyleChunks);
+    const retriever = new SimulationRagRetrieverService(
+      repo,
+      makeEmbeddings(),
+      makeConfig(),
+    );
+
+    const result = await retriever.retrieve({
+      caseId: CASE_ID,
+      question: '한달에 얼마나 마시는지는요?',
+    });
+
+    expect(result.isFallback).toBe(false);
+    expect(result.facts[0].id).toBe('seizure_case_04:history_social');
+    expect(repo.searchByCaseId.mock.calls).toHaveLength(0);
+  });
+
+  it('prioritizes social history for stress questions', async () => {
+    const repo = makeRepo();
+    repo.findByCaseId.mockResolvedValue(lifestyleChunks);
+    const retriever = new SimulationRagRetrieverService(
+      repo,
+      makeEmbeddings(),
+      makeConfig(),
+    );
+
+    const result = await retriever.retrieve({
+      caseId: CASE_ID,
+      question: '스트레스는 많이 받나요?',
+    });
+
+    expect(result.isFallback).toBe(false);
+    expect(result.facts[0].id).toBe('seizure_case_04:history_social');
+  });
+
+  it('prioritizes associated history when stress is only documented there', async () => {
+    const repo = makeRepo();
+    repo.findByCaseId.mockResolvedValue(stressOnlyInAssociatedChunks);
+    const retriever = new SimulationRagRetrieverService(
+      repo,
+      makeEmbeddings(),
+      makeConfig(),
+    );
+
+    const result = await retriever.retrieve({
+      caseId: CASE_ID,
+      question: '스트레스는 많이 받나요?',
+    });
+
+    expect(result.isFallback).toBe(false);
+    expect(result.facts[0].id).toBe('seizure_case_07:history_associated');
+  });
+
+  it('routes exercise habit questions to social history', async () => {
+    const repo = makeRepo();
+    repo.findByCaseId.mockResolvedValue(lifestyleChunks);
+    const retriever = new SimulationRagRetrieverService(
+      repo,
+      makeEmbeddings(),
+      makeConfig(),
+    );
+
+    const result = await retriever.retrieve({
+      caseId: CASE_ID,
+      question: '운동은 하세요?',
+    });
+
+    expect(result.isFallback).toBe(false);
+    expect(result.facts[0].id).toBe('seizure_case_04:history_social');
+  });
+
+  it('keeps exercise aggravation questions on the factor chunk', async () => {
+    const repo = makeRepo();
+    repo.findByCaseId.mockResolvedValue(lifestyleChunks);
+    const retriever = new SimulationRagRetrieverService(
+      repo,
+      makeEmbeddings(),
+      makeConfig(),
+    );
+
+    const result = await retriever.retrieve({
+      caseId: CASE_ID,
+      question: '운동할 때 더 아픈가요?',
+    });
+
+    expect(result.isFallback).toBe(false);
+    expect(result.facts[0].id).toBe('seizure_case_04:history_factors');
   });
 
   it('returns NEAR_MISS fallback when semantic score is between nearMissScore and minScore', async () => {

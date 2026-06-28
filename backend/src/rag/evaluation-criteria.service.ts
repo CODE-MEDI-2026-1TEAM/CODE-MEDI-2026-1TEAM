@@ -4,8 +4,11 @@ import { join } from 'path';
 
 type CpxCaseForCriteria = {
   slug?: string;
+  simulationCaseId?: string | null;
+  simulationTopicId?: string | null;
   title: string;
   chiefComplaint: string;
+  hiddenDiagnosis?: string;
   evaluationModuleId?: string | null;
   checklist: unknown;
   redFlags: unknown;
@@ -53,7 +56,13 @@ type EvaluationModule = {
   extracted_hints?: {
     history_taking_text?: string;
     physical_exam_text?: string;
+    patient_education_text?: string;
   };
+};
+
+export type EvaluationChecklistItem = {
+  item: string;
+  category: string;
 };
 
 export type EvaluationCriteriaPack = {
@@ -66,6 +75,13 @@ export type EvaluationCriteriaPack = {
   caseChecklist: {
     checklist: unknown;
     redFlags: unknown;
+    instructionItems: EvaluationChecklistItem[];
+  };
+  casePatientEducation: {
+    likelyDiagnoses: string[];
+    requiredTests: string[];
+    requiredTreatmentEducation: string[];
+    items: EvaluationChecklistItem[];
   };
   globalRubric: {
     sourcePdfPages?: number[];
@@ -82,6 +98,7 @@ export type EvaluationCriteriaPack = {
     blocks: Array<{ id: string; label: string; sourceHint?: string }>;
     historyTakingText?: string;
     physicalExamAndEducationText?: string;
+    patientEducationText?: string;
   };
 };
 
@@ -143,7 +160,9 @@ export class EvaluationCriteriaService {
         caseChecklist: {
           checklist: cpxCase.checklist,
           redFlags: cpxCase.redFlags,
+          instructionItems: this.buildInstructionItems(cpxCase),
         },
+        casePatientEducation: this.buildPatientEducationCriteria(cpxCase),
         globalRubric: {
           sourcePdfPages: globalRubric.source_pdf_pages,
           guardrails: this.extractGuardrails(globalRubric),
@@ -160,6 +179,9 @@ export class EvaluationCriteriaService {
           physicalExamAndEducationText: this.compactText(
             selectedModule.extracted_hints?.physical_exam_text,
           ),
+          patientEducationText: this.compactText(
+            selectedModule.extracted_hints?.patient_education_text,
+          ),
         },
       };
     } catch (error) {
@@ -170,6 +192,165 @@ export class EvaluationCriteriaService {
       );
       return null;
     }
+  }
+
+  private buildInstructionItems(
+    cpxCase: CpxCaseForCriteria,
+  ): EvaluationChecklistItem[] {
+    return [
+      ...this.asStringArray(cpxCase.checklist).map((item) => ({
+        item,
+        category: 'checklist',
+      })),
+      ...this.asStringArray(cpxCase.redFlags).map((item) => ({
+        item,
+        category: 'red_flag',
+      })),
+    ];
+  }
+
+  private buildPatientEducationCriteria(cpxCase: CpxCaseForCriteria) {
+    const fromSimulation = this.findSimulationPatientEducation(cpxCase);
+    const likelyDiagnoses =
+      fromSimulation?.likelyDiagnoses ??
+      this.splitListText(cpxCase.hiddenDiagnosis);
+    const requiredTests = fromSimulation?.requiredTests ?? [];
+    const requiredTreatmentEducation =
+      fromSimulation?.requiredTreatmentEducation ?? [];
+
+    return {
+      likelyDiagnoses,
+      requiredTests,
+      requiredTreatmentEducation,
+      items: [
+        ...likelyDiagnoses.map((item) => ({
+          item,
+          category: 'likely_diagnosis',
+        })),
+        ...requiredTests.map((item) => ({
+          item,
+          category: 'required_test',
+        })),
+        ...requiredTreatmentEducation.map((item) => ({
+          item,
+          category: 'required_treatment_education',
+        })),
+      ],
+    };
+  }
+
+  private findSimulationPatientEducation(
+    cpxCase: CpxCaseForCriteria,
+  ):
+    | {
+        likelyDiagnoses: string[];
+        requiredTests: string[];
+        requiredTreatmentEducation: string[];
+      }
+    | null {
+    const caseNumber = this.simulationCaseNumber(cpxCase.simulationCaseId);
+    if (!caseNumber) return null;
+
+    const topicId = cpxCase.simulationTopicId ?? this.inferTopicId(cpxCase);
+    if (topicId !== 'seizure') return null;
+
+    const dataPath = this.resolveSimulationDataPath('seizure_cases.json');
+    if (!dataPath) return null;
+
+    const raw = JSON.parse(readFileSync(dataPath, 'utf-8')) as Record<
+      string,
+      unknown
+    >;
+    const records = Object.values(raw).find(
+      (value): value is Record<string, unknown>[] =>
+        Array.isArray(value) &&
+        value.some((item) => this.caseNumberFromRecord(item) !== null),
+    );
+    const record = records?.find(
+      (item) => this.caseNumberFromRecord(item) === caseNumber,
+    );
+    const education = this.recordValue<Record<string, unknown>>(
+      record,
+      '\ud658\uc790\uad50\uc721',
+    );
+
+    if (!education) return null;
+
+    return {
+      likelyDiagnoses: this.recordStringArray(
+        education,
+        '\uac00\ub2a5\uc131\uc774\ub192\uc740\uc9c4\ub2e8',
+      ),
+      requiredTests: this.recordStringArray(
+        education,
+        '\ud544\uc694\ud55c\uac80\uc0ac\uacc4\ud68d',
+      ),
+      requiredTreatmentEducation: this.recordStringArray(
+        education,
+        '\ud544\uc694\ud55c\uce58\ub8cc\uad50\uc721\uacc4\ud68d',
+      ),
+    };
+  }
+
+  private simulationCaseNumber(
+    simulationCaseId: string | null | undefined,
+  ): number | null {
+    if (!simulationCaseId) return null;
+    const match = simulationCaseId.match(/(\d+)$/);
+    if (!match) return null;
+    const parsed = Number.parseInt(match[1], 10);
+    return Number.isFinite(parsed) ? parsed : null;
+  }
+
+  private inferTopicId(cpxCase: CpxCaseForCriteria): string | null {
+    if (cpxCase.simulationCaseId?.startsWith('seizure')) return 'seizure';
+    return null;
+  }
+
+  private resolveSimulationDataPath(fileName: string): string | null {
+    const candidates = [
+      join(this.baseDir, '..', 'simulationRAG', 'data', fileName),
+      join(process.cwd(), 'src/rag/simulationRAG/data', fileName),
+      join(process.cwd(), 'dist/src/rag/simulationRAG/data', fileName),
+    ];
+
+    return candidates.find((candidate) => existsSync(candidate)) ?? null;
+  }
+
+  private caseNumberFromRecord(record: unknown): number | null {
+    if (!record || typeof record !== 'object') return null;
+    const value = (record as Record<string, unknown>)['\uc99d\ub840\ubc88\ud638'];
+    return typeof value === 'number' && Number.isFinite(value) ? value : null;
+  }
+
+  private recordValue<T>(
+    record: Record<string, unknown> | undefined,
+    key: string,
+  ): T | null {
+    const value = record?.[key];
+    if (!value || typeof value !== 'object') return null;
+    return value as T;
+  }
+
+  private recordStringArray(
+    record: Record<string, unknown>,
+    key: string,
+  ): string[] {
+    return this.asStringArray(record[key]);
+  }
+
+  private asStringArray(value: unknown): string[] {
+    return Array.isArray(value)
+      ? value.filter((item): item is string => typeof item === 'string')
+      : [];
+  }
+
+  private splitListText(value: string | undefined): string[] {
+    if (!value) return [];
+    return value
+      .split(/[,/]/)
+      .map((item) => item.trim())
+      .filter(Boolean);
   }
 
   private findModuleForCase(
@@ -197,11 +378,15 @@ export class EvaluationCriteriaService {
 
     return moduleIndex.find((entry) => {
       if (searchableCaseText.includes(entry.title_ko)) return true;
-      if (entry.title_ko === '가슴 통증') {
-        return /흉통|가슴\s*통증|가슴\s*아픔/.test(searchableCaseText);
+      if (entry.module_id.includes('chest_pain')) {
+        return /chest|pain/i.test(searchableCaseText);
       }
-      if (entry.title_ko === '경련') {
-        return /경련|발작|convulsion|seizure/i.test(searchableCaseText);
+      if (entry.module_id.includes('seizure')) {
+        return (
+          cpxCase.simulationTopicId === 'seizure' ||
+          cpxCase.simulationCaseId?.startsWith('seizure') === true ||
+          /convulsion|seizure/i.test(searchableCaseText)
+        );
       }
       return false;
     });

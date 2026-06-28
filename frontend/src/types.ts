@@ -63,11 +63,50 @@ export type Message = {
   createdAt: string;
 };
 
+export type SystemTimelineEvent = {
+  id: string;
+  content: string;
+  createdAt: string;
+};
+
+export type HandHygienePhase =
+  | 'before_patient_contact'
+  | 'during_interview'
+  | 'initial_greeting';
+
+export type HandHygieneEvent = {
+  id?: string;
+  phase: HandHygienePhase;
+  label: string;
+  messageCount: number;
+  createdAt: string;
+};
+
+export type PatientPosition = 'sitting' | 'supine';
+
+export type PhysicalExamStatus = 'abnormal' | 'normal' | 'unavailable';
+
+export type PhysicalExamEvent = {
+  id?: string;
+  examKey: string;
+  label: string;
+  position: PatientPosition;
+  expectedPosition: PatientPosition;
+  status: PhysicalExamStatus;
+  result: string;
+  matchedText: string;
+  messageCount: number;
+  createdAt: string;
+};
+
 export type Session = {
   id: string;
   status: 'active' | 'completed';
   startedAt: string;
   endedAt?: string | null;
+  handHygieneCount: number;
+  handHygieneEvents?: HandHygieneEvent[];
+  physicalExamEvents?: PhysicalExamEvent[];
   case: CpxCase;
   messages: Message[];
   evaluation?: Evaluation | null;
@@ -78,7 +117,42 @@ export type Evaluation = {
   score: number;
   strengths: string[];
   missedItems: string[];
+  missedItemStatus: MissedItemStatus[];
   riskAssessment: string;
   suggestions: string[];
+  caseInstructionStatus: EvaluationItemStatus[];
+  patientEducationStatus: EvaluationItemStatus[];
+  handHygieneCount: number;
+  handHygieneMoments?: HandHygieneEvent[];
+  physicalExamFindings?: PhysicalExamEvent[];
   createdAt: string;
+};
+
+export type MissedItemStatus = {
+  item: string;
+  historyCode: HistoryTakingCode | null;
+  isPerformed: boolean;
+};
+
+export type HistoryTakingCode =
+  | 'O'
+  | 'L'
+  | 'D'
+  | 'Co'
+  | 'Ex'
+  | 'C'
+  | 'A_F'
+  | '외'
+  | '과'
+  | '약'
+  | '사'
+  | '가'
+  | '여';
+
+export type EvaluationItemStatus = {
+  item: string;
+  category?: string;
+  status: 'met' | 'partial' | 'unmet';
+  evidence: string[];
+  feedback: string;
 };

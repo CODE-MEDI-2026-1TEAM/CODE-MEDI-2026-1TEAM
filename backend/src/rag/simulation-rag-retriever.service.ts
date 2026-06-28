@@ -63,6 +63,11 @@ const INTENT_RULES: IntentRule[] = [
       '증상 때문에',
       '어디가 불편',
       '어디 불편',
+      '어디가 아프',
+      '어디 아프',
+      '아파서 오',
+      '아프셔서 오',
+      '불편해서 오',
       '무슨 일',
       '왜 오',
       '오셨',
@@ -132,7 +137,10 @@ const INTENT_RULES: IntentRule[] = [
     name: 'aggravating_relieving_factors',
     keywords: [
       '움직',
-      '운동',
+      '운동할 때',
+      '운동하면',
+      '운동 후',
+      '운동 중',
       '심해',
       '악화',
       '완화',
@@ -224,7 +232,19 @@ const INTENT_RULES: IntentRule[] = [
   },
   {
     name: 'social_history',
-    keywords: ['담배', '흡연', '술', '음주', '직업', '스트레스', '카페인'],
+    keywords: [
+      '담배',
+      '흡연',
+      '술',
+      '음주',
+      '직업',
+      '스트레스',
+      '카페인',
+      '커피',
+      '운동',
+      '사회력',
+      '생활습관',
+    ],
     sectionPatterns: [/^history_social/],
   },
   {
@@ -433,18 +453,35 @@ export class SimulationRagRetrieverService {
     normalizedQuestion: string;
     topK: number;
   }): Promise<SimulationRetrievalResult | null> {
-    const matchedRule = INTENT_RULES.find((rule) =>
+    const matchedRules = INTENT_RULES.filter((rule) =>
       rule.keywords.some((keyword) => normalizedQuestion.includes(keyword)),
     );
 
-    if (!matchedRule) return null;
+    const sectionPatterns = matchedRules.flatMap(
+      (rule) => rule.sectionPatterns,
+    );
+    if (this.isChiefComplaintQuestion(normalizedQuestion)) {
+      sectionPatterns.unshift(
+        /^chief_complaint$/,
+        /^opening_profile$/,
+        /^intro$/,
+      );
+    }
+    if (this.isLifestyleSocialQuestion(normalizedQuestion)) {
+      sectionPatterns.unshift(/^history_social$/);
+    }
+
+    if (sectionPatterns.length === 0) return null;
 
     const chunks = await this.simulationChunkRepository.findByCaseId(caseId);
     const matchedChunks = chunks
       .filter((chunk) =>
-        matchedRule.sectionPatterns.some((pattern) =>
-          pattern.test(chunk.section),
-        ),
+        sectionPatterns.some((pattern) => pattern.test(chunk.section)),
+      )
+      .sort(
+        (a, b) =>
+          this.chunkPriority(a.section, normalizedQuestion, a.text) -
+          this.chunkPriority(b.section, normalizedQuestion, b.text),
       )
       .slice(0, topK);
 
@@ -458,7 +495,7 @@ export class SimulationRagRetrieverService {
     }));
 
     this.logger.debug(
-      `SimulationRAG intent=${matchedRule.name}: ${JSON.stringify(rawResults)}`,
+      `SimulationRAG intent=${matchedRules.map((rule) => rule.name).join('+') || 'lifestyle_social'}: ${JSON.stringify(rawResults)}`,
     );
 
     return {
@@ -477,5 +514,177 @@ export class SimulationRagRetrieverService {
       rawResults,
       hasSimulationChunks: true,
     };
+  }
+
+  private isLifestyleSocialQuestion(text: string): boolean {
+    if (
+      this.matchesAny(text, [
+        '음주력',
+        '사회력',
+        '생활습관',
+        '담배',
+        '흡연',
+        '직업',
+        '카페인',
+        '커피',
+      ])
+    ) {
+      return true;
+    }
+
+    if (
+      this.matchesAny(text, ['술', '음주', '마시']) &&
+      this.matchesAny(text, [
+        '한 달',
+        '한달',
+        '평소',
+        '자주',
+        '얼마나',
+        '몇 번',
+        '몇번',
+        '주량',
+      ])
+    ) {
+      return true;
+    }
+
+    if (
+      text.includes('스트레스') &&
+      this.matchesAny(text, ['받', '많', '심', '있', '없', '요'])
+    ) {
+      return true;
+    }
+
+    if (!text.includes('운동')) {
+      return false;
+    }
+
+    return !this.isExerciseAggravationQuestion(text);
+  }
+
+  private isChiefComplaintQuestion(text: string): boolean {
+    return this.matchesAny(text, [
+      '어떤 증상',
+      '무슨 증상',
+      '증상 때문에',
+      '어디가 불편',
+      '어디 불편',
+      '어디가 아프',
+      '어디 아프',
+      '뭐가 아프',
+      '무슨 일',
+      '왜 오',
+      '아파서 오',
+      '아프셔서 오',
+      '불편해서 오',
+      '오셨',
+      '오셨어',
+      '내원',
+      '방문',
+    ]);
+  }
+
+  private isExerciseAggravationQuestion(text: string): boolean {
+    return (
+      text.includes('운동') &&
+      this.matchesAny(text, [
+        '할 때',
+        '할때',
+        '하면',
+        '후',
+        '중',
+        '심해',
+        '아프',
+        '악화',
+        '완화',
+        '나빠',
+        '좋아',
+      ])
+    );
+  }
+
+  private chunkPriority(
+    section: string,
+    question: string,
+    answer: string,
+  ): number {
+    if (this.isChiefComplaintQuestion(question)) {
+      if (
+        section === 'chief_complaint' ||
+        section === 'opening_profile' ||
+        section === 'intro'
+      ) {
+        return 0;
+      }
+      if (section === 'history_location') return 5;
+    }
+
+    if (this.isExerciseAggravationQuestion(question)) {
+      if (section === 'history_factors') return 0;
+      if (section.startsWith('history_character')) return 1;
+      if (section === 'history_social') return 3;
+    }
+
+    if (this.isLifestyleSocialQuestion(question)) {
+      const directlyRelevant = this.answerMentionsLifestyleTerm(
+        answer,
+        question,
+      );
+      if (directlyRelevant && section === 'history_social') return 0;
+      if (directlyRelevant && section === 'history_associated') return 1;
+      if (directlyRelevant) return 2;
+      if (section === 'history_social') return 5;
+      if (section === 'history_associated') return 6;
+    }
+
+    if (section === 'history_associated') return 1;
+    if (section === 'history_social') return 2;
+    return 10;
+  }
+
+  private answerMentionsLifestyleTerm(
+    answer: string,
+    question: string,
+  ): boolean {
+    if (this.matchesAny(question, ['술', '음주', '마시', '주량'])) {
+      return (
+        /(^|[^가-힣])술/.test(answer) ||
+        this.matchesAny(answer, [
+          '음주',
+          '과음',
+          '음주량',
+          '전날과음',
+          '평소보다술',
+          '술 때문에',
+          '임신중술',
+        ])
+      );
+    }
+
+    if (question.includes('스트레스')) {
+      return answer.includes('스트레스');
+    }
+
+    if (question.includes('운동')) {
+      return answer.includes('운동');
+    }
+
+    if (this.matchesAny(question, ['커피', '카페인'])) {
+      return this.matchesAny(answer, ['커피', '카페인']);
+    }
+
+    if (this.matchesAny(question, ['담배', '흡연'])) {
+      return this.matchesAny(answer, ['담배', '흡연']);
+    }
+
+    if (question.includes('직업')) {
+      return answer.includes('직업');
+    }
+
+    return false;
+  }
+
+  private matchesAny(text: string, patterns: string[]): boolean {
+    return patterns.some((pattern) => text.includes(pattern));
   }
 }

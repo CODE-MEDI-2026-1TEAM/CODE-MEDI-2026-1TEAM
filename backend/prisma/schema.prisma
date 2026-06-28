@@ -81,16 +81,49 @@ model SimulationChunk {
 }
 
 model Session {
-  id          String         @id @default(uuid())
-  caseId      String
-  status      SessionStatus  @default(active)
-  startedAt   DateTime       @default(now())
-  endedAt     DateTime?
-  case        Case           @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  messages    Message[]
-  evaluation  Evaluation?
+  id                String         @id @default(uuid())
+  caseId            String
+  status            SessionStatus  @default(active)
+  startedAt         DateTime       @default(now())
+  endedAt           DateTime?
+  handHygieneCount  Int            @default(0)
+  case              Case           @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  messages          Message[]
+  handHygieneEvents HandHygieneEvent[]
+  physicalExamEvents PhysicalExamEvent[]
+  evaluation        Evaluation?
 
   @@index([caseId])
+}
+
+model PhysicalExamEvent {
+  id               String   @id @default(uuid())
+  sessionId        String
+  examKey          String
+  label            String
+  position         String
+  expectedPosition String
+  status           String
+  result           String
+  matchedText      String
+  messageCount     Int      @default(0)
+  createdAt        DateTime @default(now())
+  session          Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, createdAt])
+  @@index([sessionId, examKey])
+}
+
+model HandHygieneEvent {
+  id           String   @id @default(uuid())
+  sessionId    String
+  phase        String
+  label        String
+  messageCount Int      @default(0)
+  createdAt    DateTime @default(now())
+  session      Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, createdAt])
 }
 
 model Message {
@@ -105,13 +138,19 @@ model Message {
 }
 
 model Evaluation {
-  id             String   @id @default(uuid())
-  sessionId      String   @unique
-  score          Int
-  strengths      Json
-  missedItems    Json
-  riskAssessment Json
-  suggestions    Json
-  createdAt      DateTime @default(now())
-  session        Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  id                      String   @id @default(uuid())
+  sessionId               String   @unique
+  score                   Int
+  strengths               Json
+  missedItems             Json
+  missedItemStatus        Json     @default("[]")
+  riskAssessment          Json
+  suggestions             Json
+  caseInstructionStatus   Json     @default("[]")
+  patientEducationStatus  Json     @default("[]")
+  handHygieneCount        Int      @default(0)
+  handHygieneMoments      Json     @default("[]")
+  physicalExamFindings    Json     @default("[]")
+  createdAt               DateTime @default(now())
+  session                 Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 }
