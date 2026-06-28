@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hemoptysis-004",
+  "case_number_in_pdf": 99,
+  "topic": {
+    "topic_start_page": 221,
+    "topic_id": "hemoptysis",
+    "topic_label": "객혈",
+    "system": "호흡기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 227,
+      "end": 228
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김한윤",
+      "age": 55,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "목에서 피가 나요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": null,
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 55세\n“목에서 피가 나요”",
+    "history_blocks": {
+      "onset": "3시간 전",
+      "duration": "10회 정도 나옴",
+      "course": "색이 변함(검붉은색 핏덩이가 나오다가 선홍색으로 바뀜)",
+      "character": "[양상] 기침과 검붉은색 핏덩이가 나오다가 선홍색의 물 같은 피가 나옴\n[양] 합치면소주잔 2~3잔",
+      "associated_symptoms": "[전신]\n발열/오한/체중 감소/피로(- / ᅳ/一/一)\n[호흡기]\n기침/가래 (+/+)",
+      "events": "폐구균 백신, 인플루엔자 백신 접종 완료",
+      "past_history": "어릴 적 감기에 심하게 걸려 오랫 동안 아팠음\n15년 전 조기위암으로 위절제술",
+      "medications": "人!'\n술(一), 담배(ᅳ, 고등학생 때부터 5년 정도 피우고 30년 넘게 금연 중)",
+      "family_history": "아버지 : 40년 전 결핵 앓고 완치\n여동생 : 유방암 완치\nGeneral\nV/S 확인\nHEENT\n림프절 정상"
+    },
+    "physical_exam_results": "Chest\n흉부 시/청/타/촉 정상\nExtermity\nClubbing(-)\n^ 종(- )\n피부 긴장도 정상\nfoh\nmoi<\nVJ",
+    "patient_question_or_concern": "\"피가 많이 나오는 것 같아 걱정이에요: ’\n특이 ^ᅡ항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 55세\n“목에서 피가 나요”\n0\n3시간 전\nL\n-\nD\n10회 정도 나옴\nCo\n색이 변함(검붉은색 핏덩이가 나오다가 선홍색으로 바뀜)\nEx\n-\nC\n[양상] 기침과 검붉은색 핏덩이가 나오다가 선홍색의 물 같은 피가 나옴\n[양] 합치면소주잔 2~3잔\nA\n[전신]\n발열/오한/체중 감소/피로(- / ᅳ/一/一)\n[호흡기]\n기침/가래 (+/+)\nF\n-\nE\n폐구균 백신, 인플루엔자 백신 접종 완료\n외\n-\n과\n어릴 적 감기에 심하게 걸려 오랫 동안 아팠음\n15년 전 조기위암으로 위절제술\n약\n-\n人!'\n술(一), 담배(ᅳ, 고등학생 때부터 5년 정도 피우고 30년 넘게 금연 중)\n가\n아버지 : 40년 전 결핵 앓고 완치\n여동생 : 유방암 완치\nGeneral\nV/S 확인\nHEENT\n림프절 정상\nP/E\nChest\n흉부 시/청/타/촉 정상\nExtermity\nClubbing(-)\n^ 종(- )\n피부 긴장도 정상\nfoh\nmoi<\nVJ\n질문\n\"피가 많이 나오는 것 같아 걱정이에요: ’\n특이 ^ᅡ항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n' 가능성이 높은 진단 3 개\n1 . 기관지확장증\n2 . 기관지염\n3 . 결핵\n환자",
+    "likely_diagnoses": [
+      "기관지확장증",
+      "기관지염",
+      "결핵"
+    ],
+    "planned_tests": [
+      "흉부 X - r a y",
+      "흉부 C T",
+      "객담 항산균검사",
+      "대량객혈 시 응급 치료",
+      "예방접종"
+    ],
+    "planned_treatments_or_education": [
+      "대량객혈 시 응급 치료",
+      "예방접종"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "p\nt\n실전 모의 증례\n5 5 세 남자 김한윤씨가 목에서 피가 나와 내원하였다.\n[활력 징후]\n혈압 : 111 / 9 2 m\nm\nH\ng\n맥박 : 8 5 회/분\n상황\n호흡:\n1 6 회/분\n지침\n체온 : 3 6 . 4 ° C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n' 가능성이 높은 진단 3 개\n1 . 기관지확장증\n2 . 기관지염\n3 . 결핵\n환자\n• 필요한 검사 계획 3 가지\n교육\n1 . 흉부 X - r a y\n2 . 흉부 C T\n3 . 객담 항산균검사\n. 필요한 치료 계획 2 가지\n1 . 대량객혈 시 응급 치료\n1. 예방접종\n객혈의 경우우선 대량 객혈인지 파악하여 응급 조치의 필요성을 판단\n히\nI 야합니다•대량 객혈이 아니라면 기관지/ 식도/인후두 유래가 아닌\n지 감별해 주고 출혈 경향이 있는지 확인합니다.\n흉부 신체 진찰은 시간이 오래 걸리므로 시간이 부족하다면 필요한 부분을 우선적으로 해주는\n것이 중요합니다. 객혈의 환자 교육은 우선 응급 상황이 아님을 설명하고 안심시켜 주는 것이 중\n요하며, 혹시 응급 상황이 발생했을 때 취해야 하는 자세 등을 교육합니다. 또한 예방접종 둥 평\n소 건강관리의 중요성을 강조합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

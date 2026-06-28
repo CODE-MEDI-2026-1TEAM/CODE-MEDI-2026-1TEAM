@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hematemesis-003",
+  "case_number_in_pdf": 17,
+  "topic": {
+    "topic_start_page": 45,
+    "topic_id": "hematemesis",
+    "topic_label": "토혈",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 49,
+      "end": 50
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "최용식",
+      "age": 41,
+      "sex": "남자"
+    },
+    "setting": "응급실",
+    "opening_statement": "피를 토해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "109/77mmHg",
+      "pulse": "93회/분",
+      "respiratory_rate": null,
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/41 세\n穴 人\n주소\n“피를 토해요”",
+    "history_blocks": {
+      "onset": "6시간 전",
+      "duration": "6시간 전 1 번, 4시간 전 1 번，2시간 전 1 번",
+      "course": "심해짐",
+      "character": "선홍색 피，핏덩이(+)\n거품/음식물/담즙 ( - / - / - )",
+      "associated_symptoms": "[전신] 발열/식은땀/체중 감소/오한/피로감( - / - / - / - / - )\n[소화기] 구역/구토/식욕 부진/ 변비/설사( - / - / _ / - / - )\n속쓰림(+ )，혈변(一)，복통(一)\n[응급] 어지럼/갈증/소변량감소/호흡곤란( - / - / - / - )",
+      "factors": "전날 저녁에 음주",
+      "events": "3년 전 위내시경 정상",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / 一)",
+      "medications": "제^■제",
+      "social_history": "술 (+) ：\n일주일에 4번, 하루 소주 1병\n담배 (+) ：\n20갑년, 하루 1갑\n식사 : 불규칙",
+      "family_history": "General\nV/S 확인\nHEENT\n구강 탈수 소견(一)，결막/공막 시진 (一/ - )"
+    },
+    "physical_exam_results": "Abdomen\n복부 시/ 청/타/촉(- / - / - / + )\n명치 부위 Td/rTd(+/ᅳ)\nDRE(-)\nExtermity\n피부 긴장도/오목 부종(-/_>",
+    "patient_question_or_concern": "어으\nb A 口\n특이^사항\n어으",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/41 세\n穴 人\n주소\n“피를 토해요”\n0\n6시간 전\nL\n-\nD\n6시간 전 1 번, 4시간 전 1 번，2시간 전 1 번\nCo\n심해짐\nEx\n-\nC\n선홍색 피，핏덩이(+)\n거품/음식물/담즙 ( - / - / - )\nA\n[전신] 발열/식은땀/체중 감소/오한/피로감( - / - / - / - / - )\n[소화기] 구역/구토/식욕 부진/ 변비/설사( - / - / _ / - / - )\n속쓰림(+ )，혈변(一)，복통(一)\n[응급] 어지럼/갈증/소변량감소/호흡곤란( - / - / - / - )\nF\n전날 저녁에 음주\nE\n3년 전 위내시경 정상\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / 一)\n약\n제^■제\n사\n술 (+) ：\n일주일에 4번, 하루 소주 1병\n담배 (+) ：\n20갑년, 하루 1갑\n식사 : 불규칙\n가\n-\nGeneral\nV/S 확인\nHEENT\n구강 탈수 소견(一)，결막/공막 시진 (一/ - )\nP/E\nAbdomen\n복부 시/ 청/타/촉(- / - / - / + )\n명치 부위 Td/rTd(+/ᅳ)\nDRE(-)\nExtermity\n피부 긴장도/오목 부종(-/_>\n질문\n어으\nb A 口\n특이^사항\n어으"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시으\n환자\n교육\n. 가능성이 높은 진단 3개\n1. 위궤양 출혈\n2. 십이지장궤양 출혈\n3. 말로리-바이스 증후군",
+    "likely_diagnoses": [
+      "위궤양 출혈",
+      "십이지장궤양 출혈",
+      "말로리-바이스 증후군"
+    ],
+    "planned_tests": [
+      "위내시경",
+      "CBC",
+      "Chest X-ray"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1• 혈압 측정 : 환자가 저혈량성 쇼크에 빠진 것은 아닌지 감별하기 위해 혈압 측정\n이 필요합니다.\n2. 항문 직장 진찰 : 항문 직장 진찰을 통해 궤양으로 인한 혈변이 있지는 않은지\n확인해 볼 수 있습니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 : 응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n토혈의 경우 응급 상황인지 아닌지 파악히는 것이 우선입 니다.\n객혈 및 외상으로 인한 출혈을 감별한 뒤 토혈이면 원인은 대개 궤양\n성 출혈, 말로리-바이스 증후군, 위장관 암，약물 유발성 출혈 중에 하나이므로 각각의 질환에\n대해 감별하는 것으로 접근하면 됩니다. 또한 토혈은 환자가 걱정하는 경우가 많으므로 적절한\n조치로 안심시키는 것이 환자-의사 관계를 잘 형성하는데 중요한 부분입니다.\n수우",
+    "author_commentary_tail": "2. 항문 직장 진찰 : 항문 직장 진찰을 통해 궤양으로 인한 혈변이 있지는 않은지\n확인해 볼 수 있습니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 : 응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n토혈의 경우 응급 상황인지 아닌지 파악히는 것이 우선입 니다.\n객혈 및 외상으로 인한 출혈을 감별한 뒤 토혈이면 원인은 대개 궤양\n성 출혈, 말로리-바이스 증후군, 위장관 암，약물 유발성 출혈 중에 하나이므로 각각의 질환에\n대해 감별하는 것으로 접근하면 됩니다. 또한 토혈은 환자가 걱정하는 경우가 많으므로 적절한\n조치로 안심시키는 것이 환자-의사 관계를 잘 형성하는데 중요한 부분입니다.\n수우",
+    "scenario_card_raw": "m\n[ 실전 모의 증례\n^■황\n지침\n• 41 세 남자 최용식씨가 피를 토해 내원하였다.\n[활력 징휘 혈압 : 109/77mmHg\n맥박 : 93회/분\n호홉 : 17희/분\n체온 ：\n36.8°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시으\n환자\n교육\n. 가능성이 높은 진단 3개\n1. 위궤양 출혈\n2. 십이지장궤양 출혈\n3. 말로리-바이스 증후군\n• 필요한 검사 계획 3가지\n1. 위내시경\n2. CBC\n3. Chest X-ray\n예상\n술기\n1• 혈압 측정 : 환자가 저혈량성 쇼크에 빠진 것은 아닌지 감별하기 위해 혈압 측정\n이 필요합니다.\n2. 항문 직장 진찰 : 항문 직장 진찰을 통해 궤양으로 인한 혈변이 있지는 않은지\n확인해 볼 수 있습니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 : 응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n토혈의 경우 응급 상황인지 아닌지 파악히는 것이 우선입 니다.\n객혈 및 외상으로 인한 출혈을 감별한 뒤 토혈이면 원인은 대개 궤양\n성 출혈, 말로리-바이스 증후군, 위장관 암，약물 유발성 출혈 중에 하나이므로 각각의 질환에\n대해 감별하는 것으로 접근하면 됩니다. 또한 토혈은 환자가 걱정하는 경우가 많으므로 적절한\n조치로 안심시키는 것이 환자-의사 관계를 잘 형성하는데 중요한 부분입니다.\n수우-------- ----------------------- ---------- ------------------------------------------------- -- -"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

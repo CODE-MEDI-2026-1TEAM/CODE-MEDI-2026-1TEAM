@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hematemesis-006",
+  "case_number_in_pdf": 20,
+  "topic": {
+    "topic_start_page": 45,
+    "topic_id": "hematemesis",
+    "topic_label": "토혈",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 55,
+      "end": 56
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김진명",
+      "age": 56,
+      "sex": "남자"
+    },
+    "setting": "응급실",
+    "opening_statement": "피를 토했어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "101/69mmHg",
+      "pulse": "110회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "“피를 토했어요”",
+    "history_blocks": {
+      "onset": "2시간 전부터 /갑자기\n[회쉬\n3회",
+      "course": "2시간 전에 3회에 걸쳐 피를 토함",
+      "experience": "처음",
+      "character": "[양상] 검붉은색，피떡 (+)\n[양] 종이컵한컵 정도\n[객혈과감별] 음식물(-), 거품(-)\n[응급 상황 확인] 어지럼증(+，토혈 직후 어지러웠으나 현재 호전) /호흡곤란(ᅳ)\n[출혈경향] 코피,출혈후 잘 안 멎음，멍이잘 듦(ᅳ)\n[소화기] 흑색변(+), 식욕 저하(+)，혈변/변비/설사( - / - / - )\n속쓰림(+，2〜3회/ 1 달), 소화불량(+), 연하곤란/명치 통증(一/-)\n황달/회색변/피로( - / - / - ) , 체중 감소(+, 3kg/2달)\n[전신] 발열, 오한,식은땀\n식사와 관련성(-)\n토하기 전 과음(■)\n2년 전 건강 검진 정상 소견\n위내시경 (一)",
+      "trauma_history": "복부 외상(-)",
+      "past_history": "DM/TB/HTN/간염 (- / - / + / - )\n소화기 질환/간질환(一/ - )",
+      "medications": "항고혈압제( 항혈소판제，항응고제 복용 안 함)",
+      "social_history": "술(+, 반 병/ 1주), 담배(+，40갑년)",
+      "family_history": "소화기 질환/간질환( - / - )\n눈\n입\n흉부 시진+ 탈수소견\n：；\nI , ᅳ\nI\nI\ni\n,\nJ\nI\nJ\nᅳ..ᅳL\n복부 시청타촉 + 복수 + Flapping tremor\n|\nᅳ…\nDRE\n\n\n\n이상 소견 없음\n흑색변 (+)"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": "“혹시 암이 아닌가요? ”\n특이 ^卜항\n복용 약제에 대해 질문할 때 아스피린, 플라빅스 등을 구체적으로 물어 볼 것",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "“피를 토했어요”\n0\n2시간 전부터 /갑자기\n[회쉬\n3회\nCo\n2시간 전에 3회에 걸쳐 피를 토함\nEx\n처음\nC\n[양상] 검붉은색，피떡 (+)\n[양] 종이컵한컵 정도\n[객혈과감별] 음식물(-), 거품(-)\n[응급 상황 확인] 어지럼증(+，토혈 직후 어지러웠으나 현재 호전) /호흡곤란(ᅳ)\n[출혈경향] 코피,출혈후 잘 안 멎음，멍이잘 듦(ᅳ)\n[소화기] 흑색변(+), 식욕 저하(+)，혈변/변비/설사( - / - / - )\n속쓰림(+，2〜3회/ 1 달), 소화불량(+), 연하곤란/명치 통증(一/-)\n황달/회색변/피로( - / - / - ) , 체중 감소(+, 3kg/2달)\n[전신] 발열, 오한,식은땀\n식사와 관련성(-)\n토하기 전 과음(■)\n2년 전 건강 검진 정상 소견\n위내시경 (一)\n외\n복부 외상(-)\n과\nDM/TB/HTN/간염 (- / - / + / - )\n소화기 질환/간질환(一/ - )\n약\n항고혈압제( 항혈소판제，항응고제 복용 안 함)\n사\n술(+, 반 병/ 1주), 담배(+，40갑년)\n가\n소화기 질환/간질환( - / - )\n눈\n입\n흉부 시진+ 탈수소견\n：；\nI , ᅳ\nI\nI\ni\n,\nJ\nI\n\nJ\nᅳ..ᅳL\n복부 시청타촉 + 복수 + Flapping tremor\n|\n-ᅳ… -\nDRE\n-\n-\n-\n이상 소견 없음\n흑색변 (+)\n질문\n“혹시 암이 아닌가요? ”\n특이 ^卜항\n복용 약제에 대해 질문할 때 아스피린, 플라빅스 등을 구체적으로 물어 볼 것"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n^ ■자\n교육",
+    "likely_diagnoses": [
+      "소화성궤양 출혈",
+      "위암",
+      "미란성위염"
+    ],
+    "planned_tests": [
+      "전체 혈구검사",
+      "상부 위장관내시경",
+      "흉부 X선 검사"
+    ],
+    "planned_treatments_or_education": [
+      "수액공급및 수혈",
+      "내시경적지혈술"
+    ],
+    "expected_skills_raw": "1. 혈압 측정 : 환자가 저혈량성 쇼크에 빠진 것은 아닌지 감별하기 위해 혈압 측정\n이 필요합니다.\n2. 항문 직장 진찰 : 항문 직장 진찰을 통해 궤양으로 인한 혈변이 있지는 않은지 확\n인해 볼 수 있습니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 ：\n응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n중년의 남자가 갑자기 발생한 토혈과 함께 속쓰림, 흑색변, 소화불량\n과 함께 체중 감소를 호소하며 내원하여 소화성 궤양 출혈 혹은 위암\n과 같은 상부 위장관 출혈이 의심되었습니다.\n감별 진단과 더불어 토혈을 호소하는 환자의 문진과 신체 검진에서 중요한 점은 실혈의 정도 및\n실혈량을 파악하는 것으로써, 본 증례의 경우 환자가 100ml 이상의 상당한 양의 토혈과 함께 어\n지럼증，빈맥 등을 호소하였기 때문에 환자에게 수액 공급 및 수혈의 필요성을 설명하며, 진단\n및 지혈을 위하여 응급 위장관내시경을 실시할 것을 권유하여야 합니다.",
+    "author_commentary_tail": "3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 ：\n응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n중년의 남자가 갑자기 발생한 토혈과 함께 속쓰림, 흑색변, 소화불량\n과 함께 체중 감소를 호소하며 내원하여 소화성 궤양 출혈 혹은 위암\n과 같은 상부 위장관 출혈이 의심되었습니다.\n감별 진단과 더불어 토혈을 호소하는 환자의 문진과 신체 검진에서 중요한 점은 실혈의 정도 및\n실혈량을 파악하는 것으로써, 본 증례의 경우 환자가 100ml 이상의 상당한 양의 토혈과 함께 어\n지럼증，빈맥 등을 호소하였기 때문에 환자에게 수액 공급 및 수혈의 필요성을 설명하며, 진단\n및 지혈을 위하여 응급 위장관내시경을 실시할 것을 권유하여야 합니다.",
+    "scenario_card_raw": "^\n실전 모의 증례\n^■황\n지침\n존?^닐향^^,.;\n卜\n%\n.\n• 56세 남자 김진명씨가 피를 토했다며 내원하였다.\n[활력 징후] 혈압 : 101/69mmHg\n맥박 ：\n110회/분\n호g : 21회/분\n체온 : 36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n^ ■자\n교육\n• 가능성이 높은 진단 3개\n1. 소화성궤양 출혈\n2. 위암\n3. 미란성위염\n• 필요한 검사 계획 3가지\n1. 전체 혈구검사\n2. 상부 위장관내시경\n3. 흉부 X선 검사\n• 필요한 치료 계획 2가지\n1. 수액공급및 수혈\n2. 내시경적지혈술\n예상\n술기\n1. 혈압 측정 : 환자가 저혈량성 쇼크에 빠진 것은 아닌지 감별하기 위해 혈압 측정\n이 필요합니다.\n2. 항문 직장 진찰 : 항문 직장 진찰을 통해 궤양으로 인한 혈변이 있지는 않은지 확\n인해 볼 수 있습니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 ：\n응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n중년의 남자가 갑자기 발생한 토혈과 함께 속쓰림, 흑색변, 소화불량\n과 함께 체중 감소를 호소하며 내원하여 소화성 궤양 출혈 혹은 위암\n과 같은 상부 위장관 출혈이 의심되었습니다.\n감별 진단과 더불어 토혈을 호소하는 환자의 문진과 신체 검진에서 중요한 점은 실혈의 정도 및\n실혈량을 파악하는 것으로써, 본 증례의 경우 환자가 100ml 이상의 상당한 양의 토혈과 함께 어\n지럼증，빈맥 등을 호소하였기 때문에 환자에게 수액 공급 및 수혈의 필요성을 설명하며, 진단\n및 지혈을 위하여 응급 위장관내시경을 실시할 것을 권유하여야 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

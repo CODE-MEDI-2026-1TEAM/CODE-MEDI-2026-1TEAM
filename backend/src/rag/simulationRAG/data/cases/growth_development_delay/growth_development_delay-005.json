@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "growth_development_delay-005",
+  "case_number_in_pdf": 263,
+  "topic": {
+    "topic_start_page": 665,
+    "topic_id": "growth_development_delay",
+    "topic_label": "성장/발달지연",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 673,
+      "end": 674
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김민준",
+      "age": 5,
+      "sex": "남아"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "발달이 느린 것 같아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "100/70mmHg",
+      "pulse": null,
+      "respiratory_rate": "24회/분",
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남아/ 5세\n“발달이 느린 것 같아요”",
+    "history_blocks": {
+      "character": "3세 때 대소변 훈련했는데 한 달에 1~2번씩 자다가 소변 못가림\n최근에 빈도가 일주일에 1 번씩으로 심해짐",
+      "associated_symptoms": "[전신] 발열/오한/체중 증가/근육통/두통/피로( - / - / - / - / - / - )\n[비뇨기] F/U /N /D (-/- / - / - )\n[내분비] 다음/ 다갈/다뇨 ( - / _ / - )\n[수면] 야경증/몽유병/ 낮잠/ 기면( - / - / ᅳ/ -)",
+      "events": "유전자검사, 신생아 대사이상검사 이상 없었음",
+      "trauma_history": "고^\nDM/TB/HTN/간염 ( - / - / - / - )\n2세 때 중이염으로 입원",
+      "social_history": "스트레스(+, 또래 관계에서 뒤쳐져서 애가 힘들어 한다고 유치원 선생님으로부터\n들음)\n양육 환경 : 맞벌이여서 주로 할머니가 키우심\n밥 먹는건 잘 먹음, 편식 약간 함, 물 많이 마시는지는 모르겠음",
+      "family_history": "(+, 남동생이 어렸을 때 소변 못가렸었는데, 초등학교 고학년 때부터 괜찮아짐)",
+      "gynecologic_history": "임신 중이나 출산 중에 문제 없었음"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": "\"이후 겨속 발달이 뒤쳐질지 걱정이 돼요;",
+    "actor_notes_or_special_behavior": "테이블 위에 발달곡선과 영유아 발달표가 놓여져 있다.",
+    "raw_profile_text": "성별/나이\n남아/ 5세\n“발달이 느린 것 같아요”\n0\nL\nD\nCo\nEx\nC\n3세 때 대소변 훈련했는데 한 달에 1~2번씩 자다가 소변 못가림\n최근에 빈도가 일주일에 1 번씩으로 심해짐\nA\n[전신] 발열/오한/체중 증가/근육통/두통/피로( - / - / - / - / - / - )\n[비뇨기] F/U /N /D (-/- / - / - )\n[내분비] 다음/ 다갈/다뇨 ( - / _ / - )\n[수면] 야경증/몽유병/ 낮잠/ 기면( - / - / ᅳ/ -)\nF\n-\nE\n유전자검사, 신생아 대사이상검사 이상 없었음\n외\n-\n고^\nDM/TB/HTN/간염 ( - / - / - / - )\n2세 때 중이염으로 입원\n약\n사\n스트레스(+, 또래 관계에서 뒤쳐져서 애가 힘들어 한다고 유치원 선생님으로부터\n들음)\n양육 환경 : 맞벌이여서 주로 할머니가 키우심\n밥 먹는건 잘 먹음, 편식 약간 함, 물 많이 마시는지는 모르겠음\n가\n(+, 남동생이 어렸을 때 소변 못가렸었는데, 초등학교 고학년 때부터 괜찮아짐)\n여\n임신 중이나 출산 중에 문제 없었음\nP/E\n질문\n\"이후 겨속 발달이 뒤쳐질지 걱정이 돼요;\n특이사항\n테이블 위에 발달곡선과 영유아 발달표가 놓여져 있다."
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 보호자와 논의하시오.\n교육\n. 가능성이 높은 진단 2개\n1. 정상 발달\n2. 야뇨증\n필요한교육 계획 3가지\n1. 밤에 물 적게 마시기\n2. 자기 전에 소변 누기\n3. 이뇨 작용 있는 음식 섭취 줄이기\n성장/발달' 지연도 예방접종과마찬가지로 신체 진찰이 없지만그렇\n..다고 여유를 부려서는 안 되는 항목입니다. 시험장에 발달관련 표가\n놓여져 있지만 막상 가서 보면 헤멜 수 있으니 연습 때 발달표를 보는 연습올꼭합니다.\n문진 중 배먹으면 안 되는 것으로는 임신 중 또는 출산 시에 문제가 있었는지, 엽산이나 철분은\n잘 복용했는지, 유전자검사나 신생아 대사이상검사 등에는 문제가 없었는지 등이 있으며, 가족\n력도 살펴보는 것이 중요합니다.\n중간중간에 환아 어머니의 걱정을 이해하는 모습과 위로와 안심을 주는 멘트들을 하면 좋은 의\n사■환자 관계를 쌓을 수 있습니다.",
+    "likely_diagnoses": [
+      "정상 발달",
+      "야뇨증",
+      "밤에 물 적게 마시기",
+      "자기 전에 소변 누기",
+      "이뇨 작용 있는 음식 섭취 줄이기"
+    ],
+    "planned_tests": [],
+    "planned_treatments_or_education": [
+      "밤에 물 적게 마시기",
+      "자기 전에 소변 누기",
+      "이뇨 작용 있는 음식 섭취 줄이기"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "^■황\n지침\n{ 실전 모의 증례\n• 만 5세 남아 김민준 아이가 발달이 느린 것 같아 어머니와 함께 내원하였다.\n[활력 징휘 혈압 : 100/70mmHg\n맥박 ：\n기회/분\n호흡 : 24회/분\n체온 ：\n36.8°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 보호자와 논의하시오.\n교육\n. 가능성이 높은 진단 2개\n1. 정상 발달\n2. 야뇨증\n• 필요한교육 계획 3가지\n1. 밤에 물 적게 마시기\n2. 자기 전에 소변 누기\n3. 이뇨 작용 있는 음식 섭취 줄이기\n성장/발달' 지연도 예방접종과마찬가지로 신체 진찰이 없지만그렇\n..다고 여유를 부려서는 안 되는 항목입니다. 시험장에 발달관련 표가\n놓여져 있지만 막상 가서 보면 헤멜 수 있으니 연습 때 발달표를 보는 연습올꼭합니다.\n문진 중 배먹으면 안 되는 것으로는 임신 중 또는 출산 시에 문제가 있었는지, 엽산이나 철분은\n잘 복용했는지, 유전자검사나 신생아 대사이상검사 등에는 문제가 없었는지 등이 있으며, 가족\n력도 살펴보는 것이 중요합니다.\n중간중간에 환아 어머니의 걱정을 이해하는 모습과 위로와 안심을 주는 멘트들을 하면 좋은 의\n사■환자 관계를 쌓을 수 있습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

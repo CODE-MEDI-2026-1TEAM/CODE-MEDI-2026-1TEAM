@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hemoptysis-007",
+  "case_number_in_pdf": 102,
+  "topic": {
+    "topic_start_page": 221,
+    "topic_id": "hemoptysis",
+    "topic_label": "객혈",
+    "system": "호흡기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 233,
+      "end": 236
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "홍지민",
+      "age": 53,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "기침을 계속 해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/85mmHg",
+      "pulse": "99회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 53세\n“기침을 계속 해요”",
+    "history_blocks": {
+      "onset": "4시간 전",
+      "duration": "15번",
+      "course": "처음과 비슷",
+      "character": "기침하다가 피가 나옴\n거품(一), 검붉은색，종이컵 1 /4컵, 덩이가 있었지만 현재는 피만 보임",
+      "associated_symptoms": "[전신] 발열/오한/피로 (-/ -/+ )\n어지럼 (一), 체중 감소(+, 1 달 사이에 5kg)\n[호홉기] 거품(一)\n기침/가래 (+ /+ ): 노란색\n가슴통증(一)",
+      "factors": "완화(+) : 앞으로 숙이면 완화",
+      "events": "1년 전 건강 검진 : 이상 없음",
+      "past_history": "DM/TB/HTN/간염/고지혈증( - / - / - / - / + ) , 어릴적 감기 자주 걸림(+)\n1달 반 전에 감기",
+      "medications": "人^\n술(+, social), 담배(+, 2갑년，현재는 금연 상태), 커피(- )",
+      "family_history": "아버지 : 결핵(+, 치료됨)\nGeneral\nV/S 확인\nHEENT"
+    },
+    "physical_exam_results": "Chest\n\nAbdomen\n\nExtermity\n곤봉지 (-)",
+    "patient_question_or_concern": "“아버지가 폐암으로 돌아가셨는데 걱정이 돼요.”\n특이 人[항\n\no\ni 실전 모의증례\n^■황\n지침\n;\n33세 남자 김종현씨가 목에서 피가 나온다며 내원하였다.\n[활력 징후] 혈압 : 120/78mmHg\n맥박 : 92회/분\n오音 ■\n16호ᅵ/분\n체온 ：\n36.8°C\n[응시지는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육\n;讀^^^^^嘯参\n가능성이 높은 진단 3개\n1. y I관지확장증\n2. 폐결핵\n3. 만성 7 ᅵ관지염\n필요한 검사 계획 3가지\n1. CXR\n2. 객담 항산염색\n3. Chest CT\n예상\n술기\n설명동의서 받기 : 객혈 등으로 보아 폐종양 등을 감별하기 위한 흉부 CT를 시행하\n기 전 설명동의서를 받습니다.\n| :^v；\n우ssn\nI\n주 호소 내용에 ‘피가 들어가는 케이스들은 항상문진을 시작하기 전 i\n|\n科에게 ‘숨이 차거나어지럽지는 않은 지’ 확인하여 응좌상황을 먼 ᅦ\n저 배제하는 것이 좋습니다. 이런 징후들이 나타난다면 응급 상황일 수 있어서 바로 조치가 필요\n하니 언제든 말씀해 달라고 당부한 뒤 문진을시작하면 됩니다. 또한 ‘피’ 케이스들에서는출혈\n경향이 있는지 항상 확인하시는 게 좋습니다.\n신체 검진에서 흉부 시촉타청을 다 해야 하므로 시간이 빠듯할 수 있습니다. 항상 시간 분배에\n신경쓰시고, 교육할 때에는 응급 상황에 대한 교육하시는 것 잊지 말아야 합니다.\n성별/나이\n남성/ 33세\n“가래에 피가 섞여 나와요”\n0\n1 주\nL\n\nD\n\nCo\n비슷함\nEx\n처음, 1 년에 4번 정도 감기 걸림, 2주 전 감기 : 약 먹고 호전\nC\n기침 (+), 가래 (+，피가 약간 섞여 있으며. 가래 양은 많지 않음, 거품 동반)\nA\n[전신] 발열/오한/야간 발열( - / - / - ) , 체중 변화(-)\n[순환기] 호흡곤란/어지럼(一/ᅳ)\n[출혈 경향] 양치할 때 피가 조금씩 나기도 함\nF\n기침 시 가래에 피가 섞여 나옴\nE\n1 년 전 건강 검진 정상 : 가슴 X-ray 찍었는 지 물어보면 RUL scar 얘기함\n외\n과\nDM /HTN /dyslipidem ia/TB/^(-/-/-/+/-) : 고어 결핵 앓은 적 있음\n10년 전 완치\n약\n2주 전 감기약 먹음, 평소 비타민 복용\n아스피린 (-)\n사\n술(소주 1 병/주), 담배( - ) ，커피(+, 2잔/ 일), 직업 ：\n선생님\n가\n아버지 : 심근경색\nGeneral\n활력 징후 확인 ：\n혈압, 맥박수. 호흡수 확인 후 응급 상황 배제\nP/E\nHEENT\n눈(공막, 결막) 시진. 구강(인후부) 시진. 경부 림프절 촉진\n모두정상\nChest\n흉부 시/촉/ 타/청 모두정상\nAbdomen\nDRE 정상\nExtermity\n발진, 점출혈 반출혈, 곤봉지, 청색증/모두 정상\n질문\n\n특이 ^ᅡ항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 53세\n“기침을 계속 해요”\n0\n4시간 전\nL\n-\nD\n15번\nCo\n처음과 비슷\nEx\n-\nC\n기침하다가 피가 나옴\n거품(一), 검붉은색，종이컵 1 /4컵, 덩이가 있었지만 현재는 피만 보임\nA\n[전신] 발열/오한/피로 (-/ -/+ )\n어지럼 (一), 체중 감소(+, 1 달 사이에 5kg)\n[호홉기] 거품(一)\n기침/가래 (+ /+ ): 노란색\n가슴통증(一)\nF\n완화(+) : 앞으로 숙이면 완화\nE\n1년 전 건강 검진 : 이상 없음\n외\n-\n과\nDM/TB/HTN/간염/고지혈증( - / - / - / - / + ) , 어릴적 감기 자주 걸림(+)\n1달 반 전에 감기\n약\n-\n人^\n술(+, social), 담배(+, 2갑년，현재는 금연 상태), 커피(- )\n가\n아버지 : 결핵(+, 치료됨)\nGeneral\nV/S 확인\nHEENT\n-\nP/E\nChest\n-\nAbdomen\n-\nExtermity\n곤봉지 (-)\n질문\n“아버지가 폐암으로 돌아가셨는데 걱정이 돼요.”\n특이 人[항\n-\n\no\ni 실전 모의증례\n^■황\n지침\n;\n• 33세 남자 김종현씨가 목에서 피가 나온다며 내원하였다.\n[활력 징후] 혈압 : 120/78mmHg\n맥박 : 92회/분\n오音 ■\n16호ᅵ/분\n체온 ：\n36.8°C\n[응시지는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육\n;讀^^^^^嘯参\n• 가능성이 높은 진단 3개\n1. y I관지확장증\n2. 폐결핵\n3. 만성 7 ᅵ관지염\n• 필요한 검사 계획 3가지\n1. CXR\n2. 객담 항산염색\n3. Chest CT\n예상\n술기\n설명동의서 받기 : 객혈 등으로 보아 폐종양 등을 감별하기 위한 흉부 CT를 시행하\n기 전 설명동의서를 받습니다.\n| :^v；\n\n우ssn\nI\n주 호소 내용에 ‘피가 들어가는 케이스들은 항상문진을 시작하기 전 i\n|\n科에게 ‘숨이 차거나어지럽지는 않은 지’ 확인하여 응좌상황을 먼 ᅦ\n저 배제하는 것이 좋습니다. 이런 징후들이 나타난다면 응급 상황일 수 있어서 바로 조치가 필요\n하니 언제든 말씀해 달라고 당부한 뒤 문진을시작하면 됩니다. 또한 ‘피’ 케이스들에서는출혈\n경향이 있는지 항상 확인하시는 게 좋습니다.\n신체 검진에서 흉부 시촉타청을 다 해야 하므로 시간이 빠듯할 수 있습니다. 항상 시간 분배에\n신경쓰시고, 교육할 때에는 응급 상황에 대한 교육하시는 것 잊지 말아야 합니다.\n\n성별/나이\n남성/ 33세\n“가래에 피가 섞여 나와요”\n0\n1 주\nL\n-\nD\n-\nCo\n비슷함\nEx\n처음, 1 년에 4번 정도 감기 걸림, 2주 전 감기 : 약 먹고 호전\nC\n기침 (+), 가래 (+，피가 약간 섞여 있으며. 가래 양은 많지 않음, 거품 동반)\nA\n[전신] 발열/오한/야간 발열( - / - / - ) , 체중 변화(-)\n[순환기] 호흡곤란/어지럼(一/ᅳ)\n[출혈 경향] 양치할 때 피가 조금씩 나기도 함\nF\n기침 시 가래에 피가 섞여 나옴\nE\n1 년 전 건강 검진 정상 : 가슴 X-ray 찍었는 지 물어보면 RUL scar 얘기함\n외\n과\nDM /HTN /dyslipidem ia/TB/^(-/-/-/+/-) : 고어 결핵 앓은 적 있음\n10년 전 완치\n약\n2주 전 감기약 먹음, 평소 비타민 복용\n아스피린 (-)\n사\n술(소주 1 병/주), 담배( - ) ，커피(+, 2잔/ 일), 직업 ：\n선생님\n가\n아버지 : 심근경색\nGeneral\n활력 징후 확인 ：\n혈압, 맥박수. 호흡수 확인 후 응급 상황 배제\nP/E\nHEENT\n눈(공막, 결막) 시진. 구강(인후부) 시진. 경부 림프절 촉진\n모두정상\nChest\n흉부 시/촉/ 타/청 모두정상\nAbdomen\nDRE 정상\nExtermity\n발진, 점출혈 반출혈, 곤봉지, 청색증/모두 정상\n질문\n-\n특이 ^ᅡ항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육\n_\nf상^',Is\n< 變51 닐^!정.융",
+    "likely_diagnoses": [
+      "폐결핵",
+      "기관지확장증"
+    ],
+    "planned_tests": [
+      "폐 X-ray",
+      "객담 항산 염색"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 객혈, 체중 감소 등으로 보아 폐종양 등을 감별하기 위한 흉부 CT\n를 시행하기 전 설명동의서를 받습니다.\n객혈의 경우 응급 상황인지，출혈 경향이 있는지 확인하는 것이 중요합\n니다. 색깔, 어떠한상황에서 객혈하였는지, 양등은꼭확인하도록 합\n니다.\n응급 상황에 대한 교육을 하고, 조치가 필요함을 잘 설명하도록 하고, 또한 환자가 놀랐을 가능\n성이 크므로 안심시키는 것도 환자•의사관계에서 점수를 받는데에 도음이 됩니다.\n폐결핵, 기관지확장증은 자주 나오는 원인이므로 잘 정리해 두도록 합니다. 또한 결핵과 같은 법\n정 감염 병의 경우 자가 격 리가 필요함을 설명하도록 합니다.\n감염성의 경우 손위생의 중요성을 잘 교육하도록 합니다.",
+    "author_commentary_tail": "설명동의서 받기 : 객혈, 체중 감소 등으로 보아 폐종양 등을 감별하기 위한 흉부 CT\n를 시행하기 전 설명동의서를 받습니다.\n객혈의 경우 응급 상황인지，출혈 경향이 있는지 확인하는 것이 중요합\n니다. 색깔, 어떠한상황에서 객혈하였는지, 양등은꼭확인하도록 합\n니다.\n응급 상황에 대한 교육을 하고, 조치가 필요함을 잘 설명하도록 하고, 또한 환자가 놀랐을 가능\n성이 크므로 안심시키는 것도 환자•의사관계에서 점수를 받는데에 도음이 됩니다.\n폐결핵, 기관지확장증은 자주 나오는 원인이므로 잘 정리해 두도록 합니다. 또한 결핵과 같은 법\n정 감염 병의 경우 자가 격 리가 필요함을 설명하도록 합니다.\n감염성의 경우 손위생의 중요성을 잘 교육하도록 합니다.",
+    "scenario_card_raw": "■ 실전 모의 증례\n^ ■황\n지침\nW 맹\\\n• 53세 남자 홍지민씨가 객혈로 내원하였다.\n[활력 징후] 혈압 : 140/85mmHg\n맥박 : 99회/분\n호흡 ■\n20회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육\n_\nf상^',Is\n•< 變51 닐^!정.융\n• 가능성이 높은 진단 2개\n1. 폐결핵\n2. 기관지확장증\n• 필요한 검사 계획 2가지\n1. 폐 X-ray\n2. 객담 항산 염색\n.\n예상\n술기\n설명동의서 받기 : 객혈, 체중 감소 등으로 보아 폐종양 등을 감별하기 위한 흉부 CT\n를 시행하기 전 설명동의서를 받습니다.\n객혈의 경우 응급 상황인지，출혈 경향이 있는지 확인하는 것이 중요합\n니다. 색깔, 어떠한상황에서 객혈하였는지, 양등은꼭확인하도록 합\n니다.\n응급 상황에 대한 교육을 하고, 조치가 필요함을 잘 설명하도록 하고, 또한 환자가 놀랐을 가능\n성이 크므로 안심시키는 것도 환자•의사관계에서 점수를 받는데에 도음이 됩니다.\n폐결핵, 기관지확장증은 자주 나오는 원인이므로 잘 정리해 두도록 합니다. 또한 결핵과 같은 법\n정 감염 병의 경우 자가 격 리가 필요함을 설명하도록 합니다.\n감염성의 경우 손위생의 중요성을 잘 교육하도록 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

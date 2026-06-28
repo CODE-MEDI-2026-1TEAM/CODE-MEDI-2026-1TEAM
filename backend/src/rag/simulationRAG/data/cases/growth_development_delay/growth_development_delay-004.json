@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "growth_development_delay-004",
+  "case_number_in_pdf": 262,
+  "topic": {
+    "topic_start_page": 665,
+    "topic_id": "growth_development_delay",
+    "topic_label": "성장/발달지연",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 671,
+      "end": 672
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": null,
+      "age": null,
+      "sex": null
+    },
+    "setting": "외래/미상",
+    "opening_statement": "발달이 느린 것 같아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "96/74mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n남아/ 만1 세\n“발달이 느린 것 같아요”\n“최근 돌잔치했는데, 나이 비슷한 조카들이랑 차이나는 것 같아요”\n인적 사항\n생년월일로 정확한 만 나이 확인\n성장/발달\n[성장]\n현재 ? ᅵ\n76cm(50%), 체중 1 ()kg(50%)\n[발달]\n혼자 서고 혼자 걸을 수 있다.\n엄지와 집게손가락으로 물건을 집을 수 있다.\n“마마”, \"빠빠”를 할 수 있다.\n간단한 공놀이를 할 수 있다.\n주산기\n출생 당시 : 키 50cm, 체중 3.2kg\n어머니 만 35세에 임신，GA 40주에 출산, 자연분만\n임신 시 술/ 담배/익물/ 감염(一/ - / - / - )\n엽산/철분 (+/+>\n임신 기간 당뇨/고혈압(ᅳ/ᅳ)\n출산 시 아이 문제 (+, 생후 2일 때 황달로 광선 치료 받음)\n신생아\n문제\n대사이상검사/유전자검사/청력검사 이상 없음\n영유아발달선별검사 이때까지 이상 없음\n예방접종 계획대로 잘 맞음\n부르면 뒤 돌아봄, 눈 마주침 문제 없음\n환경\n양육 : 맞벌이로 낮에는 시어머니, 저녁부터는 남편과 같이\n식습관 : 이유식과 분유 3:1 비율\n운동 ：\n활발하게 움직임\n수면 : 문제 없음\n가족력\n아버지 : 180cm, 발달 느렸다는 얘기 들어본 적 없음\n어머니 : 165cm, 초경 중학교 1학년 때\n형제자매 없음\n가족 중 발달 느린 人^람/유전 질환(- / 一)\n약물력\n\n과거력",
+    "history_blocks": {},
+    "physical_exam_results": "없음",
+    "patient_question_or_concern": "I",
+    "actor_notes_or_special_behavior": "성장표와 발달표 둘 다 주어짐",
+    "raw_profile_text": "성별/나이\n남아/ 만1 세\n“발달이 느린 것 같아요”\n“최근 돌잔치했는데, 나이 비슷한 조카들이랑 차이나는 것 같아요”\n인적 사항\n생년월일로 정확한 만 나이 확인\n성장/발달\n[성장]\n현재 ? ᅵ\n76cm(50%), 체중 1 ()kg(50%)\n[발달]\n혼자 서고 혼자 걸을 수 있다.\n엄지와 집게손가락으로 물건을 집을 수 있다.\n“마마”, \"빠빠”를 할 수 있다.\n간단한 공놀이를 할 수 있다.\n주산기\n출생 당시 : 키 50cm, 체중 3.2kg\n어머니 만 35세에 임신，GA 40주에 출산, 자연분만\n임신 시 술/ 담배/익물/ 감염(一/ - / - / - )\n엽산/철분 (+/+>\n임신 기간 당뇨/고혈압(ᅳ/ᅳ)\n출산 시 아이 문제 (+, 생후 2일 때 황달로 광선 치료 받음)\n신생아\n문제\n대사이상검사/유전자검사/청력검사 이상 없음\n영유아발달선별검사 이때까지 이상 없음\n예방접종 계획대로 잘 맞음\n부르면 뒤 돌아봄, 눈 마주침 문제 없음\n환경\n양육 : 맞벌이로 낮에는 시어머니, 저녁부터는 남편과 같이\n식습관 : 이유식과 분유 3:1 비율\n운동 ：\n활발하게 움직임\n수면 : 문제 없음\n가족력\n아버지 : 180cm, 발달 느렸다는 얘기 들어본 적 없음\n어머니 : 165cm, 초경 중학교 1학년 때\n형제자매 없음\n가족 중 발달 느린 人^람/유전 질환(- / 一)\n약물력\n-\n과거력\n-\nP/E\n없음\n질문\nI\n-\n특이 사항\n성장표와 발달표 둘 다 주어짐"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\nv(v ■\n시■니• 가능성이 높은 진단 1개\n1■정상 발달\n환자",
+    "likely_diagnoses": [
+      "■정상 발달"
+    ],
+    "planned_tests": [
+      "영유아발달검사",
+      "조기언어선별검人^"
+    ],
+    "planned_treatments_or_education": [
+      "동화책 등으로 적절한 언어 지극 제공",
+      "아이와 시간 많이 보내기"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "m\n{ 실전 모의 증례\n• 만 1세 남아 김하율군이 발달이 느린 것 같OF 어머니와 함께 내원하였다.\n[활력 징후] 혈압 : 96/74mmHg\n맥박 : 80회/분\n^•황\n호흡 : 20회/분\n지침\n參 卿 !#i#t\n체온 ：\n36.7°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\nv(v ■\n시■니• 가능성이 높은 진단 1개\n1■정상 발달\n환자\n• 필요한 검사 계획 2가지\n교육\n1. 영유아발달검사\n1. 조기언어선별검人^\n• 필요한 치료 계획 2가지\n1. 동화책 등으로 적절한 언어 지극 제공\n2. 아이와 시간 많이 보내기\n({\nI\n발달지연으로 온환아 증례입니다.\n;\n주어지는 발달표가 일반적으로 교과서에서 보는 발달표와 다를 수 있\n|\n으니 당황하지 말고 질문하도록 합시다.\n；\n성장표나 발달표를보며 현재 아이 상태를 보호자에게 설명할 때, 단순히 정상이라고 말하는 것\n；\n보다는 표를 보호자와 같이 보면서 어떤 부분에서 발달을 평가하는지, 몇 %라는 것이 어떤 의\n；\n\n미인지 등을자세히 설명해 주면 의사•환자관계에 도음이 될 것입니다.\n；\n시어머니가주양육자인 경우는언어 자극이 적을수있으니 부모가o M 와함께 있는시간동\n：\n\n안은 충분히 아이와 놀아주고 언어 자극을 제공할 수 있도록 교육합니 다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [
+      "patient_name_not_confidently_parsed",
+      "structured_history_labels_not_detected"
+    ],
+    "requires_manual_review": true
+  }
+}

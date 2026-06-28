@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hematochezia-003",
+  "case_number_in_pdf": 24,
+  "topic": {
+    "topic_start_page": 59,
+    "topic_id": "hematochezia",
+    "topic_label": "혈변",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 63,
+      "end": 64
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박서연",
+      "age": 20,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "변을 보는데 피가 나와요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "100/76mmHg",
+      "pulse": "68회/분",
+      "respiratory_rate": "18회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/20세\n“변을 보는데 피가 나와요”",
+    "history_blocks": {
+      "onset": "일주일 전",
+      "course": "+, “변 보는 횟수도 늘고 피가 점점 많이 섞여서 나와요\"",
+      "experience": "고등학생 때도 변 볼 때 가끔 피가 나왔음",
+      "character": "변기가 열게 붉게 변하는 정도의 선홍색의 피, 오늘 아침에는 검붉은색\n핏덩이(+), 점액성(+)",
+      "associated_symptoms": "[응급] 어지럼/갈증/두근거림/소변량 감소/호흡곤란(一/ - / - / - / 一)\n[전신] 발열/식은땀/체중 감소/오한/피로감(一/ - / - / - / ᅳ)\n[출혈경향] 없음\n[소화기] 구역/구토/식욕 부진/변비/설사(一/ - / - / ᅳ/+, 한 달 전부터，일주일 전\n부터 피가 나옴, 횟수 증가함)\n복통(+, 변 보기 전에 아픔)，항문 주위 통증/덩이( - / ᅳ)\n속쓰림(一), 혈변(+), 흑색변/복부 압통/반발 압통( - / - / ᅳ)\n변 굵기 변화/뒤무직/잔변감/지방변( - / - / _ / - )",
+      "factors": "배변후복통 완화",
+      "events": "대장내시경/위내시경 받아본 적 없음",
+      "medications": "지사제(+, 일주일 전에 3일 정도 먹었는데 효과 없었음), 홍삼(+)",
+      "social_history": "술(-), 담UH(-), 커피(+, 하루에 1~2잔)\n식사 : 불규칙, 인스턴트 음식 많이 먹음, 직업 (재수생. 스트레스 많음)",
+      "family_history": "아버지 : 대장암(완치됨)",
+      "gynecologic_history": "주기 규칙적, 양 적당, 월경통 적당, 월경과 관련 없음\nGeneral\nV/S 확인\nHEENT\n결막/공막( - / - ) . 입/피부 탈수 소견(一/ - )"
+    },
+    "physical_exam_results": "Abdomen\n복부 시/청/타/촉( - / - / - / + ) , LLQTd/rTd(-/-)\nDRE(+. 시행 후 손가락에 선홍색 피 묻어 나옴), 골반 내진(一)\nExtermity\n피부 긴장도• 오목 부종 정상",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/20세\n“변을 보는데 피가 나와요”\n0\n일주일 전\nL\n-\nD\n-\nCo\n+, “변 보는 횟수도 늘고 피가 점점 많이 섞여서 나와요\"\nEx\n고등학생 때도 변 볼 때 가끔 피가 나왔음\nC\n변기가 열게 붉게 변하는 정도의 선홍색의 피, 오늘 아침에는 검붉은색\n핏덩이(+), 점액성(+)\nA\n[응급] 어지럼/갈증/두근거림/소변량 감소/호흡곤란(一/ - / - / - / 一)\n[전신] 발열/식은땀/체중 감소/오한/피로감(一/ - / - / - / ᅳ)\n[출혈경향] 없음\n[소화기] 구역/구토/식욕 부진/변비/설사(一/ - / - / ᅳ/+, 한 달 전부터，일주일 전\n부터 피가 나옴, 횟수 증가함)\n복통(+, 변 보기 전에 아픔)，항문 주위 통증/덩이( - / ᅳ)\n속쓰림(一), 혈변(+), 흑색변/복부 압통/반발 압통( - / - / ᅳ)\n변 굵기 변화/뒤무직/잔변감/지방변( - / - / _ / - )\nF\n배변후복통 완화\nE\n대장내시경/위내시경 받아본 적 없음\n외\n-\n과\n-\n약\n지사제(+, 일주일 전에 3일 정도 먹었는데 효과 없었음), 홍삼(+)\n사\n술(-), 담UH(-), 커피(+, 하루에 1~2잔)\n식사 : 불규칙, 인스턴트 음식 많이 먹음, 직업 (재수생. 스트레스 많음)\n가\n아버지 : 대장암(완치됨)\n여\n주기 규칙적, 양 적당, 월경통 적당, 월경과 관련 없음\nGeneral\nV/S 확인\nHEENT\n결막/공막( - / - ) . 입/피부 탈수 소견(一/ - )\nP/E\nAbdomen\n복부 시/청/타/촉( - / - / - / + ) , LLQTd/rTd(-/-)\nDRE(+. 시행 후 손가락에 선홍색 피 묻어 나옴), 골반 내진(一)\nExtermity\n피부 긴장도• 오목 부종 정상\n질문\n-\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "염증성 장질환",
+      "과민성 대장증후군"
+    ],
+    "planned_tests": [
+      "대장내시경",
+      "대변검人卜"
+    ],
+    "planned_treatments_or_education": [
+      "약물 치료",
+      "생활 습관 교정"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■\n실전 모의 증례\n^ ■황\n지침\n屬\n.\n• 20세 여자 박서연씨가 변에 피가 나와 내원하였다.\n[활력 징후] 혈압 : 100/76mmHg\n맥박 : 68회/분\n호흡 : 18회/분\n체온 ：\n36.5°C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n현纖^0聽囊놀\n• 가능성이 높은 진단 2개\n1. 염증성 장질환\n2. 과민성 대장증후군\n• 필요한 검사 계획 2가지\n1. 대장내시경\n2. 대변검人卜\n• 필요한 치료 계획 2가지\n1. 약물 치료\n2. 생활 습관 교정\n출혈이 있으므로 탈수와 응고장애를 제일 먼저 확인합니다. 혈변의\n양상, 지속 시간，Ajj 등을 고려하여 원인 질환을 감별합니다. 위장관\n질환들만 염두해 두고 항문을 빠트리는 경우가 혼히 있으므로 배놓지 않고 문진합니다.\n해당 질환은 꾸준한 관리가 중요하다는 점을 상기시켜 주어야 합니다. 생활 습관 교육 시에 포\n괄적으로 말하기 보다는 되도록 환자 맞춤으로 자세히 교육하는 것이 좋습니다.\n이 환자의 경우에도 단순히 식습관을 규칙적으로 하라는 말 대신，요즘 많이 있는 아침 배달 서\n비스를 이용해 보라는 둥의 얘기를 해 줄 수 있겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
