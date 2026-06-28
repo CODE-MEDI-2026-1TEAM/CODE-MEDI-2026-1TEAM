@@ -1,7 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
-import type { CpxCase, Session, SystemTimelineEvent } from '../types';
+import type {
+  CpxCase,
+  PhysicalExamEvent,
+  Session,
+  SystemTimelineEvent,
+} from '../types';
 
 const vitalSigns = [
   ['혈압', '120/82mmHg'],
@@ -104,11 +109,17 @@ export default function ChatSidebar({
           id: event.id,
           kind: 'system' as const,
         })),
+        ...(session?.physicalExamEvents?.map((event) => ({
+          createdAt: event.createdAt,
+          event,
+          id: event.id ?? `${event.examKey}-${event.createdAt}`,
+          kind: 'physicalExam' as const,
+        })) ?? []),
       ].sort(
         (a, b) =>
           new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
       ),
-    [session?.messages, systemTimelineEvents],
+    [session?.messages, session?.physicalExamEvents, systemTimelineEvents],
   );
 
   return (
@@ -196,6 +207,8 @@ export default function ChatSidebar({
               <article className="system-timeline-message" key={item.id}>
                 <p>{item.event.content}</p>
               </article>
+            ) : item.kind === 'physicalExam' ? (
+              <PhysicalExamResultCard event={item.event} key={item.id} />
             ) : (
               <article className={`message ${item.message.role === 'user' ? 'user-message' : 'patient-message'}`} key={item.id}>
                 <span>{item.message.role === 'user' ? '의료진' : '환자'}</span>
@@ -229,6 +242,34 @@ export default function ChatSidebar({
         </div>
       </div>
     </aside>
+  );
+}
+
+function PhysicalExamResultCard({ event }: { event: PhysicalExamEvent }) {
+  const statusLabel =
+    event.status === 'abnormal'
+      ? '비정상'
+      : event.status === 'unavailable'
+        ? '확인 불가'
+        : '정상';
+  const positionLabel = event.position === 'supine' ? '누움' : '앉음';
+  const expectedLabel = event.expectedPosition === 'supine' ? '누움' : '앉음';
+
+  return (
+    <article className={`physical-exam-card ${event.status}`}>
+      <div>
+        <span>신체진찰 결과</span>
+        <strong>{event.label}</strong>
+      </div>
+      <p>{event.result}</p>
+      <footer>
+        <em>{statusLabel}</em>
+        <span>
+          시행 자세 {positionLabel}
+          {event.position !== event.expectedPosition ? ` / 권장 ${expectedLabel}` : ''}
+        </span>
+      </footer>
+    </article>
   );
 }
 

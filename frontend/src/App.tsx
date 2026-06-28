@@ -10,6 +10,7 @@ import type {
   Evaluation,
   HandHygienePhase,
   Message,
+  PhysicalExamEvent,
   Session,
   SystemTimelineEvent,
 } from './types';
@@ -149,16 +150,23 @@ export default function App() {
         simulationCaseId: session.case.simulationCaseId,
         content: trimmed,
         contentLength: trimmed.length,
+        patientPosition: viewMode === 'bed' ? 'supine' : 'sitting',
       });
 
       try {
-        const data = await request<{ message: Message; debug?: object }>(`/sessions/${session.id}/messages`, {
+        const data = await request<{
+          message?: Message;
+          debug?: object;
+        }>(`/sessions/${session.id}/messages`, {
           method: 'POST',
-          body: JSON.stringify({ content: trimmed }),
+          body: JSON.stringify({
+            content: trimmed,
+            patientPosition: viewMode === 'bed' ? 'supine' : 'sitting',
+          }),
         });
         debugConversation('frontend.message.response', {
           sessionId: session.id,
-          assistantReply: data.message.content,
+          assistantReply: data.message?.content ?? null,
           backendDebug: data.debug ?? null,
         });
         const refreshed = await request<{ session: Session }>(
@@ -175,7 +183,7 @@ export default function App() {
         setIsLoading(false);
       }
     },
-    [session],
+    [session, viewMode],
   );
 
   const evaluateSession = useCallback(async () => {
@@ -554,6 +562,10 @@ function EvaluationResultModal({
             )}
           </section>
 
+          <PhysicalExamSummaryCard
+            findings={evaluation.physicalExamFindings ?? []}
+          />
+
           <section className="evaluation-domain-card">
             <div className="evaluation-domain-heading">
               <div>
@@ -645,6 +657,105 @@ function handHygienePhaseLabel(phase: HandHygienePhase) {
   }
 
   return '문진 중 손소독';
+}
+
+const PHYSICAL_EXAM_CHECKLIST = {
+  sitting: [
+    ['head_inspection_palpation', '두부 시진/촉진'],
+    ['oral_tongue_exam', '구강·혀 검사'],
+    ['skin_inspection', '피부 시진'],
+    ['cranial_nerve_exam', '뇌신경검사'],
+    ['cerebellar_exam', '소뇌기능검사'],
+  ],
+  supine: [
+    ['motor_exam', '운동검사'],
+    ['sensory_exam', '감각검사'],
+    ['dtr_exam', '심부건반사(DTR)'],
+    ['neck_stiffness', '경부강직'],
+    ['kernig_sign', 'Kernig'],
+    ['brudzinski_sign', 'Brudzinski'],
+  ],
+} as const;
+
+function PhysicalExamSummaryCard({
+  findings,
+}: {
+  findings: PhysicalExamEvent[];
+}) {
+  const findingsByKey = new Map(
+    findings.map((finding) => [finding.examKey, finding]),
+  );
+
+  return (
+    <section className="evaluation-physical-card">
+      <div>
+        <span>Physical Exam</span>
+        <h3>신체진찰 수행 요약</h3>
+      </div>
+      <div className="evaluation-physical-groups">
+        <PhysicalExamChecklistGroup
+          findingsByKey={findingsByKey}
+          items={PHYSICAL_EXAM_CHECKLIST.sitting}
+          title="앉음"
+        />
+        <PhysicalExamChecklistGroup
+          findingsByKey={findingsByKey}
+          items={PHYSICAL_EXAM_CHECKLIST.supine}
+          title="누움"
+        />
+      </div>
+    </section>
+  );
+}
+
+function PhysicalExamChecklistGroup({
+  findingsByKey,
+  items,
+  title,
+}: {
+  findingsByKey: Map<string, PhysicalExamEvent>;
+  items: readonly (readonly [string, string])[];
+  title: string;
+}) {
+  return (
+    <div className="evaluation-physical-group">
+      <strong>{title}</strong>
+      <ul>
+        {items.map(([key, label]) => {
+          const finding = physicalExamFindingForKey(findingsByKey, key);
+          const statusLabel = finding
+            ? finding.status === 'abnormal'
+              ? '비정상'
+              : finding.status === 'unavailable'
+                ? '확인 불가'
+                : '정상'
+            : '미시행';
+
+          return (
+            <li className={finding ? finding.status : 'missing'} key={key}>
+              <span>{finding ? '✓' : '–'}</span>
+              <p>{label}</p>
+              <em>{statusLabel}</em>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+function physicalExamFindingForKey(
+  findingsByKey: Map<string, PhysicalExamEvent>,
+  key: string,
+) {
+  if (
+    ['brudzinski_sign', 'kernig_sign', 'neck_stiffness'].includes(key) &&
+    findingsByKey.has('meningeal_sign')
+  ) {
+    return findingsByKey.get('meningeal_sign');
+  }
+
+  return findingsByKey.get(key);
 }
 
 function EvaluationMetricCard({

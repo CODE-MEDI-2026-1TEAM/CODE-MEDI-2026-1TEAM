@@ -26,6 +26,17 @@ type ClinicalActionSummary = {
     messageCount: number;
     phase: string;
   }>;
+  physicalExamEvents?: Array<{
+    createdAt: string;
+    examKey: string;
+    expectedPosition: string;
+    label: string;
+    matchedText: string;
+    messageCount: number;
+    position: string;
+    result: string;
+    status: string;
+  }>;
 };
 
 export type EvaluationResult = {
@@ -105,6 +116,7 @@ export class LlmService {
                 clinicalActions: clinicalActions ?? {
                   handHygieneCount: 0,
                   handHygieneEvents: [],
+                  physicalExamEvents: [],
                 },
                 conversation: messages,
               },
@@ -180,6 +192,7 @@ export class LlmService {
   ) {
     const handHygieneCount = clinicalActions?.handHygieneCount ?? 0;
     const handHygieneEvents = clinicalActions?.handHygieneEvents ?? [];
+    const physicalExamEvents = clinicalActions?.physicalExamEvents ?? [];
     const criteriaSection = criteriaPack
       ? [
           '',
@@ -209,6 +222,13 @@ export class LlmService {
       '- Timing matters more than raw count. initial_greeting means hand hygiene before or at first patient greeting and should be strongly credited. before_patient_contact means hand hygiene before touching/examining/moving the patient and should be strongly credited. during_interview is supportive but less important unless it occurs before a patient-contact action.',
       '- Use clinicalActions.handHygieneEvents[].messageCount to judge timing relative to the conversation: messageCount 0 means before any student question; higher values mean later in the interview.',
       '- Mention hand hygiene timing explicitly in strengths, missedItems, or suggestions when it materially affects the score.',
+      'Physical exam scoring rule:',
+      '- clinicalActions.physicalExamEvents are system-observed physical exams. Treat them as completed actions, not patient dialogue.',
+      '- For seizure CPX, strongly evaluate whether the student attempted the sitting exams: head inspection/palpation, oral/tongue exam, skin inspection, cranial nerve exam, cerebellar exam.',
+      '- Also evaluate whether the student attempted the supine exams: motor exam, sensory exam, DTR, neck stiffness, Kernig, Brudzinski, or a complete meningeal sign exam.',
+      '- Credit attempts only when the requested exam is specific enough. Generic phrases such as just "검사하겠습니다" should not count unless a matched physicalExamEvent exists.',
+      '- If position differs from expectedPosition, give partial credit but mention positioning/timing as a suggestion.',
+      '- Use the result/status to judge whether the student should incorporate abnormal findings into clinical reasoning and patient education.',
       'Return valid JSON only with this exact shape:',
       '{"score": number, "strengths": string[], "missedItems": string[], "riskAssessment": string, "suggestions": string[]}',
       'score must be an integer from 0 to 100.',
@@ -221,6 +241,7 @@ export class LlmService {
       `Clinical actions: ${JSON.stringify({
         handHygieneCount,
         handHygieneEvents,
+        physicalExamEvents,
       })}`,
       criteriaSection,
     ].join('\n');
