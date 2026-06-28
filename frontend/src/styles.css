@@ -192,6 +192,9 @@ h1 {
 .case-change-button:hover {
   background: rgba(27, 87, 74, 0.92);
 }
+.simulation-app.modal-open .patient-bubble {
+  display: none;
+}
 
 .case-modal-backdrop {
   position: absolute;
@@ -321,9 +324,8 @@ h1 {
 .case-manual-toggle {
   @apply text-label-03;
 
-  justify-self: start;
   min-width: 132px;
-  height: 40px;
+  height: 44px;
   padding: 0 16px;
   color: #23695a;
   cursor: pointer;

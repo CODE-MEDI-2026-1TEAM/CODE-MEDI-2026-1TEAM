@@ -136,11 +136,11 @@ export default function App() {
   }, []);
 
   return (
-    <main className="simulation-app">
+    <main className={isCaseModalOpen ? 'simulation-app modal-open' : 'simulation-app'}>
       <ClinicScene
         isPatientSpeaking={isPatientSpeaking}
         patientReply={patientReply}
-        showPatientBubble={!isCaseModalOpen}
+        showPatientBubble={!isCaseModalOpen && Boolean(session)}
       />
 
       <div className="scene-overlay top-left">
@@ -204,18 +204,8 @@ export default function App() {
                     </section>
                   </div>
 
-                  <div className="manual-case-section">
-                    <button
-                      aria-expanded={isManualSelectionOpen}
-                      className="case-manual-toggle"
-                      disabled={isAssigningCase || isLoading}
-                      onClick={() => setIsManualSelectionOpen((isOpen) => !isOpen)}
-                      type="button"
-                    >
-                      {isManualSelectionOpen ? '직접 선택 닫기' : '직접 선택'}
-                    </button>
-
-                    {isManualSelectionOpen ? (
+                  {isManualSelectionOpen ? (
+                    <div className="manual-case-section">
                       <div className="manual-case-list">
                         {cases.map((cpxCase) => {
                           const isSelected = assignedCase?.slug === cpxCase.slug;
@@ -239,8 +229,8 @@ export default function App() {
                           );
                         })}
                       </div>
-                    ) : null}
-                  </div>
+                    </div>
+                  ) : null}
                 </>
               ) : (
                 <div className="case-option-empty">
@@ -258,6 +248,15 @@ export default function App() {
                 type="button"
               >
                 {isAssigningCase ? '배정 중' : assignedCase ? '다시 배정' : '무작위 배정'}
+              </button>
+              <button
+                aria-expanded={isManualSelectionOpen}
+                className="case-manual-toggle"
+                disabled={cases.length === 0 || isAssigningCase || isLoading}
+                onClick={() => setIsManualSelectionOpen((isOpen) => !isOpen)}
+                type="button"
+              >
+                {isManualSelectionOpen ? '직접 선택 닫기' : '직접 선택'}
               </button>
               <button
                 className="case-start-button"
