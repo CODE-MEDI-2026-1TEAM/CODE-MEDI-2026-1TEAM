@@ -175,6 +175,151 @@ h1 {
   font-size: 14px;
   font-weight: 700;
 }
+.case-change-button {
+  @apply text-label-05;
+
+  display: block;
+  width: fit-content;
+  margin-top: 14px;
+  padding: 8px 11px;
+  color: #dff8ef;
+  cursor: pointer;
+  pointer-events: auto;
+  background: rgba(35, 105, 90, 0.82);
+  border: 1px solid rgba(134, 209, 180, 0.42);
+  border-radius: 6px;
+}
+.case-change-button:hover {
+  background: rgba(27, 87, 74, 0.92);
+}
+
+.case-modal-backdrop {
+  position: absolute;
+  z-index: 40;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 12, 16, 0.64);
+  backdrop-filter: blur(10px);
+}
+.case-modal {
+  width: min(760px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: auto;
+  color: #1d2a31;
+  background: #fff;
+  border: 1px solid rgba(220, 229, 231, 0.9);
+  border-radius: 8px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+}
+.case-modal-header {
+  padding: 24px 26px 18px;
+  border-bottom: 1px solid #e4ebed;
+}
+.case-modal-header .eyebrow {
+  color: #23695a;
+}
+.case-modal-header h2 {
+  @apply text-head-03;
+
+  margin: 0 0 8px;
+  color: #17242a;
+}
+.case-modal-header p:last-child {
+  @apply text-body-02;
+
+  margin: 0;
+  color: #617178;
+}
+.case-option-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 20px 20px;
+}
+.case-option {
+  display: grid;
+  gap: 10px;
+  min-height: 176px;
+  padding: 16px;
+  color: #1d2a31;
+  text-align: left;
+  cursor: pointer;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+}
+.case-option:hover {
+  border-color: #86d1b4;
+  box-shadow: 0 12px 26px rgba(35, 105, 90, 0.11);
+}
+.case-option.selected {
+  background: #e8f5f0;
+  border-color: #23695a;
+  box-shadow: inset 0 0 0 1px #23695a;
+}
+.case-option-group {
+  @apply text-label-05;
+
+  width: fit-content;
+  padding: 5px 8px;
+  color: #23695a;
+  background: #fff;
+  border: 1px solid #cfe4dc;
+  border-radius: 6px;
+}
+.case-option strong {
+  @apply text-subtitle-03;
+
+  color: #17242a;
+}
+.case-option-meta {
+  @apply text-caption-02;
+
+  color: #617178;
+}
+.case-option-complaint {
+  @apply text-label-05;
+
+  align-self: end;
+  color: #9a3b2f;
+}
+.case-option-empty {
+  display: grid;
+  grid-column: 1 / -1;
+  gap: 6px;
+  padding: 18px;
+  color: #617178;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+}
+.case-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 20px 20px;
+  border-top: 1px solid #e4ebed;
+}
+.case-start-button {
+  @apply text-label-03;
+
+  min-width: 132px;
+  height: 44px;
+  padding: 0 18px;
+  color: #fff;
+  cursor: pointer;
+  background: #23695a;
+  border: 0;
+  border-radius: 6px;
+}
+.case-start-button:hover {
+  background: #1b574a;
+}
+.case-start-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
 
 .chat-sidebar {
   position: absolute;
@@ -460,6 +605,31 @@ h1 {
     left: 14px;
     max-width: calc(100vw - 28px);
     padding: 12px 14px;
+  }
+  .case-modal-backdrop {
+    align-items: start;
+    padding: 14px;
+    overflow: auto;
+  }
+  .case-modal {
+    width: 100%;
+    max-height: none;
+  }
+  .case-modal-header {
+    padding: 18px 18px 14px;
+  }
+  .case-option-grid {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+  .case-option {
+    min-height: 138px;
+  }
+  .case-modal-actions {
+    padding: 14px;
+  }
+  .case-start-button {
+    width: 100%;
   }
   h1 {
     font-size: 20px;
