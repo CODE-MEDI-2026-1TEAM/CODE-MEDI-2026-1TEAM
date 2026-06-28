@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: code-medi-seizure-api
+    runtime: node
+    plan: free
+    region: singapore
+    rootDir: backend
+    buildCommand: npm install --include=dev && npm run build
+    preDeployCommand: npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json
+    startCommand: npm run start:prod
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22.12.0"
+      - key: DATABASE_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-4.1-mini
+      - key: OPENAI_EMBEDDING_MODEL
+        value: text-embedding-3-small
+      - key: RAG_TOP_K
+        value: "3"
+      - key: RAG_MIN_SCORE
+        value: "0.38"
+      - key: RAG_SEMANTIC_MIN_SCORE
+        value: "0.30"
+      - key: RAG_VECTOR_WEIGHT
+        value: "0.75"
+      - key: RAG_KEYWORD_WEIGHT
+        value: "0.25"
+      - key: SIMULATION_RAG_TOP_K
+        value: "3"
+      - key: SIMULATION_RAG_MIN_SCORE
+        value: "0.20"
+      - key: SIMULATION_RAG_NEAR_MISS_SCORE
+        value: "0.10"
+      - key: SIMULATION_RAG_EMBED_BATCH_SIZE
+        value: "64"
+      - key: ENABLE_RAG_DEBUG
+        value: "false"

@@ -3,7 +3,11 @@ import ChatSidebar from './components/ChatSidebar';
 import ClinicScene from './components/ClinicScene';
 import type { CpxCase, Message, Session } from './types';
 
-const apiBaseUrl = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:3000';
+const apiBaseUrl =
+  import.meta.env.VITE_API_BASE_URL ??
+  (import.meta.env.PROD
+    ? 'https://code-medi-2026-1team.onrender.com'
+    : 'http://localhost:3000');
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
   const response = await fetch(`${apiBaseUrl}${path}`, {

@@ -99,12 +99,14 @@ npm run dev:frontend # Vite dev server
 
 ## Render Backend Deploy
 
-Render Web Service 설정 예시:
+Render Web Service 설정 예시입니다. 루트의 `render.yaml`을 Blueprint로 연결하면 아래 설정이 자동 반영됩니다.
 
 ```txt
 Root Directory: backend
 Build Command: npm install && npm run prisma:generate && npm run build
+Pre-Deploy Command: npm run prisma:deploy && npm run prisma:seed && npm run rag:import -- data/cases/seizure-21m.json
 Start Command: npm run start:prod
+Health Check Path: /health
 ```
 
 Render Environment Variables:
@@ -113,8 +115,31 @@ Render Environment Variables:
 DATABASE_URL="Supabase session pooler URL"
 OPENAI_API_KEY="OpenAI API key"
 OPENAI_MODEL="gpt-4.1-mini"
-PORT=3000
 ```
+
+Render가 `PORT`를 자동으로 주입하므로 배포 환경에서는 직접 설정하지 않아도 됩니다.
+
+Supabase 연결 문자열은 Supabase 프로젝트의 `Connect` 메뉴에서 가져옵니다. Migration과 seed가 pre-deploy에서 실행되므로, 첫 배포 전에 Supabase DB 비밀번호와 OpenAI API key만 Render에 입력하면 됩니다.
+
+## Vercel Frontend Deploy
+
+Vercel에서는 같은 GitHub repo를 import하고 Root Directory를 `frontend`로 지정합니다.
+
+```txt
+Framework Preset: Vite
+Root Directory: frontend
+Install Command: npm install
+Build Command: npm run build
+Output Directory: dist
+```
+
+프론트 환경변수:
+
+```env
+VITE_API_BASE_URL=https://your-render-service.onrender.com
+```
+
+백엔드 Render URL이 확정된 뒤 Vercel의 Production/Preview 환경변수에 동일하게 입력합니다.
 
 ## API
 
