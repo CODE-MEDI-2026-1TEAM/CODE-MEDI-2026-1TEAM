@@ -804,12 +804,6 @@ h1 {
   font-style: normal;
   color: #617178;
 }
-.evaluation-physical-empty {
-  @apply text-body-02;
-
-  margin: 14px 0 0;
-  color: #55656d;
-}
 .evaluation-hygiene-card ul {
   display: flex;
   flex-wrap: wrap;
