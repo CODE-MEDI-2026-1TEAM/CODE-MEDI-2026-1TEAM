@@ -6,7 +6,6 @@ import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
 import { DEFAULT_VITALS } from './vitals';
-import type { CpxCase, Message, Session } from './types';
 import type { CpxCase, Evaluation, Message, Session } from './types';
 
 export default function App() {
@@ -43,13 +42,13 @@ export default function App() {
       choosePatientCaseKey(
         activeCase
           ? {
-              age: activeCase.patientProfile.age,
-              ageRaw: activeCase.patientProfile.ageRaw,
-              name: activeCase.patientProfile.name,
-              seed: activeCase.slug,
-              sex: activeCase.patientProfile.sex,
-              title: activeCase.title,
-            }
+            age: activeCase.patientProfile.age,
+            ageRaw: activeCase.patientProfile.ageRaw,
+            name: activeCase.patientProfile.name,
+            seed: activeCase.slug,
+            sex: activeCase.patientProfile.sex,
+            title: activeCase.title,
+          }
           : null,
       ),
     [activeCase],
@@ -172,11 +171,11 @@ export default function App() {
       setSession((current) =>
         current?.id === session.id
           ? {
-              ...current,
-              status: 'completed',
-              endedAt: new Date().toISOString(),
-              evaluation: data.evaluation,
-            }
+            ...current,
+            status: 'completed',
+            endedAt: new Date().toISOString(),
+            evaluation: data.evaluation,
+          }
           : current,
       );
       setIsEvaluationModalOpen(true);
@@ -214,7 +213,6 @@ export default function App() {
           isPatientSpeaking={isPatientSpeaking}
           patientCaseKey={patientCaseKey}
           patientReply={patientReply}
-          showPatientBubble={!isCaseModalOpen && Boolean(session)}
           vitals={DEFAULT_VITALS}
           showPatientBubble={
             !isCaseModalOpen &&
