@@ -612,6 +612,7 @@ export class SessionsService {
           score: evaluation.score,
           strengths: evaluation.strengths,
           missedItems: evaluation.missedItems,
+          missedItemStatus: evaluation.missedItemStatus,
           riskAssessment: evaluation.riskAssessment,
           suggestions: evaluation.suggestions,
           caseInstructionStatus: evaluation.caseInstructionStatus,
