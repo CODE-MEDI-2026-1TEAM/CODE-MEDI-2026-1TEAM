@@ -19,3 +19,26 @@ export const DEFAULT_VITALS: VitalSigns = {
   rr: '18',
   temp: '36.5',
 };
+
+export type SourceVitalSigns = {
+  맥박?: string;
+  체온?: string;
+  혈압?: string;
+  호흡?: string;
+} | null | undefined;
+
+export function resolveVitalSigns(source: SourceVitalSigns): VitalSigns {
+  if (!source) return DEFAULT_VITALS;
+
+  return {
+    bp: stripUnit(source.혈압, /mmhg/gi) ?? DEFAULT_VITALS.bp,
+    hr: stripUnit(source.맥박, /회\s*\/\s*분/g) ?? DEFAULT_VITALS.hr,
+    rr: stripUnit(source.호흡, /회\s*\/\s*분/g) ?? DEFAULT_VITALS.rr,
+    temp: stripUnit(source.체온, /℃|°C/gi) ?? DEFAULT_VITALS.temp,
+  };
+}
+
+function stripUnit(value: string | undefined, unitPattern: RegExp) {
+  const normalized = value?.replace(unitPattern, '').trim();
+  return normalized || undefined;
+}

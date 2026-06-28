@@ -46,6 +46,12 @@ export type CpxCase = {
     occupation?: string;
     respondent?: string;
     tone?: string;
+    vitalSigns?: {
+      맥박?: string;
+      체온?: string;
+      혈압?: string;
+      호흡?: string;
+    };
   };
   openingStatement: string;
 };

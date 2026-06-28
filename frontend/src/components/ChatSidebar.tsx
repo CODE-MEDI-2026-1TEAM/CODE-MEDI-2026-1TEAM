@@ -49,6 +49,7 @@ export default function ChatSidebar({
   }, [latestMessageId, messageCount, isLoading]);
 
   const profile = activeCase?.patientProfile;
+  const chatPatientLabel = profile?.age == null ? '보호자' : '환자';
   const displayAge = profile?.age
     ? `${profile.age}세`
     : (profile?.ageRaw ?? '-');
@@ -154,11 +155,11 @@ export default function ChatSidebar({
         <div className="message-list" ref={messageListRef}>
           {session?.messages.map((message) => (
             <article className={`message ${message.role === 'user' ? 'user-message' : 'patient-message'}`} key={message.id}>
-              <span>{message.role === 'user' ? '의료진' : '환자'}</span>
+              <span>{message.role === 'user' ? '의료진' : chatPatientLabel}</span>
               <p>{message.content}</p>
             </article>
           ))}
-          {isLoading ? <article className="message patient-message pending"><span>환자</span><p>응답을 생각하고 있습니다…</p></article> : null}
+          {isLoading ? <article className="message patient-message pending"><span>{chatPatientLabel}</span><p>응답을 생각하고 있습니다…</p></article> : null}
         </div>
       </section>
 

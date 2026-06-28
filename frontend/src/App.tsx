@@ -5,7 +5,7 @@ import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
-import { DEFAULT_VITALS } from './vitals';
+import { resolveVitalSigns } from './vitals';
 import type { CpxCase, Evaluation, Message, Session } from './types';
 
 export default function App() {
@@ -59,6 +59,10 @@ export default function App() {
     (activeCase ? '안녕하세요.' : null) ??
     '진료를 시작하면 환자 응답이 여기에 표시됩니다.';
   const isPatientSpeaking = Boolean(latestAssistantMessage) && !isLoading;
+  const vitals = useMemo(
+    () => resolveVitalSigns(activeCase?.patientProfile.vitalSigns),
+    [activeCase?.patientProfile.vitalSigns],
+  );
 
   const clearError = useCallback(() => setError(null), []);
 
@@ -213,7 +217,7 @@ export default function App() {
           isPatientSpeaking={isPatientSpeaking}
           patientCaseKey={patientCaseKey}
           patientReply={patientReply}
-          vitals={DEFAULT_VITALS}
+          vitals={vitals}
           showPatientBubble={
             !isCaseModalOpen &&
             !isEvaluationModalOpen &&
@@ -263,7 +267,7 @@ export default function App() {
         onOpenEvaluation={() => setIsEvaluationModalOpen(true)}
         onSendMessage={sendMessage}
         session={session}
-        vitals={DEFAULT_VITALS}
+        vitals={vitals}
       />
 
       {session?.evaluation && isEvaluationModalOpen ? (
