@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cpx-16-dyspnea",
+  "clinical_expression_number": 16,
+  "title_ko": "호흡곤란",
+  "domain_ko": "호흡기",
+  "source_document": "CPX 총론.pdf",
+  "source_pdf_pages": {
+    "start": 178,
+    "end": 185
+  },
+  "source_markdown": "docs/modules/16_dyspnea.md",
+  "retrieval_tags": [
+    "호흡곤란",
+    "호흡기",
+    "CPX",
+    "병력청취",
+    "신체진찰",
+    "환자교육"
+  ],
+  "evaluation_use": {
+    "required_common_rubric_ids": [
+      "history_taking",
+      "patient_education",
+      "ppi_listening",
+      "ppi_patient_context",
+      "ppi_understandable_explanation",
+      "ppi_rapport",
+      "ppi_structure",
+      "physical_exam_attitude",
+      "common_safety"
+    ],
+    "module_specific_evaluation_blocks": [
+      {
+        "id": "history_taking",
+        "label": "증례 특이 병력 청취",
+        "source_hint": "기본진찰사항 > 병력청취"
+      },
+      {
+        "id": "physical_exam",
+        "label": "증례 특이 신체 진찰 및 임상술기",
+        "source_hint": "P/E, 신체 진찰, 임상술기"
+      },
+      {
+        "id": "patient_education",
+        "label": "증례 특이 환자 교육",
+        "source_hint": "STEP, 교육, 환자 안내/생활 습관 교육"
+      },
+      {
+        "id": "diagnostic_reasoning",
+        "label": "감별 진단·검사·치료 설명",
+        "source_hint": "질병별 진단/치료 계획, 증례별 알고리즘, 기본적 진단 계획"
+      }
+    ],
+    "implementation_note": "이 JSON은 모듈 라우팅·검색용이다. 항목별 정답 판정은 케이스 데이터의 required_questions, red_flags, required_exam, patient_education_points를 우선한다."
+  },
+  "extracted_hints": {
+    "history_taking_text": "",
+    "physical_exam_text": "[임상 술기] 모형이준비되어 있음\n술기\n1•동맥혈채혈\nᅳ 협조해 주셔서 감사합니다. 불편한 것은 없으신가요?\n공감\n숨이 찬 증상이 있어 많이 불편하고 걱정이 되셨겠습니다.\n추정\n진단\n지금까지의 문진과 신체 검진 소견을 종합해 보았을 때 환자분의 흡연력으로 미루어 보아\n현재 만성 폐쇄 폐질환이 가장 의심됩니다.\n감별\n진단\n하지만 천식이나 사이질 폐질환 등 호흡곤란을 일으킬 수 있는 다른 질환들도 완전히 배제할\n수는^습니다.\n검사\n따라서 정확한 진단을 위해 흉부 X-ray, 폐기능검사. 그리고 동맥혈 가스 분석 등이 필요할\n것으로 보입니다. 괜찮으신가요?\n치료\n만약 검사를 통해 만성 폐쇄 폐질환이 확진된다면 치료를 위해 기관지확장제 등의 약물\n치료로 호흡곤란 증세를 호전시킬 수 있습니다. 산소 치료도 도움이 될 것입니다.\n예후\n지금부터 잘 치료를 받으시면 호전되실 수 있으니 너무 염려하지 마세요*\n교육\n[응급]\n갑자기 호흡곤란이 심해지는 경우에는 응급 상황일 수 있으니 바로 병원으로 오\n셔야 하고, 지속적으로 호흡곤란이 있는 경우에는 장기적인 관리가 필요합니다.\n[예방접종]\n원래 기관지가 약한 편이므로 앞0 무1? 폐렴 예방접종이나 주기적으로 독감 예\n방접종을 하시는 것이 증상 완호WI 도움이 될 것입니다.\n[금연 권괴 담배를 통해 유해 가스가 폐로 들어가게 되면 잦은 기침을 유발하여 불편할 뿐\n아니라 폐암이나 만성 폐쇄 폐질환과 같은 심각한 폐질환을 일으킬 수 있습니\n다. 이번 기회에 금연을 하시는 것은 어떨까요?\n질문\n마지^•으로:5시 궁금한 점이 있으신가요?"
+  },
+  "quality_note": "도표·알고리즘·표는 PDF 텍스트 레이어의 읽기 순서가 흐트러질 수 있다. 원본 PDF 쪽수와 함께 사용한다."
+}
