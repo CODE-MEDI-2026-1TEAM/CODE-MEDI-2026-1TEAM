@@ -10,6 +10,7 @@ export default function App() {
   const [assignedCase, setAssignedCase] = useState<CpxCase | null>(null);
   const [isCaseModalOpen, setIsCaseModalOpen] = useState(true);
   const [isAssigningCase, setIsAssigningCase] = useState(false);
+  const [isManualSelectionOpen, setIsManualSelectionOpen] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -64,6 +65,7 @@ export default function App() {
   const openCaseModal = useCallback(() => {
     setAssignedCase(null);
     setIsAssigningCase(false);
+    setIsManualSelectionOpen(false);
     setIsCaseModalOpen(true);
   }, []);
 
@@ -72,6 +74,7 @@ export default function App() {
 
     setIsAssigningCase(true);
     setAssignedCase(null);
+    setIsManualSelectionOpen(false);
     setError(null);
 
     window.setTimeout(() => {
@@ -81,6 +84,11 @@ export default function App() {
       setIsAssigningCase(false);
     }, 900);
   }, [cases, isAssigningCase, isLoading]);
+
+  const selectCaseManually = useCallback((cpxCase: CpxCase) => {
+    setAssignedCase(cpxCase);
+    setSelectedCaseSlug(cpxCase.slug);
+  }, []);
 
   const startAssignedCase = useCallback(() => {
     if (!assignedCase) return;
@@ -169,30 +177,70 @@ export default function App() {
             <div className="case-assignment-panel">
               {cases.length > 0 ? (
                 <>
-                  <div className={isAssigningCase ? 'assignment-orbit spinning' : 'assignment-orbit'}>
-                    <span />
-                    <strong>{isAssigningCase ? '배정 중' : assignedCase ? '배정 완료' : '대기 중'}</strong>
+                  <div className="case-assignment-main">
+                    <div className={isAssigningCase ? 'assignment-orbit spinning' : 'assignment-orbit'}>
+                      <span />
+                      <strong>{isAssigningCase ? '배정 중' : assignedCase ? '배정 완료' : '대기 중'}</strong>
+                    </div>
+
+                    <section className="assigned-case-card" aria-live="polite">
+                      {assignedCase ? (
+                        <>
+                          <span className="case-option-group">
+                            {getCaseAgeGroup(assignedCase)}
+                          </span>
+                          <strong>{patientDisplayName(assignedCase)}</strong>
+                          <span className="case-option-meta">
+                            {formatCaseMeta(assignedCase)}
+                          </span>
+                          <span>{assignedCase.title}</span>
+                        </>
+                      ) : (
+                        <>
+                          <strong>아직 배정된 환자가 없습니다.</strong>
+                          <span>배정 버튼을 누르면 경련 케이스 중 하나가 무작위로 선택됩니다.</span>
+                        </>
+                      )}
+                    </section>
                   </div>
 
-                  <section className="assigned-case-card" aria-live="polite">
-                    {assignedCase ? (
-                      <>
-                        <span className="case-option-group">
-                          {getCaseAgeGroup(assignedCase)}
-                        </span>
-                        <strong>{patientDisplayName(assignedCase)}</strong>
-                        <span className="case-option-meta">
-                          {formatCaseMeta(assignedCase)}
-                        </span>
-                        <span>{assignedCase.title}</span>
-                      </>
-                    ) : (
-                      <>
-                        <strong>아직 배정된 환자가 없습니다.</strong>
-                        <span>배정 버튼을 누르면 경련 케이스 중 하나가 무작위로 선택됩니다.</span>
-                      </>
-                    )}
-                  </section>
+                  <div className="manual-case-section">
+                    <button
+                      aria-expanded={isManualSelectionOpen}
+                      className="case-manual-toggle"
+                      disabled={isAssigningCase || isLoading}
+                      onClick={() => setIsManualSelectionOpen((isOpen) => !isOpen)}
+                      type="button"
+                    >
+                      {isManualSelectionOpen ? '직접 선택 닫기' : '직접 선택'}
+                    </button>
+
+                    {isManualSelectionOpen ? (
+                      <div className="manual-case-list">
+                        {cases.map((cpxCase) => {
+                          const isSelected = assignedCase?.slug === cpxCase.slug;
+
+                          return (
+                            <button
+                              aria-pressed={isSelected}
+                              className={isSelected ? 'manual-case-option selected' : 'manual-case-option'}
+                              key={cpxCase.id}
+                              onClick={() => selectCaseManually(cpxCase)}
+                              type="button"
+                            >
+                              <span className="case-option-group">
+                                {getCaseAgeGroup(cpxCase)}
+                              </span>
+                              <strong>{patientDisplayName(cpxCase)}</strong>
+                              <span className="case-option-meta">
+                                {formatCaseMeta(cpxCase)}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    ) : null}
+                  </div>
                 </>
               ) : (
                 <div className="case-option-empty">
