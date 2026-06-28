@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cpx-23-weight_loss",
+  "clinical_expression_number": 23,
+  "title_ko": "체중 감소",
+  "domain_ko": "전신",
+  "source_document": "CPX 총론.pdf",
+  "source_pdf_pages": {
+    "start": 238,
+    "end": 245
+  },
+  "source_markdown": "docs/modules/23_weight_loss.md",
+  "retrieval_tags": [
+    "체중 감소",
+    "전신",
+    "CPX",
+    "병력청취",
+    "신체진찰",
+    "환자교육"
+  ],
+  "evaluation_use": {
+    "required_common_rubric_ids": [
+      "history_taking",
+      "patient_education",
+      "ppi_listening",
+      "ppi_patient_context",
+      "ppi_understandable_explanation",
+      "ppi_rapport",
+      "ppi_structure",
+      "physical_exam_attitude",
+      "common_safety"
+    ],
+    "module_specific_evaluation_blocks": [
+      {
+        "id": "history_taking",
+        "label": "증례 특이 병력 청취",
+        "source_hint": "기본진찰사항 > 병력청취"
+      },
+      {
+        "id": "physical_exam",
+        "label": "증례 특이 신체 진찰 및 임상술기",
+        "source_hint": "P/E, 신체 진찰, 임상술기"
+      },
+      {
+        "id": "patient_education",
+        "label": "증례 특이 환자 교육",
+        "source_hint": "STEP, 교육, 환자 안내/생활 습관 교육"
+      },
+      {
+        "id": "diagnostic_reasoning",
+        "label": "감별 진단·검사·치료 설명",
+        "source_hint": "질병별 진단/치료 계획, 증례별 알고리즘, 기본적 진단 계획"
+      }
+    ],
+    "implementation_note": "이 JSON은 모듈 라우팅·검색용이다. 항목별 정답 판정은 케이스 데이터의 required_questions, red_flags, required_exam, patient_education_points를 우선한다."
+  },
+  "extracted_hints": {
+    "history_taking_text": "",
+    "physical_exam_text": "이제 신체 진찰을 하도록 할텐데요* 괜찮으신가요?\n가장 먼저 키/ 체중/허리둘레 확인 or 측정*\n[앉아세 1• 눈 : 결막(빈혈)，공막(황달)\n2. 입★: 구강, 치아(신경성 식욕부진, 토혈 흔적 확인)\n3. 목* : 갑상샘 촉진，림프절 비대(암)\n4. 흉부 진찰 : 심음，호흡음 청진(결핵, 폐암)\n[누워세 5. 복부 진찰★: 시- 청- 타-촉 (간, 비 종대 및 종괴 유무 확인)\n6. 사지 : 피부 긴장도(탈수)\n축讀變§ 嚷\n술기\n[임상 술기] 모형이준비되어 있음\n1. 항문 직장 진찰\nᅳ 협조해 주셔서 감사합니다. 불편한 점은 없으신가요?"
+  },
+  "quality_note": "도표·알고리즘·표는 PDF 텍스트 레이어의 읽기 순서가 흐트러질 수 있다. 원본 PDF 쪽수와 함께 사용한다."
+}

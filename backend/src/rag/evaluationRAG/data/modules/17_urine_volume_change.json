@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cpx-17-urine_volume_change",
+  "clinical_expression_number": 17,
+  "title_ko": "소변량 변화(다뇨증/핍뇨)",
+  "domain_ko": "신장/비뇨",
+  "source_document": "CPX 총론.pdf",
+  "source_pdf_pages": {
+    "start": 186,
+    "end": 195
+  },
+  "source_markdown": "docs/modules/17_urine_volume_change.md",
+  "retrieval_tags": [
+    "소변량 변화(다뇨증/핍뇨)",
+    "신장/비뇨",
+    "CPX",
+    "병력청취",
+    "신체진찰",
+    "환자교육"
+  ],
+  "evaluation_use": {
+    "required_common_rubric_ids": [
+      "history_taking",
+      "patient_education",
+      "ppi_listening",
+      "ppi_patient_context",
+      "ppi_understandable_explanation",
+      "ppi_rapport",
+      "ppi_structure",
+      "physical_exam_attitude",
+      "common_safety"
+    ],
+    "module_specific_evaluation_blocks": [
+      {
+        "id": "history_taking",
+        "label": "증례 특이 병력 청취",
+        "source_hint": "기본진찰사항 > 병력청취"
+      },
+      {
+        "id": "physical_exam",
+        "label": "증례 특이 신체 진찰 및 임상술기",
+        "source_hint": "P/E, 신체 진찰, 임상술기"
+      },
+      {
+        "id": "patient_education",
+        "label": "증례 특이 환자 교육",
+        "source_hint": "STEP, 교육, 환자 안내/생활 습관 교육"
+      },
+      {
+        "id": "diagnostic_reasoning",
+        "label": "감별 진단·검사·치료 설명",
+        "source_hint": "질병별 진단/치료 계획, 증례별 알고리즘, 기본적 진단 계획"
+      }
+    ],
+    "implementation_note": "이 JSON은 모듈 라우팅·검색용이다. 항목별 정답 판정은 케이스 데이터의 required_questions, red_flags, required_exam, patient_education_points를 우선한다."
+  },
+  "extracted_hints": {
+    "history_taking_text": "",
+    "physical_exam_text": "손씻개\nr..:■\n.薄펴'\n■；；^ g\n胃 V ! ' '4\n이제 신체 진찰을 하도록 할텐데요，괜찮으신가요?\n[앉아세 1• 눈 : 결막(빈혈) 懲 다뇨증일 때 시야검사{중추요붕증)\n2. 입 : 구강 점막(탈수) 馨 핍뇨일 때 호흡음 청진，심음 청진\n3. CVAT*\n[누워세 4. 복부 진찰★ : 시- 청- 타-촉ᅳ종괴 유무, 신동맥 bruit，방광 비대 여부\n(suprapubic tenderness)\n5. 사지 : 손등 피부 긴장도，하지 오목 부종(pitting edema)\n6. DRE : 직장수지검人卜\nᅳ 협조해 주셔서 감사합니다. 불편한 점은 없으신가요?\n□ 환자교육\n다뇨증{Pdyuria)\n핍뇨(Oliguria)\n공감\n소변량이 많아져서 걱정이 많이 되셨을 텐\n데요*\n갑자기 소변이 나오지 않아 걱정이 많이 되셨\n을 텐데요.\n추정\n진단\n지금까지의 문진과 신체 검진 소견을 종합해\n보았을 때 0 0 ◦로 미루어 보아 당뇨에\n의한 다뇨증의 가능성이 높아 보입니다.\n지금까지의 문진과 신체 검진 소견을 종합해\n보았을 때 0 0 0 로 미루어 보아 탈수에 의한\n급성 신손상의 가능성이 높아 보입니다.\n감별\n전단\n:\n하지만 이 외에도 뇌 이상에 의한 중추요붕\n증이나 신장 이상에 의한 신장기원요붕증\n등 다른 원인들도 완전히 배제할 수 없습니\n다.\n하지만 이 외에도 약물에 의한 급성 신손상 등\n소변이 안 나오게 될 수 있는 다른 원인들\n도 완전히 배제할 수 없습니다.\n검사\n：\n■.；\"：. . -；； ■ ■\n따라서 정확한 진단을 위해 소변검사와 혈\n중포도당검사를 시행하고자 합니다. 그리\n고 현재 다뇨로 인해 탈수가 진행되지는\n않았는지 혈중전해질 농도도 측정해보려\n고 하는데 괜찮으실까요?\n따라서 정확한 진단을 위해 소변검사와 신기능\n검사를 시행하고자 합니다. 그리고 현재\n탈수가 진행되지는 않았는지 혈중전해질\n농도도 측정해보려고 하는데 괜찮으실까\n요?\np\n•\n치료\n\\ 기니\n만약 당뇨병으로 진단이 되게 된다면 약물\n치료가 필요합니다. 혈당강하제를 통해\n혈당을 조절하실 수 있게 도와드리겠습\n니다.\n만약 탈수에 의한 급성 신손상으로 진단이 되\n게 된다면 가장 먼저 수액 치료를 시행할\n것입니다.\n예후\n지금부터 치료를 잘 받으시면 호전되실 수 있습니다. 증상이 있을 때 병원에 잘 오셨습니다.\n7>ti ~ 나:\n틀\n龜^^튼\n틀\n^률^^^^\n® 헬\n교육\n缺4. 른촉놓!^!\n[탈수 위험성 교육] 만약 정확한 진단이 되\n기 전까지 어지럼이나 두근거림 등의 탈\n수 증상이 나타나면 즉시 수액 공급이 필\n요할 수 있기 때문에 이런 증상에 주의해\n주셔야 합니다.\n[생활 습관 개선] 현재 다뇨 증상이 심하시\n기 때문에 식생활의 개선이 필요해 보입\n니다. 저염식과 저단백질식이를 하시고,\n이뇨 작용이 있을 수 있는 카페인이나 녹\n차는 줄여주세요.\n[배뇨습관교육] 또한소변을본이후에\n10~1 5분 정도 기다렸다가 다시 한 번\n소변을 보러 가는 것(double voiding)도\n도움이 될 수 있습니다.\n[탈수 위험성교육] 만약 정확한 진단이 되기\n전까지 어지럼이나 두근거림 등의 탈수 증\n상이 나타나면 즉시 수액 공급이 필요할 수\n있기 때문에 이런 증상에 주의해 주셔야 합\n니다.\n[약물 위험성 교육]\n현재 복용하고 계신\n0 0 0 약은 신독성이 있는 약입니다. 따라\n서 지금 이 익을 중단하고 다른 약으로 교\n체하는 것이 필요합니다.\n[배뇨 습관 교육] 입원하지않는경우배뇨\n일지 작성이 필요할 수 있습니다.\n[응급투석경고] 추후에도계속 소변이안\n나온다면 응급 혈액 투석이 필요할 수 있\n습니다.\n마지막으로 혹시 궁금한 점이 있으신가요?\n다뇨증 (Polyuria)"
+  },
+  "quality_note": "도표·알고리즘·표는 PDF 텍스트 레이어의 읽기 순서가 흐트러질 수 있다. 원본 PDF 쪽수와 함께 사용한다."
+}
