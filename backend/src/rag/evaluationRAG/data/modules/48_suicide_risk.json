@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cpx-48-suicide_risk",
+  "clinical_expression_number": 48,
+  "title_ko": "자살",
+  "domain_ko": "상담",
+  "source_document": "CPX 총론.pdf",
+  "source_pdf_pages": {
+    "start": 460,
+    "end": 464
+  },
+  "source_markdown": "docs/modules/48_suicide_risk.md",
+  "retrieval_tags": [
+    "자살",
+    "상담",
+    "CPX",
+    "병력청취",
+    "신체진찰",
+    "환자교육"
+  ],
+  "evaluation_use": {
+    "required_common_rubric_ids": [
+      "history_taking",
+      "patient_education",
+      "ppi_listening",
+      "ppi_patient_context",
+      "ppi_understandable_explanation",
+      "ppi_rapport",
+      "ppi_structure",
+      "physical_exam_attitude",
+      "common_safety"
+    ],
+    "module_specific_evaluation_blocks": [
+      {
+        "id": "history_taking",
+        "label": "증례 특이 병력 청취",
+        "source_hint": "기본진찰사항 > 병력청취"
+      },
+      {
+        "id": "physical_exam",
+        "label": "증례 특이 신체 진찰 및 임상술기",
+        "source_hint": "P/E, 신체 진찰, 임상술기"
+      },
+      {
+        "id": "patient_education",
+        "label": "증례 특이 환자 교육",
+        "source_hint": "STEP, 교육, 환자 안내/생활 습관 교육"
+      },
+      {
+        "id": "diagnostic_reasoning",
+        "label": "감별 진단·검사·치료 설명",
+        "source_hint": "질병별 진단/치료 계획, 증례별 알고리즘, 기본적 진단 계획"
+      }
+    ],
+    "implementation_note": "이 JSON은 모듈 라우팅·검색용이다. 항목별 정답 판정은 케이스 데이터의 required_questions, red_flags, required_exam, patient_education_points를 우선한다."
+  },
+  "extracted_hints": {
+    "history_taking_text": "",
+    "physical_exam_text": ""
+  },
+  "quality_note": "도표·알고리즘·표는 PDF 텍스트 레이어의 읽기 순서가 흐트러질 수 있다. 원본 PDF 쪽수와 함께 사용한다."
+}
