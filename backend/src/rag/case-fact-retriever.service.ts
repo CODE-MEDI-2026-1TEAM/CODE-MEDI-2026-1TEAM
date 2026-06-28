@@ -18,6 +18,7 @@ export type RetrievedFact = {
   semanticScore: number;
   keywordScore: number;
   finalScore: number;
+  source?: string;
 };
 
 export type RetrievalResult = {

@@ -9,6 +9,7 @@ export type SimulationChunkSearchResult = {
   section: string;
   text: string;
   semanticScore: number;
+  metadata?: Record<string, unknown> | null;
 };
 
 @Injectable()
@@ -43,6 +44,7 @@ export class SimulationChunkRepository {
       topic_label: string | null;
       section: string;
       text: string;
+      metadata: Record<string, unknown> | null;
       semantic_score: number;
     }>(
       `SELECT id,
@@ -51,6 +53,7 @@ export class SimulationChunkRepository {
               "topicLabel" as topic_label,
               section,
               text,
+              metadata,
               1 - (embedding <=> $1::vector) AS semantic_score
        FROM "SimulationChunk"
        WHERE "caseId" = $2
@@ -67,6 +70,7 @@ export class SimulationChunkRepository {
       topicLabel: row.topic_label,
       section: row.section,
       text: row.text,
+      metadata: row.metadata,
       semanticScore: Number(row.semantic_score),
     }));
   }
@@ -79,13 +83,15 @@ export class SimulationChunkRepository {
       topic_label: string | null;
       section: string;
       text: string;
+      metadata: Record<string, unknown> | null;
     }>(
       `SELECT id,
               "simulationCaseId" as simulation_case_id,
               "topicId" as topic_id,
               "topicLabel" as topic_label,
               section,
-              text
+              text,
+              metadata
        FROM "SimulationChunk"
        WHERE "caseId" = $1
        ORDER BY id ASC`,
@@ -99,6 +105,7 @@ export class SimulationChunkRepository {
       topicLabel: row.topic_label,
       section: row.section,
       text: row.text,
+      metadata: row.metadata,
       semanticScore: 1,
     }));
   }

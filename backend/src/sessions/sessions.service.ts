@@ -138,10 +138,20 @@ export class SessionsService {
 
     const patientProfile = session.case.patientProfile as {
       tone?: string;
+      isGuardianCase?: boolean;
+      guardianRole?: string | null;
+      witnessPresent?: boolean;
+      witnessRelation?: string | null;
     } | null;
 
     const patientReply = await this.patientResponseService.generateReply({
-      patientPersona: { tone: patientProfile?.tone ?? '불안하지만 협조적' },
+      patientPersona: {
+        tone: patientProfile?.tone ?? '불안하지만 협조적',
+        isGuardianCase: patientProfile?.isGuardianCase ?? false,
+        guardianRole: patientProfile?.guardianRole ?? null,
+        witnessPresent: patientProfile?.witnessPresent ?? true,
+        witnessRelation: patientProfile?.witnessRelation ?? null,
+      },
       chiefComplaint: session.case.chiefComplaint,
       recentConversation: recentConversation.map((m) => ({
         role: m.role,
@@ -151,6 +161,7 @@ export class SessionsService {
       allowedFacts: retrieval.facts.map((f) => ({
         category: f.category,
         answer: f.answer,
+        source: f.source,
       })),
       isFallback: retrieval.isFallback,
       fallbackType: retrieval.fallbackType,
