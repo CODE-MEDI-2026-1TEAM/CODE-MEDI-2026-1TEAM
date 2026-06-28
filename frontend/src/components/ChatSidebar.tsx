@@ -1,14 +1,9 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
 import type { CpxCase, Session } from '../types';
-
-const vitalSigns = [
-  ['혈압', '120/82mmHg'],
-  ['맥박', '80회/분'],
-  ['호흡', '18회/분'],
-  ['체온', '36.5°C'],
-];
+import { DEFAULT_VITALS } from '../vitals';
+import type { VitalSigns } from '../vitals';
 
 type ChatSidebarProps = {
   activeCase: CpxCase | undefined;
@@ -16,6 +11,7 @@ type ChatSidebarProps = {
   isLoading: boolean;
   isEvaluating: boolean;
   error: string | null;
+  vitals?: VitalSigns;
   onSendMessage: (content: string) => Promise<boolean>;
   onEvaluate: () => Promise<void>;
   onOpenEvaluation: () => void;
@@ -28,33 +24,45 @@ export default function ChatSidebar({
   isLoading,
   isEvaluating,
   error,
+  vitals = DEFAULT_VITALS,
   onSendMessage,
   onEvaluate,
   onOpenEvaluation,
   onClearError,
 }: ChatSidebarProps) {
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const vitalSigns = [
+    ['혈압', `${vitals.bp}mmHg`],
+    ['맥박', `${vitals.hr}회/분`],
+    ['호흡', `${vitals.rr}회/분`],
+    ['체온', `${vitals.temp}°C`],
+  ];
+  const messageListRef = useRef<HTMLDivElement>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
   const isCompleted = session?.status === 'completed';
+  const messageCount = session?.messages.length ?? 0;
+  const latestMessageId = messageCount > 0 ? session?.messages[messageCount - 1]?.id : undefined;
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  }, [session?.messages, isLoading]);
+  useLayoutEffect(() => {
+    const messageList = messageListRef.current;
+    if (!messageList) return;
+    messageList.scrollTop = messageList.scrollHeight;
+  }, [latestMessageId, messageCount, isLoading]);
 
   const profile = activeCase?.patientProfile;
+  const chatPatientLabel = profile?.age == null ? '보호자' : '환자';
   const displayAge = profile?.age
     ? `${profile.age}세`
     : (profile?.ageRaw ?? '-');
   const avatarCaseKey = choosePatientCaseKey(
     activeCase
       ? {
-          age: activeCase.patientProfile.age,
-          ageRaw: activeCase.patientProfile.ageRaw,
-          name: activeCase.patientProfile.name,
-          seed: activeCase.slug,
-          sex: activeCase.patientProfile.sex,
-          title: activeCase.title,
-        }
+        age: activeCase.patientProfile.age,
+        ageRaw: activeCase.patientProfile.ageRaw,
+        name: activeCase.patientProfile.name,
+        seed: activeCase.slug,
+        sex: activeCase.patientProfile.sex,
+        title: activeCase.title,
+      }
       : null,
   );
   const avatarCase = PATIENT_CASES[avatarCaseKey];
@@ -144,15 +152,14 @@ export default function ChatSidebar({
 
       <section className="chat-history" aria-live="polite">
         <p className="chat-label">대화 기록</p>
-        <div className="message-list">
+        <div className="message-list" ref={messageListRef}>
           {session?.messages.map((message) => (
             <article className={`message ${message.role === 'user' ? 'user-message' : 'patient-message'}`} key={message.id}>
-              <span>{message.role === 'user' ? '의료진' : '환자'}</span>
+              <span>{message.role === 'user' ? '의료진' : chatPatientLabel}</span>
               <p>{message.content}</p>
             </article>
           ))}
-          {isLoading ? <article className="message patient-message pending"><span>환자</span><p>응답을 생각하고 있습니다…</p></article> : null}
-          <div ref={chatEndRef} />
+          {isLoading ? <article className="message patient-message pending"><span>{chatPatientLabel}</span><p>응답을 생각하고 있습니다…</p></article> : null}
         </div>
       </section>
 

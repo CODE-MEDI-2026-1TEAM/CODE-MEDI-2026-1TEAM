@@ -76,6 +76,17 @@ export class SessionsService {
 
     const userQuestion = createMessageDto.content.trim();
     const caseId = session.caseId;
+    const isConversationDebugEnabled = this.isConversationDebugEnabled();
+
+    this.debugConversation('message.received', {
+      sessionId,
+      caseId,
+      caseSlug: session.case.slug,
+      simulationCaseId: session.case.simulationCaseId,
+      rawContent: createMessageDto.content,
+      trimmedQuestion: userQuestion,
+      questionLength: userQuestion.length,
+    });
 
     await this.prisma.message.create({
       data: {
@@ -124,9 +135,12 @@ export class SessionsService {
 
     this.logger.log(
       JSON.stringify({
+        event: 'rag.retrieval.summary',
         sessionId,
         caseId,
-        question: userQuestion.slice(0, 50),
+        caseSlug: session.case.slug,
+        simulationCaseId,
+        questionPreview: this.preview(userQuestion),
         retrievedFactIds: retrieval.facts.map((f) => f.id),
         retrievalScores: retrieval.facts.map((f) => ({
           id: f.id,
@@ -137,6 +151,30 @@ export class SessionsService {
         retrievalSource,
       }),
     );
+
+    this.debugConversation('rag.retrieval.detail', {
+      sessionId,
+      caseId,
+      caseSlug: session.case.slug,
+      simulationCaseId,
+      question: userQuestion,
+      conversationContext,
+      retrievalSource,
+      hasSimulationChunks: simulationRetrieval?.hasSimulationChunks ?? null,
+      isFallback: retrieval.isFallback,
+      fallbackType: retrieval.fallbackType ?? null,
+      rawResults: retrieval.rawResults ?? [],
+      retrievedFacts: retrieval.facts.map((f) => ({
+        id: f.id,
+        category: f.category,
+        label: f.label,
+        source: f.source,
+        semanticScore: f.semanticScore,
+        keywordScore: f.keywordScore,
+        finalScore: f.finalScore,
+        answerPreview: this.preview(f.answer, 220),
+      })),
+    });
 
     const patientProfile = session.case.patientProfile as {
       name?: string | null;
@@ -180,6 +218,19 @@ export class SessionsService {
         : undefined,
     });
 
+    this.debugConversation('patient.reply.generated', {
+      sessionId,
+      caseId,
+      caseSlug: session.case.slug,
+      simulationCaseId,
+      question: userQuestion,
+      retrievalSource,
+      isFallback: retrieval.isFallback,
+      fallbackType: retrieval.fallbackType ?? null,
+      reply: patientReply,
+      allowedFactCount: retrieval.facts.length,
+    });
+
     const assistantMessage = await this.prisma.message.create({
       data: {
         sessionId,
@@ -189,7 +240,8 @@ export class SessionsService {
     });
 
     const isDebugEnabled =
-      this.configService.get<string>('ENABLE_RAG_DEBUG') === 'true';
+      this.configService.get<string>('ENABLE_RAG_DEBUG') === 'true' ||
+      isConversationDebugEnabled;
 
     const response: {
       message: typeof assistantMessage;
@@ -211,6 +263,7 @@ export class SessionsService {
         isFallback: retrieval.isFallback,
         fallbackType: retrieval.fallbackType ?? null,
         retrievalSource,
+        assistantReply: patientReply,
       };
     }
 
@@ -314,5 +367,23 @@ export class SessionsService {
       },
       evaluation: true,
     };
+  }
+
+  private isConversationDebugEnabled() {
+    return this.configService.get<string>('ENABLE_CONVERSATION_DEBUG') === 'true';
+  }
+
+  private debugConversation(event: string, payload: Record<string, unknown>) {
+    if (!this.isConversationDebugEnabled()) return;
+
+    this.logger.log(JSON.stringify({ event, ...payload }));
+  }
+
+  private preview(value: string | null | undefined, maxLength = 120) {
+    if (!value) return '';
+
+    return value.length > maxLength
+      ? `${value.slice(0, maxLength)}...`
+      : value;
   }
 }
