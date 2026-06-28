@@ -154,6 +154,28 @@ select {
   border-radius: 8px;
   backdrop-filter: blur(12px);
 }
+.bottom-center {
+  bottom: 28px;
+  /* 3D 씬 영역(우측 사이드바 390px 제외)의 가로 중앙. */
+  left: calc(50% - 195px);
+  transform: translateX(-50%);
+}
+.view-toggle-button {
+  padding: 11px 22px;
+  color: #dff8ef;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  pointer-events: auto;
+  background: rgba(35, 105, 90, 0.86);
+  border: 1px solid rgba(134, 209, 180, 0.45);
+  border-radius: 999px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+}
+.view-toggle-button:hover {
+  background: rgba(27, 87, 74, 0.95);
+}
 .eyebrow {
   margin: 0 0 8px;
   color: #86d1b4;
