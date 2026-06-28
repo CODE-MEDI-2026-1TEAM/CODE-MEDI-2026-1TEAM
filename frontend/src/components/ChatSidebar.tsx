@@ -36,6 +36,7 @@ export default function ChatSidebar({
   systemTimelineEvents,
 }: ChatSidebarProps) {
   const chatEndRef = useRef<HTMLDivElement>(null);
+  const autoEvaluationSessionIdRef = useRef<string | null>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
   const isCompleted = session?.status === 'completed';
 
@@ -66,6 +67,28 @@ export default function ChatSidebar({
     () => Math.max(0, Math.min(100, (remainingSeconds / EXAM_DURATION_SECONDS) * 100)),
     [remainingSeconds],
   );
+  useEffect(() => {
+    if (
+      !session ||
+      isCompleted ||
+      isEvaluating ||
+      isLoading ||
+      remainingSeconds > 0 ||
+      autoEvaluationSessionIdRef.current === session.id
+    ) {
+      return;
+    }
+
+    autoEvaluationSessionIdRef.current = session.id;
+    void onEvaluate();
+  }, [
+    isCompleted,
+    isEvaluating,
+    isLoading,
+    onEvaluate,
+    remainingSeconds,
+    session,
+  ]);
   const timelineItems = useMemo(
     () =>
       [
@@ -160,8 +183,8 @@ export default function ChatSidebar({
             </div>
           </div>
         ) : null}
-        {remainingSeconds === 0 && session && !isCompleted ? (
-          <p className="timer-note">제한 시간이 종료되었습니다. 채점을 진행하세요.</p>
+        {remainingSeconds === 0 && session && !isCompleted && !isEvaluating ? (
+          <p className="timer-note">제한 시간이 종료되어 자동 채점을 시작합니다.</p>
         ) : null}
       </section>
 
