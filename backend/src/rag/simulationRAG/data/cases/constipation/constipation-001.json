@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "constipation-001",
+  "case_number_in_pdf": 35,
+  "topic": {
+    "topic_start_page": 87,
+    "topic_id": "constipation",
+    "topic_label": "배변 이상(변비)",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 87,
+      "end": 88
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이정윤",
+      "age": 28,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "변비가 심해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "125/80mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "16회/분",
+      "temperature": "36.4°C"
+    },
+    "opening_profile_text": "성별八4이\n여성/ 28세\n| 주소\n“변비가 심해요”",
+    "history_blocks": {
+      "onset": "3달 전",
+      "duration": "대변 1주일에 1번 봄",
+      "course": "3달 전부터 심해짐",
+      "experience": "대학교 때부터(7~ 8년 전) 있었음",
+      "character": "변 볼 때 힘/변 딱딱(-/+ , 동글동글하게 딱딱히 뭉쳐져서 나옴)\n잔변감/항문 막힌 느낌/손으로 파낸 적( - / - / - ) , 변기에서 휴대폰 人I용(+)\n피, 통증 없음, 오래 참지는 않음",
+      "associated_symptoms": "[전신] 체중증가/피로함/부종( - / - / - )\n[소화] A/N/V/D/C(—/ - / 一/ - / - )\nP(+，복통까지는 아닌데 변이 잘 안나와서 싸하게 불편한 것은 있음)\n[내분비] 추위불내성/피부건조( - / - )\n[정신] 우울/불안(ᅳ/ᅳ)",
+      "events": "대장내시경 (-)",
+      "medications": "변비약(대학교 때부터 이락실 먹었고> 효과 있었지만, 최근에는 효과 없어서 둘코락스로 변경)\n人^\n음주(1 회/주, 1병/회). 커피(+. 하루 1〜2잔), 직업 ：\n회사원\n스트레스(+, 업무 환경이 바뀌고, 스트레스 생기고, 신체 활동 감소하였음)\n식사 : 물 적게 마시고^ 맵고 짠 음식 지주 먹음, 물은 밥 먹기 전에만 먹음, 하루 2~3잔)\n운동(ᅳ, 신체 활동 감소함), 스트레스(+, 업무 바뀌어서 바쁨)",
+      "family_history": "아버지 : 고혈압",
+      "gynecologic_history": "월경은 규칙적, 양은 보통, 통증 거의 없음, 임신 가능성(一)\nGeneral\n\nHEENT\n눈/구강/피부 긴장도( - / - / - ) , 갑상샘/림프절( - / - )"
+    },
+    "physical_exam_results": "Abdomen\n복부 시/청/타/촉(- / - / - / - ), DRE(자세 설명하면 결과 알려줌. 정상).\n골반 내진(자세 및 목적 설명하면 결과 알려줌, 정상)\nExtermity\nPitting edema (-)",
+    "patient_question_or_concern": "특이 ^卜항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별八4이\n여성/ 28세\n| 주소\n“변비가 심해요”\n0\n3달 전\nL\n-\nD\n대변 1주일에 1번 봄\nCo\n3달 전부터 심해짐\nEx\n대학교 때부터(7~ 8년 전) 있었음\nC\n변 볼 때 힘/변 딱딱(-/+ , 동글동글하게 딱딱히 뭉쳐져서 나옴)\n잔변감/항문 막힌 느낌/손으로 파낸 적( - / - / - ) , 변기에서 휴대폰 人I용(+)\n피, 통증 없음, 오래 참지는 않음\nA\n[전신] 체중증가/피로함/부종( - / - / - )\n[소화] A/N/V/D/C(—/ - / 一/ - / - )\nP(+，복통까지는 아닌데 변이 잘 안나와서 싸하게 불편한 것은 있음)\n[내분비] 추위불내성/피부건조( - / - )\n[정신] 우울/불안(ᅳ/ᅳ)\nF\n-\nE\n대장내시경 (-)\n외\n-\n과\n-\n약\n변비약(대학교 때부터 이락실 먹었고> 효과 있었지만, 최근에는 효과 없어서 둘코락스로 변경)\n人^\n음주(1 회/주, 1병/회). 커피(+. 하루 1〜2잔), 직업 ：\n회사원\n스트레스(+, 업무 환경이 바뀌고, 스트레스 생기고, 신체 활동 감소하였음)\n식사 : 물 적게 마시고^ 맵고 짠 음식 지주 먹음, 물은 밥 먹기 전에만 먹음, 하루 2~3잔)\n운동(ᅳ, 신체 활동 감소함), 스트레스(+, 업무 바뀌어서 바쁨)\n가\n아버지 : 고혈압\n여\n월경은 규칙적, 양은 보통, 통증 거의 없음, 임신 가능성(一)\nGeneral\n-\nHEENT\n눈/구강/피부 긴장도( - / - / - ) , 갑상샘/림프절( - / - )\nP/E\nAbdomen\n복부 시/청/타/촉(- / - / - / - ), DRE(자세 설명하면 결과 알려줌. 정상).\n골반 내진(자세 및 목적 설명하면 결과 알려줌, 정상)\nExtermity\nPitting edema (-)\n질문\n-\n특이 ^卜항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "기능성 변비",
+      "과민성 대장증후군ᅳ변비 우세형"
+    ],
+    "planned_tests": [
+      "대장내시경",
+      "대장통과시간검사",
+      "배변조영술"
+    ],
+    "planned_treatments_or_education": [
+      "제=ODMAP 식이",
+      "스트레스 완화 및 운동",
+      "대증 치료"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "D\ni 실전 모의 증례 益\n• 28세 여자 이정윤씨가 변비로 내원하였다.\n^•황\n지침\n[활력 징휘 혈압 : 125/80mmHg\n맥박 : 70회/분\n호흡 : 16회/분\n체온 ：\n36.4°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 2개\n1. 기능성 변비\n2. 과민성 대장증후군ᅳ변비 우세형\n환자\n교육\n• 필요한 검사 계획 3가지\n1. 대장내시경\n2. 대장통과시간검사\n3. 배변조영술\n• 필요한 치료 계획 3가지\n1. 제=ODMAP 식이\n2. 스트레스 완화 및 운동\n3. 대증 치료\n.\n변비 역시 설사 항목과 마찬가지로 기능성 변비와 기질성 변비를 구\n분하는 것이 중요합니다. 기능성 변비의 원인에는 식생활습관, 약물,\n특발성 장운동 변화등이 있고, 기질성 변비의 경우 위장관 폐쇄, 대사성/임신, 신경학적 둥이\n있습니다. 특히 본 증례의 환자처럼 스트레스를 많이 받으며，식습관 및 운동습관이 불량한\n젊은 여성 중 변비를 호소하는 경우가 많습니다.\n변비는 90% 이상에서 특별한 원인 없이 발생하는 경우가 많고> 대부분 생활 습관 교정 (e_g_ 충분\n한물 및 식이섬유섭취, 운동등)을통해 개선되는 경우가 많습니다.\n환자가 변비 증상 자체를 부고러 워 할 수 있으므로 문진과 신체 진찰(e.& DRE)을 할 때 편안한\n분위기를 조성하는 것이 PPI를 쌓는데 중요합니다. 또한 대부분의 환자가 변비 증상완화를 위\n해 약을 복용하는 경우가 많은데, 과도한 변비약의 사용은 오히려 변비 증상을 악화시킬 수 있\n음을 교육하는 것이 중요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

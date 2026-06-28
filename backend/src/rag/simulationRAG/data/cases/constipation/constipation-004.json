@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "constipation-004",
+  "case_number_in_pdf": 38,
+  "topic": {
+    "topic_start_page": 87,
+    "topic_id": "constipation",
+    "topic_label": "배변 이상(변비)",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 93,
+      "end": 94
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "손미나",
+      "age": 50,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "변비가 심해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/82mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": null,
+      "temperature": "36.3°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 50세\n주소\n“변비가 심해요”",
+    "history_blocks": {
+      "onset": "5년 전",
+      "duration": "1주일에 1 번씩 변 봄, 이전에는 변비약 먹으면 1주일에 1 번씩은 보았는데, 최근에는\n2주가 되어가는데도 변을 못 보아서 내원",
+      "course": "심해짐",
+      "character": "변을 볼 때 힘을 줌. 딱딱한 변 (토끼똥 모양)，잔변감, 막혀있는 느낌\n변보기 위해 손가락 사용 경험 (+)",
+      "associated_symptoms": "[전신] 체중변화/발열( - / - )\n[내분비] 추위불내성(一)\n[소화기] 복통(- ). 혈변/흑색변/항문 통증\n설사(- ), 메스꺼움/구토/복부 덩어리( - / - / - )\n[정신] 우울(ᅳ)",
+      "factors": "배변 습관 ：\n변이 안 나와서 30분 이상 화장실에 있는 경우 많음",
+      "events": "6개월 전 대장내시경 : 이상 없음",
+      "trauma_history": "제왕절개",
+      "past_history": "DM/TB/HTN/간염 ( - / - / + / - )",
+      "medications": "변비약(+) : 1 주일에 2번씩 자극성 하제 섭취, 최근에 먹는 잉을 늘렸음에도 불구하고\n변이 잘안나옴을호소\n1 달 전부터 다리 골절로 약 복용. 고혈압약(+)\n人^\n술/담배(一/ - ), 커피(+，하루 卜2잔), 스트레스(一)\n식습관 ：\n식사할 때만 물 1 잔씩 口ᅡ심, 소식, 골고루 잘 먹음(야채 잘 섭취)",
+      "gynecologic_history": "폐경 : 5년 전\nGeneral\nV/S 확인\nHEENT\n입/피부 탈수 소견(ᅳ/ᅳ), 결막/공막(一/ᅳ), 갑상샘(ᅳ)"
+    },
+    "physical_exam_results": "Chest\n흉부 청진 정상\nAbdomen\n복부 촉진 정상, 골반 내진 : 힘줬을 때 내려오는 소견, DRE 정상\nExtermity\n피부 긴장도. 오목 부종 정상",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "신",
+    "raw_profile_text": "성별/나이\n여성/ 50세\n주소\n“변비가 심해요”\n0\n5년 전\nL\n-\nD\n1주일에 1 번씩 변 봄, 이전에는 변비약 먹으면 1주일에 1 번씩은 보았는데, 최근에는\n2주가 되어가는데도 변을 못 보아서 내원\nCo\n심해짐\nEx\n-\nC\n변을 볼 때 힘을 줌. 딱딱한 변 (토끼똥 모양)，잔변감, 막혀있는 느낌\n변보기 위해 손가락 사용 경험 (+)\nA\n[전신] 체중변화/발열( - / - )\n[내분비] 추위불내성(一)\n[소화기] 복통(- ). 혈변/흑색변/항문 통증\n설사(- ), 메스꺼움/구토/복부 덩어리( - / - / - )\n[정신] 우울(ᅳ)\nF\n배변 습관 ：\n변이 안 나와서 30분 이상 화장실에 있는 경우 많음\nE\n6개월 전 대장내시경 : 이상 없음\n외\n제왕절개\n과\nDM/TB/HTN/간염 ( - / - / + / - )\n약\n변비약(+) : 1 주일에 2번씩 자극성 하제 섭취, 최근에 먹는 잉을 늘렸음에도 불구하고\n변이 잘안나옴을호소\n1 달 전부터 다리 골절로 약 복용. 고혈압약(+)\n人^\n술/담배(一/ - ), 커피(+，하루 卜2잔), 스트레스(一)\n식습관 ：\n식사할 때만 물 1 잔씩 口ᅡ심, 소식, 골고루 잘 먹음(야채 잘 섭취)\n가\n-\n여\n폐경 : 5년 전\nGeneral\nV/S 확인\nHEENT\n입/피부 탈수 소견(ᅳ/ᅳ), 결막/공막(一/ᅳ), 갑상샘(ᅳ)\nP/E\nChest\n흉부 청진 정상\nAbdomen\n복부 촉진 정상, 골반 내진 : 힘줬을 때 내려오는 소견, DRE 정상\nExtermity\n피부 긴장도. 오목 부종 정상\n질문\n-\n특이 사항\n-\n신"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n^ ■자\n교육",
+    "likely_diagnoses": [
+      "직장류",
+      "기능성 변비"
+    ],
+    "planned_tests": [
+      "대장내시경",
+      "배변조영술",
+      "골반 CT"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문 직장 진찰 : 변비, 변보기 위해 손人[용 경험 등으로 보아 직장류와 종양, 치핵,\n치열, 궤양 등으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을 시행해\n봅니다.\n2. 설명동의서 받기 : 직장류. 기능성 변비 감별을 위한 대장내시경, 배변조영술, 골반\nC * 위해 설명동의서를 받습니다.\n3. 혈압 측정 : 고혈압력 있고, 고혈압약 복용 중이므로 혈압을 진료실에서 다시 측\n정해 봅니다.\n(,-------” ------ —\n—\n；",
+    "author_commentary_tail": "i\n변비, 질쪽으로 밀려나오는 느낌 등의 증상을 호소하는 직장류를 의심해 볼 수 있습니다. 환자\nI\n\ni\n에게 해당 질환이 어떤 질환인지 설명해 준다면 좀 더 좋은 점수를 얻올수 있습니다. 또한 변비\nI 이\n：\n약의 경우 장기간의 사s ■은 배변 반사신경을 둔화시키므로 변비가 더 악화됨을 교육하는 것이\nI 중요합니다.",
+    "scenario_card_raw": "D{ 실전 모의 증례\n상황\n지침\n• 50세 여자 손미나씨가 변비가 심하여 내원하였다.\n[활력 징휘 혈압 : 120/82mmHg\n맥박 : 80회/분\n조•音 • 18회/분\n체온 ：\n36.3°C\n[응시자는이 환자에게] 증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n^ ■자\n교육\n• 가능성이 높은 진단 2개\n1. 직장류\n2. 기능성 변비\n• 필요한 검사 계획 3가지\n1. 대장내시경\n2. 배변조영술\n3. 골반 CT\n禮\n예상\n술기\n1. 항문 직장 진찰 : 변비, 변보기 위해 손人[용 경험 등으로 보아 직장류와 종양, 치핵,\n치열, 궤양 등으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을 시행해\n봅니다.\n2. 설명동의서 받기 : 직장류. 기능성 변비 감별을 위한 대장내시경, 배변조영술, 골반\nC * 위해 설명동의서를 받습니다.\n3. 혈압 측정 : 고혈압력 있고, 고혈압약 복용 중이므로 혈압을 진료실에서 다시 측\n정해 봅니다.\n(,-------” ------ —\n-------------- ------------------------------------------------------ —\n；\n\n변비의 경우물어 볼 것과교육할 것이 많으므로 시간 비]분을잘 하는\nI\n것이중요합니다. 수분섭취, 식습관, 운동여부，약제사용은묻는것\n;\n을 잊기 쉽지만 변비에서는 매우 중요한 항목이니 잊지 않도록 합니다.\nI\n위의 케이스는 약해진 직장벽이 질쪽으로 풍선처럼 늘어나 변이 주머니 속으로 들어가 잔변감，\n\ni\n변비, 질쪽으로 밀려나오는 느낌 등의 증상을 호소하는 직장류를 의심해 볼 수 있습니다. 환자\nI\n•\ni\n에게 해당 질환이 어떤 질환인지 설명해 준다면 좀 더 좋은 점수를 얻올수 있습니다. 또한 변비\nI 이\n：\n\n약의 경우 장기간의 사s ■은 배변 반사신경을 둔화시키므로 변비가 더 악화됨을 교육하는 것이\nI 중요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "chest_pain-001",
+  "case_number_in_pdf": 53,
+  "topic": {
+    "topic_start_page": 127,
+    "topic_id": "chest_pain",
+    "topic_label": "가슴통증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 127,
+      "end": 128
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "정일영",
+      "age": 35,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "가슴이 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 35세\n\"가슴이 아파요”",
+    "history_blocks": {
+      "onset": "5일 전 퇴근 후 버스 기다리다가 갑자기 발생",
+      "location": "좌측 가슴 — 등쪽으로 퍼지는 통증",
+      "duration": "지속 시간 모르겠음",
+      "course": "5일 전 통증 발생한 이후 人p •라들었으나 오늘 다시 0|픔",
+      "experience": "처음",
+      "character": "답답. 욱신, 뻐근한 양상 NRS 7 ᅳ 5(평소에는 5점, 움직이면 7점까지)\n일상 생활 지장 보다는 걱정됨, 눌렸을 때 압통(ᅳ)",
+      "associated_symptoms": "[전신] 발열/오한/처품 변화( - / - / - )\n[소화] 속쓰림/신물올라옴( - / - )\n[순환] 두근거림/호흡곤란(一/+，흉통 시 동반. 들이 쉴 때 힘듦). 압통(-)\n[호홉] 최근 감기(- ). 기침/가래/객혈/ 쌕쌕거림( + / - / - / - )\n[관절/ 골격/ 피부] 피부발진(ᅳ)\n[정신] 죽을것 같은 불안함(ᅳ)",
+      "factors": "운동/움직일 때 심해짐, 기침하면 아픔, 쉬면 호전되나 없어지지는 않음\n흉통. 호홉 곤란 모두 자세 상관 없음, 식사 상관 없음, 비행기 (一)",
+      "past_history": "알레르기 비염",
+      "medications": "홍삼",
+      "social_history": "흡연/음주/스트레스(+/+/+), 직업 : 사무직, 운동 좋아하나 흉통 있어서 못함",
+      "family_history": "아버지 : 고혈압\nGeneral\nV/S ：\nstable\nHEENT\n눈/구강/피부 긴장도( - / - / - ) , 갑상샘/ 림프절( - / - )\n경동맥 人1/청(一/ - )"
+    },
+    "physical_exam_results": "Chest\n통증 부위 눌렸을 때 압통 없음, 심음(-)\n흉부 시/촉/타/ 청\n발\n진\n(- )\nExtremity\n맥박(一). Pitting edema(- )\nAbdomen\n시/ 청/ 타/촉 ( - / - / - / - )",
+    "patient_question_or_concern": "특이 ^卜항\n계속 아픈 표정 짓고 있음",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 35세\n\"가슴이 아파요”\n0\n5일 전 퇴근 후 버스 기다리다가 갑자기 발생\nL\n좌측 가슴 — 등쪽으로 퍼지는 통증\nD\n지속 시간 모르겠음\nCo\n5일 전 통증 발생한 이후 人p •라들었으나 오늘 다시 0|픔\nEx\n처음\nC\n답답. 욱신, 뻐근한 양상 NRS 7 ᅳ 5(평소에는 5점, 움직이면 7점까지)\n일상 생활 지장 보다는 걱정됨, 눌렸을 때 압통(ᅳ)\nA\n[전신] 발열/오한/처품 변화( - / - / - )\n[소화] 속쓰림/신물올라옴( - / - )\n[순환] 두근거림/호흡곤란(一/+，흉통 시 동반. 들이 쉴 때 힘듦). 압통(-)\n[호홉] 최근 감기(- ). 기침/가래/객혈/ 쌕쌕거림( + / - / - / - )\n[관절/ 골격/ 피부] 피부발진(ᅳ)\n[정신] 죽을것 같은 불안함(ᅳ)\nF\n운동/움직일 때 심해짐, 기침하면 아픔, 쉬면 호전되나 없어지지는 않음\n흉통. 호홉 곤란 모두 자세 상관 없음, 식사 상관 없음, 비행기 (一)\nE\n-\n외\n-\n과\n알레르기 비염\n약\n홍삼\n사\n흡연/음주/스트레스(+/+/+), 직업 : 사무직, 운동 좋아하나 흉통 있어서 못함\n가\n아버지 : 고혈압\nGeneral\nV/S ：\nstable\nHEENT\n눈/구강/피부 긴장도( - / - / - ) , 갑상샘/ 림프절( - / - )\n경동맥 人1/청(一/ - )\nP/E\nChest\n통증 부위 눌렸을 때 압통 없음, 심음(-)\n흉부 시/촉/타/ 청\n발\n진\n(- )\nExtremity\n맥박(一). Pitting edema(- )\nAbdomen\n시/ 청/ 타/촉 ( - / - / - / - )\n질문\n-\n특이 ^卜항\n계속 아픈 표정 짓고 있음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n교육",
+    "likely_diagnoses": [
+      "불안정형협심증",
+      "안정형협심증",
+      "심막염"
+    ],
+    "planned_tests": [
+      "심전도",
+      "심근효소검사",
+      "심초음파"
+    ],
+    "planned_treatments_or_education": [
+      "아스피린, BB, ACEi 등의 약물 치료",
+      "일차 관상동맥중재술",
+      "진통제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■ 실전 모의 증례 £\n^■황\n지침\n寥II漏戀\n• 35세 남자 정일영씨가 가슴이 아파 내원하였다.\n[활력 징휘 혈압 : 126/80mmHg\n맥박 : 80회/분\n호읍 : 17회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n교육\n• 가능성이 높은 진단 3개\n1. 불안정형협심증\n2. 안정형협심증\n3. 심막염\n• 필요한 검사 계획 3가지\n1. 심전도\n2. 심근효소검사\n3. 심초음파\n• 필요한 치료 계획 3가지\n1. 아스피린, BB, ACEi 등의 약물 치료\n2. 일차 관상동맥중재술\n3. 진통제\n가슴 통증은 심장 질환 뿐만 아니라 소화기 계통，호흡기계, 근골격\n계, 정신과, 피부과 질환 둥 다양한 계통의 문진이 필요합니다. 심장\n쪽 질환이 의심된다면, 지속 시간과통증의 양상, 그리고 악화 및 완화 요인에 대한 질문을 통해\nimpression을 잡을 수 있습니다.\n본 증례는 통증의 위치와 방사되는 양상, 악화 요인을 고려했을 때 허혈성 심질환이 의심되는\n케이스입니다. 하지만 기침을 하거나 숨을 들이쉴 때도 통증을 호소하였으므로 심막염 및 흉막\n염을 감별 진단으로 언급할 필요가 있겠습니 다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

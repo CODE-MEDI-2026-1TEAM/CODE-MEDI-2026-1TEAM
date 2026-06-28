@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "cough-005",
+  "case_number_in_pdf": 88,
+  "topic": {
+    "topic_start_page": 195,
+    "topic_id": "cough",
+    "topic_label": "기침",
+    "system": "호흡기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 203,
+      "end": 204
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "강석중",
+      "age": 35,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "기침이 나요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "75회/분",
+      "respiratory_rate": "16회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 35세\n주소\n“기침이 나요",
+    "history_blocks": {
+      "onset": "2개월 전",
+      "course": "^ 1 슷함",
+      "character": "흰색 가래 동반, 객혈(-)",
+      "associated_symptoms": "[전신] 발열/식은땀/체중 감소/오한/피로감(+/+. 밤에/+, 5kg/-/-)\n[호홉기/순환기]\n호흡곤란/흉통/어지럼/두근거림( - / - / 一/ -)\n콧물/코막힘/코가 흐르는 느낌/목 이물감( - / - / - / - )\n속쓰림/소화불량(ᅳ/->",
+      "factors": "자세에 따른 변화(-)",
+      "events": "고혈압 진단",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "medications": "혈압약 (amlodipine)",
+      "social_history": "술(+, social). 담배(+, 현재 금연, 과거 30갑년)\n식사 : 규칙적이고 고른 식습관\n직업 : 회사원",
+      "family_history": "어머니 : 결핵. 현재 완치\nGeneral\nV/S 확인\nHEENT\n구강 탈수 소견(一), 부비동 압통(-), 갑상샘(-)"
+    },
+    "physical_exam_results": "Chest\n흉부 시/청/ 타/촉 정상，심음(-)\nExtermity\n피부 긴장도/오목 부종( - / - )\n곤봉지 (-)",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 35세\n주소\n“기침이 나요\n0\n2개월 전\nL\n-\nD\n-\nCo\n^ 1 슷함\nEx\n-\nC\n흰색 가래 동반, 객혈(-)\nA\n[전신] 발열/식은땀/체중 감소/오한/피로감(+/+. 밤에/+, 5kg/-/-)\n[호홉기/순환기]\n호흡곤란/흉통/어지럼/두근거림( - / - / 一/ -)\n콧물/코막힘/코가 흐르는 느낌/목 이물감( - / - / - / - )\n속쓰림/소화불량(ᅳ/->\nF\n자세에 따른 변화(-)\nE\n고혈압 진단\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n혈압약 (amlodipine)\n사\n술(+, social). 담배(+, 현재 금연, 과거 30갑년)\n식사 : 규칙적이고 고른 식습관\n직업 : 회사원\n가\n어머니 : 결핵. 현재 완치\nGeneral\nV/S 확인\nHEENT\n구강 탈수 소견(一), 부비동 압통(-), 갑상샘(-)\nP/E\nChest\n흉부 시/청/ 타/촉 정상，심음(-)\nExtermity\n피부 긴장도/오목 부종( - / - )\n곤봉지 (-)"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n뺄",
+    "likely_diagnoses": [
+      "결핵",
+      "기관지염",
+      "천식"
+    ],
+    "planned_tests": [
+      "흉부 X-ray",
+      "객담검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 흉부 X-ray에서 종괴가 발견될 경우 흉부 CT를 해보ᅡ야 함을 설명\n하고 설명동의서를 받습니다.\n기침은 얼마나 지속되었는지를 확인해서 급성/아급성/만성으로 구분\n하여 접근하는것이좋습니다.\n기간이 8주가 넘으면 폐렴과 같은 급성 기침은 배제할 수 있는 것입니다.\n이 케이스와 같이 2달간 지속된 만성 기침의 경우 GERD, 후비루증후군, 기침 이형 천식이 가장\n혼한 원인이며, 결핵, 폐암의 가능성을 염두해 두고 접근합니다. 또한 기침은 약물에 의해 유발\n되기도 하므로 ACEi복용 여부를 꼭확인합니다.",
+    "author_commentary_tail": "설명동의서 받기 : 흉부 X-ray에서 종괴가 발견될 경우 흉부 CT를 해보ᅡ야 함을 설명\n하고 설명동의서를 받습니다.\n기침은 얼마나 지속되었는지를 확인해서 급성/아급성/만성으로 구분\n하여 접근하는것이좋습니다.\n기간이 8주가 넘으면 폐렴과 같은 급성 기침은 배제할 수 있는 것입니다.\n이 케이스와 같이 2달간 지속된 만성 기침의 경우 GERD, 후비루증후군, 기침 이형 천식이 가장\n혼한 원인이며, 결핵, 폐암의 가능성을 염두해 두고 접근합니다. 또한 기침은 약물에 의해 유발\n되기도 하므로 ACEi복용 여부를 꼭확인합니다.",
+    "scenario_card_raw": "B\n[ 실전 모의 증례\n• 35세 남자 강석중씨가 기침을 하여 내원하였다.\n^■황\n지침\n[활력 징후] 혈압 : 120/80mmHg\n맥박 : 75회/분\n호흡 ：\n16회/분\n체온 ：\n3 7 T C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n뺄\n• 가능성이 높은 진단 3개\n^ ■자\n1. 결핵\n2. 기관지염\n3. 천식\n교육\n• 필요한 검사 계획 2가지\n1. 흉부 X-ray\n2. 객담검사\n예상\n술기\n설명동의서 받기 : 흉부 X-ray에서 종괴가 발견될 경우 흉부 CT를 해보ᅡ야 함을 설명\n하고 설명동의서를 받습니다.\n기침은 얼마나 지속되었는지를 확인해서 급성/아급성/만성으로 구분\n하여 접근하는것이좋습니다.\n기간이 8주가 넘으면 폐렴과 같은 급성 기침은 배제할 수 있는 것입니다.\n이 케이스와 같이 2달간 지속된 만성 기침의 경우 GERD, 후비루증후군, 기침 이형 천식이 가장\n혼한 원인이며, 결핵, 폐암의 가능성을 염두해 두고 접근합니다. 또한 기침은 약물에 의해 유발\n되기도 하므로 ACEi복용 여부를 꼭확인합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

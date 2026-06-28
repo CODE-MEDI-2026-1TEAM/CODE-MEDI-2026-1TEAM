@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "chest_pain-002",
+  "case_number_in_pdf": 54,
+  "topic": {
+    "topic_start_page": 127,
+    "topic_id": "chest_pain",
+    "topic_label": "가슴통증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 129,
+      "end": 130
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김미현",
+      "age": 41,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "가슴이 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": null,
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n여성/ 4 1 세\n\"가슴이 아파요”",
+    "history_blocks": {
+      "onset": "3 주전",
+      "location": "오른쪽 앞가슴, 왼쪽 앞가슴(유방 위쪽)",
+      "duration": "“하루 몇 번인지는 모르고 하루 종일 아픈 것 같아요”",
+      "course": "심해지지는 않음",
+      "experience": "처음",
+      "character": "통증 양상 : 묵직한 양상，찌르는 양상은 아니라고 함, 뻐근한 것은 아니라고 함\nN R S 4\n~\n5 점, 방사통(- ), 압통(+)",
+      "associated_symptoms": "[전신] 발열/오한/체중 변화(-/+ , 5 일 전 약간 으슬으슬/ - )\n[소화] 속쓰림/ 신물( - / - )\n[순환] 두근거림/ 호흡곤란(+, 커피 마실 때/ - )\n[호홉] 기침/ 가래/ 객혈/쌕쌕거림( - / - / - / - )\n[정신] 공황장애(ᅳ)\n[피부] 발진(-)",
+      "factors": "운동/ 쉬면/새벽/음주( - / - / - / - ) , 자세/최근 감기(—/ - ), 호홉H\n신경 쓰면 더 아프고 일에 몰두해서 잊어버리면 덜 0 [ 픔",
+      "events": "건강 검진에서 중성지방 수치 높다는 얘기 들음, 체중 꽤 나가는 편, 대상포진 예방접종(+)",
+      "past_history": "고혈압/ 당뇨/고지혈증/심장 질환(ᅳ/ - / - / - ) , 담낭염(+)",
+      "medications": "루테인(눈이 침침한 편)\n人^\n식사 : 고기 좋아함/규칙적으로 잘 먹고 있음, 콜레스테롤 때문에 식단 관리 중",
+      "family_history": "심장, 뇌혈관 질환을 물으니 아버지 심장 스텐트 시술력 있다고 바로 말함(구체적으로\n언급해야만 알려줌)\n여"
+    },
+    "physical_exam_results": "General\nV/S ：\nstable\nHEENT\n결막/공막 (—/->, 구강/ 림프절/피부 긴장도 ( - / - / - )\nChest\n흉부 진찰 이상 없음(분장 안 되어 있음)\n아픈 부분 눌러보면 \"확실히 아프네요”라고 말함\n건측 누르면 \"확실히 안 아프다”라고 말함\nExtremity\nPitting edema (-)",
+    "patient_question_or_concern": "특이 사항\nSP에 따라 시간이 부족할 수 있음",
+    "actor_notes_or_special_behavior": "없음\nP/E\nGeneral\nV/S ：\nstable\nHEENT\n결막/공막 (—/->, 구강/ 림프절/피부 긴장도 ( - / - / - )\nChest\n흉부 진찰 이상 없음(분장 안 되어 있음)\n아픈 부분 눌러보면 \"확실히 아프네요”라고 말함\n건측 누르면 \"확실히 안 아프다”라고 말함\nExtremity\nPitting edema (-)\n질문\n\n특이 사항\nSP에 따라 시간이 부족할 수 있음",
+    "raw_profile_text": "성별/나이\n여성/ 4 1 세\n\"가슴이 아파요”\n0\n3 주전\nL\n오른쪽 앞가슴, 왼쪽 앞가슴(유방 위쪽)\nD\n“하루 몇 번인지는 모르고 하루 종일 아픈 것 같아요”\nCo\n심해지지는 않음\nEx\n처음\nC\n통증 양상 : 묵직한 양상，찌르는 양상은 아니라고 함, 뻐근한 것은 아니라고 함\nN R S 4\n~\n5 점, 방사통(- ), 압통(+)\nA\n[전신] 발열/오한/체중 변화(-/+ , 5 일 전 약간 으슬으슬/ - )\n[소화] 속쓰림/ 신물( - / - )\n[순환] 두근거림/ 호흡곤란(+, 커피 마실 때/ - )\n[호홉] 기침/ 가래/ 객혈/쌕쌕거림( - / - / - / - )\n[정신] 공황장애(ᅳ)\n[피부] 발진(-)\nF\n운동/ 쉬면/새벽/음주( - / - / - / - ) , 자세/최근 감기(—/ - ), 호홉H\n\n신경 쓰면 더 아프고 일에 몰두해서 잊어버리면 덜 0 [ 픔\nE\n건강 검진에서 중성지방 수치 높다는 얘기 들음, 체중 꽤 나가는 편, 대상포진 예방접종(+)\n외\n-\n과\n고혈압/ 당뇨/고지혈증/심장 질환(ᅳ/ - / - / - ) , 담낭염(+)\n약\n루테인(눈이 침침한 편)\n人^\n식사 : 고기 좋아함/규칙적으로 잘 먹고 있음, 콜레스테롤 때문에 식단 관리 중\n가\n심장, 뇌혈관 질환을 물으니 아버지 심장 스텐트 시술력 있다고 바로 말함(구체적으로\n언급해야만 알려줌)\n여\n특이 사항 없음\nP/E\nGeneral\nV/S ：\nstable\nHEENT\n결막/공막 (—/->, 구강/ 림프절/피부 긴장도 ( - / - / - )\nChest\n흉부 진찰 이상 없음(분장 안 되어 있음)\n• 아픈 부분 눌러보면 \"확실히 아프네요”라고 말함\n• 건측 누르면 \"확실히 안 아프다”라고 말함\nExtremity\nPitting edema (-)\n질문\n-\n특이 사항\nSP에 따라 시간이 부족할 수 있음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.",
+    "likely_diagnoses": [
+      "갈비연골염",
+      "심막염",
+      "협심증"
+    ],
+    "planned_tests": [
+      "흉부 X",
+      "심전도",
+      "심장효소검사"
+    ],
+    "planned_treatments_or_education": [
+      "N S A I D s 및 대증 치료",
+      "생활 습관 교육",
+      "콜레스테롤약 지속"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "ᅵ\n실전 모의 증례 i\n___________________________________________________________\n• 4 1 세 여자 김미현씨가 가슴이 아파 내원하였다.\n[활력 징후]\n혈압 :\n1 2 8 / 8 4 m\nm\nH\ng\n맥박 : 8 2 회/분\n호흡 :\n1 6 회/분\n체온 ：\n3 6 . 5 ° C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n• 가능성이 높은 진단 3 개\n1 . 갈비연골염\n2 . 심막염\n3 . 협심증\n환자\n• 필요한 검사 계획 3 가지\n교육\n1 . 흉부 X\n- r a y\n2 . 심전도\n3 . 심장효소검사\n• 필요한 치료 계획 3 가지\n1 . N S A I D s 및 대증 치료\n1. 생활 습관 교육\n3 . 콜레스테롤약 지속\n^■황\n지침\n|\n가슴 통증은 심장 질환분만 아니라 소화기 계통, 호흡기계，근골격\n|\n계, 정신과, 피부과 질환 등 다양한 계통의 문진이 필요합니다. 심장\nI\nI\n쪽 질환이 의심된다면 지속 시간과통증의 양상, 그리고 악화 및 완화 요인에 대한 질문을 통해\ni\n!\nimpression을 잡을 수 있습니 다.\nI\n■\nI\nI\n본 증례는 환자가 전형적 인 증상을 호소하고 있지는 않아서 당황할 수 있습니다. 하지만 압통이\n!\nI\n! w\n：\n\nI\ni\n있는 것으로 보아 갈비연골염 혹은 대상포진을 의심해 볼 수 있고, 5 일 전 약간의 오한이 있는\n|\n!\n것으로 보아 심막염 혹은 심근염 또한 의심해 볼 수 있습니다. 또한 고콜레스테롤혈증을 앓고\n|\n；\n\n있고• 관상동맥 질환의 가족력이 있으므로 협심증을 배제할 수는 없습니다.\n|\n환자에게 다양한 경우에 대해 설명하고，정확한 진단을 위해 필요한 검사들을 설명한 후 아직\n|\n관상동맥의 질환의 가능성이 높지 않으므로 안심시키는 것이 중요하겠습니다.\n....................------............-................. — — - ...............\n\n— -----— —"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
