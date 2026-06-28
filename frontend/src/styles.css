@@ -691,8 +691,10 @@ h1 {
 }
 
 .patient-bubble {
-  width: min(320px, 52vw);
-  padding: 16px 16px;
+  width: max-content;
+  max-width: min(340px, calc(100vw - 470px));
+  min-width: 168px;
+  padding: 14px 16px;
   color: #18242b;
   background: rgba(255, 255, 255, 0.94);
   border: 1px solid rgba(31, 48, 58, 0.16);
@@ -701,7 +703,9 @@ h1 {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
+  overflow-wrap: anywhere;
   text-align: left;
+  white-space: normal;
 }
 .patient-bubble.speaking {
   border-color: rgba(35, 105, 90, 0.45);
@@ -790,9 +794,10 @@ h1 {
   }
 
   .patient-bubble {
-    width: 132px;
+    width: max-content;
+    max-width: min(260px, calc(100vw - 48px));
+    min-width: 132px;
     padding: 10px 12px;
     font-size: 13px;
-    transform: translateX(-160px);
   }
 }
