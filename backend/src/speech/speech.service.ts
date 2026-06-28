@@ -2,6 +2,7 @@ import {
   BadGatewayException,
   BadRequestException,
   Injectable,
+  Logger,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import OpenAI, { toFile } from 'openai';
@@ -38,6 +39,7 @@ const allowedAudioTypes = new Set([
 
 @Injectable()
 export class SpeechService {
+  private readonly logger = new Logger(SpeechService.name);
   private readonly model: string;
   private readonly ttsModel: string;
 
@@ -55,6 +57,13 @@ export class SpeechService {
         `Unsupported audio type: ${audio.mimetype}`,
       );
     }
+
+    this.debugConversation('speech.transcription.received', {
+      mimetype: audio.mimetype,
+      originalname: audio.originalname,
+      size: audio.size,
+      model: this.model,
+    });
 
     try {
       const client = this.getClient();
@@ -77,9 +86,24 @@ export class SpeechService {
         throw new Error('Empty transcription response');
       }
 
+      this.debugConversation('speech.transcription.completed', {
+        mimetype: audio.mimetype,
+        size: audio.size,
+        model: this.model,
+        transcript: text,
+        transcriptLength: text.length,
+      });
+
       return text;
     } catch (error) {
       if (error instanceof BadRequestException) throw error;
+
+      this.debugConversation('speech.transcription.failed', {
+        mimetype: audio.mimetype,
+        size: audio.size,
+        model: this.model,
+        detail: error instanceof Error ? error.message : 'Unknown STT error',
+      });
 
       throw new BadGatewayException({
         message: 'Failed to transcribe audio',
@@ -210,5 +234,15 @@ export class SpeechService {
     }
 
     return /청소년|중학생|고등학생|고등/i.test(profile?.ageRaw ?? '');
+  }
+
+  private debugConversation(event: string, payload: Record<string, unknown>) {
+    if (
+      this.configService.get<string>('ENABLE_CONVERSATION_DEBUG') !== 'true'
+    ) {
+      return;
+    }
+
+    this.logger.log(JSON.stringify({ event, ...payload }));
   }
 }
