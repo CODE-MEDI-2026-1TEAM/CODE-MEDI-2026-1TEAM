@@ -27,6 +27,13 @@ export type EvaluationItemStatus = {
 };
 
 type ClinicalActionSummary = {
+  expectedPhysicalExamChecklist?: Array<{
+    examKey: string;
+    expectedPosition: string;
+    label: string;
+    result: string;
+    status: string;
+  }>;
   handHygieneCount: number;
   handHygieneEvents?: Array<{
     createdAt: string;
@@ -146,6 +153,7 @@ export class LlmService {
             content: JSON.stringify(
               {
                 clinicalActions: clinicalActions ?? {
+                  expectedPhysicalExamChecklist: [],
                   handHygieneCount: 0,
                   handHygieneEvents: [],
                   physicalExamEvents: [],
@@ -223,6 +231,8 @@ export class LlmService {
     criteriaPack?: EvaluationCriteriaPack | null,
     clinicalActions?: ClinicalActionSummary,
   ) {
+    const expectedPhysicalExamChecklist =
+      clinicalActions?.expectedPhysicalExamChecklist ?? [];
     const handHygieneCount = clinicalActions?.handHygieneCount ?? 0;
     const handHygieneEvents = clinicalActions?.handHygieneEvents ?? [];
     const physicalExamEvents = clinicalActions?.physicalExamEvents ?? [];
@@ -259,11 +269,13 @@ export class LlmService {
       '- Mention hand hygiene timing explicitly in strengths, missedItems, or suggestions when it materially affects the score.',
       'Physical exam scoring rule:',
       '- clinicalActions.physicalExamEvents are system-observed physical exams. Treat them as completed actions, not patient dialogue.',
-      '- For seizure CPX, strongly evaluate whether the student attempted the sitting exams: head inspection/palpation, oral/tongue exam, skin inspection, cranial nerve exam, cerebellar exam.',
-      '- Also evaluate whether the student attempted the supine exams: motor exam, sensory exam, DTR, neck stiffness, Kernig, Brudzinski, or a complete meningeal sign exam.',
-      '- Credit attempts only when the requested exam is specific enough. Generic phrases such as just "검사하겠습니다" should not count unless a matched physicalExamEvent exists.',
+      '- Evaluate physical exam performance against clinicalActions.expectedPhysicalExamChecklist only. Do not require every generic seizure physical exam for every case.',
+      '- If expectedPhysicalExamChecklist is empty, do not penalize missing physical exams. This usually means the scenario does not provide bedside physical exam results.',
+      '- Some pediatric/witness scenarios intentionally require document or setup review, such as growth chart review or initial vital-sign/fluid setup, instead of a full bedside exam.',
+      '- Credit attempts only when the requested exam is specific enough and there is a matched physicalExamEvent. Generic phrases such as just "검사하겠습니다" should not count.',
       '- If position differs from expectedPosition, give partial credit but mention positioning/timing as a suggestion.',
-      '- Use the result/status to judge whether the student should incorporate abnormal findings into clinical reasoning and patient education.',
+      '- Use each expected item result/status to judge whether the student should incorporate abnormal findings into clinical reasoning and patient education.',
+      '- If a performed physicalExamEvent is not part of expectedPhysicalExamChecklist, mention only as extra/unscored or lower-priority; do not count it as satisfying a required PE item.',
       'Return valid JSON only with this exact shape:',
       '{"score": number, "strengths": string[], "missedItems": string[], "missedItemStatus": [{"item": string, "historyCode": "O|L|D|Co|Ex|C|A_F|외|과|약|사|가|여|null", "isPerformed": boolean}], "riskAssessment": string, "suggestions": string[], "caseInstructionStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}], "patientEducationStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}]}',
       'score must be an integer from 0 to 100.',
@@ -283,6 +295,7 @@ export class LlmService {
       `Checklist: ${JSON.stringify(cpxCase.checklist)}`,
       `Red flags: ${JSON.stringify(cpxCase.redFlags)}`,
       `Clinical actions: ${JSON.stringify({
+        expectedPhysicalExamChecklist,
         handHygieneCount,
         handHygieneEvents,
         physicalExamEvents,

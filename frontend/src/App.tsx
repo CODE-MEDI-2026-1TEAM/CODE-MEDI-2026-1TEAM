@@ -5,6 +5,11 @@ import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
+import {
+  getPhysicalExamCriteriaForCase,
+  physicalExamFindingForCriteriaItem,
+  type PhysicalExamCriteriaItem,
+} from './physicalExamCriteria';
 import { resolveVitalSigns } from './vitals';
 import type {
   CpxCase,
@@ -350,6 +355,7 @@ export default function App() {
 
       {session?.evaluation && isEvaluationModalOpen ? (
         <EvaluationResultModal
+          caseSlug={session.case.slug}
           evaluation={session.evaluation}
           onClose={() => setIsEvaluationModalOpen(false)}
         />
@@ -469,9 +475,11 @@ export default function App() {
 }
 
 function EvaluationResultModal({
+  caseSlug,
   evaluation,
   onClose,
 }: {
+  caseSlug: string;
   evaluation: Evaluation;
   onClose: () => void;
 }) {
@@ -531,30 +539,6 @@ function EvaluationResultModal({
             <p>{evaluation.riskAssessment}</p>
           </section>
 
-          <div className="evaluation-metric-grid">
-            <EvaluationMetricCard
-              label="강점"
-              tone="positive"
-              value={evaluation.strengths.length}
-            />
-            <EvaluationMetricCard
-              label="놓친 항목"
-              tone="warning"
-              value={evaluation.missedItems.length}
-            />
-            <EvaluationMetricCard
-              label="개선 제안"
-              tone="neutral"
-              value={evaluation.suggestions.length}
-            />
-            <EvaluationMetricCard
-              label="손소독"
-              suffix="회"
-              tone={evaluation.handHygieneCount > 0 ? 'positive' : 'warning'}
-              value={evaluation.handHygieneCount}
-            />
-          </div>
-
           <EvaluationWorkupTable missedItems={evaluation.missedItems} />
 
           <section className="evaluation-hygiene-card">
@@ -574,6 +558,7 @@ function EvaluationResultModal({
           </section>
 
           <PhysicalExamSummaryCard
+            caseSlug={caseSlug}
             findings={evaluation.physicalExamFindings ?? []}
           />
 
@@ -642,8 +627,6 @@ function debugConversation(event: string, payload: Record<string, unknown>) {
   console.info(`[conversation-debug] ${event}`, payload);
 }
 
-// ─── feature/evaluation: EvaluationWorkupTable ───────────────────────────────
-
 const EVALUATION_WORKUP_ROWS = [
   { code: 'O', meaning: '증상의 발생 시점' },
   { code: 'L', meaning: '증상의 발생 위치' },
@@ -705,8 +688,6 @@ function EvaluationWorkupTable({ missedItems }: { missedItems: string[] }) {
   );
 }
 
-// ─── main: Hand hygiene & Physical exam helpers ───────────────────────────────
-
 function determineHandHygienePhase(
   session: Session,
   viewMode: 'bed' | 'desk',
@@ -738,31 +719,19 @@ function handHygienePhaseLabel(phase: HandHygienePhase) {
   return '문진 중 손소독';
 }
 
-const PHYSICAL_EXAM_CHECKLIST = {
-  sitting: [
-    ['head_inspection_palpation', '두부 시진/촉진'],
-    ['oral_tongue_exam', '구강·혀 검사'],
-    ['skin_inspection', '피부 시진'],
-    ['cranial_nerve_exam', '뇌신경검사'],
-    ['cerebellar_exam', '소뇌기능검사'],
-  ],
-  supine: [
-    ['motor_exam', '운동검사'],
-    ['sensory_exam', '감각검사'],
-    ['dtr_exam', '심부건반사(DTR)'],
-    ['neck_stiffness', '경부강직'],
-    ['kernig_sign', 'Kernig'],
-    ['brudzinski_sign', 'Brudzinski'],
-  ],
-} as const;
-
 function PhysicalExamSummaryCard({
+  caseSlug,
   findings,
 }: {
+  caseSlug: string;
   findings: PhysicalExamEvent[];
 }) {
-  const findingsByKey = new Map(
-    findings.map((finding) => [finding.examKey, finding]),
+  const criteria = getPhysicalExamCriteriaForCase(caseSlug);
+  const sittingItems = criteria.items.filter(
+    (item) => item.expectedPosition === 'sitting',
+  );
+  const supineItems = criteria.items.filter(
+    (item) => item.expectedPosition === 'supine',
   );
 
   return (
@@ -771,88 +740,70 @@ function PhysicalExamSummaryCard({
         <span>Physical Exam</span>
         <h3>신체진찰 수행 요약</h3>
       </div>
-      <div className="evaluation-physical-groups">
-        <PhysicalExamChecklistGroup
-          findingsByKey={findingsByKey}
-          items={PHYSICAL_EXAM_CHECKLIST.sitting}
-          title="앉음"
-        />
-        <PhysicalExamChecklistGroup
-          findingsByKey={findingsByKey}
-          items={PHYSICAL_EXAM_CHECKLIST.supine}
-          title="누움"
-        />
-      </div>
+      {criteria.items.length > 0 ? (
+        <div className="evaluation-physical-groups">
+          {sittingItems.length > 0 ? (
+            <PhysicalExamChecklistGroup
+              findings={findings}
+              items={sittingItems}
+              title="앉음/자료 확인"
+            />
+          ) : null}
+          {supineItems.length > 0 ? (
+            <PhysicalExamChecklistGroup
+              findings={findings}
+              items={supineItems}
+              title="누움"
+            />
+          ) : null}
+        </div>
+      ) : (
+        <p className="evaluation-physical-empty">
+          이 증례는 제공된 자료상 신체진찰 채점 항목이 없습니다.
+        </p>
+      )}
     </section>
   );
 }
 
 function PhysicalExamChecklistGroup({
-  findingsByKey,
+  findings,
   items,
   title,
 }: {
-  findingsByKey: Map<string, PhysicalExamEvent>;
-  items: readonly (readonly [string, string])[];
+  findings: PhysicalExamEvent[];
+  items: PhysicalExamCriteriaItem[];
   title: string;
 }) {
   return (
     <div className="evaluation-physical-group">
       <strong>{title}</strong>
       <ul>
-        {items.map(([key, label]) => {
-          const finding = physicalExamFindingForKey(findingsByKey, key);
+        {items.map((item, index) => {
+          const finding = physicalExamFindingForCriteriaItem(findings, item);
           const statusLabel = finding
             ? finding.status === 'abnormal'
               ? '비정상'
               : finding.status === 'unavailable'
                 ? '확인 불가'
-                : '정상'
+                : finding.status === 'unclear'
+                  ? '불명확'
+                  : '정상'
             : '미시행';
 
           return (
-            <li className={finding ? finding.status : 'missing'} key={key}>
+            <li
+              className={finding ? finding.status : 'missing'}
+              key={`${item.examKey}-${item.label}-${index}`}
+            >
               <span>{finding ? '✓' : '–'}</span>
-              <p>{label}</p>
+              <p>{item.label}</p>
               <em>{statusLabel}</em>
             </li>
           );
         })}
       </ul>
     </div>
-  );
-}
-
-function physicalExamFindingForKey(
-  findingsByKey: Map<string, PhysicalExamEvent>,
-  key: string,
-) {
-  if (
-    ['brudzinski_sign', 'kernig_sign', 'neck_stiffness'].includes(key) &&
-    findingsByKey.has('meningeal_sign')
-  ) {
-    return findingsByKey.get('meningeal_sign');
-  }
-
-  return findingsByKey.get(key);
-}
-
-function EvaluationMetricCard({
-  label,
-  suffix = '',
-  tone,
-  value,
-}: {
-  label: string;
-  suffix?: string;
-  tone: 'neutral' | 'positive' | 'warning';
-  value: number;
-}) {
-  return (
-    <section className={`evaluation-metric-card ${tone}`}>
-      <span>{label}</span>
-      <strong>{value}{suffix}</strong>
-    </section>
   );
 }
 

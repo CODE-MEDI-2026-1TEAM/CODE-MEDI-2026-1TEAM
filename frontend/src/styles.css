@@ -736,8 +736,7 @@ h1 {
 .evaluation-domain-heading span,
 .evaluation-hygiene-card span,
 .evaluation-physical-card > div:first-child span,
-.evaluation-priority-card span,
-.evaluation-metric-card span {
+.evaluation-priority-card span {
   @apply text-label-05;
 
   color: #617178;
@@ -813,35 +812,6 @@ h1 {
 .evaluation-workup-status.missed {
   color: #c0392b;
 }
-.evaluation-metric-grid {
-  display: grid;
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
-}
-.evaluation-metric-card {
-  display: grid;
-  gap: 4px;
-  min-width: 0;
-  padding: 16px 18px;
-  background: #fff;
-  border: 1px solid #dce5e7;
-  border-radius: 8px;
-}
-.evaluation-metric-card strong {
-  @apply text-head-02;
-
-  color: #17242a;
-}
-.evaluation-metric-card.positive {
-  border-color: #b9ded2;
-}
-.evaluation-metric-card.warning {
-  border-color: #f0c4b8;
-}
-.evaluation-metric-card.neutral {
-  border-color: #cbd9ee;
-}
 .evaluation-domain-card {
   grid-column: 1 / -1;
 }
@@ -911,6 +881,10 @@ h1 {
   color: #9a3412;
   background: #fed7aa;
 }
+.evaluation-physical-group li.unclear span {
+  color: #854d0e;
+  background: #fef3c7;
+}
 .evaluation-physical-group li p {
   @apply text-body-03;
 
@@ -920,6 +894,12 @@ h1 {
 .evaluation-physical-group li em {
   font-style: normal;
   color: #617178;
+}
+.evaluation-physical-empty {
+  @apply text-body-02;
+
+  margin: 14px 0 0;
+  color: #55656d;
 }
 .evaluation-hygiene-card ul {
   display: flex;
@@ -1446,6 +1426,10 @@ h1 {
   border-left-color: #7a8790;
   background: #f3f6f7;
 }
+.physical-exam-card.unclear {
+  border-left-color: #ca8a04;
+  background: #fffbeb;
+}
 .physical-exam-card > div {
   display: flex;
   gap: 8px;
@@ -1493,10 +1477,127 @@ h1 {
   color: #46545c;
   background: #e1e8eb;
 }
+.physical-exam-card.unclear footer em {
+  color: #854d0e;
+  background: #fef3c7;
+}
 .physical-exam-card footer span {
   @apply text-label-05;
 
   color: #617178;
+}
+.physical-exam-media-button {
+  @apply text-label-04;
+
+  justify-self: start;
+  min-height: 34px;
+  padding: 0 12px;
+  color: #145c4f;
+  cursor: pointer;
+  background: #e4f3ee;
+  border: 1px solid #b9d8cf;
+  border-radius: 6px;
+}
+.physical-exam-media-button:hover {
+  background: #d5ece5;
+}
+.physical-exam-media-backdrop {
+  position: fixed;
+  z-index: 70;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(8, 12, 16, 0.64);
+  backdrop-filter: blur(8px);
+}
+.physical-exam-media-modal {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  width: min(860px, calc(100vw - 48px));
+  max-height: calc(100vh - 48px);
+  overflow: hidden;
+  color: #17242a;
+  background: #fff;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.34);
+}
+.physical-exam-media-modal > header {
+  display: flex;
+  gap: 16px;
+  align-items: start;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid #e4ebed;
+}
+.physical-exam-media-modal > header p {
+  @apply text-label-05;
+
+  margin: 0 0 6px;
+  color: #23695a;
+}
+.physical-exam-media-modal > header h2 {
+  @apply text-subtitle-01;
+
+  margin: 0;
+  color: #17242a;
+}
+.physical-exam-media-modal > header button {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  color: #617178;
+  cursor: pointer;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-radius: 6px;
+}
+.physical-exam-media-modal > header button:hover {
+  color: #17242a;
+  background: #edf4f5;
+}
+.physical-exam-media-modal figure {
+  display: grid;
+  min-height: 0;
+  padding: 18px 24px;
+  margin: 0;
+  background: #f5f8f9;
+}
+.physical-exam-media-modal img {
+  width: 100%;
+  max-height: min(52vh, 520px);
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+}
+.physical-exam-media-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 0 24px 22px;
+}
+.physical-exam-media-content section {
+  padding: 14px;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+}
+.physical-exam-media-content span {
+  @apply text-label-05;
+
+  display: block;
+  margin-bottom: 6px;
+  color: #23695a;
+}
+.physical-exam-media-content p {
+  @apply text-body-02;
+
+  margin: 0;
+  color: #43545b;
 }
 .pending p {
   @apply text-neutral-200;
@@ -1671,9 +1772,6 @@ h1 {
     width: 118px;
     height: 118px;
   }
-  .evaluation-metric-grid {
-    grid-template-columns: 1fr;
-  }
   .evaluation-physical-groups {
     grid-template-columns: 1fr;
   }
@@ -1700,6 +1798,22 @@ h1 {
   }
   .evaluation-modal-actions button {
     width: 100%;
+  }
+  .physical-exam-media-backdrop {
+    padding: 14px;
+  }
+  .physical-exam-media-modal {
+    width: calc(100vw - 28px);
+    max-height: calc(100vh - 28px);
+  }
+  .physical-exam-media-modal > header,
+  .physical-exam-media-modal figure {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+  .physical-exam-media-content {
+    grid-template-columns: 1fr;
+    padding: 0 16px 18px;
   }
   h1 {
     font-size: 20px;
