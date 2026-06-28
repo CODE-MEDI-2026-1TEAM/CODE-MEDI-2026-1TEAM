@@ -42,7 +42,6 @@ export class LlmService {
     try {
       const completion = await this.getClient().chat.completions.create({
         model: this.model,
-        temperature: 0.7,
         messages: [
           {
             role: 'system',
@@ -77,7 +76,6 @@ export class LlmService {
     try {
       const completion = await this.getClient().chat.completions.create({
         model: this.model,
-        temperature: 0.2,
         response_format: { type: 'json_object' },
         messages: [
           {
