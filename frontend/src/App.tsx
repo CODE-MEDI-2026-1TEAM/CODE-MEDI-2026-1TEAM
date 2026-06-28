@@ -3,7 +3,7 @@ import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
-import type { CpxCase, Message, Session } from './types';
+import type { CpxCase, Evaluation, Message, Session } from './types';
 
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
@@ -14,6 +14,7 @@ export default function App() {
   const [isManualSelectionOpen, setIsManualSelectionOpen] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isEvaluating, setIsEvaluating] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const activeCase = useMemo(
@@ -117,7 +118,7 @@ export default function App() {
   const sendMessage = useCallback(
     async (content: string): Promise<boolean> => {
       const trimmed = content.trim();
-      if (!session || !trimmed) return false;
+      if (!session || session.status === 'completed' || !trimmed) return false;
 
       setIsLoading(true);
       setError(null);
@@ -143,6 +144,38 @@ export default function App() {
     },
     [session],
   );
+
+  const evaluateSession = useCallback(async () => {
+    if (!session || isEvaluating) return;
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    setIsEvaluating(true);
+    setError(null);
+
+    try {
+      const data = await request<{ evaluation: Evaluation }>(
+        `/sessions/${session.id}/evaluate`,
+        { method: 'POST' },
+      );
+      setSession((current) =>
+        current?.id === session.id
+          ? {
+              ...current,
+              status: 'completed',
+              endedAt: new Date().toISOString(),
+              evaluation: data.evaluation,
+            }
+          : current,
+      );
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '채점에 실패했습니다.');
+    } finally {
+      setIsEvaluating(false);
+    }
+  }, [isEvaluating, session]);
 
   useEffect(() => {
     request<{ cases: CpxCase[] }>('/cases')
@@ -173,8 +206,10 @@ export default function App() {
       <ChatSidebar
         activeCase={activeCase}
         error={error}
+        isEvaluating={isEvaluating}
         isLoading={isLoading}
         onClearError={clearError}
+        onEvaluate={evaluateSession}
         onSendMessage={sendMessage}
         session={session}
       />

@@ -60,6 +60,8 @@ export type Message = {
 export type Session = {
   id: string;
   status: 'active' | 'completed';
+  startedAt: string;
+  endedAt?: string | null;
   case: CpxCase;
   messages: Message[];
   evaluation?: Evaluation | null;

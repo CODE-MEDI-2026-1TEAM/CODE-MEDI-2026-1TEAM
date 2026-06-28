@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
 import type { CpxCase, Session } from '../types';
@@ -14,8 +14,10 @@ type ChatSidebarProps = {
   activeCase: CpxCase | undefined;
   session: Session | null;
   isLoading: boolean;
+  isEvaluating: boolean;
   error: string | null;
   onSendMessage: (content: string) => Promise<boolean>;
+  onEvaluate: () => Promise<void>;
   onClearError: () => void;
 };
 
@@ -23,12 +25,15 @@ export default function ChatSidebar({
   activeCase,
   session,
   isLoading,
+  isEvaluating,
   error,
   onSendMessage,
+  onEvaluate,
   onClearError,
 }: ChatSidebarProps) {
   const chatEndRef = useRef<HTMLDivElement>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
+  const isCompleted = session?.status === 'completed';
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
@@ -52,6 +57,11 @@ export default function ChatSidebar({
   );
   const avatarCase = PATIENT_CASES[avatarCaseKey];
   const avatarPath = patientAvatarPathForCase(avatarCaseKey);
+  const remainingSeconds = useCountdownSeconds(session);
+  const timeProgress = useMemo(
+    () => Math.max(0, Math.min(100, (remainingSeconds / EXAM_DURATION_SECONDS) * 100)),
+    [remainingSeconds],
+  );
 
   return (
     <aside className="chat-sidebar" aria-label="환자 대화 기록">
@@ -81,6 +91,30 @@ export default function ChatSidebar({
         </div>
       </section>
 
+      <section className="exam-control-card" aria-label="CPX 채점">
+        <div className="exam-timer-row">
+          <div>
+            <span>CPX 타이머</span>
+            <strong>{session ? formatRemainingTime(remainingSeconds) : '12:00'}</strong>
+          </div>
+          <button
+            className="evaluate-button"
+            disabled={!session || isLoading || isEvaluating || isCompleted}
+            onClick={() => void onEvaluate()}
+            type="button"
+          >
+            {isEvaluating ? '채점 중' : isCompleted ? '채점 완료' : '종료/채점하러 가기'}
+          </button>
+        </div>
+        <div className="timer-track" aria-hidden="true">
+          <span style={{ width: `${timeProgress}%` }} />
+        </div>
+        {remainingSeconds === 0 && session && !isCompleted ? (
+          <p className="timer-note">제한 시간이 종료되었습니다. 채점을 진행하세요.</p>
+        ) : null}
+        {session?.evaluation ? <EvaluationSummary evaluation={session.evaluation} /> : null}
+      </section>
+
       <section className="chat-history" aria-live="polite">
         <p className="chat-label">대화 기록</p>
         <div className="message-list">
@@ -98,17 +132,108 @@ export default function ChatSidebar({
       <div className="voice-panel">
         <div className="voice-status">
           <span>{isLoading ? '환자 응답 생성 중' : voice.isListening ? '듣는 중' : session ? '진료 대기' : '세션 준비 중'}</span>
-          {voice.transcript ? <p>{voice.transcript}</p> : <p>마이크를 눌러 환자에게 질문하세요.</p>}
+          {voice.transcript ? <p>{voice.transcript}</p> : <p>{isCompleted ? '채점이 완료된 세션입니다.' : '마이크를 눌러 환자에게 질문하세요.'}</p>}
           {error ? <p className="voice-error">{error}</p> : null}
         </div>
         <div className="voice-actions">
-          <button className={voice.isListening ? 'mic-button active' : 'mic-button'} disabled={!session || isLoading || !voice.isSupported} onClick={voice.toggle} title={voice.isSupported ? '음성 입력 시작/중지' : '이 브라우저는 음성 입력을 지원하지 않습니다'} type="button">
-            {voice.isListening ? '중지' : '음성'}
+          <button
+            aria-label={voice.isListening ? '음성 입력 중지' : '음성 입력 시작'}
+            className={voice.isListening ? 'mic-button active' : 'mic-button'}
+            disabled={!session || isCompleted || isLoading || !voice.isSupported}
+            onClick={voice.toggle}
+            title={voice.isSupported ? '음성 입력 시작/중지' : '이 브라우저는 음성 입력을 지원하지 않습니다'}
+            type="button"
+          >
+            {voice.isListening ? <StopIcon /> : <MicIcon />}
           </button>
           <label className="voice-toggle"><input type="checkbox" checked={voice.isVoiceReplyEnabled} onChange={(event) => voice.setVoiceReplyEnabled(event.target.checked)} /> 음성 재생</label>
         </div>
       </div>
     </aside>
+  );
+}
+
+const EXAM_DURATION_SECONDS = 12 * 60;
+
+function useCountdownSeconds(session: Session | null) {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    if (!session || session.status === 'completed') return;
+
+    setNow(Date.now());
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, [session?.id, session?.status]);
+
+  if (!session) return EXAM_DURATION_SECONDS;
+  if (session.status === 'completed') return 0;
+
+  const startedAt = new Date(session.startedAt).getTime();
+  if (Number.isNaN(startedAt)) return EXAM_DURATION_SECONDS;
+
+  const elapsed = Math.floor((now - startedAt) / 1000);
+  return Math.max(0, EXAM_DURATION_SECONDS - elapsed);
+}
+
+function formatRemainingTime(seconds: number) {
+  const minutes = Math.floor(seconds / 60);
+  const rest = seconds % 60;
+  return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
+}
+
+function EvaluationSummary({ evaluation }: { evaluation: NonNullable<Session['evaluation']> }) {
+  const missedItems = evaluation.missedItems.slice(0, 2);
+  const suggestions = evaluation.suggestions.slice(0, 2);
+
+  return (
+    <div className="evaluation-summary">
+      <div className="score-pill">
+        <span>점수</span>
+        <strong>{evaluation.score}</strong>
+      </div>
+      <div className="evaluation-summary-text">
+        <strong>채점 결과</strong>
+        <p>{evaluation.riskAssessment}</p>
+      </div>
+      {missedItems.length > 0 || suggestions.length > 0 ? (
+        <div className="evaluation-detail-list">
+          {missedItems.length > 0 ? (
+            <div>
+              <span>놓친 항목</span>
+              <ul>
+                {missedItems.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+          ) : null}
+          {suggestions.length > 0 ? (
+            <div>
+              <span>개선 제안</span>
+              <ul>
+                {suggestions.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function MicIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="24" viewBox="0 0 24 24" width="24">
+      <path d="M12 14.5a3.5 3.5 0 0 0 3.5-3.5V6a3.5 3.5 0 1 0-7 0v5a3.5 3.5 0 0 0 3.5 3.5Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+      <path d="M5 10.5a7 7 0 0 0 14 0M12 17.5V21M9 21h6" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+    </svg>
+  );
+}
+
+function StopIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="24" viewBox="0 0 24 24" width="24">
+      <rect height="10" rx="2" stroke="currentColor" strokeWidth="2" width="10" x="7" y="7" />
+    </svg>
   );
 }
 
