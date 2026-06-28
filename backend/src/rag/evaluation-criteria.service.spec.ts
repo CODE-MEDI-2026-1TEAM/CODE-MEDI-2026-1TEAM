@@ -33,4 +33,33 @@ describe('EvaluationCriteriaService', () => {
 
     expect(criteriaPack?.selectedModule.moduleId).toBe('cpx-34-seizure');
   });
+
+  it('loads case-specific patient education criteria for simulation cases', () => {
+    const service = new EvaluationCriteriaService();
+
+    const criteriaPack = service.buildCriteriaPack({
+      slug: 'seizure_case_03',
+      simulationCaseId: 'seizure_case_03',
+      simulationTopicId: 'seizure',
+      title: '성인 경련 - 측두엽 뇌전증과 외상성 출혈 감별',
+      chiefComplaint: '몸이 떨려요',
+      checklist: ['경련 전후 상황 확인'],
+      redFlags: ['두부 외상'],
+    });
+
+    expect(criteriaPack?.casePatientEducation.likelyDiagnoses).toEqual([
+      '측두엽 뇌전증',
+      '외상성 뇌출혈',
+      '외상성 경막하혈종',
+    ]);
+    expect(criteriaPack?.casePatientEducation.requiredTests).toEqual([
+      '뇌파검사',
+      '뇌 CT/MRI',
+      '혈액검사',
+    ]);
+    expect(
+      criteriaPack?.casePatientEducation.requiredTreatmentEducation,
+    ).toEqual(['약물 치료', '입원 권유', '스트레스 조절']);
+    expect(criteriaPack?.casePatientEducation.items).toHaveLength(9);
+  });
 });

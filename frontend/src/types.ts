@@ -80,5 +80,15 @@ export type Evaluation = {
   missedItems: string[];
   riskAssessment: string;
   suggestions: string[];
+  caseInstructionStatus: EvaluationItemStatus[];
+  patientEducationStatus: EvaluationItemStatus[];
   createdAt: string;
+};
+
+export type EvaluationItemStatus = {
+  item: string;
+  category?: string;
+  status: 'met' | 'partial' | 'unmet';
+  evidence: string[];
+  feedback: string;
 };

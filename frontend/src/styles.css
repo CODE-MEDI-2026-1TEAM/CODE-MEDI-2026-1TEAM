@@ -823,6 +823,38 @@ h1 {
   margin: 0;
   color: #43545b;
 }
+.evaluation-status-section li {
+  display: grid;
+  gap: 4px;
+}
+.evaluation-status-section strong {
+  font-weight: 700;
+  color: #24363c;
+}
+.evaluation-status-section small {
+  color: #60767d;
+  line-height: 1.45;
+}
+.evaluation-status-pill {
+  width: fit-content;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+.evaluation-status-pill.met {
+  color: #0c5b42;
+  background: #dff3e9;
+}
+.evaluation-status-pill.partial {
+  color: #75520e;
+  background: #fff0c9;
+}
+.evaluation-status-pill.unmet {
+  color: #8a2634;
+  background: #f9d8dd;
+}
 .evaluation-modal-actions {
   display: flex;
   justify-content: flex-end;

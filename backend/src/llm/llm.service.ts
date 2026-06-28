@@ -18,12 +18,22 @@ type CpxCaseForPrompt = {
   patientPrompt: string;
 };
 
+export type EvaluationItemStatus = {
+  item: string;
+  category?: string;
+  status: 'met' | 'partial' | 'unmet';
+  evidence: string[];
+  feedback: string;
+};
+
 export type EvaluationResult = {
   score: number;
   strengths: string[];
   missedItems: string[];
   riskAssessment: string;
   suggestions: string[];
+  caseInstructionStatus: EvaluationItemStatus[];
+  patientEducationStatus: EvaluationItemStatus[];
 };
 
 @Injectable()
@@ -97,6 +107,7 @@ export class LlmService {
 
       return this.normalizeEvaluation(
         JSON.parse(content) as Partial<EvaluationResult>,
+        criteriaPack,
       );
     } catch (error) {
       throw new BadGatewayException({
@@ -160,8 +171,10 @@ export class LlmService {
           '',
           'Use the criteria pack as the primary evaluation reference.',
           'Case-specific checklist and red flags override general module guidance.',
+          'Evaluate every item in criteriaPack.caseChecklist.instructionItems into caseInstructionStatus.',
+          'Evaluate every item in criteriaPack.casePatientEducation.items into patientEducationStatus.',
           'When creating missedItems and suggestions, prefer actionable Korean feedback grounded in the criteria pack.',
-          'If the student did not explicitly ask or explain something, do not mark it as completed.',
+          'If the student did not explicitly ask, explain, or perform something, do not mark it as completed.',
         ].join('\n')
       : [
           '',
@@ -174,8 +187,12 @@ export class LlmService {
       'Evaluate only the student messages in the supplied conversation.',
       'Do not invent student actions or questions that are not present in the conversation.',
       'Return valid JSON only with this exact shape:',
-      '{"score": number, "strengths": string[], "missedItems": string[], "riskAssessment": string, "suggestions": string[]}',
+      '{"score": number, "strengths": string[], "missedItems": string[], "riskAssessment": string, "suggestions": string[], "caseInstructionStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}], "patientEducationStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}]}',
       'score must be an integer from 0 to 100.',
+      'For patient education, met requires a patient-facing explanation in understandable Korean.',
+      'Mentioning a diagnosis, test, or treatment only as internal reasoning is not enough for patientEducationStatus.',
+      'Use partial when the student mentioned the topic but explanation was incomplete, unclear, or not patient-facing.',
+      'Evidence must quote or briefly paraphrase the relevant student utterance. Use an empty evidence array when unmet.',
       '',
       `Case title: ${cpxCase.title}`,
       `Chief complaint: ${cpxCase.chiefComplaint}`,
@@ -188,6 +205,7 @@ export class LlmService {
 
   private normalizeEvaluation(
     result: Partial<EvaluationResult>,
+    criteriaPack?: EvaluationCriteriaPack | null,
   ): EvaluationResult {
     const score =
       typeof result.score === 'number' && Number.isInteger(result.score)
@@ -201,8 +219,82 @@ export class LlmService {
       riskAssessment:
         typeof result.riskAssessment === 'string'
           ? result.riskAssessment
-          : '위험 신호 평가를 생성하지 못했습니다.',
+          : '위험도 평가를 생성하지 못했습니다.',
       suggestions: Array.isArray(result.suggestions) ? result.suggestions : [],
+      caseInstructionStatus: this.normalizeItemStatuses(
+        result.caseInstructionStatus,
+        criteriaPack?.caseChecklist.instructionItems ?? [],
+      ),
+      patientEducationStatus: this.normalizeItemStatuses(
+        result.patientEducationStatus,
+        criteriaPack?.casePatientEducation.items ?? [],
+      ),
     };
+  }
+
+  private normalizeItemStatuses(
+    statuses: unknown,
+    expectedItems: Array<{ item: string; category?: string }>,
+  ): EvaluationItemStatus[] {
+    const normalized = Array.isArray(statuses)
+      ? statuses
+          .map((status) => this.normalizeItemStatus(status))
+          .filter((status): status is EvaluationItemStatus => Boolean(status))
+      : [];
+    const normalizedByKey = new Map(
+      normalized.map((status) => [
+        this.statusKey(status.item, status.category),
+        status,
+      ]),
+    );
+
+    for (const expected of expectedItems) {
+      const key = this.statusKey(expected.item, expected.category);
+      if (!normalizedByKey.has(key)) {
+        normalizedByKey.set(key, {
+          item: expected.item,
+          category: expected.category,
+          status: 'unmet',
+          evidence: [],
+          feedback: '평가 응답에 해당 항목 근거가 없어 미충족으로 처리했습니다.',
+        });
+      }
+    }
+
+    return Array.from(normalizedByKey.values());
+  }
+
+  private normalizeItemStatus(status: unknown): EvaluationItemStatus | null {
+    if (!status || typeof status !== 'object') return null;
+    const candidate = status as Partial<EvaluationItemStatus>;
+
+    if (typeof candidate.item !== 'string' || !candidate.item.trim()) {
+      return null;
+    }
+
+    const allowedStatuses = new Set(['met', 'partial', 'unmet']);
+    const normalizedStatus = allowedStatuses.has(candidate.status ?? '')
+      ? candidate.status
+      : 'unmet';
+
+    return {
+      item: candidate.item,
+      category:
+        typeof candidate.category === 'string'
+          ? candidate.category
+          : undefined,
+      status: normalizedStatus as EvaluationItemStatus['status'],
+      evidence: Array.isArray(candidate.evidence)
+        ? candidate.evidence.filter(
+            (item): item is string => typeof item === 'string',
+          )
+        : [],
+      feedback:
+        typeof candidate.feedback === 'string' ? candidate.feedback : '',
+    };
+  }
+
+  private statusKey(item: string, category: string | undefined) {
+    return `${category ?? ''}:${item}`;
   }
 }
