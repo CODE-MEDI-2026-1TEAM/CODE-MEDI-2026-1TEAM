@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "alcohol_counseling-005",
+  "case_number_in_pdf": 274,
+  "topic": {
+    "topic_start_page": 697,
+    "topic_id": "alcohol_counseling",
+    "topic_label": "음주 상담",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 707,
+      "end": 708
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "하지영",
+      "age": 32,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": null,
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/32세\n\n음주량\n하루 소주 2~3병씩, 일주일에 7일\n대학교 1학년 때 처음 마시기 시작했으며，그 때는 1주일에 2번\n^주의도\n건강이 걱정되기도 하고. 남편도 끊으라고 해서\n음주이유\n습관적으로 술을 마심\n딱히 이유가 있는 건 아님\n等!參惠轉K. 핫''^t '.\nCAGE\n뇌 ^\n*\nC ：\n人人무 결심\nA ：\n남편이 자꾸 끊으라고 함\nG ：\n있음\nE ：일주일에 2〜3회는 해장술을 함\n마트에서 아르바이트를 했을 때 가끔 지각함\n법적 문제(ᅵ), 대인 관계 갈등(ᅳ), 위험 행동(ᅵ)\n의존\n금단 증상(+, 손 떨림, 불안, 초조)\n마시는 양 점점 증가 (+)\n여가 활동 감소(+)\nRisk\n잘^ #",
+    "history_blocks": {
+      "associated_symptoms": "속쓰림 /소화불량/황달/피로 (+/+/-/->\nRelevance",
+      "past_history": "고혈압/당뇨/고지혈증/심장 질환(ᅳ/一/一/ᅳ)\nDM/TBc/HTN/Liver( - / - / - / - )",
+      "medications": "약물복용력 (-)",
+      "social_history": "마트에서 아르바이트했으나 지금은 관둠",
+      "family_history": "가족 중고혈압/간질환 ( - / - )"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/32세\n-\n음주량\n하루 소주 2~3병씩, 일주일에 7일\n대학교 1학년 때 처음 마시기 시작했으며，그 때는 1주일에 2번\n^주의도\n건강이 걱정되기도 하고. 남편도 끊으라고 해서\n음주이유\n습관적으로 술을 마심\n딱히 이유가 있는 건 아님\n等!參惠轉K. 핫''^t '.\nCAGE\n뇌 ^\n*\nC ：\n人人무 결심\nA ：\n남편이 자꾸 끊으라고 함\nG ：\n있음\nE ：일주일에 2〜3회는 해장술을 함\n마트에서 아르바이트를 했을 때 가끔 지각함\n법적 문제(ᅵ), 대인 관계 갈등(ᅳ), 위험 행동(ᅵ)\n의존\n금단 증상(+, 손 떨림, 불안, 초조)\n마시는 양 점점 증가 (+)\n여가 활동 감소(+)\nRisk\n잘^ #\nA\n속쓰림 /소화불량/황달/피로 (+/+/-/->\nRelevance\n과\n고혈압/당뇨/고지혈증/심장 질환(ᅳ/一/一/ᅳ)\nDM/TBc/HTN/Liver( - / - / - / - )\n약\n약물복용력 (-)\n사\n마트에서 아르바이트했으나 지금은 관둠\n가\n가족 중고혈압/간질환 ( - / - )"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n환자의 금주 계획에 대하여 교육하고 상담하시오\n교육\n환자의 상태가 어떠한지 2개\n1• 알코올 의존\n2. 알코올 금단",
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "CBC",
+      "LFT",
+      "전해질검사"
+    ],
+    "planned_treatments_or_education": [
+      "수액 치료",
+      "Thiamine 보충",
+      "W"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례\n^ ■황\n지침\n• 32세 여자 하지영씨가 불안하다며 내원하였다.\n[활력 징휘 혈압 : 120/80mmHg\n맥박 : 80회/분\n호읍 : 2ᄋ회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n환자의 금주 계획에 대하여 교육하고 상담하시오\n교육\n• 환자의 상태가 어떠한지 2개\n1• 알코올 의존\n2. 알코올 금단\n• 필요한 검사 계획 3가지\n1.CBC\n2. LFT\n3. 전해질검사\n• 필요한 치료 계획 2가지\n1. 수액 치료\n2. Thiamine 보충\n음주 문제 환자에서는 먼저 알코올 사용장애가 있는지 알기 위해\n0\nW\n—\nCAGE screening을 하는 것이 중요합니다. 또한금주를 하게 된 계기,\n예전에 금주를 했던 경험，그리고 실패했던 이유에 대해서 물어봐야 합니다. 그리고 현재 신체\n에 문제가 있지 않은지 어떤 증상을 호소하는지 알아야 합니다. 음주 문제나 간질환의 가족력이\n있는 경우，신체적 질환을 시사하는 증상들을 호소할 패는 건강에 문제가 있을 수 있기 때문에\n꼭 검사를 해야한다고 말해야 합니다. 술을 당장 완전히 끊으면 힘들 수도 있으니 조금씩 줄여\n나가면서 완전히 끊도록 적절히 회유를 해야 하고> 인터넷 금주 모임이나 성공 사례들을 소개해\n줄 수 있고, 필요하다면 약물 처 방을 하여 도음을 줄 수 있다고 말합니 다. 추가적 인 환자 교육은\n위의 내용을 잘 참고해서 시행하면 됩니다.\n음주 문제는 시간이 모자르거나 내용이 어렵지 않기 때문에 환자에게 물어 볼 내용과교육할 내\n용에 대해서만잘 숙지하시고 상황에 맞게 적절한 공감을 하고 환자의 건강을 걱정하면서 하면\n좋은 결과 있을 것입 니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [
+      "chief_complaint_not_confidently_parsed"
+    ],
+    "requires_manual_review": true
+  }
+}

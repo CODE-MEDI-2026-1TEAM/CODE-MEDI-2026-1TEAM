@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "breast_pain_lump-005",
+  "case_number_in_pdf": 232,
+  "topic": {
+    "topic_start_page": 589,
+    "topic_id": "breast_pain_lump",
+    "topic_label": "유방통/유방덩이",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 601,
+      "end": 602
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이예슬",
+      "age": 46,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 46세\n“오른쪽 가슴에 뭐가 만져져요”",
+    "history_blocks": {
+      "onset": "2달 전부터",
+      "location": "^른쪽 가슴 바깥쪽",
+      "duration": "커지는지는 잘 모름, 생리 주기와 관련 없음",
+      "course": "계속 비슷한 강도",
+      "experience": "처음",
+      "character": "한 개, 엄지손톱만 한 크기，통증(一)",
+      "associated_symptoms": "발열/오한/발적 ( - / - / - )\n피부 변화/겨드랑이 멍울(ᅳ/ᅳ)\n유두 변화(-)\n유두분비물(一)\n체중 ^■소(->",
+      "factors": "커피 하루 5〜6잔",
+      "events": "방사선 조사력(- ), 보형물(一)",
+      "trauma_history": "외상(- ) , 수술력(ᅳ)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / 一/ - )",
+      "medications": "人 f\n술/ 담배/커피(- / - / + ), 주부",
+      "family_history": "어머니 유방암(+)\nMens Hx\n[산과력] 1-0~0~1\n현재는 폐경\n폐경 전에는 규칙적, 30일 주기，양 보통, 월경통 없음\n초경 12세\n^유수유안함\n가떼니 n\nᅵ고 A 비\n1\nᅵ\n: ᅵ\nj - ■\n^ - - 1'.^..'. ,\n~ lty . ■\nj.에‘.. w비\nL : - ~ -J~\n,\n^ ~ U . ᅵ\n1- ^ ---^\n유방과 겨드랑이 시진 및 촉진\n오른쪽 유방 11시 방향 유두에서 5cm 떨어진 부위에 1.5cm 정도 크기의 고정된 덩이가 촉진됨\n겨드랑이 림프절 비대H , 분비물H , 피부 변화(-), 유두 변화(一), 발열(- )，발적(-)\n1® _ _ ^음\n특이 시항\n신체 진찰 시에 잘 협조해 주심"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 46세\n“오른쪽 가슴에 뭐가 만져져요”\n0\n2달 전부터\nL\n^른쪽 가슴 바깥쪽\nD\n커지는지는 잘 모름, 생리 주기와 관련 없음\nCo\n계속 비슷한 강도\nEx\n처음\nC\n한 개, 엄지손톱만 한 크기，통증(一)\nA\n발열/오한/발적 ( - / - / - )\n피부 변화/겨드랑이 멍울(ᅳ/ᅳ)\n유두 변화(-)\n유두분비물(一)\n체중 ^■소(->\nF\n커피 하루 5〜6잔\nE\n방사선 조사력(- ), 보형물(一)\n외\n외상(- ) , 수술력(ᅳ)\n과\nDM/TB/HTN/간염 ( - / - / 一/ - )\n약\n人 f\n술/ 담배/커피(- / - / + ), 주부\n가\n어머니 유방암(+)\nMens Hx\n[산과력] 1-0~0~1\n현재는 폐경\n폐경 전에는 규칙적, 30일 주기，양 보통, 월경통 없음\n초경 12세\n^유수유안함\n가떼니 n\nᅵ고 A 비\n1\nᅵ\n: ᅵ\n- j - ■\n- ^ - - 1'.^..'. ,\n- ~ lty . ■\n\nj.에‘.. w비\nL : - ~ -J~\n,\n^ ~ U . ᅵ\n\n1- ^ ---^\n유방과 겨드랑이 시진 및 촉진\n오른쪽 유방 11시 방향 유두에서 5cm 떨어진 부위에 1.5cm 정도 크기의 고정된 덩이가 촉진됨\n겨드랑이 림프절 비대H , 분비물H , 피부 변화(-), 유두 변화(一), 발열(- )，발적(-)\n1® _ _ ^음\n특이 시항\n신체 진찰 시에 잘 협조해 주심"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "유방촬영술",
+      "유방초음파",
+      "유방조직검사"
+    ],
+    "planned_treatments_or_education": [
+      "수술",
+      "항암 치료"
+    ],
+    "expected_skills_raw": "설명동의서 받기 : 유방암이 의심되는 환자이므로 유방 중심침 생검에 대한 설명 후\n동의서를 받아야 합니다.\n유방덩이를 주소로 온 환자의 경우는 무조건 양성인지 악성인지 감별\n이 필요합니다. 따라서 병력 청취에서 환자에게 유방암의 위험 요인\n(초경 나이, 폐경 나이，출산 나이, 호르몬 제제 사용 여부, 가족력 등)이 될만한 것들을 물어 보\n고 유방암의 가능성을 염두해야 합니다. 기본 병력을 확인했으면 유방과 겨드랑이 신체 진찰을\n꼼꼼히 시행하고 그 결과를 sp에게 알려줍니다.\n위 상황의 환자의 경우는 유방암의 가족력도 있고, 초경을 12세에 하는 등 위험 인자가 있고, 또\n한 신체 진찰 결과 유방암을 배제할 수 없으므로 검사에서 유방촬영술과 유방초음파, 유방 생검\n을 시행해야 합니다. 양성의 가능성이 높다면 환자를 안심시키고 경과 관찰을 하는 것만으로도\n충분합니다. 교육을 할 때는 자가 검진을 교육하는 것과 정기적으로 유방촬영술이나 의사에게\n검진을 받도록 하는 것이 중요합니다.",
+    "author_commentary_tail": "설명동의서 받기 : 유방암이 의심되는 환자이므로 유방 중심침 생검에 대한 설명 후\n동의서를 받아야 합니다.\n유방덩이를 주소로 온 환자의 경우는 무조건 양성인지 악성인지 감별\n이 필요합니다. 따라서 병력 청취에서 환자에게 유방암의 위험 요인\n(초경 나이, 폐경 나이，출산 나이, 호르몬 제제 사용 여부, 가족력 등)이 될만한 것들을 물어 보\n고 유방암의 가능성을 염두해야 합니다. 기본 병력을 확인했으면 유방과 겨드랑이 신체 진찰을\n꼼꼼히 시행하고 그 결과를 sp에게 알려줍니다.\n위 상황의 환자의 경우는 유방암의 가족력도 있고, 초경을 12세에 하는 등 위험 인자가 있고, 또\n한 신체 진찰 결과 유방암을 배제할 수 없으므로 검사에서 유방촬영술과 유방초음파, 유방 생검\n을 시행해야 합니다. 양성의 가능성이 높다면 환자를 안심시키고 경과 관찰을 하는 것만으로도\n충분합니다. 교육을 할 때는 자가 검진을 교육하는 것과 정기적으로 유방촬영술이나 의사에게\n검진을 받도록 하는 것이 중요합니다.",
+    "scenario_card_raw": "D\ni 실전모의 증례\n• 46세 여자 이예슬씨가 유방덩이를 주소로 내원하였다.\n^■황\n지침\n翁雷 |秦緣\n[활력 징휘 혈압 : 120/80mmHg\n맥박 : 80회/분\n호읍 • 20회/분\n체온 ：\n36.5°C\n[응시:다는이 환자에게] 증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n• 가성이 높은 진단 3개\n1. 유방암\n2. 섬유선종\n3. 유방 농양\n^자\n교육\n• 필요한 검사 계획 3가지\n1. 유방촬영술\n2. 유방초음파\n3. 유방조직검사\n• 필요한 치료 계획 2가지\n1. 수술\n2. 항암 치료\n예상\n술기\n설명동의서 받기 : 유방암이 의심되는 환자이므로 유방 중심침 생검에 대한 설명 후\n동의서를 받아야 합니다.\n유방덩이를 주소로 온 환자의 경우는 무조건 양성인지 악성인지 감별\n이 필요합니다. 따라서 병력 청취에서 환자에게 유방암의 위험 요인\n(초경 나이, 폐경 나이，출산 나이, 호르몬 제제 사용 여부, 가족력 등)이 될만한 것들을 물어 보\n고 유방암의 가능성을 염두해야 합니다. 기본 병력을 확인했으면 유방과 겨드랑이 신체 진찰을\n꼼꼼히 시행하고 그 결과를 sp에게 알려줍니다.\n위 상황의 환자의 경우는 유방암의 가족력도 있고, 초경을 12세에 하는 등 위험 인자가 있고, 또\n한 신체 진찰 결과 유방암을 배제할 수 없으므로 검사에서 유방촬영술과 유방초음파, 유방 생검\n을 시행해야 합니다. 양성의 가능성이 높다면 환자를 안심시키고 경과 관찰을 하는 것만으로도\n충분합니다. 교육을 할 때는 자가 검진을 교육하는 것과 정기적으로 유방촬영술이나 의사에게\n검진을 받도록 하는 것이 중요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "acute_abdominal_pain-001",
+  "case_number_in_pdf": 1,
+  "topic": {
+    "topic_start_page": 15,
+    "topic_id": "acute_abdominal_pain",
+    "topic_label": "급성 복통",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 15,
+      "end": 16
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박남용",
+      "age": 42,
+      "sex": "남자"
+    },
+    "setting": "응급실",
+    "opening_statement": "배가아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": null,
+      "temperature": "37.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/42세\n“배가아파요”",
+    "history_blocks": {
+      "onset": "3일 전 or 어제",
+      "location": "3일 전과 어제는 명치쪽에서 오늘 RUQ로 이동",
+      "duration": "점심 식후 6시간 동안(현재 오후 6시)",
+      "course": "3일 전부터 아팠다가 안 아팠다가 했는데 오늘 너무 아파서 응급실 옴",
+      "experience": "이전부터 기름진 음식 먹거나 과식하면 잘 체하고 배 아왔음",
+      "character": "쥐어 짜는 듯한 통증, NRS 6〜8점\n방사통(- ), NRS 7(엄청 아프면) ᅳ 금은 4〜5",
+      "associated_symptoms": "[전신] 열/오한(ᅳ/+), 체중 증가(+. 3년 동안 U)kg, 발목 삐어서 운동 잘 못했음，\n체중 증가 없을 수도 있음), 피로(ᅳ)\n[소화기] A/N/V/C/D(-/±, 살짝울렁인다고도 함/ - / - / - >, 속쓰림(+), 배 빵빵(±)\n[호흡] 호홉곤란/흉통( - / - )\n[탈쉬 어지럼/갈증/소변량저하/호흡곤란( - / - / - / - )",
+      "factors": "5일 전에 짜장면 곱빼기 먹었을 때 복통 있었음\n악화 : 식후(+), 기침 시(+), 뛸 때/완화 : 앞으로 숙이면(+)",
+      "events": "내시경 안 해 봄(피검사 포함), 건강 검진 정상, 간염 백신 모름",
+      "past_history": "고혈압/당뇨 (ᅳ/ - )",
+      "medications": "진통제(+, 어제 회사 근처 응급실에서 진통제 주사하여 나았다가 오늘 다시 o[품)",
+      "social_history": "흡연(현재 금연), 음주(+, 3회/주，하루소주 한 병)\n운동(一, 발목 다친 뒤로 운동 못함), 스트레스(一), 직업 : 법무사"
+    },
+    "physical_exam_results": "General\nV/S ：\nstable\nHEENT\n눈/ 입/림프절 ( - / - / - )\nAbdomen\nMurphy sign(+), Epigastric (+), RUQ Td/rTd/불편감 (+/+/+)\nObturator/Psoas sign(-/-), CVAT(+, 울린다고 말함), DRE(-)\nExtermity",
+    "patient_question_or_concern": "“빨리 치료해 주세요; ’",
+    "actor_notes_or_special_behavior": "응급실로 내원했다고 되어 있고, 현재 시간(오후 6시) 써 있음. 환자 배 부여잡고 그냥\n앉아 있으나 지금은 조금 나아졌다고 함, 올 때 너무 아®는데 지금은 좀 괜찮아졌다\n고 할 때, 언제든 불편하면 바로 말씀+ 진통제+수액 멘트 하면 반응 좋음, 담낭이 어\n떤 장기인지 물어 볼 때 “쓸개라고 알고 있다”라고 대답함",
+    "raw_profile_text": "성별/나이\n남성/42세\n“배가아파요”\n0\n3일 전 or 어제\nL\n3일 전과 어제는 명치쪽에서 오늘 RUQ로 이동\nD\n점심 식후 6시간 동안(현재 오후 6시)\nCo\n3일 전부터 아팠다가 안 아팠다가 했는데 오늘 너무 아파서 응급실 옴\nEx\n이전부터 기름진 음식 먹거나 과식하면 잘 체하고 배 아왔음\nC\n쥐어 짜는 듯한 통증, NRS 6〜8점\n방사통(- ), NRS 7(엄청 아프면) ᅳ 금은 4〜5\nA\n[전신] 열/오한(ᅳ/+), 체중 증가(+. 3년 동안 U)kg, 발목 삐어서 운동 잘 못했음，\n\n체중 증가 없을 수도 있음), 피로(ᅳ)\n[소화기] A/N/V/C/D(-/±, 살짝울렁인다고도 함/ - / - / - >, 속쓰림(+), 배 빵빵(±)\n[호흡] 호홉곤란/흉통( - / - )\n[탈쉬 어지럼/갈증/소변량저하/호흡곤란( - / - / - / - )\nF\n5일 전에 짜장면 곱빼기 먹었을 때 복통 있었음\n악화 : 식후(+), 기침 시(+), 뛸 때/완화 : 앞으로 숙이면(+)\nE\n내시경 안 해 봄(피검사 포함), 건강 검진 정상, 간염 백신 모름\n외\n-\n과\n고혈압/당뇨 (ᅳ/ - )\n약\n진통제(+, 어제 회사 근처 응급실에서 진통제 주사하여 나았다가 오늘 다시 o[품)\n사\n흡연(현재 금연), 음주(+, 3회/주，하루소주 한 병)\n운동(一, 발목 다친 뒤로 운동 못함), 스트레스(一), 직업 : 법무사\n가\n-\nP/E\nGeneral\nV/S ：\nstable\nHEENT\n눈/ 입/림프절 ( - / - / - )\nAbdomen\nMurphy sign(+), Epigastric (+), RUQ Td/rTd/불편감 (+/+/+)\nObturator/Psoas sign(-/-), CVAT(+, 울린다고 말함), DRE(-)\nExtermity\n-\n질문\n“빨리 치료해 주세요; ’\n특이사항\n응급실로 내원했다고 되어 있고, 현재 시간(오후 6시) 써 있음. 환자 배 부여잡고 그냥\n앉아 있으나 지금은 조금 나아졌다고 함, 올 때 너무 아®는데 지금은 좀 괜찮아졌다\n고 할 때, 언제든 불편하면 바로 말씀+ 진통제+수액 멘트 하면 반응 좋음, 담낭이 어\n떤 장기인지 물어 볼 때 “쓸개라고 알고 있다”라고 대답함"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "담낭염",
+      "담도염",
+      "위염"
+    ],
+    "planned_tests": [
+      "복부초음파",
+      "복부 CT",
+      "혈액검사"
+    ],
+    "planned_treatments_or_education": [
+      "금식",
+      "복강경쓸개절저술",
+      "생활 습관 교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "급성 복통(Acute abdominal pain)\nn\n[ 실전 모의 증례 s\n• 42세 남자 박남용씨가 배가 아파 응급실로 내원하였다.\n[활력 징후] 혈압 : 126/80mmHg\n맥박 : 80회/분\n호톱 • 17회/분\n지침\n체온 ：\n37.5°C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 기능성이 높은 진단 3개\n1. 담낭염\n2. 담도염\n3. 위염\n• 필요한 검사 계획 3가지\n교육\n1. 복부초음파\n2. 복부 CT\n3. 혈액검사\n• 필요한 치료 계획 3가지\n1. 금식\n2. 복강경쓸개절저술\n3. 생활 습관 교육\n리\n^\n급성 복통은 응급실에서 진료가 시작되는 경우가 흔합니다. 본 증례도\n응급실에서 시작하며, 당황떼 말고 환자 옆에 의자를 가져와 앉아서\n평소와 같이 진료를 시작하시면 되겠습니다.\n급성 복통은 복통의 위치에 따라 감별해야 하는 질환들이 정리가 됩니다. 이 증례에서는 RUQ\npain을 호소하고 있으므로 간담췌쪽 질환을 의심해 볼 수 있습니다. 따라서 황달, 가려음증, 소\n변색 변화 등에 대한 질문이 필요하고, 신체 진찰에서는 Murphy’s sign과 간 촉진을 시행할 필\n요가 있습니다. 또한 급성 복통에서 탈수 증상을 보일 경우 수액 치료에 대한 설명으로 증상을\n호전시켜 주겠다고 환자에게 설명해주면 라포를 쌓기 쉽습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
