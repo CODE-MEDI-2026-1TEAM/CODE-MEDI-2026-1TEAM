@@ -1,0 +1,808 @@
+[
+  {
+    "topic_start_page": 15,
+    "topic_id": "acute_abdominal_pain",
+    "topic_label": "급성 복통",
+    "system": "소화기",
+    "case_count": 6,
+    "case_ids": [
+      "acute_abdominal_pain-001",
+      "acute_abdominal_pain-002",
+      "acute_abdominal_pain-003",
+      "acute_abdominal_pain-004",
+      "acute_abdominal_pain-005",
+      "acute_abdominal_pain-006"
+    ]
+  },
+  {
+    "topic_start_page": 697,
+    "topic_id": "alcohol_counseling",
+    "topic_label": "음주 상담",
+    "system": "상담",
+    "case_count": 5,
+    "case_ids": [
+      "alcohol_counseling-001",
+      "alcohol_counseling-002",
+      "alcohol_counseling-003",
+      "alcohol_counseling-004",
+      "alcohol_counseling-005"
+    ]
+  },
+  {
+    "topic_start_page": 559,
+    "topic_id": "altered_consciousness",
+    "topic_label": "의식장애",
+    "system": "정신/신경",
+    "case_count": 3,
+    "case_ids": [
+      "altered_consciousness-001",
+      "altered_consciousness-002",
+      "altered_consciousness-003"
+    ]
+  },
+  {
+    "topic_start_page": 469,
+    "topic_id": "anxiety",
+    "topic_label": "불안",
+    "system": "정신/신경",
+    "case_count": 6,
+    "case_ids": [
+      "anxiety-001",
+      "anxiety-002",
+      "anxiety-003",
+      "anxiety-004",
+      "anxiety-005",
+      "anxiety-006"
+    ]
+  },
+  {
+    "topic_start_page": 737,
+    "topic_id": "breaking_bad_news",
+    "topic_label": "나쁜 소식 전하기",
+    "system": "상담",
+    "case_count": 4,
+    "case_ids": [
+      "breaking_bad_news-001",
+      "breaking_bad_news-002",
+      "breaking_bad_news-003",
+      "breaking_bad_news-004"
+    ]
+  },
+  {
+    "topic_start_page": 589,
+    "topic_id": "breast_pain_lump",
+    "topic_label": "유방통/유방덩이",
+    "system": "산부/여성/소아",
+    "case_count": 5,
+    "case_ids": [
+      "breast_pain_lump-001",
+      "breast_pain_lump-002",
+      "breast_pain_lump-003",
+      "breast_pain_lump-004",
+      "breast_pain_lump-005"
+    ]
+  },
+  {
+    "topic_start_page": 127,
+    "topic_id": "chest_pain",
+    "topic_label": "가슴통증",
+    "system": "순환기",
+    "case_count": 8,
+    "case_ids": [
+      "chest_pain-001",
+      "chest_pain-002",
+      "chest_pain-003",
+      "chest_pain-004",
+      "chest_pain-005",
+      "chest_pain-006",
+      "chest_pain-007",
+      "chest_pain-008"
+    ]
+  },
+  {
+    "topic_start_page": 87,
+    "topic_id": "constipation",
+    "topic_label": "배변 이상(변비)",
+    "system": "소화기",
+    "case_count": 6,
+    "case_ids": [
+      "constipation-001",
+      "constipation-002",
+      "constipation-003",
+      "constipation-004",
+      "constipation-005",
+      "constipation-006"
+    ]
+  },
+  {
+    "topic_start_page": 195,
+    "topic_id": "cough",
+    "topic_label": "기침",
+    "system": "호흡기",
+    "case_count": 6,
+    "case_ids": [
+      "cough-001",
+      "cough-002",
+      "cough-003",
+      "cough-004",
+      "cough-005",
+      "cough-006"
+    ]
+  },
+  {
+    "topic_start_page": 99,
+    "topic_id": "diarrhea",
+    "topic_label": "배변 이상(설사)",
+    "system": "소화기",
+    "case_count": 6,
+    "case_ids": [
+      "diarrhea-001",
+      "diarrhea-002",
+      "diarrhea-003",
+      "diarrhea-004",
+      "diarrhea-005",
+      "diarrhea-006"
+    ]
+  },
+  {
+    "topic_start_page": 509,
+    "topic_id": "dizziness",
+    "topic_label": "어지럼",
+    "system": "정신/신경",
+    "case_count": 4,
+    "case_ids": [
+      "dizziness-001",
+      "dizziness-002",
+      "dizziness-003",
+      "dizziness-004"
+    ]
+  },
+  {
+    "topic_start_page": 753,
+    "topic_id": "domestic_violence",
+    "topic_label": "가정 폭력",
+    "system": "상담",
+    "case_count": 3,
+    "case_ids": [
+      "domestic_violence-001",
+      "domestic_violence-002",
+      "domestic_violence-003"
+    ]
+  },
+  {
+    "topic_start_page": 181,
+    "topic_id": "dyslipidemia",
+    "topic_label": "이상지질혈증",
+    "system": "순환기",
+    "case_count": 6,
+    "case_ids": [
+      "dyslipidemia-001",
+      "dyslipidemia-002",
+      "dyslipidemia-003",
+      "dyslipidemia-004",
+      "dyslipidemia-005",
+      "dyslipidemia-006"
+    ]
+  },
+  {
+    "topic_start_page": 639,
+    "topic_id": "dysmenorrhea",
+    "topic_label": "월경통",
+    "system": "산부/여성/소아",
+    "case_count": 4,
+    "case_ids": [
+      "dysmenorrhea-001",
+      "dysmenorrhea-002",
+      "dysmenorrhea-003",
+      "dysmenorrhea-004"
+    ]
+  },
+  {
+    "topic_start_page": 29,
+    "topic_id": "dyspepsia_chronic_abdominal_pain",
+    "topic_label": "소화불량/만성 복통",
+    "system": "소화기",
+    "case_count": 8,
+    "case_ids": [
+      "dyspepsia_chronic_abdominal_pain-001",
+      "dyspepsia_chronic_abdominal_pain-002",
+      "dyspepsia_chronic_abdominal_pain-003",
+      "dyspepsia_chronic_abdominal_pain-004",
+      "dyspepsia_chronic_abdominal_pain-005",
+      "dyspepsia_chronic_abdominal_pain-006",
+      "dyspepsia_chronic_abdominal_pain-007",
+      "dyspepsia_chronic_abdominal_pain-008"
+    ]
+  },
+  {
+    "topic_start_page": 239,
+    "topic_id": "dyspnea",
+    "topic_label": "호흡곤란",
+    "system": "호흡기",
+    "case_count": 1,
+    "case_ids": [
+      "dyspnea-001"
+    ]
+  },
+  {
+    "topic_start_page": 339,
+    "topic_id": "easy_bruising",
+    "topic_label": "쉽게 멍이 듦",
+    "system": "전신",
+    "case_count": 4,
+    "case_ids": [
+      "easy_bruising-001",
+      "easy_bruising-002",
+      "easy_bruising-003",
+      "easy_bruising-004"
+    ]
+  },
+  {
+    "topic_start_page": 349,
+    "topic_id": "fatigue",
+    "topic_label": "피로",
+    "system": "전신",
+    "case_count": 6,
+    "case_ids": [
+      "fatigue-001",
+      "fatigue-002",
+      "fatigue-003",
+      "fatigue-004",
+      "fatigue-005",
+      "fatigue-006"
+    ]
+  },
+  {
+    "topic_start_page": 325,
+    "topic_id": "fever",
+    "topic_label": "발열",
+    "system": "전신",
+    "case_count": 3,
+    "case_ids": [
+      "fever-001",
+      "fever-002",
+      "fever-003"
+    ]
+  },
+  {
+    "topic_start_page": 665,
+    "topic_id": "growth_development_delay",
+    "topic_label": "성장/발달지연",
+    "system": "산부/여성/소아",
+    "case_count": 7,
+    "case_ids": [
+      "growth_development_delay-001",
+      "growth_development_delay-002",
+      "growth_development_delay-003",
+      "growth_development_delay-004",
+      "growth_development_delay-005",
+      "growth_development_delay-006",
+      "growth_development_delay-007"
+    ]
+  },
+  {
+    "topic_start_page": 521,
+    "topic_id": "headache",
+    "topic_label": "두통",
+    "system": "정신/신경",
+    "case_count": 3,
+    "case_ids": [
+      "headache-001",
+      "headache-002",
+      "headache-003"
+    ]
+  },
+  {
+    "topic_start_page": 45,
+    "topic_id": "hematemesis",
+    "topic_label": "토혈",
+    "system": "소화기",
+    "case_count": 7,
+    "case_ids": [
+      "hematemesis-001",
+      "hematemesis-002",
+      "hematemesis-003",
+      "hematemesis-004",
+      "hematemesis-005",
+      "hematemesis-006",
+      "hematemesis-007"
+    ]
+  },
+  {
+    "topic_start_page": 59,
+    "topic_id": "hematochezia",
+    "topic_label": "혈변",
+    "system": "소화기",
+    "case_count": 6,
+    "case_ids": [
+      "hematochezia-001",
+      "hematochezia-002",
+      "hematochezia-003",
+      "hematochezia-004",
+      "hematochezia-005",
+      "hematochezia-006"
+    ]
+  },
+  {
+    "topic_start_page": 221,
+    "topic_id": "hemoptysis",
+    "topic_label": "객혈",
+    "system": "호흡기",
+    "case_count": 8,
+    "case_ids": [
+      "hemoptysis-001",
+      "hemoptysis-002",
+      "hemoptysis-003",
+      "hemoptysis-004",
+      "hemoptysis-005",
+      "hemoptysis-006",
+      "hemoptysis-007",
+      "hemoptysis-008"
+    ]
+  },
+  {
+    "topic_start_page": 167,
+    "topic_id": "hypertension",
+    "topic_label": "고혈압",
+    "system": "순환기",
+    "case_count": 6,
+    "case_ids": [
+      "hypertension-001",
+      "hypertension-002",
+      "hypertension-003",
+      "hypertension-004",
+      "hypertension-005",
+      "hypertension-006"
+    ]
+  },
+  {
+    "topic_start_page": 111,
+    "topic_id": "jaundice",
+    "topic_label": "황달",
+    "system": "소화기",
+    "case_count": 6,
+    "case_ids": [
+      "jaundice-001",
+      "jaundice-002",
+      "jaundice-003",
+      "jaundice-004",
+      "jaundice-005",
+      "jaundice-006"
+    ]
+  },
+  {
+    "topic_start_page": 397,
+    "topic_id": "joint_pain_swelling",
+    "topic_label": "관절 통증/부기",
+    "system": "관절/근골격/피부",
+    "case_count": 7,
+    "case_ids": [
+      "joint_pain_swelling-001",
+      "joint_pain_swelling-002",
+      "joint_pain_swelling-003",
+      "joint_pain_swelling-004",
+      "joint_pain_swelling-005",
+      "joint_pain_swelling-006",
+      "joint_pain_swelling-007"
+    ]
+  },
+  {
+    "topic_start_page": 423,
+    "topic_id": "low_back_pain",
+    "topic_label": "허리통증",
+    "system": "관절/근골격/피부",
+    "case_count": 6,
+    "case_ids": [
+      "low_back_pain-001",
+      "low_back_pain-002",
+      "low_back_pain-003",
+      "low_back_pain-004",
+      "low_back_pain-005",
+      "low_back_pain-006"
+    ]
+  },
+  {
+    "topic_start_page": 497,
+    "topic_id": "memory_decline",
+    "topic_label": "기억력 저하",
+    "system": "정신/신경",
+    "case_count": 4,
+    "case_ids": [
+      "memory_decline-001",
+      "memory_decline-002",
+      "memory_decline-003",
+      "memory_decline-004"
+    ]
+  },
+  {
+    "topic_start_page": 625,
+    "topic_id": "menstrual_abnormality",
+    "topic_label": "월경 이상",
+    "system": "산부/여성/소아",
+    "case_count": 7,
+    "case_ids": [
+      "menstrual_abnormality-001",
+      "menstrual_abnormality-002",
+      "menstrual_abnormality-003",
+      "menstrual_abnormality-004",
+      "menstrual_abnormality-005",
+      "menstrual_abnormality-006",
+      "menstrual_abnormality-007"
+    ]
+  },
+  {
+    "topic_start_page": 453,
+    "topic_id": "mood_change",
+    "topic_label": "기분 변화",
+    "system": "정신/신경",
+    "case_count": 7,
+    "case_ids": [
+      "mood_change-001",
+      "mood_change-002",
+      "mood_change-003",
+      "mood_change-004",
+      "mood_change-005",
+      "mood_change-006",
+      "mood_change-007"
+    ]
+  },
+  {
+    "topic_start_page": 545,
+    "topic_id": "motor_sensory_deficit",
+    "topic_label": "근력/감각 이상",
+    "system": "정신/신경",
+    "case_count": 6,
+    "case_ids": [
+      "motor_sensory_deficit-001",
+      "motor_sensory_deficit-002",
+      "motor_sensory_deficit-003",
+      "motor_sensory_deficit-004",
+      "motor_sensory_deficit-005",
+      "motor_sensory_deficit-006"
+    ]
+  },
+  {
+    "topic_start_page": 411,
+    "topic_id": "neck_pain",
+    "topic_label": "목통증",
+    "system": "관절/근골격/피부",
+    "case_count": 5,
+    "case_ids": [
+      "neck_pain-001",
+      "neck_pain-002",
+      "neck_pain-003",
+      "neck_pain-004",
+      "neck_pain-005"
+    ]
+  },
+  {
+    "topic_start_page": 273,
+    "topic_id": "oliguria",
+    "topic_label": "소변량 변화(핍뇨)",
+    "system": "신장/비뇨",
+    "case_count": 4,
+    "case_ids": [
+      "oliguria-001",
+      "oliguria-002",
+      "oliguria-003",
+      "oliguria-004"
+    ]
+  },
+  {
+    "topic_start_page": 155,
+    "topic_id": "palpitation",
+    "topic_label": "두근거림",
+    "system": "순환기",
+    "case_count": 6,
+    "case_ids": [
+      "palpitation-001",
+      "palpitation-002",
+      "palpitation-003",
+      "palpitation-004",
+      "palpitation-005",
+      "palpitation-006"
+    ]
+  },
+  {
+    "topic_start_page": 261,
+    "topic_id": "polyuria",
+    "topic_label": "소변량 변화(다뇨)",
+    "system": "신장/비뇨",
+    "case_count": 5,
+    "case_ids": [
+      "polyuria-001",
+      "polyuria-002",
+      "polyuria-003",
+      "polyuria-004",
+      "polyuria-005"
+    ]
+  },
+  {
+    "topic_start_page": 649,
+    "topic_id": "prenatal_care",
+    "topic_label": "산전 진찰",
+    "system": "산부/여성/소아",
+    "case_count": 7,
+    "case_ids": [
+      "prenatal_care-001",
+      "prenatal_care-002",
+      "prenatal_care-003",
+      "prenatal_care-004",
+      "prenatal_care-005",
+      "prenatal_care-006",
+      "prenatal_care-007"
+    ]
+  },
+  {
+    "topic_start_page": 285,
+    "topic_id": "red_urine",
+    "topic_label": "붉은색 소변",
+    "system": "신장/비뇨",
+    "case_count": 7,
+    "case_ids": [
+      "red_urine-001",
+      "red_urine-002",
+      "red_urine-003",
+      "red_urine-004",
+      "red_urine-005",
+      "red_urine-006",
+      "red_urine-007"
+    ]
+  },
+  {
+    "topic_start_page": 209,
+    "topic_id": "rhinorrhea_nasal_congestion",
+    "topic_label": "콧물/코막힘",
+    "system": "호흡기",
+    "case_count": 6,
+    "case_ids": [
+      "rhinorrhea_nasal_congestion-001",
+      "rhinorrhea_nasal_congestion-002",
+      "rhinorrhea_nasal_congestion-003",
+      "rhinorrhea_nasal_congestion-004",
+      "rhinorrhea_nasal_congestion-005",
+      "rhinorrhea_nasal_congestion-006"
+    ]
+  },
+  {
+    "topic_start_page": 533,
+    "topic_id": "seizure",
+    "topic_label": "경련",
+    "system": "정신/신경",
+    "case_count": 6,
+    "case_ids": [
+      "seizure-001",
+      "seizure-002",
+      "seizure-003",
+      "seizure-004",
+      "seizure-005",
+      "seizure-006"
+    ]
+  },
+  {
+    "topic_start_page": 765,
+    "topic_id": "sexual_violence",
+    "topic_label": "성 폭력",
+    "system": "상담",
+    "case_count": 5,
+    "case_ids": [
+      "sexual_violence-001",
+      "sexual_violence-002",
+      "sexual_violence-003",
+      "sexual_violence-004",
+      "sexual_violence-005"
+    ]
+  },
+  {
+    "topic_start_page": 435,
+    "topic_id": "skin_rash",
+    "topic_label": "피부 발진",
+    "system": "관절/근골격/피부",
+    "case_count": 4,
+    "case_ids": [
+      "skin_rash-001",
+      "skin_rash-002",
+      "skin_rash-003",
+      "skin_rash-004"
+    ]
+  },
+  {
+    "topic_start_page": 483,
+    "topic_id": "sleep_disturbance",
+    "topic_label": "수면장애",
+    "system": "정신/신경",
+    "case_count": 7,
+    "case_ids": [
+      "sleep_disturbance-001",
+      "sleep_disturbance-002",
+      "sleep_disturbance-003",
+      "sleep_disturbance-004",
+      "sleep_disturbance-005",
+      "sleep_disturbance-006",
+      "sleep_disturbance-007"
+    ]
+  },
+  {
+    "topic_start_page": 709,
+    "topic_id": "smoking_cessation_counseling",
+    "topic_label": "금연 상담",
+    "system": "상담",
+    "case_count": 5,
+    "case_ids": [
+      "smoking_cessation_counseling-001",
+      "smoking_cessation_counseling-002",
+      "smoking_cessation_counseling-003",
+      "smoking_cessation_counseling-004",
+      "smoking_cessation_counseling-005"
+    ]
+  },
+  {
+    "topic_start_page": 723,
+    "topic_id": "substance_misuse",
+    "topic_label": "물질 오남용",
+    "system": "상담",
+    "case_count": 6,
+    "case_ids": [
+      "substance_misuse-001",
+      "substance_misuse-002",
+      "substance_misuse-003",
+      "substance_misuse-004",
+      "substance_misuse-005",
+      "substance_misuse-006"
+    ]
+  },
+  {
+    "topic_start_page": 777,
+    "topic_id": "suicide_risk",
+    "topic_label": "자살",
+    "system": "상담",
+    "case_count": 5,
+    "case_ids": [
+      "suicide_risk-001",
+      "suicide_risk-002",
+      "suicide_risk-003",
+      "suicide_risk-004",
+      "suicide_risk-005"
+    ]
+  },
+  {
+    "topic_start_page": 143,
+    "topic_id": "syncope",
+    "topic_label": "실신",
+    "system": "순환기",
+    "case_count": 5,
+    "case_ids": [
+      "syncope-001",
+      "syncope-002",
+      "syncope-003",
+      "syncope-004",
+      "syncope-005"
+    ]
+  },
+  {
+    "topic_start_page": 571,
+    "topic_id": "tremor_movement_disorder",
+    "topic_label": "떨림/운동이상",
+    "system": "정신/신경",
+    "case_count": 6,
+    "case_ids": [
+      "tremor_movement_disorder-001",
+      "tremor_movement_disorder-002",
+      "tremor_movement_disorder-003",
+      "tremor_movement_disorder-004",
+      "tremor_movement_disorder-005",
+      "tremor_movement_disorder-006"
+    ]
+  },
+  {
+    "topic_start_page": 313,
+    "topic_id": "urinary_incontinence",
+    "topic_label": "소변찔끔증",
+    "system": "신장/비뇨",
+    "case_count": 3,
+    "case_ids": [
+      "urinary_incontinence-001",
+      "urinary_incontinence-002",
+      "urinary_incontinence-003"
+    ]
+  },
+  {
+    "topic_start_page": 679,
+    "topic_id": "vaccination",
+    "topic_label": "예방접종",
+    "system": "산부/여성/소아",
+    "case_count": 4,
+    "case_ids": [
+      "vaccination-001",
+      "vaccination-002",
+      "vaccination-003",
+      "vaccination-004"
+    ]
+  },
+  {
+    "topic_start_page": 615,
+    "topic_id": "vaginal_bleeding",
+    "topic_label": "질출혈",
+    "system": "산부/여성/소아",
+    "case_count": 3,
+    "case_ids": [
+      "vaginal_bleeding-001",
+      "vaginal_bleeding-002",
+      "vaginal_bleeding-003"
+    ]
+  },
+  {
+    "topic_start_page": 603,
+    "topic_id": "vaginal_discharge",
+    "topic_label": "질분비물",
+    "system": "산부/여성/소아",
+    "case_count": 5,
+    "case_ids": [
+      "vaginal_discharge-001",
+      "vaginal_discharge-002",
+      "vaginal_discharge-003",
+      "vaginal_discharge-004",
+      "vaginal_discharge-005"
+    ]
+  },
+  {
+    "topic_start_page": 301,
+    "topic_id": "voiding_dysfunction",
+    "topic_label": "배뇨 이상",
+    "system": "신장/비뇨",
+    "case_count": 5,
+    "case_ids": [
+      "voiding_dysfunction-001",
+      "voiding_dysfunction-002",
+      "voiding_dysfunction-003",
+      "voiding_dysfunction-004",
+      "voiding_dysfunction-005"
+    ]
+  },
+  {
+    "topic_start_page": 73,
+    "topic_id": "vomiting",
+    "topic_label": "구토",
+    "system": "소화기",
+    "case_count": 7,
+    "case_ids": [
+      "vomiting-001",
+      "vomiting-002",
+      "vomiting-003",
+      "vomiting-004",
+      "vomiting-005",
+      "vomiting-006",
+      "vomiting-007"
+    ]
+  },
+  {
+    "topic_start_page": 381,
+    "topic_id": "weight_gain_obesity",
+    "topic_label": "체중 증가/비만",
+    "system": "전신",
+    "case_count": 6,
+    "case_ids": [
+      "weight_gain_obesity-001",
+      "weight_gain_obesity-002",
+      "weight_gain_obesity-003",
+      "weight_gain_obesity-004",
+      "weight_gain_obesity-005",
+      "weight_gain_obesity-006"
+    ]
+  },
+  {
+    "topic_start_page": 365,
+    "topic_id": "weight_loss",
+    "topic_label": "체중 감소",
+    "system": "전신",
+    "case_count": 6,
+    "case_ids": [
+      "weight_loss-001",
+      "weight_loss-002",
+      "weight_loss-003",
+      "weight_loss-004",
+      "weight_loss-005",
+      "weight_loss-006"
+    ]
+  }
+]
