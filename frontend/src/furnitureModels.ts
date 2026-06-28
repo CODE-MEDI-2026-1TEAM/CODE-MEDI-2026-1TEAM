@@ -13,7 +13,7 @@ export type FurnitureModelConfig = {
   rotation?: [number, number, number];
 };
 
-type FurnitureKey = "Desk" | "Chair" | "Door" | "Bed";
+type FurnitureKey = "Desk" | "Chair" | "Door" | "Bed" | "HandWash";
 
 // ── 가구별 설정 ───────────────────────────────────────────────
 export const FURNITURE_MODELS: Record<FurnitureKey, FurnitureModelConfig> = {
@@ -39,6 +39,13 @@ export const FURNITURE_MODELS: Record<FurnitureKey, FurnitureModelConfig> = {
     path: "/models/Bed Single.glb",
     scale: 1,
     position: [3.1, 0, -1.4],
+    rotation: [0, 0, 0],
+  },
+  // HandWash: 책상 오른쪽 위에 올려두는 손세정대. 책상 위 높이/오른쪽 끝에 맞춰 조정.
+  HandWash: {
+    path: "/models/HandWash.glb",
+    scale: 0.2,
+    position: [0.55, 1.1, 0.25],
     rotation: [0, 0, 0],
   },
 };

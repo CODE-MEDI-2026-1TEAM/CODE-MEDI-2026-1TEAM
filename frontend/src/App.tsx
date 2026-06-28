@@ -17,6 +17,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'desk' | 'bed'>('desk');
+  const [isHandWashed, setIsHandWashed] = useState(false);
 
   const activeCase = useMemo(
     () =>
@@ -179,6 +180,17 @@ export default function App() {
           type="button"
         >
           {viewMode === 'desk' ? '침대에 눕히기' : '책상으로 돌아가기'}
+        </button>
+        <button
+          className={isHandWashed ? 'view-toggle-button is-active' : 'view-toggle-button'}
+          disabled={isHandWashed}
+          onClick={() => {
+            setIsHandWashed(true);
+            window.setTimeout(() => setIsHandWashed(false), 1000);
+          }}
+          type="button"
+        >
+          {isHandWashed ? '소독 완료' : '손 소독하기'}
         </button>
       </div>
 

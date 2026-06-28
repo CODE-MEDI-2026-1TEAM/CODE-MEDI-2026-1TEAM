@@ -159,6 +159,8 @@ select {
   /* 3D 씬 영역(우측 사이드바 390px 제외)의 가로 중앙. */
   left: calc(50% - 195px);
   transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
 }
 .view-toggle-button {
   padding: 11px 22px;
@@ -175,6 +177,11 @@ select {
 }
 .view-toggle-button:hover {
   background: rgba(27, 87, 74, 0.95);
+}
+.view-toggle-button.is-active {
+  color: #0e2a22;
+  background: rgba(134, 209, 180, 0.92);
+  border-color: rgba(134, 209, 180, 0.95);
 }
 .eyebrow {
   margin: 0 0 8px;
