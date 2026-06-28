@@ -18,6 +18,7 @@ type ChatSidebarProps = {
   error: string | null;
   onSendMessage: (content: string) => Promise<boolean>;
   onEvaluate: () => Promise<void>;
+  onOpenEvaluation: () => void;
   onClearError: () => void;
 };
 
@@ -29,6 +30,7 @@ export default function ChatSidebar({
   error,
   onSendMessage,
   onEvaluate,
+  onOpenEvaluation,
   onClearError,
 }: ChatSidebarProps) {
   const chatEndRef = useRef<HTMLDivElement>(null);
@@ -97,22 +99,47 @@ export default function ChatSidebar({
             <span>CPX 타이머</span>
             <strong>{session ? formatRemainingTime(remainingSeconds) : '12:00'}</strong>
           </div>
-          <button
-            className="evaluate-button"
-            disabled={!session || isLoading || isEvaluating || isCompleted}
-            onClick={() => void onEvaluate()}
-            type="button"
-          >
-            {isEvaluating ? '채점 중' : isCompleted ? '채점 완료' : '종료/채점하러 가기'}
-          </button>
+          {isCompleted && session?.evaluation ? (
+            <button
+              className="evaluate-button secondary"
+              onClick={onOpenEvaluation}
+              type="button"
+            >
+              결과 보기
+            </button>
+          ) : (
+            <button
+              className="evaluate-button"
+              disabled={!session || isLoading || isEvaluating}
+              onClick={() => void onEvaluate()}
+              type="button"
+            >
+              {isEvaluating ? (
+                <>
+                  <span className="button-spinner" aria-hidden="true" />
+                  채점 중
+                </>
+              ) : (
+                '종료/채점하러 가기'
+              )}
+            </button>
+          )}
         </div>
         <div className="timer-track" aria-hidden="true">
           <span style={{ width: `${timeProgress}%` }} />
         </div>
+        {isEvaluating ? (
+          <div className="evaluation-loading-card" role="status">
+            <span className="evaluation-spinner" aria-hidden="true" />
+            <div>
+              <strong>채점 중입니다.</strong>
+              <p>대화 내용을 CPX 기준으로 분석하고 있어 잠시 시간이 걸릴 수 있습니다.</p>
+            </div>
+          </div>
+        ) : null}
         {remainingSeconds === 0 && session && !isCompleted ? (
           <p className="timer-note">제한 시간이 종료되었습니다. 채점을 진행하세요.</p>
         ) : null}
-        {session?.evaluation ? <EvaluationSummary evaluation={session.evaluation} /> : null}
       </section>
 
       <section className="chat-history" aria-live="polite">
@@ -180,44 +207,6 @@ function formatRemainingTime(seconds: number) {
   const minutes = Math.floor(seconds / 60);
   const rest = seconds % 60;
   return `${String(minutes).padStart(2, '0')}:${String(rest).padStart(2, '0')}`;
-}
-
-function EvaluationSummary({ evaluation }: { evaluation: NonNullable<Session['evaluation']> }) {
-  const missedItems = evaluation.missedItems.slice(0, 2);
-  const suggestions = evaluation.suggestions.slice(0, 2);
-
-  return (
-    <div className="evaluation-summary">
-      <div className="score-pill">
-        <span>점수</span>
-        <strong>{evaluation.score}</strong>
-      </div>
-      <div className="evaluation-summary-text">
-        <strong>채점 결과</strong>
-        <p>{evaluation.riskAssessment}</p>
-      </div>
-      {missedItems.length > 0 || suggestions.length > 0 ? (
-        <div className="evaluation-detail-list">
-          {missedItems.length > 0 ? (
-            <div>
-              <span>놓친 항목</span>
-              <ul>
-                {missedItems.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </div>
-          ) : null}
-          {suggestions.length > 0 ? (
-            <div>
-              <span>개선 제안</span>
-              <ul>
-                {suggestions.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
-    </div>
-  );
 }
 
 function MicIcon() {
