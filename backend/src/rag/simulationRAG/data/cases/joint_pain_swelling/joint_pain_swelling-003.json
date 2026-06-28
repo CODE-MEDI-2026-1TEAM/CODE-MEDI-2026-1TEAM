@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "joint_pain_swelling-003",
+  "case_number_in_pdf": 156,
+  "topic": {
+    "topic_start_page": 397,
+    "topic_id": "joint_pain_swelling",
+    "topic_label": "관절 통증/부기",
+    "system": "관절/근골격/피부"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 401,
+      "end": 402
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이경순",
+      "age": 53,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "어깨가 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "128/82mmHg",
+      "pulse": "81회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 53세\n“어깨가 아파요”",
+    "history_blocks": {
+      "onset": "1 〜2개월",
+      "location": "^른쪽어깨",
+      "duration": "오른팔 움직일 때",
+      "course": "심해짐",
+      "character": "욱씬거리는 통증, 움직일 때 NRS 7점\n조조강직 (一)",
+      "associated_symptoms": "[전신] 발열/오한/식은땀/체중감소\n[류마티스] 구강 궤양/성기 궤양/광과민성/레이노 현상/안구통/입마름",
+      "factors": "악화 : 일하고 난 뒤\nᅡ\n: 휴식",
+      "events": "2년 전에 이상 없었음",
+      "trauma_history": "어깨 외상(一)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "medications": "진통제(+, 효과 별로 없음)\n人^\n술/ 담배/커피(ᅳ/ᅳ/ᅳ)，직업 : 식당 서빙\n스트레스(ᅳ)\n운동 : 1주일에등산 1회",
+      "family_history": "어머니: 골관절염",
+      "gynecologic_history": "5년 전 폐경\n\" ............. ■\"\nGeneral\nV/S 확인\nHEENT\n결막/공막 정상, 구강 시진(-)"
+    },
+    "physical_exam_results": "어깨관절\n시진/촉진\n/운동검사\n어깨 열감/발적/부종/압통(一/ - / - / ᅳ)\n오른쪽 어깨 능동/수동 모두 제한\nROM flexion /abduction (100°/100°)\nempty can test(-)\nneer test(+), hawkin’s kennedy test(+)",
+    "patient_question_or_concern": "■■치료하면 괜찮아질까요? ”",
+    "actor_notes_or_special_behavior": "없음",
+    "raw_profile_text": "성별/나이\n여성/ 53세\n“어깨가 아파요”\n0\n1 〜2개월\nL\n^른쪽어깨\nD\n오른팔 움직일 때\nCo\n심해짐\nEx\n-\nC\n욱씬거리는 통증, 움직일 때 NRS 7점\n조조강직 (一)\nA\n[전신] 발열/오한/식은땀/체중감소\n[류마티스] 구강 궤양/성기 궤양/광과민성/레이노 현상/안구통/입마름\nF\n악화 : 일하고 난 뒤\nᅡ\n: 휴식\nE\n2년 전에 이상 없었음\n외\n어깨 외상(一)\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n진통제(+, 효과 별로 없음)\n人^\n술/ 담배/커피(ᅳ/ᅳ/ᅳ)，직업 : 식당 서빙\n스트레스(ᅳ)\n운동 : 1주일에등산 1회\n가\n어머니: 골관절염\n여\n5년 전 폐경\n\" ............. ■\"\nGeneral\nV/S 확인\nHEENT\n결막/공막 정상, 구강 시진(-)\nP/E\n어깨관절\n시진/촉진\n/운동검사\n어깨 열감/발적/부종/압통(一/ - / - / ᅳ)\n오른쪽 어깨 능동/수동 모두 제한\nROM flexion /abduction (100°/100°)\nempty can test(-)\nneer test(+), hawkin’s kennedy test(+)\n질문\n■■치료하면 괜찮아질까요? ”\n특이사항\n없음"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "어깨 X-ray",
+      "어깨 MRI",
+      "어깨 CT"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 회전근개 질환. 석회성 건염. 유착관절낭염을 감별하기 위해 어깨\nCT. MRI 시행 전 설명동의서를 받습니다.\n관절 통증 중에서 어깨통 증례입니다.\n어깨 통증은 신체 진찰 시 empty can test, neer test, hawkin's kennedy\ntest와 같은 특이적 신체 진찰을 정확히 알고 있어야 실제 시험에서 제대로 시행할수 있습니다.\n어깨 운동 제한과 통증을 유발하는 질환은 유착관절남염, 석회성 건염, 회전근개 파열을 감별\n진단해야하는데, 임상 양상이 비슷하여 구별하기 쉽지 않습니다.\n감별점 중에 하나는 어깨 위로 활동을 반복적으로 했을 때 통증이 생기면 유착관절낭염 가능성\n이 떨어집니다.\n이 증례에서 활동이 많은직업력과신체 진찰양성 소견에서 회전근개 질환이 가장 의심됩니다.",
+    "author_commentary_tail": "설명동의서 받기 : 회전근개 질환. 석회성 건염. 유착관절낭염을 감별하기 위해 어깨\nCT. MRI 시행 전 설명동의서를 받습니다.\n관절 통증 중에서 어깨통 증례입니다.\n어깨 통증은 신체 진찰 시 empty can test, neer test, hawkin's kennedy\ntest와 같은 특이적 신체 진찰을 정확히 알고 있어야 실제 시험에서 제대로 시행할수 있습니다.\n어깨 운동 제한과 통증을 유발하는 질환은 유착관절남염, 석회성 건염, 회전근개 파열을 감별\n진단해야하는데, 임상 양상이 비슷하여 구별하기 쉽지 않습니다.\n감별점 중에 하나는 어깨 위로 활동을 반복적으로 했을 때 통증이 생기면 유착관절낭염 가능성\n이 떨어집니다.\n이 증례에서 활동이 많은직업력과신체 진찰양성 소견에서 회전근개 질환이 가장 의심됩니다.",
+    "scenario_card_raw": "B[ 실전모의 증례\n• 53세 여자 이경순씨가 관절 통증으로 내원하였다.\n지침\n[활력 징휘 혈압 : 128/82mmHg\n맥박 : 81회/분\n오읍 ! 16회/분\n체온 : 36.5°C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n성이 높^ 진단 3개\n환자\n1. 회전근개 질환\n2. 석회성 건염\n3. 유착관절낭염\n교육\n• 필요한 검사 계획 3가지\n1. 어깨 X-ray\n2. 어깨 MRI\n3. 어깨 CT\n예상\n술기\n설명동의서 받기 : 회전근개 질환. 석회성 건염. 유착관절낭염을 감별하기 위해 어깨\nCT. MRI 시행 전 설명동의서를 받습니다.\n관절 통증 중에서 어깨통 증례입니다.\n어깨 통증은 신체 진찰 시 empty can test, neer test, hawkin's kennedy\ntest와 같은 특이적 신체 진찰을 정확히 알고 있어야 실제 시험에서 제대로 시행할수 있습니다.\n어깨 운동 제한과 통증을 유발하는 질환은 유착관절남염, 석회성 건염, 회전근개 파열을 감별\n진단해야하는데, 임상 양상이 비슷하여 구별하기 쉽지 않습니다.\n감별점 중에 하나는 어깨 위로 활동을 반복적으로 했을 때 통증이 생기면 유착관절낭염 가능성\n이 떨어집니다.\n이 증례에서 활동이 많은직업력과신체 진찰양성 소견에서 회전근개 질환이 가장 의심됩니다.\n-------------------------------------------------------------------\n-----------"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "polyuria-003",
+  "case_number_in_pdf": 107,
+  "topic": {
+    "topic_start_page": 261,
+    "topic_id": "polyuria",
+    "topic_label": "소변량 변화(다뇨)",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 265,
+      "end": 266
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "성지원",
+      "age": 36,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "소변을 자주 봐요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "75회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 36세\n\"소변을 자주 봐요”",
+    "history_blocks": {
+      "onset": "3개월 전",
+      "course": "비슷",
+      "character": "하루에 화장실 10번 감/소변량은 불명확\n피/거품/냄새 ( - / - / - )",
+      "associated_symptoms": "[전신] 열/오한/체중감소/피로(ᅳ/ - / - / - )\n[비뇨기] 빈뇨/ 절박뇨/야간뇨/배뇨통 (+ /-/+ /-)\n주저뇨/요 끊김/아랫배 힘 주는지( - / - / —)\n복통/옆구리 통증(ᅳ/ᅳ)\n[신경] 두통/시야변화/어지럼(- / ᅳ/ - )\n[내분비] 다음/ 다갈/다뇨( - / - / 一)",
+      "factors": "평소 물을 많이 마셨는데，최근에 갈증이 나서 많이 □ᅡ심(4L 이상)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "medications": "이뇨제(一)，조영제( - ) ，리틈(-)",
+      "social_history": "술(- ), 담배(ᅳ), 커피(+, 하루 1~2잔)",
+      "family_history": "어머니: 고혈압",
+      "gynecologic_history": "[산과력] 2-0-1 - 2/LMP 3주 전, 월경 규칙적, 월경량 보통"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n구강 탈수 소견(ᅳ)，결막/공막 정상\n시야검사(ᅳ). 안구 운동검사 정상\nAbdomen\n복부 촉진 정상, CVA tenderness(-)\nExtermity\n피부 긴장도/오목 부종(- / - )",
+    "patient_question_or_concern": "^음\n특\n에\n없음",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 36세\n\"소변을 자주 봐요”\n0\n3개월 전\nL\n-\nD\n-\nCo\n비슷\nEx\n-\nC\n하루에 화장실 10번 감/소변량은 불명확\n피/거품/냄새 ( - / - / - )\nA\n[전신] 열/오한/체중감소/피로(ᅳ/ - / - / - )\n[비뇨기] 빈뇨/ 절박뇨/야간뇨/배뇨통 (+ /-/+ /-)\n주저뇨/요 끊김/아랫배 힘 주는지( - / - / —)\n복통/옆구리 통증(ᅳ/ᅳ)\n[신경] 두통/시야변화/어지럼(- / ᅳ/ - )\n[내분비] 다음/ 다갈/다뇨( - / - / 一)\nF\n평소 물을 많이 마셨는데，최근에 갈증이 나서 많이 □ᅡ심(4L 이상)\nE\n-\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n이뇨제(一)，조영제( - ) ，리틈(-)\n사\n술(- ), 담배(ᅳ), 커피(+, 하루 1~2잔)\n가\n어머니: 고혈압\n여\n[산과력] 2-0-1 - 2/LMP 3주 전, 월경 규칙적, 월경량 보통\nP/E\nGeneral\nV/S 확인\nHEENT\n구강 탈수 소견(ᅳ)，결막/공막 정상\n시야검사(ᅳ). 안구 운동검사 정상\nAbdomen\n복부 촉진 정상, CVA tenderness(-)\nExtermity\n피부 긴장도/오목 부종(- / - )\n질문\n^음\n특\n에\n없음"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "당뇨병",
+      "원발성 다음증",
+      "중추성 요붕증"
+    ],
+    "planned_tests": [
+      "소변 오스몰 농도",
+      "혈중 포도당검사",
+      "수분제한검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "안저검사 : 당뇨병으로 인한 다뇨증이 의심되는 환XK)|므로 안저검사를 통해 당뇨병\n성 망막증이 있는지 확인해야 합니다.\n소변을 자주 보는 경우 다뇨인지 빈뇨인지 자칫 햇갈릴 수 있습니다.\n그렇기 때문에 소변에 대한문진을 꼼꼼히 하고, 수분 섭취량과 소변\n량도 파악하는 것이 먼저입니다.\n다뇨는 용질성 다뇨，원발성 다음증, 요붕증으로 구분하는데, 중요하게 확인할 것은 용질성\n다뇨를 유발하는 mannitol과 lithium, demecolcycline과 같은 요붕증을 유발하는 약제, 음주량，",
+    "author_commentary_tail": "안저검사 : 당뇨병으로 인한 다뇨증이 의심되는 환XK)|므로 안저검사를 통해 당뇨병\n성 망막증이 있는지 확인해야 합니다.\n소변을 자주 보는 경우 다뇨인지 빈뇨인지 자칫 햇갈릴 수 있습니다.\n그렇기 때문에 소변에 대한문진을 꼼꼼히 하고, 수분 섭취량과 소변\n량도 파악하는 것이 먼저입니다.\n다뇨는 용질성 다뇨，원발성 다음증, 요붕증으로 구분하는데, 중요하게 확인할 것은 용질성\n다뇨를 유발하는 mannitol과 lithium, demecolcycline과 같은 요붕증을 유발하는 약제, 음주량，\n조영제 사용 유무가 있으니 잊지 않고 확인하도록 합니다.",
+    "scenario_card_raw": "EM\n실전 모의 증례\n麵龜議1\n隱\n雜\nM\n.\n^■황\n지침\n和'勢h\n36세 여자 성지원씨가 배가 아파 내원하였다.\n[활력 징후] 혈압 : 120/80mmHg\n맥박 : 75회/분\n호音 ■\n12회/분\n체온 ：\n36.5°C\n[응시;\";ᅡ는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n• 가능성이 높은 진단 3개\n1. 당뇨병\n2. 원발성 다음증\n3. 중추성 요붕증\n• 필요한 검사 계획 3가지\n1. 소변 오스몰 농도\n2. 혈중 포도당검사\n3. 수분제한검사\n예상\n술기\n안저검사 : 당뇨병으로 인한 다뇨증이 의심되는 환XK)|므로 안저검사를 통해 당뇨병\n성 망막증이 있는지 확인해야 합니다.\n소변을 자주 보는 경우 다뇨인지 빈뇨인지 자칫 햇갈릴 수 있습니다.\n그렇기 때문에 소변에 대한문진을 꼼꼼히 하고, 수분 섭취량과 소변\n량도 파악하는 것이 먼저입니다.\n다뇨는 용질성 다뇨，원발성 다음증, 요붕증으로 구분하는데, 중요하게 확인할 것은 용질성\n다뇨를 유발하는 mannitol과 lithium, demecolcycline과 같은 요붕증을 유발하는 약제, 음주량，\n\n조영제 사용 유무가 있으니 잊지 않고 확인하도록 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "memory_decline-002",
+  "case_number_in_pdf": 197,
+  "topic": {
+    "topic_start_page": 497,
+    "topic_id": "memory_decline",
+    "topic_label": "기억력 저하",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 503,
+      "end": 504
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김광석",
+      "age": 63,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "자꾸 기억이 깜빡깜박해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "116/74mmHg",
+      "pulse": "74회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 63세\n“자꾸 기억이 깜빡깜박해요”",
+    "history_blocks": {
+      "onset": "1년전",
+      "duration": "서서히 기억력이 저^됨",
+      "course": "점점 나빠짐",
+      "experience": "처음",
+      "character": "최근 기억 저하 : 약속을 잡고 까먹음，하려고 한 말을 까먹음\n약속이 있었다는 사실을 듣고 나면 기억나긴 함\n이전 기억들은 보존됨",
+      "associated_symptoms": "성격 변화/우울감/흥미 감소. 자살 사고( - / - / - / _ )\n팔다리 감각 이상/근력 저하/보행장애/배뇨장애 ( - / - / - / - )\n환시/환청 ( - / - )\n발열/오한 ( - / - )",
+      "factors": "최종 학력 : 석사출신",
+      "past_history": "DM/TB/HTN/간염( - / - / - / - )",
+      "social_history": "술(+, social), 담배(- ), 커피(-), 스트레스(-)\n아내와 단둘이 살고 있음\n평소 게이트볼을 좋아해서 동네 게이트볼장에서 人[람들과 어울림\n가"
+    },
+    "physical_exam_results": "MMSE 거의 정상(약간 감소)\n두부 시진, 니ght reflex. 안구 운동검人h 팔근력, 감각, 갑상샘, 소뇌, 보행 모두 정상\noa\nrh\nrh\noid",
+    "patient_question_or_concern": "ᅳ",
+    "actor_notes_or_special_behavior": "ᅳᅳ",
+    "raw_profile_text": "성별/나이\n남성/ 63세\n“자꾸 기억이 깜빡깜박해요”\n0\n1년전\nL\nD\n서서히 기억력이 저^됨\nCo\n점점 나빠짐\nEx\n처음\nC\n최근 기억 저하 : 약속을 잡고 까먹음，하려고 한 말을 까먹음\n약속이 있었다는 사실을 듣고 나면 기억나긴 함\n이전 기억들은 보존됨\nA\n성격 변화/우울감/흥미 감소. 자살 사고( - / - / - / _ )\n팔다리 감각 이상/근력 저하/보행장애/배뇨장애 ( - / - / - / - )\n환시/환청 ( - / - )\n발열/오한 ( - / - )\nF\n최종 학력 : 석사출신\nE\n외\n과\nDM/TB/HTN/간염( - / - / - / - )\n약\n사\n술(+, social), 담배(- ), 커피(-), 스트레스(-)\n아내와 단둘이 살고 있음\n평소 게이트볼을 좋아해서 동네 게이트볼장에서 人[람들과 어울림\n가\nP/E\nMMSE 거의 정상(약간 감소)\n두부 시진, 니ght reflex. 안구 운동검人h 팔근력, 감각, 갑상샘, 소뇌, 보행 모두 정상\noa\nrh\nrh\noid\n질문\nᅳ-\n특이사항ᅳᅳ-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\nSS懸l i i i 纖\n^■자",
+    "likely_diagnoses": [
+      "경도인지장애",
+      "알츠하이머성 치매"
+    ],
+    "planned_tests": [
+      "뇌 MRI",
+      "뇌 CT"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 알츠하이머 치매 등 감별을 위한 뇌 MRI/CT를 시행하기 위해 설명\n하고，동의서를 받습니다.\n최근 기억만 약간 저하된 증례입니다. 시간이 모자라 MMSE를 처음부\n( 3 ■ᄋ^\n^\n^\n^\n터 끝까;사 다못할 수도 있지만, 하다 보면 환자의 인지 능력이 얼마나\n떨어져 있는지 가늘하기에는 어렵지 않을 것입니다.\n증례의 경우 경도인지장애로서 큰 어려움 없이 불안감에 대한 공감을 해주고 편하게 교육을 하\n면 됩니다. 기질적인 질환을 의심하게 하는증상을 전혀 호소하고 있지 않지만，신체 진찰에서\n이를 간단히 확인해 볼수 있습니다.\n경도인지장애도 일부 알츠하이머성 치매로 진행할 수 있기 때문에 인지 능력을 계속 유지할 수\n있도록 활동적인 취미를 격 려하고«메모하는 습관을 기르게 하고> 규칙적 인 일과를 정해서 하도\n록하면 도음이 될 것입니다.",
+    "author_commentary_tail": "( 3 ■ᄋ^\n^\n^\n^\n터 끝까;사 다못할 수도 있지만, 하다 보면 환자의 인지 능력이 얼마나\n떨어져 있는지 가늘하기에는 어렵지 않을 것입니다.\n증례의 경우 경도인지장애로서 큰 어려움 없이 불안감에 대한 공감을 해주고 편하게 교육을 하\n면 됩니다. 기질적인 질환을 의심하게 하는증상을 전혀 호소하고 있지 않지만，신체 진찰에서\n이를 간단히 확인해 볼수 있습니다.\n경도인지장애도 일부 알츠하이머성 치매로 진행할 수 있기 때문에 인지 능력을 계속 유지할 수\n있도록 활동적인 취미를 격 려하고«메모하는 습관을 기르게 하고> 규칙적 인 일과를 정해서 하도\n록하면 도음이 될 것입니다.",
+    "scenario_card_raw": "•\n실전 모의 증례\nm m m\n旁 广 3'V—\nJ\n지침\n圖 I I 議\n률후\n• 63세 남자 김광석씨가 기억력이 떨어졌다며 내원하였다.\n[활력 징후] 혈압 : 116/74mmHg\n맥박 : 74회/분\n호흡 : 20회/분\n체온 ：\n36.7°C\n[응시자는이 환자에게] 증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오•\nSS懸l i i i 纖\n^■자\n• 가능성이 높은 진단 2개\n1. 경도인지장애\n2. 알츠하이머성 치매\n• 필요한 검사 계획 2가지\n1. 뇌 MRI\n2. 뇌 CT\n예상\n술기\n설명동의서 받기 : 알츠하이머 치매 등 감별을 위한 뇌 MRI/CT를 시행하기 위해 설명\n하고，동의서를 받습니다.\n최근 기억만 약간 저하된 증례입니다. 시간이 모자라 MMSE를 처음부\n( 3 ■ᄋ^\n^\n^\n^\n터 끝까;사 다못할 수도 있지만, 하다 보면 환자의 인지 능력이 얼마나\n떨어져 있는지 가늘하기에는 어렵지 않을 것입니다.\n증례의 경우 경도인지장애로서 큰 어려움 없이 불안감에 대한 공감을 해주고 편하게 교육을 하\n면 됩니다. 기질적인 질환을 의심하게 하는증상을 전혀 호소하고 있지 않지만，신체 진찰에서\n이를 간단히 확인해 볼수 있습니다.\n경도인지장애도 일부 알츠하이머성 치매로 진행할 수 있기 때문에 인지 능력을 계속 유지할 수\n있도록 활동적인 취미를 격 려하고«메모하는 습관을 기르게 하고> 규칙적 인 일과를 정해서 하도\n록하면 도음이 될 것입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

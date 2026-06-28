@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "joint_pain_swelling-004",
+  "case_number_in_pdf": 157,
+  "topic": {
+    "topic_start_page": 397,
+    "topic_id": "joint_pain_swelling",
+    "topic_label": "관절 통증/부기",
+    "system": "관절/근골격/피부"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 403,
+      "end": 404
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "임재한",
+      "age": 33,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "무릎이 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "125/80mmHg",
+      "pulse": "73회/분",
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 33세\n“무릎이 아파요”",
+    "history_blocks": {
+      "onset": "열흘 전",
+      "location": "왼쪽 내측 무릎",
+      "duration": "열흘 내내",
+      "course": "점점 심해짐",
+      "experience": "이전부터 간헐적으로 통증이 있었음(NRS 3~4점)",
+      "character": "뻐근하고 욱씬욱씬한 양상, NRS 7점, 방사통H\n열감/부종/발적/압통(-/+ /-/+ , 내측)",
+      "associated_symptoms": "[전신] 발열/피로감/체중 감소/식욕감소\n[호흡기] 호흡곤란/ 마른기침( - / - )\n[류마티스] 조조강직/구강 궤양/성기 궤양(一/一/一구강 건조/안구 건조(ᅳ/ᅳ>\n최근에 목감기/설사/요도염/성접촉( - / - / - / - ) , 다른 관절 통증H",
+      "factors": "언덕 내려갈 때, 양반다리 할 때 통증 심해짐",
+      "trauma_history": "1년 반 전에 축구하다가 무릎 다침\nX-ray 상 정상이었고 물리 치료 받았으나 그 이후부터 간헐적으로 아픔",
+      "past_history": "DM/TB/HTN/간염( - / ᅳ/一/ - ). 고지혈증(ᅳ)",
+      "social_history": "술(+, 주 2회x 소주 1 병)，담배(+, 하루 반 갑X5년), 커피(一), 레크리에이션 강사",
+      "family_history": "General\n키 173cm, 몸무게 73kg\nHEENT\n입/피부 탈수 소견(一/ - ), 결막/공막(一/ᅳ), 갑상샘 정상\nChest"
+    },
+    "physical_exam_results": "Abdomen\n복통 시/촉/타/청 정상\nCVA tenderness(-), 간비 비대(ᅳ), DRE : 정상\nExtermity\n피부 긴장도, 오목 부종 정상，왼쪽 무릎 ROM 감소\n열감/부종/ 발적/압통( - / +/- / +, 내측), 근력 정상\n^른쪽 무릎정상\n기타",
+    "patient_question_or_concern": "O J 으\nd ᄉ 口\n특이\n항\n어으\nUA■口",
+    "actor_notes_or_special_behavior": "없음\nP/E\nAbdomen\n복통 시/촉/타/청 정상\nCVA tenderness(-), 간비 비대(ᅳ), DRE : 정상\nExtermity\n피부 긴장도, 오목 부종 정상，왼쪽 무릎 ROM 감소\n열감/부종/ 발적/압통( - / +/- / +, 내측), 근력 정상\n^른쪽 무릎정상\n기타\n\n질문\nO J 으\nd ᄉ 口\n특이\n항\n어으\nUA■口",
+    "raw_profile_text": "성별/나이\n남성/ 33세\n“무릎이 아파요”\n0\n열흘 전\nL\n왼쪽 내측 무릎\nD\n열흘 내내\nCo\n점점 심해짐\nEx\n이전부터 간헐적으로 통증이 있었음(NRS 3~4점)\nC\n뻐근하고 욱씬욱씬한 양상, NRS 7점, 방사통H\n열감/부종/발적/압통(-/+ /-/+ , 내측)\nA\n[전신] 발열/피로감/체중 감소/식욕감소\n[호흡기] 호흡곤란/ 마른기침( - / - )\n[류마티스] 조조강직/구강 궤양/성기 궤양(一/一/一구강 건조/안구 건조(ᅳ/ᅳ>\n최근에 목감기/설사/요도염/성접촉( - / - / - / - ) , 다른 관절 통증H\nF\n언덕 내려갈 때, 양반다리 할 때 통증 심해짐\nE\n-\n외\n1년 반 전에 축구하다가 무릎 다침\nX-ray 상 정상이었고 물리 치료 받았으나 그 이후부터 간헐적으로 아픔\n과\nDM/TB/HTN/간염( - / ᅳ/一/ - ). 고지혈증(ᅳ)\n약\n-\n사\n술(+, 주 2회x 소주 1 병)，담배(+, 하루 반 갑X5년), 커피(一), 레크리에이션 강사\n가\n-\nGeneral\n키 173cm, 몸무게 73kg\nHEENT\n입/피부 탈수 소견(一/ - ), 결막/공막(一/ᅳ), 갑상샘 정상\nChest\n특이사항 없음\nP/E\nAbdomen\n복통 시/촉/타/청 정상\nCVA tenderness(-), 간비 비대(ᅳ), DRE : 정상\nExtermity\n피부 긴장도, 오목 부종 정상，왼쪽 무릎 ROM 감소\n열감/부종/ 발적/압통( - / +/- / +, 내측), 근력 정상\n^른쪽 무릎정상\n기타\n-\n질문\nO J 으\nd ᄉ 口\n특이\n항\n어으\nUA■口"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "내측 측부인대 손상",
+      "외상 관절염",
+      "골관절염"
+    ],
+    "planned_tests": [
+      "Both knee X-ray(AP, lateral)",
+      "무#자기공명 촬영",
+      "관절액 천자"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": "^ 해야 합니다. w\n자체에 대해서 자세히 문진해야 하고, 류마티스 질\ni\n환에 흔히 동반되는증상들도 확인하는 것이 필요합니다.\nI 증례의 케이스와 같이 외상에 의해, 혹은 후유증으로 통증이 유발될 수 있기 때문에 외상력 또\n; 한반드시확인합니다.\n; 신체 진찰을 할 경우에 통증이 있는관절을 시진, 촉진하고 ROM* 감각등을꼼꼼히 확인하여야\n| 하는데, 이때 반드시 양측을 비교하여야합니다.\n| 현재 통증을 심하게 호소하고 있으므로 급성 기 에는 통증을 조절해 주고，치료, 생활 습관 등으\nI 로 재발을 방지하고관리해 나갈수 있도록 교육하는 것으로 마무리하면 될 것입니다.\n^ ...................................................................... ......................................................................",
+    "scenario_card_raw": "a\ni 실전 모의 증례\n• 33세 남자 임재한씨가 무릎이 아프다며 내원하였다.\n[활력 징후] 혈압 : 125/80mmHg\n맥박 : 73회/분\n^■황\ns.® • 22최/분\n지침\n체온 : 3 6 T C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 3개\n^■자\n1. 내측 측부인대 손상\n2. 외상 관절염\n3. 골관절염\n교육\n• 필요한 검사 계획 3가지\n1. Both knee X-ray(AP, lateral)\n2. 무#자기공명 촬영\n3. 관절액 천자\n예상\n설명동의서 받기 : 측부인대 손상. 외상 관절염, 골관절염 등을 감별하기 위해 무릎\n술기\nMRI. 관절액 천자를 시행 전 설명동의서를 받습니다.\nI\n시 관절 통증은 크게 급성인지 만성인지, 염증성인지 비염증성인지 구분\n;\n0\ni ^\n\n^ 해야 합니다. w\n자체에 대해서 자세히 문진해야 하고, 류마티스 질\ni\n환에 흔히 동반되는증상들도 확인하는 것이 필요합니다.\nI 증례의 케이스와 같이 외상에 의해, 혹은 후유증으로 통증이 유발될 수 있기 때문에 외상력 또\n; 한반드시확인합니다.\n; 신체 진찰을 할 경우에 통증이 있는관절을 시진, 촉진하고 ROM* 감각등을꼼꼼히 확인하여야\n| 하는데, 이때 반드시 양측을 비교하여야합니다.\n| 현재 통증을 심하게 호소하고 있으므로 급성 기 에는 통증을 조절해 주고，치료, 생활 습관 등으\nI 로 재발을 방지하고관리해 나갈수 있도록 교육하는 것으로 마무리하면 될 것입니다.\n^ ...................................................................... ......................................................................"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

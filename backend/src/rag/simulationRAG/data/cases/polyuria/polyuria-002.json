@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "polyuria-002",
+  "case_number_in_pdf": 106,
+  "topic": {
+    "topic_start_page": 261,
+    "topic_id": "polyuria",
+    "topic_label": "소변량 변화(다뇨)",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 263,
+      "end": 264
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이지연",
+      "age": 48,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "소변이 많이 나와요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/84mmHg",
+      "pulse": "85회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 48세\n주소\n“소변이 많이 나와요”",
+    "history_blocks": {
+      "onset": "3개월 전, 2주 전부터 심해짐",
+      "duration": "2~3시간마다 호ᅡ장실 가고 평소보다 많은 양",
+      "course": "점점 심해짐",
+      "experience": "처음",
+      "character": "[횟수]\n증가 (4 회ᅳ10회)\n[양]\n증가(한 번에종이컵2컵 분량)\n[양상]\n맑은 색깔, 냄새/피/거품( - / - / - )\n목이 말라서 물을 많이 마심(하루에 3〜4L)",
+      "associated_symptoms": "[전신]\n피로 (+)\n[내분비]\n다음/ 다갈/다뇨 (+ /+ /+ )\n[비뇨기]\n빈뇨/야간뇨/배뇨통/주저뇨/요끊김 (+/+/ᅳ/ᅳ/一)\n복압배뇨/잔뇨감/외음부 가려움/통증( - / - / - / - )",
+      "medications": "人^\n술(+, social), 담배(+), 스트레스(+, 자식 교육 걱정)\n직업 : 사무직",
+      "family_history": "아버지 : 당뇨 합병증으로 사망，작은아버지 : 당뇨"
+    },
+    "physical_exam_results": "General\nV/S 정상\nHEENT\n눈, 입, 피부 긴장도 정상\n시야검사 정상\nAbdomen\n복부 시/촉/타/청( - / ᅳ/ - / 一), DRE 정상, CVAT(-)\nExtermity\nPitting edema(-), 피부 긴장도 정상\n|±\n프\nr",
+    "patient_question_or_concern": "“잠을못ᄌw 스트레스받아요;",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 48세\n주소\n“소변이 많이 나와요”\n0\n3개월 전, 2주 전부터 심해짐\nL\n-\nD\n2~3시간마다 호ᅡ장실 가고 평소보다 많은 양\nCo\n점점 심해짐\nEx\n처음\nC\n[횟수]\n증가 (4 회ᅳ10회)\n[양]\n증가(한 번에종이컵2컵 분량)\n[양상]\n맑은 색깔, 냄새/피/거품( - / - / - )\n목이 말라서 물을 많이 마심(하루에 3〜4L)\nA\n[전신]\n피로 (+)\n[내분비]\n다음/ 다갈/다뇨 (+ /+ /+ )\n[비뇨기]\n빈뇨/야간뇨/배뇨통/주저뇨/요끊김 (+/+/ᅳ/ᅳ/一)\n복압배뇨/잔뇨감/외음부 가려움/통증( - / - / - / - )\nF\nE\n-\n외\n-\n과\n-\n약\n-\n人^\n술(+, social), 담배(+), 스트레스(+, 자식 교육 걱정)\n직업 : 사무직\n가\n아버지 : 당뇨 합병증으로 사망，작은아버지 : 당뇨\n여\n-\nP/E\nGeneral\nV/S 정상\nHEENT\n눈, 입, 피부 긴장도 정상\n시야검사 정상\nAbdomen\n복부 시/촉/타/청( - / ᅳ/ - / 一), DRE 정상, CVAT(-)\nExtermity\nPitting edema(-), 피부 긴장도 정상\n|±\n프\nr\n질문\n“잠을못ᄌw 스트레스받아요;\n특이 사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육",
+    "likely_diagnoses": [
+      "당뇨",
+      "원발성 다음증",
+      "요붕증"
+    ],
+    "planned_tests": [
+      "혈당검사",
+      "혈액검사",
+      "소변검사"
+    ],
+    "planned_treatments_or_education": [
+      "약물 치료",
+      "생활 습관 교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■\n실전 모의 증례\n^ •황\n지침\n•48세 여자 이지연씨가 소변이 많이 나온다며 내원하였다.\n[활력 징휘 혈압 : 120/84mmHg\n맥박 : 85회/분\n호흡 : 17회/분\n체온 ：\n36.7°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육\n• 가능성이 높은 진단 3개\n1. 당뇨\n2. 원발성 다음증\n3. 요붕증\n• 필요한 검사 계획 3가지\n1. 혈당검사\n2. 혈액검사\n3. 소변검사\n• 필요한 치료 계획 2가지\n1. 약물 치료\n2. 생활 습관 교육\n댜\n제시문만 보고는 빈뇨인지 다뇨인지 명확하게 알 수 없습니다. 따라서\n환자에게 빈도가 늘었는지，양이 늘었는지 확실하게 문진하는 과정이\n필요합니다.\n본 증례의 환자는 다음，다노 다갈 증상 및 당뇨의 가족력 이 있기 때문에 당뇨로 추정 진단을 잡\n을 수 있습니다.\n추가 검사가 필요함과 검사 결과에 따라 치료가 달라질 수 있음을 말하고, 합병증을 방지하기\n위해 생활습관 교정이 필수적임올 설명합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

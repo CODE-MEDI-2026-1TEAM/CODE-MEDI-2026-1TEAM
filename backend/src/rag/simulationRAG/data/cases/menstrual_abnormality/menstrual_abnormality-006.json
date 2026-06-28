@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "menstrual_abnormality-006",
+  "case_number_in_pdf": 246,
+  "topic": {
+    "topic_start_page": 625,
+    "topic_id": "menstrual_abnormality",
+    "topic_label": "월경 이상",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 635,
+      "end": 636
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "유하빈",
+      "age": 28,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "115/75mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 28세\n^소\n“월경이 없어요”",
+    "history_blocks": {
+      "onset": "5개월 전",
+      "course": "고등학생 때부터 2~3개월에 한 번씩 했음\n이번에는 5개월째 월경이 없음",
+      "character": "결혼(+), 피임(ᅳ，5개월 전까지 피임약 복용, 임신 계획 있어서 5개월 전부터 중단)\n[산과력]\n0 -0 -0 -0\n마지막 성관계 3일 전，임신 가능성(ᅵ, 어제 임신 테스트기에서 음성)\n[월경력] 2〜3개월 불규칙적 주기, 월경량 많음, 패드 6〜7개，LMP 5개월 전",
+      "associated_symptoms": "[내분비] 여드름/체모 증가/체중 변화(+/+/+, “계속 찌는 중이에요” )\n복부선조/목소리 굵어짐( - / - )\n더위불내성/두근거림/추위불내성/변비 (- / ᅳ/ - / - )\n[뇌하수체] 두통/시야장애/유즙분비 ( - / - / _ )\n[폐경증상] 안면홍조/식은땀/화끈거림 ( - / - / - )",
+      "factors": "스트레스(약간 있지만 심하지 않음), 과도한 운동(- )，과도한 다이어트(-)",
+      "events": "직장에서 건강 검진 받음, 이상 없었음",
+      "past_history": "/TB /간염 ( - / - / - / - )",
+      "medications": "종합 비타민, 엽산",
+      "social_history": "술/담배 : 임신 계획 하에 모두 끊음, 직업 : 제약회사 직원",
+      "family_history": "어머니 자궁근종으로 자궁적출술，조기 폐경(一)"
+    },
+    "physical_exam_results": "General\n키 160cm, 체중 68kg , 얼굴에 여드름 많음\n샘\n\n복부\n人|/청/ 타/촉(一/ - / - / - ) ，DRE(-), 골반 진찰(一)\n림프절\n\n기타\n팔, 다리，복부에 원래 털 많은데 지금 제모해서 없다고 말해줌",
+    "patient_question_or_concern": "특이시항\n\nri\nH\nI\nI\n/o\nl\n요/\nh\n>\no\nf",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 28세\n^소\n“월경이 없어요”\n0\n5개월 전\nL\n-\nD\n-\nCo\n고등학생 때부터 2~3개월에 한 번씩 했음\n이번에는 5개월째 월경이 없음\nEx\n-\nC\n결혼(+), 피임(ᅳ，5개월 전까지 피임약 복용, 임신 계획 있어서 5개월 전부터 중단)\n[산과력]\n0 -0 -0 -0\n마지막 성관계 3일 전，임신 가능성(ᅵ, 어제 임신 테스트기에서 음성)\n[월경력] 2〜3개월 불규칙적 주기, 월경량 많음, 패드 6〜7개，LMP 5개월 전\nA\n[내분비] 여드름/체모 증가/체중 변화(+/+/+, “계속 찌는 중이에요” )\n복부선조/목소리 굵어짐( - / - )\n더위불내성/두근거림/추위불내성/변비 (- / ᅳ/ - / - )\n[뇌하수체] 두통/시야장애/유즙분비 ( - / - / _ )\n[폐경증상] 안면홍조/식은땀/화끈거림 ( - / - / - )\nF\n스트레스(약간 있지만 심하지 않음), 과도한 운동(- )，과도한 다이어트(-)\nE\n직장에서 건강 검진 받음, 이상 없었음\n외\n-\n과\n/TB /간염 ( - / - / - / - )\n약\n종합 비타민, 엽산\n사\n술/담배 : 임신 계획 하에 모두 끊음, 직업 : 제약회사 직원\n가\n어머니 자궁근종으로 자궁적출술，조기 폐경(一)\nP/E\nGeneral\n키 160cm, 체중 68kg , 얼굴에 여드름 많음\n샘\n-\n복부\n人|/청/ 타/촉(一/ - / - / - ) ，DRE(-), 골반 진찰(一)\n림프절\n-\n기타\n팔, 다리，복부에 원래 털 많은데 지금 제모해서 없다고 말해줌\n질문\n-\n특이시항\n-\nri\nH\nI\nI\n/o\nl\n요/\nh\n>\no\nf"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n^•자\n교육\n. 가능성이 높은 진단 3개\n1. PC0S\n2. 정상 임신\n3. 조기 폐경",
+    "likely_diagnoses": [
+      "PC0S",
+      "정상 임신",
+      "조기 폐경"
+    ],
+    "planned_tests": [
+      "혈중 FSH",
+      "소변 hCG",
+      "질초음파"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■ 실전 모의 증례\nill\n지침\n• 28세 여자 유하빈씨가 월경 이상을 주소로 내원하였다.\n[활력 징후] 혈압 : 115/75mmHg\n맥박 : 80회/분\n호흡 : 20회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n^•자\n교육\n. 가능성이 높은 진단 3개\n1. PC0S\n2. 정상 임신\n3. 조기 폐경\n• 필요한 검사 계획 3가지\n1. 혈중 FSH\n2. 소변 hCG\n3. 질초음파\nPCOS 특징적인 feature* 가지고 있어 어렵지 않지만，정상 임신을 배\n제할수 없으므로 진단 계획 시 환자에게 잘 설명하도록합니다. 또한\nPCOS로 진단되는 경우 치료 계획으로 배란유도제를 통한 정상 임신을 제시하도록 합니다.\n이 환자의 경우 임신을 계획하면서 술’ 담배 등의 생활 습관을 교정하고 엽산을 복용하고 있는\n점을 잘 격려해 준다면 환자와 좋은 관계를 형성할 수 있습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
