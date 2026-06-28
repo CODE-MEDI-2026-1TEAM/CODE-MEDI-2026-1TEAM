@@ -298,7 +298,13 @@ function patientDisplayName(cpxCase: CpxCase) {
 
 function getCaseAgeGroup(cpxCase: CpxCase) {
   const age = cpxCase.patientProfile.age;
-  const searchableText = `${cpxCase.title} ${cpxCase.patientProfile.occupation ?? ''}`;
+  const searchableText = [
+    cpxCase.title,
+    cpxCase.patientProfile.ageRaw,
+    cpxCase.patientProfile.name,
+    cpxCase.patientProfile.occupation,
+    cpxCase.patientProfile.sex,
+  ].filter(Boolean).join(' ');
 
   if (typeof age === 'number') {
     if (age <= 12) return '소아';
@@ -306,7 +312,7 @@ function getCaseAgeGroup(cpxCase: CpxCase) {
     return '성인';
   }
 
-  if (/소아|아동|어린이|초등/.test(searchableText)) return '소아';
+  if (/김정환|박로하|생후|개월|영유아|소아|아동|어린이|초등|남아|여아/.test(searchableText)) return '소아';
   if (/청소년|중학생|고등학생|고등/.test(searchableText)) return '청소년';
   return '성인';
 }

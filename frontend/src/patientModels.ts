@@ -365,7 +365,7 @@ function isInfantProfile(profile: PatientSceneProfile) {
 
   return profile.age !== undefined && profile.age <= 2
     ? true
-    : /김정환|생후|개월|영유아/.test(searchableText);
+    : /김정환|박로하|생후|개월|영유아/.test(searchableText);
 }
 
 function pickStable<T>(items: T[], seed: string) {
