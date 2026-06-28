@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
 import type { CpxCase, Session } from '../types';
@@ -36,13 +36,17 @@ export default function ChatSidebar({
     ['호흡', `${vitals.rr}회/분`],
     ['체온', `${vitals.temp}°C`],
   ];
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const messageListRef = useRef<HTMLDivElement>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
   const isCompleted = session?.status === 'completed';
+  const messageCount = session?.messages.length ?? 0;
+  const latestMessageId = messageCount > 0 ? session?.messages[messageCount - 1]?.id : undefined;
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  }, [session?.messages, isLoading]);
+  useLayoutEffect(() => {
+    const messageList = messageListRef.current;
+    if (!messageList) return;
+    messageList.scrollTop = messageList.scrollHeight;
+  }, [latestMessageId, messageCount, isLoading]);
 
   const profile = activeCase?.patientProfile;
   const displayAge = profile?.age
@@ -51,13 +55,13 @@ export default function ChatSidebar({
   const avatarCaseKey = choosePatientCaseKey(
     activeCase
       ? {
-          age: activeCase.patientProfile.age,
-          ageRaw: activeCase.patientProfile.ageRaw,
-          name: activeCase.patientProfile.name,
-          seed: activeCase.slug,
-          sex: activeCase.patientProfile.sex,
-          title: activeCase.title,
-        }
+        age: activeCase.patientProfile.age,
+        ageRaw: activeCase.patientProfile.ageRaw,
+        name: activeCase.patientProfile.name,
+        seed: activeCase.slug,
+        sex: activeCase.patientProfile.sex,
+        title: activeCase.title,
+      }
       : null,
   );
   const avatarCase = PATIENT_CASES[avatarCaseKey];
@@ -147,7 +151,7 @@ export default function ChatSidebar({
 
       <section className="chat-history" aria-live="polite">
         <p className="chat-label">대화 기록</p>
-        <div className="message-list">
+        <div className="message-list" ref={messageListRef}>
           {session?.messages.map((message) => (
             <article className={`message ${message.role === 'user' ? 'user-message' : 'patient-message'}`} key={message.id}>
               <span>{message.role === 'user' ? '의료진' : '환자'}</span>
@@ -155,7 +159,6 @@ export default function ChatSidebar({
             </article>
           ))}
           {isLoading ? <article className="message patient-message pending"><span>환자</span><p>응답을 생각하고 있습니다…</p></article> : null}
-          <div ref={chatEndRef} />
         </div>
       </section>
 
