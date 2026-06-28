@@ -6,6 +6,7 @@ import { LlmModule } from './llm/llm.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { RagModule } from './rag/rag.module';
 import { SessionsModule } from './sessions/sessions.module';
+import { SpeechModule } from './speech/speech.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { SessionsModule } from './sessions/sessions.module';
     CasesModule,
     RagModule,
     SessionsModule,
+    SpeechModule,
   ],
 })
 export class AppModule {}
