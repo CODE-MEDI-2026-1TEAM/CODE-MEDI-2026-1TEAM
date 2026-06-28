@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "syncope-004",
+  "case_number_in_pdf": 64,
+  "topic": {
+    "topic_start_page": 143,
+    "topic_id": "syncope",
+    "topic_label": "실신",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 149,
+      "end": 150
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김민아",
+      "age": 25,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "쓰러질 뻔 했어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "105/68",
+      "pulse": "92회/분",
+      "respiratory_rate": "14회/분",
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/25세\n“쓰러질 뻔 했어요”",
+    "history_blocks": {
+      "onset": "2시간 전 ( 현재 오전 10시 )",
+      "experience": "고등학교 때 조회 중 잠깐 쓰러진 적 있음\nG\n[목격자/ 상황] 버스로 등교중쓰러질뻔\n[전조 증상] 눈 앞 캄캄/ 메스꺼움/식은땀/어지럼/두근거림 (+/+/+/+/- )\n[실신 중] 경련/강직/안구편위/혀깨뭄/침흘림 ( - / - / - / - / - )",
+      "associated_symptoms": "[전신] 발열/오한/체중 감소/의식 소실/어지럼( - / - / - / - / - )\n[신경] 두통/시야 변화/사지 근력 이상/사지 감각 이상( - / - / - / _ )\n[소화기] 오심/구토/토혈/혈변( - / ᅳ/ - / - )\n[정신] 우울/불안(ᅳ/ᅳ)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "social_history": "술 ：\nsocial, 담배(- ), 식사 ：\n평소 불규칙, 아침 식사 안 했음\n스트레스 : 최근 학업 스트레스 많음, 직업 : 대학생",
+      "family_history": "어머니: 고혈압",
+      "gynecologic_history": "LMP ：\n2주 전, 월경 규칙적，월경량 중형 패드 6장，월경통 있음"
+    },
+    "physical_exam_results": "General\nV/S ：\nstable\nHEENT\n입/피부 탈수 소견(ᅳ/이，결막/공막(_/ᅳ). 경동맥 시진/청진 정상\nLight reflex 정상，안구 운동 정상, 안면 감각/운동 정상\nChest\n심음 정상\nExtremity\n피부 긴장도• 오목 부종 정상\n사지 감각 정상, 사지 근력 정상",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "없음",
+    "raw_profile_text": "성별/나이\n여성/25세\n“쓰러질 뻔 했어요”\n0\n2시간 전 ( 현재 오전 10시 )\nL\n-\nD\n-\nCo\n-\nEx\n고등학교 때 조회 중 잠깐 쓰러진 적 있음\nG\n[목격자/ 상황] 버스로 등교중쓰러질뻔\n[전조 증상] 눈 앞 캄캄/ 메스꺼움/식은땀/어지럼/두근거림 (+/+/+/+/- )\n[실신 중] 경련/강직/안구편위/혀깨뭄/침흘림 ( - / - / - / - / - )\nA\n[전신] 발열/오한/체중 감소/의식 소실/어지럼( - / - / - / - / - )\n[신경] 두통/시야 변화/사지 근력 이상/사지 감각 이상( - / - / - / _ )\n[소화기] 오심/구토/토혈/혈변( - / ᅳ/ - / - )\n[정신] 우울/불안(ᅳ/ᅳ)\nF\n-\nE\n-\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n-\n사\n술 ：\nsocial, 담배(- ), 식사 ：\n평소 불규칙, 아침 식사 안 했음\n스트레스 : 최근 학업 스트레스 많음, 직업 : 대학생\n가\n어머니: 고혈압\n여\nLMP ：\n2주 전, 월경 규칙적，월경량 중형 패드 6장，월경통 있음\nP/E\nGeneral\nV/S ：\nstable\nHEENT\n입/피부 탈수 소견(ᅳ/이，결막/공막(_/ᅳ). 경동맥 시진/청진 정상\nLight reflex 정상，안구 운동 정상, 안면 감각/운동 정상\nChest\n심음 정상\nExtremity\n피부 긴장도• 오목 부종 정상\n사지 감각 정상, 사지 근력 정상\n질문\n특이 사항\n없음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n교육",
+    "likely_diagnoses": [
+      "미주신경성 실신",
+      "기립성 저혈압",
+      "빈혈"
+    ],
+    "planned_tests": [
+      "기립경검사",
+      "CBC"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "혈압 측정 : 실신 환자에서는 혈압이 너무 높거나 낮지는 않은지 꼭 확인해 보아야\n합니다.\n실신의 경우 교육 파트가 특히 중요합니다. 미주신경성 실신 또는 기\n립성 저혈압이 가장 혼하기 때문에 이에 대한 예방과조치에 대한 교\n육을 잘 숙지하도록 합니다.\n다만 뇌의 기질 이상으로 인한 것은 아닌지 문진과 신체 진찰까지 진행하여 감별하는 것울 잊지\n말도록 하며, 배계 여부에 따라 환자를 안심시키거나 추가적인 검사가 필요할지 명확히 밝혀야\n합니다.\n二\n^",
+    "author_commentary_tail": "혈압 측정 : 실신 환자에서는 혈압이 너무 높거나 낮지는 않은지 꼭 확인해 보아야\n합니다.\n실신의 경우 교육 파트가 특히 중요합니다. 미주신경성 실신 또는 기\n립성 저혈압이 가장 혼하기 때문에 이에 대한 예방과조치에 대한 교\n육을 잘 숙지하도록 합니다.\n다만 뇌의 기질 이상으로 인한 것은 아닌지 문진과 신체 진찰까지 진행하여 감별하는 것울 잊지\n말도록 하며, 배계 여부에 따라 환자를 안심시키거나 추가적인 검사가 필요할지 명확히 밝혀야\n합니다.\n二\n^",
+    "scenario_card_raw": "B\nj M\n실전 모의 증례\n,1\n^'\n^■황\n지침\n• 25세 여자 김민아씨가 쓰러질 뻔하여 내원하였다.\n[활력 징후] 혈압 : 105/68mnnHg\n맥박 ：\n92회/분\n호흡 : 14회/분\n체온 ：\n36.7°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n교육\n• 가능성이 높은 진단 3개\n1. 미주신경성 실신\n2. 기립성 저혈압\n3. 빈혈\n• 필요한 검사 계획 2가지\n1. 기립경검사\n2.CBC\n예상\n술기\n혈압 측정 : 실신 환자에서는 혈압이 너무 높거나 낮지는 않은지 꼭 확인해 보아야\n합니다.\n실신의 경우 교육 파트가 특히 중요합니다. 미주신경성 실신 또는 기\n립성 저혈압이 가장 혼하기 때문에 이에 대한 예방과조치에 대한 교\n육을 잘 숙지하도록 합니다.\n다만 뇌의 기질 이상으로 인한 것은 아닌지 문진과 신체 진찰까지 진행하여 감별하는 것울 잊지\n말도록 하며, 배계 여부에 따라 환자를 안심시키거나 추가적인 검사가 필요할지 명확히 밝혀야\n합니다.\n二\n------------------------------------------------------------------------------------- ^"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

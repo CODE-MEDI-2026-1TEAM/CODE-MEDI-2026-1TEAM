@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "smoking_cessation_counseling-002",
+  "case_number_in_pdf": 276,
+  "topic": {
+    "topic_start_page": 709,
+    "topic_id": "smoking_cessation_counseling",
+    "topic_label": "금연 상담",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 711,
+      "end": 712
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "황인복",
+      "age": 47,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "담배를 끊고 싶어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/85mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": null,
+      "temperature": "36.6°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/47세\n“담배를 끊고 싶어요”\n흡연량\n하루 1 갑씩 피다가 한 달 전부터는 하루에 5개비로 줄임\n금연의도\n금연 의도 확실, 스스로 방문\n한 달 전 뇌졸중으로 입원했을 당시 아내와 의사의 권유\n흡연 이유\n처음엔 학업 스트레스로 시작\n직업 스트레스 때문, 술자리 가면 함께 흡연\n의존성\n1. 아침 기상 후 5분 안에 첫 담배를 핌\n2. 금연 장소에서도 흡연 유혹 참기 힘듦\n3. 아침 담배 맛이 가장 좋음\n4. 아침보다는 오후에 담배 많이 핑\n5. 몸이 아픈 경우에도 담배를 핑\n6. 하루 5개비 핑\n금연 人!도\n[첫 번째 시되\n3년 전 1 달 정도, 니코틴 패치를 人[용했는데, 체중 증가 등 금단증\n상이 있어 실패함\n[두 번째 시도]\n뇌졸중으로 입원 당시 의사의 권유로 1 주일 정도 금연했으나. 퇴원\n후 술자리 때문에 다시 피게 됨, 니코틴 패치 효과가 없었다.\n금단증상\n불안/초조/불면 (+/+/+)\n구역/구토 (- / - ), 두근거림/손 떨림 (- / - )\n우울/식욕 증가/체중 증가 (-/+/+)\nRisk\n“호흡기에 안 좋을 것 같아요”\nReward\n“건강에 좋지 않을까요”\n방해 요인\n술자리, 회사 동료",
+    "history_blocks": {
+      "associated_symptoms": "기침/ 가래(+/+), 호흡곤란/흉통(一/ - )",
+      "past_history": "D M / T B / H T N / 간염( - / - / + / - ) , 이상지질혈증(+)",
+      "medications": "고혈압, 이상지질혈증약, 아스피린",
+      "social_history": "술( + , s o c i a l ) , 커피(- ), 직업 : 회사원",
+      "family_history": "아버지 : 흡연하셨고 M l로 人방"
+    },
+    "physical_exam_results": "질른ᅳ",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "“선생님 말을 들으니 끊어야겠네요.”",
+    "raw_profile_text": "성별/나이\n남성/47세\n“담배를 끊고 싶어요”\n흡연량\n하루 1 갑씩 피다가 한 달 전부터는 하루에 5개비로 줄임\n금연의도\n금연 의도 확실, 스스로 방문\n한 달 전 뇌졸중으로 입원했을 당시 아내와 의사의 권유\n흡연 이유\n처음엔 학업 스트레스로 시작\n직업 스트레스 때문, 술자리 가면 함께 흡연\n의존성\n1. 아침 기상 후 5분 안에 첫 담배를 핌\n2. 금연 장소에서도 흡연 유혹 참기 힘듦\n3. 아침 담배 맛이 가장 좋음\n4. 아침보다는 오후에 담배 많이 핑\n5. 몸이 아픈 경우에도 담배를 핑\n6. 하루 5개비 핑\n금연 人!도\n[첫 번째 시되\n3년 전 1 달 정도, 니코틴 패치를 人[용했는데, 체중 증가 등 금단증\n상이 있어 실패함\n[두 번째 시도]\n뇌졸중으로 입원 당시 의사의 권유로 1 주일 정도 금연했으나. 퇴원\n후 술자리 때문에 다시 피게 됨, 니코틴 패치 효과가 없었다.\n금단증상\n불안/초조/불면 (+/+/+)\n구역/구토 (- / - ), 두근거림/손 떨림 (- / - )\n우울/식욕 증가/체중 증가 (-/+/+)\nRisk\n“호흡기에 안 좋을 것 같아요”\nReward\n“건강에 좋지 않을까요”\n방해 요인\n술자리, 회사 동료\nA\n기침/ 가래(+/+), 호흡곤란/흉통(一/ - )\n외\n-\n과\nD M / T B / H T N / 간염( - / - / + / - ) , 이상지질혈증(+)\n약\n고혈압, 이상지질혈증약, 아스피린\n사\n술( + , s o c i a l ) , 커피(- ), 직업 : 회사원\n가\n아버지 : 흡연하셨고 M l로 人방\nP/E\n질른ᅳ\n특이사항\n“선생님 말을 들으니 끊어야겠네요.”"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "흉부 X-ray",
+      "폐7 ᅵ능검사",
+      "심초음파검사"
+    ],
+    "planned_treatments_or_education": [
+      "금연약물복용",
+      "금연교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "^\n실전 모의 증례\n지침\n• 47세 남자 황인복씨가 금연하고 싶다며 내원하였다.\n[활력 징휘 혈압 : 140/85mmHg\n맥박 : 70회/분\n•2•읍 • 16-sJ /분\n체온 ：\n36.6°C\n[응시지는 이 환자에게] 증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n卜\n교육\n성이 높은 진단 2개\n1. 니코틴 의존\n2. 니코틴 중독\n• 필요한 검사 계획 3가지\n1. 흉부 X-ray\n2. 폐7 ᅵ능검사\n3. 심초음파검사\n• 필요한 치료 계획 2가지\n1. 금연약물복용\n2. 금연교육\n금연에 대한 의지가 강한 환자입니다.\n환자의 의지를 칭찬해 주고 금연을 방해하는 요소를 제거해 주는데 초\n점을 맞추면 됩니다. 니코틴 패치가 효과가 없었으므로 다른 약제인 바레니클린을 사용하는 것\n이 적절해 보입니다.\n금단 증상은 보통 3주를 넘지 않으므로 그 동안 갈증을 해소할 수 있는 취미나 손장난거 리를 추\n천해 봅시다.\n상담 파트에서는 진단과 필요한 검사를 배먹기 쉬운데 니코틴 의존성 평가 결과를 이야기해 주\n고, 폐와 심장의 상태를 확인하기 위한 검사들도 언급해 주어야합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

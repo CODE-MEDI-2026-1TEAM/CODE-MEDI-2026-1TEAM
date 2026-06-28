@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "syncope-003",
+  "case_number_in_pdf": 63,
+  "topic": {
+    "topic_start_page": 143,
+    "topic_id": "syncope",
+    "topic_label": "실신",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 147,
+      "end": 148
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "황미연",
+      "age": 52,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "실신했어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "118/78mmHg",
+      "pulse": "78회/분",
+      "respiratory_rate": "16회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 52세\n주소\n\"실신했어요”",
+    "history_blocks": {
+      "onset": "오늘 아침 6시(3시간 전)",
+      "location": "호®실에서 소변보고 나올 때 쓰러짐",
+      "duration": "30초",
+      "experience": "3일 전 일어날 때 어지러웠음",
+      "character": "남편이 목격함\n[실신전] 눈앞캄캄함/메스꺼움/어지러움(-/+/+>\n[실신 중] 경련/혀깨뭄/안구편위/고개편위/대소변 지림(一/ᅳ/ᅳ/ \" /ᅳ)\n[실신후] 피로/근육통 (+/ᅳ)",
+      "associated_symptoms": "[전신] 발열/오한/체중 감소/피로/감기 기운(一/ - / - / - / - )\n[순환기] 흉통/두근거림/호흡곤란(- / ᅳ/ -)\n[신경계] 두통/팔다리 힘 빠짐/감각 이상/말 어눌(一/ - / - / 一), 어지러움(+)\n[탈쉬 출혈/설사/구토( - / - / - )\n[정신] 불안(-)\n[내분비] 공복시증상(ᅳ)",
+      "factors": "악화(+, 갑자기 일어날 때), 저혈당K 식사 잘함)",
+      "past_history": "DM/TB/HTN/간염(+, 10년/ - / +, 3년/-)",
+      "medications": "고혈압약 (+, 3주 전 용량 증량)，당뇨약(+)",
+      "social_history": "술(+, social), 담배/ 커피( - / - )",
+      "family_history": "뇌졸중(+, 아버지), 심혈관 질환(ᅳ)",
+      "gynecologic_history": "5년 전 폐경\nGeneral\nV/S 확인"
+    },
+    "physical_exam_results": "HEENT\n경동맥 시진/청진(一/■), 결막/공막(ᅳ/ᅳ)\n입/피부 탈수 소견(ᅳ/■), 뇌신경검人卜/외상 흔적(ᅳ/ - )\nChest\n흉부 청진 정상\nAbdomen\n\nExtremity\n맥박, 피부 긴장도 오목 부종 정상, 사지 근력/감각/반사( - / - / - )",
+    "patient_question_or_concern": "“아버지처럼 뇌졸증일까봐 걱정입니다:",
+    "actor_notes_or_special_behavior": "없음",
+    "raw_profile_text": "성별/나이\n여성/ 52세\n주소\n\"실신했어요”\n0\n오늘 아침 6시(3시간 전)\nL\n호®실에서 소변보고 나올 때 쓰러짐\nD\n30초\nCo\n-\nEx\n3일 전 일어날 때 어지러웠음\nC\n남편이 목격함\n[실신전] 눈앞캄캄함/메스꺼움/어지러움(-/+/+>\n[실신 중] 경련/혀깨뭄/안구편위/고개편위/대소변 지림(一/ᅳ/ᅳ/ \" /ᅳ)\n[실신후] 피로/근육통 (+/ᅳ)\nA\n[전신] 발열/오한/체중 감소/피로/감기 기운(一/ - / - / - / - )\n[순환기] 흉통/두근거림/호흡곤란(- / ᅳ/ -)\n[신경계] 두통/팔다리 힘 빠짐/감각 이상/말 어눌(一/ - / - / 一), 어지러움(+)\n[탈쉬 출혈/설사/구토( - / - / - )\n[정신] 불안(-)\n[내분비] 공복시증상(ᅳ)\nF\n악화(+, 갑자기 일어날 때), 저혈당K 식사 잘함)\nE\n-\n외\n-\n과\nDM/TB/HTN/간염(+, 10년/ - / +, 3년/-)\n약\n고혈압약 (+, 3주 전 용량 증량)，당뇨약(+)\n사\n술(+, social), 담배/ 커피( - / - )\n가\n뇌졸중(+, 아버지), 심혈관 질환(ᅳ)\n여\n5년 전 폐경\nGeneral\nV/S 확인\nP/E\nHEENT\n경동맥 시진/청진(一/■), 결막/공막(ᅳ/ᅳ)\n입/피부 탈수 소견(ᅳ/■), 뇌신경검人卜/외상 흔적(ᅳ/ - )\nChest\n흉부 청진 정상\nAbdomen\n-\nExtremity\n맥박, 피부 긴장도 오목 부종 정상, 사지 근력/감각/반사( - / - / - )\n질문\n“아버지처럼 뇌졸증일까봐 걱정입니다:\n특이사항\n없음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n교육",
+    "likely_diagnoses": [
+      "약물에 의한 11립성 저혈압",
+      "□ ᅵ주신경성 실신",
+      "TIA"
+    ],
+    "planned_tests": [
+      "혈압 측정(앉을 때와 일어설 때)",
+      "7 ᅵ립경검사",
+      "두부영상검사"
+    ],
+    "planned_treatments_or_education": [
+      "약제 변경",
+      "충분한 수분 섭취 및 식사"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "^\n실전 모의 증례\n^■황\n지침\n• 52세 여자 황미연씨가 쓰러졌다며 내원하였다.\n[활력 징후】 혈압 : 118/78mmHg\n맥박 : 78회/분\n호흡 : 16회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n교육\n• 가능성이 높은 진단 3개\n1. 약물에 의한 11립성 저혈압\n2. □ ᅵ주신경성 실신\n3. TIA\n• 필요한 검사 계획 3가지\n1. 혈압 측정(앉을 때와 일어설 때)\n2. 7 ᅵ립경검사\n3. 두부영상검사\n• 필요한 치료 계획 2가지\n1. 약제 변경\n2. 충분한 수분 섭취 및 식사\n앉아있다 일어났을 때 의식을 잃고 쓰러지는 전형적인 기립성 저혈압\n( 3 ᄅ^\n^\n^\n^\n증례입니다. 추정 진단을잡는것은 어렵지 않으나 기립성 저혈압을\n유발한 원인을 파악하기 위해 자세한 문진이 필요합니다.\n전립선비대증，고혈압 약제의 복용 여부 및 최근 용량 변경 여부를 확인하는 것이 중요합니다.\n또한 구토■\n설사, 혈변 등 탈수에 의한 가능성도 반드시 고려해야 합니다.\n뇌졸중을 걱정하는 환자를 위해 제공할 수 있는 검사를 설명하고, 불안을 덜어주는 것도 좋은\n방법입니다. 재발 방지를 위해 기립 시 천천히 일어나고수분 섭취를 충분히 하는 등의 생활습\n관 교육은 필수적입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
