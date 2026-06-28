@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
-import type { CpxCase, Message, Session } from './types';
+import type { CpxCase, Evaluation, Message, Session } from './types';
 
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
@@ -15,6 +16,8 @@ export default function App() {
   const [isManualSelectionOpen, setIsManualSelectionOpen] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isEvaluating, setIsEvaluating] = useState(false);
+  const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'desk' | 'bed'>('desk');
 
@@ -65,6 +68,7 @@ export default function App() {
     }
 
     setSession(null);
+    setIsEvaluationModalOpen(false);
     setIsLoading(true);
     setError(null);
 
@@ -85,6 +89,7 @@ export default function App() {
     setAssignedCase(null);
     setIsAssigningCase(false);
     setIsManualSelectionOpen(false);
+    setIsEvaluationModalOpen(false);
     setIsCaseModalOpen(true);
   }, []);
 
@@ -119,7 +124,7 @@ export default function App() {
   const sendMessage = useCallback(
     async (content: string): Promise<boolean> => {
       const trimmed = content.trim();
-      if (!session || !trimmed) return false;
+      if (!session || session.status === 'completed' || !trimmed) return false;
 
       setIsLoading(true);
       setError(null);
@@ -146,6 +151,39 @@ export default function App() {
     [session],
   );
 
+  const evaluateSession = useCallback(async () => {
+    if (!session || isEvaluating) return;
+
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+
+    setIsEvaluating(true);
+    setError(null);
+
+    try {
+      const data = await request<{ evaluation: Evaluation }>(
+        `/sessions/${session.id}/evaluate`,
+        { method: 'POST' },
+      );
+      setSession((current) =>
+        current?.id === session.id
+          ? {
+              ...current,
+              status: 'completed',
+              endedAt: new Date().toISOString(),
+              evaluation: data.evaluation,
+            }
+          : current,
+      );
+      setIsEvaluationModalOpen(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : '채점에 실패했습니다.');
+    } finally {
+      setIsEvaluating(false);
+    }
+  }, [isEvaluating, session]);
+
   useEffect(() => {
     request<{ cases: CpxCase[] }>('/cases')
       .then((data) => {
@@ -161,14 +199,24 @@ export default function App() {
           isPatientSpeaking={isPatientSpeaking}
           patientCaseKey={patientCaseKey}
           patientReply={patientReply}
-          showPatientBubble={!isCaseModalOpen && Boolean(session)}
+          showPatientBubble={
+            !isCaseModalOpen &&
+            !isEvaluationModalOpen &&
+            !isEvaluating &&
+            Boolean(session)
+          }
         />
       ) : (
         <ClinicScene
           isPatientSpeaking={isPatientSpeaking}
           patientCaseKey={patientCaseKey}
           patientReply={patientReply}
-          showPatientBubble={!isCaseModalOpen && Boolean(session)}
+          showPatientBubble={
+            !isCaseModalOpen &&
+            !isEvaluationModalOpen &&
+            !isEvaluating &&
+            Boolean(session)
+          }
         />
       )}
 
@@ -194,11 +242,21 @@ export default function App() {
       <ChatSidebar
         activeCase={activeCase}
         error={error}
+        isEvaluating={isEvaluating}
         isLoading={isLoading}
         onClearError={clearError}
+        onEvaluate={evaluateSession}
+        onOpenEvaluation={() => setIsEvaluationModalOpen(true)}
         onSendMessage={sendMessage}
         session={session}
       />
+
+      {session?.evaluation && isEvaluationModalOpen ? (
+        <EvaluationResultModal
+          evaluation={session.evaluation}
+          onClose={() => setIsEvaluationModalOpen(false)}
+        />
+      ) : null}
 
       {isCaseModalOpen ? (
         <section
@@ -310,6 +368,104 @@ export default function App() {
         </section>
       ) : null}
     </main>
+  );
+}
+
+function EvaluationResultModal({
+  evaluation,
+  onClose,
+}: {
+  evaluation: Evaluation;
+  onClose: () => void;
+}) {
+  const score = Math.max(0, Math.min(100, evaluation.score));
+
+  return (
+    <section
+      aria-labelledby="evaluation-result-title"
+      aria-modal="true"
+      className="evaluation-modal-backdrop"
+      role="dialog"
+    >
+      <div className="evaluation-modal">
+        <header className="evaluation-modal-header">
+          <div>
+            <p className="eyebrow">CPX Evaluation</p>
+            <h2 id="evaluation-result-title">채점 결과</h2>
+          </div>
+          <button
+            aria-label="채점 결과 닫기"
+            className="evaluation-modal-close"
+            onClick={onClose}
+            type="button"
+          >
+            <CloseIcon />
+          </button>
+        </header>
+
+        <div className="evaluation-score-panel">
+          <div
+            className="evaluation-score-ring"
+            style={{ '--score-percent': `${score}%` } as CSSProperties}
+          >
+            <span>총점</span>
+            <strong>{score}</strong>
+          </div>
+          <div>
+            <h3>위험도 평가</h3>
+            <p>{evaluation.riskAssessment}</p>
+          </div>
+        </div>
+
+        <div className="evaluation-modal-grid">
+          <EvaluationResultSection
+            items={evaluation.strengths}
+            title="잘한 점"
+          />
+          <EvaluationResultSection
+            items={evaluation.missedItems}
+            title="놓친 항목"
+          />
+          <EvaluationResultSection
+            items={evaluation.suggestions}
+            title="개선 제안"
+          />
+        </div>
+
+        <footer className="evaluation-modal-actions">
+          <button onClick={onClose} type="button">닫기</button>
+        </footer>
+      </div>
+    </section>
+  );
+}
+
+function EvaluationResultSection({
+  items,
+  title,
+}: {
+  items: string[];
+  title: string;
+}) {
+  return (
+    <section className="evaluation-result-section">
+      <h3>{title}</h3>
+      {items.length > 0 ? (
+        <ul>
+          {items.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      ) : (
+        <p>표시할 항목이 없습니다.</p>
+      )}
+    </section>
+  );
+}
+
+function CloseIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="22" viewBox="0 0 24 24" width="22">
+      <path d="m6 6 12 12M18 6 6 18" stroke="currentColor" strokeLinecap="round" strokeWidth="2" />
+    </svg>
   );
 }
 
