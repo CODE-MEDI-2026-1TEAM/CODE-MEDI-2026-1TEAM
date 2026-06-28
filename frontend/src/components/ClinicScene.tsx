@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { CanvasTexture } from 'three';
 import type { Group, Mesh, Object3D } from 'three';
 import { ACTIVE_CASE, PATIENT_CASES, resolveCaseModel } from '../patientModels';
-import type { ModelPlacement } from '../patientModels';
+import type { CaseModel, ModelPlacement } from '../patientModels';
 import { FURNITURE_MODELS } from '../furnitureModels';
 
 type ClinicSceneProps = {
@@ -16,13 +16,14 @@ type ClinicSceneProps = {
 // Move the desk → the vital screen follows automatically.
 const DESK_POSITION = FURNITURE_MODELS.Desk.position;
 const DESK_SCALE = FURNITURE_MODELS.Desk.scale;
+const ACTIVE_CASE_MODELS = PATIENT_CASES[ACTIVE_CASE].models as CaseModel[];
 
 // Preload all models
 useGLTF.preload(FURNITURE_MODELS.Desk.path);
 useGLTF.preload(FURNITURE_MODELS.Chair.path);
 useGLTF.preload(FURNITURE_MODELS.Door.path);
 // 활성 케이스의 모든 모델(소아면 보호자+소아 둘 다) 미리 로드.
-PATIENT_CASES[ACTIVE_CASE].models.forEach((cm) => useGLTF.preload(resolveCaseModel(cm).path));
+ACTIVE_CASE_MODELS.forEach((cm) => useGLTF.preload(resolveCaseModel(cm).path));
 
 function enableShadows(scene: Object3D) {
   scene.traverse((child) => {
@@ -210,7 +211,7 @@ function PatientSeat({
         <meshStandardMaterial color="#8a6858" roughness={0.88} />
       </mesh>
       <ModelChair chairRef={chairRef} />
-      {PATIENT_CASES[ACTIVE_CASE].models.map((cm, i) => {
+      {ACTIVE_CASE_MODELS.map((cm, i) => {
         const placement = resolveCaseModel(cm);
         // 보호자(guardian)는 가만히 앉아 있고, 환자 본인(patient)만 말하기 애니메이션 + 말풍선.
         if (cm.role === 'guardian') {
