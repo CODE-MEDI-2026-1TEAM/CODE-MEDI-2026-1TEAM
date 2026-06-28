@@ -78,12 +78,34 @@ export type Evaluation = {
   score: number;
   strengths: string[];
   missedItems: string[];
+  missedItemStatus: MissedItemStatus[];
   riskAssessment: string;
   suggestions: string[];
   caseInstructionStatus: EvaluationItemStatus[];
   patientEducationStatus: EvaluationItemStatus[];
   createdAt: string;
 };
+
+export type MissedItemStatus = {
+  item: string;
+  historyCode: HistoryTakingCode | null;
+  isPerformed: boolean;
+};
+
+export type HistoryTakingCode =
+  | 'O'
+  | 'L'
+  | 'D'
+  | 'Co'
+  | 'Ex'
+  | 'C'
+  | 'A_F'
+  | '외'
+  | '과'
+  | '약'
+  | '사'
+  | '가'
+  | '여';
 
 export type EvaluationItemStatus = {
   item: string;

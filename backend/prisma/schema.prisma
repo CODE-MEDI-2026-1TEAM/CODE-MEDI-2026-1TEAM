@@ -110,6 +110,7 @@ model Evaluation {
   score                   Int
   strengths               Json
   missedItems             Json
+  missedItemStatus        Json     @default("[]")
   riskAssessment          Json
   suggestions             Json
   caseInstructionStatus   Json     @default("[]")
