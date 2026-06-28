@@ -292,6 +292,7 @@ export type CaseKey = keyof typeof PATIENT_CASES;
 export type PatientSceneProfile = {
   age?: number;
   ageRaw?: string;
+  name?: string;
   sex?: string;
   title?: string;
   seed?: string;
@@ -360,11 +361,11 @@ function inferPatientGender(sex?: string): PatientGender {
 }
 
 function isInfantProfile(profile: PatientSceneProfile) {
-  const searchableText = `${profile.ageRaw ?? ""} ${profile.title ?? ""}`;
+  const searchableText = `${profile.name ?? ""} ${profile.ageRaw ?? ""} ${profile.title ?? ""}`;
 
   return profile.age !== undefined && profile.age <= 2
     ? true
-    : /생후|개월|영유아/.test(searchableText);
+    : /김정환|생후|개월|영유아/.test(searchableText);
 }
 
 function pickStable<T>(items: T[], seed: string) {

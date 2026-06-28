@@ -37,6 +37,7 @@ export default function App() {
           ? {
               age: activeCase.patientProfile.age,
               ageRaw: activeCase.patientProfile.ageRaw,
+              name: activeCase.patientProfile.name,
               seed: activeCase.slug,
               sex: activeCase.patientProfile.sex,
               title: activeCase.title,
