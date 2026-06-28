@@ -2,19 +2,15 @@ import { useEffect, useRef } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
 import type { CpxCase, Session } from '../types';
-
-const vitalSigns = [
-  ['혈압', '120/82mmHg'],
-  ['맥박', '80회/분'],
-  ['호흡', '18회/분'],
-  ['체온', '36.5°C'],
-];
+import { DEFAULT_VITALS } from '../vitals';
+import type { VitalSigns } from '../vitals';
 
 type ChatSidebarProps = {
   activeCase: CpxCase | undefined;
   session: Session | null;
   isLoading: boolean;
   error: string | null;
+  vitals?: VitalSigns;
   onSendMessage: (content: string) => Promise<boolean>;
   onClearError: () => void;
 };
@@ -24,9 +20,16 @@ export default function ChatSidebar({
   session,
   isLoading,
   error,
+  vitals = DEFAULT_VITALS,
   onSendMessage,
   onClearError,
 }: ChatSidebarProps) {
+  const vitalSigns = [
+    ['혈압', `${vitals.bp}mmHg`],
+    ['맥박', `${vitals.hr}회/분`],
+    ['호흡', `${vitals.rr}회/분`],
+    ['체온', `${vitals.temp}°C`],
+  ];
   const chatEndRef = useRef<HTMLDivElement>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
 

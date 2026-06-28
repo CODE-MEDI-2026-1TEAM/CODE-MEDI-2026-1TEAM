@@ -1,4 +1,4 @@
-import { Environment, Html, OrbitControls, PerspectiveCamera, useAnimations, useGLTF } from '@react-three/drei';
+import { Environment, OrbitControls, PerspectiveCamera, useAnimations, useGLTF } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
 import { useEffect, useRef } from 'react';
 import type { Group, Mesh, Object3D } from 'three';
@@ -91,10 +91,7 @@ function enableShadows(scene: Object3D) {
 }
 
 export default function BedsideScene({
-  isPatientSpeaking,
-  patientReply,
   patientCaseKey = ACTIVE_CASE,
-  showPatientBubble = true,
 }: BedsideSceneProps) {
   return (
     <div className="clinic-scene" aria-label="3D bedside room">
@@ -110,10 +107,7 @@ export default function BedsideScene({
         />
         <pointLight position={[-2.5, 2.5, 1.0]} intensity={0.5} color="#fff0d8" distance={9} decay={2} />
         <BedsideRoom
-          isPatientSpeaking={isPatientSpeaking}
-          patientReply={patientReply}
           patientCaseKey={patientCaseKey}
-          showPatientBubble={showPatientBubble}
         />
         <Environment files="/hdri/lebombo_1k.hdr" />
         <OrbitControls
@@ -128,12 +122,7 @@ export default function BedsideScene({
   );
 }
 
-function BedsideRoom({
-  isPatientSpeaking,
-  patientReply,
-  patientCaseKey = ACTIVE_CASE,
-  showPatientBubble = true,
-}: BedsideSceneProps) {
+function BedsideRoom({ patientCaseKey = ACTIVE_CASE }: Pick<BedsideSceneProps, 'patientCaseKey'>) {
   const caseModels = PATIENT_CASES[patientCaseKey].models as CaseModel[];
   return (
     <group>
@@ -150,13 +139,6 @@ function BedsideRoom({
         return (
           <group key={i}>
             <BedsideCharacter placement={{ ...base, ...lying }} />
-            {showPatientBubble ? (
-              <Html center position={[0.5, 1.2, -0.4]} distanceFactor={3.4}>
-                <div className={isPatientSpeaking ? 'patient-bubble speaking' : 'patient-bubble'}>
-                  {patientReply}
-                </div>
-              </Html>
-            ) : null}
           </group>
         );
       })}

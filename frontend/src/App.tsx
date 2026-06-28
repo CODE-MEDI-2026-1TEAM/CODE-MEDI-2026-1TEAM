@@ -4,6 +4,7 @@ import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
+import { DEFAULT_VITALS } from './vitals';
 import type { CpxCase, Message, Session } from './types';
 
 export default function App() {
@@ -170,6 +171,7 @@ export default function App() {
           patientCaseKey={patientCaseKey}
           patientReply={patientReply}
           showPatientBubble={!isCaseModalOpen && Boolean(session)}
+          vitals={DEFAULT_VITALS}
         />
       )}
 
@@ -210,6 +212,7 @@ export default function App() {
         onClearError={clearError}
         onSendMessage={sendMessage}
         session={session}
+        vitals={DEFAULT_VITALS}
       />
 
       {isCaseModalOpen ? (
