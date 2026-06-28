@@ -1182,6 +1182,21 @@ h1 {
 
   border-radius: 12px 4px 12px 12px;
 }
+.system-timeline-message {
+  width: 100%;
+  align-self: stretch;
+}
+.system-timeline-message p {
+  @apply text-label-05;
+
+  margin: 0;
+  padding: 8px 12px;
+  color: #55656d;
+  text-align: center;
+  background: #e2e8ed;
+  border: 1px solid #d6e0e5;
+  border-radius: 6px;
+}
 .pending p {
   @apply text-neutral-200;
 

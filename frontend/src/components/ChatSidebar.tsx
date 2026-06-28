@@ -1,7 +1,12 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
-import type { CpxCase, Session } from '../types';
+import type {
+  CpxCase,
+  PhysicalExamEvent,
+  Session,
+  SystemTimelineEvent,
+} from '../types';
 import { DEFAULT_VITALS } from '../vitals';
 import type { VitalSigns } from '../vitals';
 
@@ -16,6 +21,7 @@ type ChatSidebarProps = {
   onEvaluate: () => Promise<void>;
   onOpenEvaluation: () => void;
   onClearError: () => void;
+  systemTimelineEvents: SystemTimelineEvent[];
 };
 
 export default function ChatSidebar({
@@ -29,40 +35,37 @@ export default function ChatSidebar({
   onEvaluate,
   onOpenEvaluation,
   onClearError,
+  systemTimelineEvents,
 }: ChatSidebarProps) {
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const autoEvaluationSessionIdRef = useRef<string | null>(null);
+  const voice = useVoiceConversation({ session, onSendMessage, onClearError });
+  const isCompleted = session?.status === 'completed';
   const vitalSigns = [
     ['혈압', `${vitals.bp}mmHg`],
     ['맥박', `${vitals.hr}회/분`],
     ['호흡', `${vitals.rr}회/분`],
     ['체온', `${vitals.temp}°C`],
   ];
-  const messageListRef = useRef<HTMLDivElement>(null);
-  const voice = useVoiceConversation({ session, onSendMessage, onClearError });
-  const isCompleted = session?.status === 'completed';
-  const messageCount = session?.messages.length ?? 0;
-  const latestMessageId = messageCount > 0 ? session?.messages[messageCount - 1]?.id : undefined;
 
-  useLayoutEffect(() => {
-    const messageList = messageListRef.current;
-    if (!messageList) return;
-    messageList.scrollTop = messageList.scrollHeight;
-  }, [latestMessageId, messageCount, isLoading]);
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, [session?.messages, isLoading]);
 
   const profile = activeCase?.patientProfile;
-  const chatPatientLabel = profile?.age == null ? '보호자' : '환자';
   const displayAge = profile?.age
     ? `${profile.age}세`
     : (profile?.ageRaw ?? '-');
   const avatarCaseKey = choosePatientCaseKey(
     activeCase
       ? {
-        age: activeCase.patientProfile.age,
-        ageRaw: activeCase.patientProfile.ageRaw,
-        name: activeCase.patientProfile.name,
-        seed: activeCase.slug,
-        sex: activeCase.patientProfile.sex,
-        title: activeCase.title,
-      }
+          age: activeCase.patientProfile.age,
+          ageRaw: activeCase.patientProfile.ageRaw,
+          name: activeCase.patientProfile.name,
+          seed: activeCase.slug,
+          sex: activeCase.patientProfile.sex,
+          title: activeCase.title,
+        }
       : null,
   );
   const avatarCase = PATIENT_CASES[avatarCaseKey];
@@ -71,6 +74,55 @@ export default function ChatSidebar({
   const timeProgress = useMemo(
     () => Math.max(0, Math.min(100, (remainingSeconds / EXAM_DURATION_SECONDS) * 100)),
     [remainingSeconds],
+  );
+  useEffect(() => {
+    if (
+      !session ||
+      isCompleted ||
+      isEvaluating ||
+      isLoading ||
+      remainingSeconds > 0 ||
+      autoEvaluationSessionIdRef.current === session.id
+    ) {
+      return;
+    }
+
+    autoEvaluationSessionIdRef.current = session.id;
+    void onEvaluate();
+  }, [
+    isCompleted,
+    isEvaluating,
+    isLoading,
+    onEvaluate,
+    remainingSeconds,
+    session,
+  ]);
+  const timelineItems = useMemo(
+    () =>
+      [
+        ...(session?.messages.map((message) => ({
+          createdAt: message.createdAt,
+          id: message.id,
+          kind: 'message' as const,
+          message,
+        })) ?? []),
+        ...systemTimelineEvents.map((event) => ({
+          createdAt: event.createdAt,
+          event,
+          id: event.id,
+          kind: 'system' as const,
+        })),
+        ...(session?.physicalExamEvents?.map((event) => ({
+          createdAt: event.createdAt,
+          event,
+          id: event.id ?? `${event.examKey}-${event.createdAt}`,
+          kind: 'physicalExam' as const,
+        })) ?? []),
+      ].sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+      ),
+    [session?.messages, session?.physicalExamEvents, systemTimelineEvents],
   );
 
   return (
@@ -145,21 +197,30 @@ export default function ChatSidebar({
             </div>
           </div>
         ) : null}
-        {remainingSeconds === 0 && session && !isCompleted ? (
-          <p className="timer-note">제한 시간이 종료되었습니다. 채점을 진행하세요.</p>
+        {remainingSeconds === 0 && session && !isCompleted && !isEvaluating ? (
+          <p className="timer-note">제한 시간이 종료되어 자동 채점을 시작합니다.</p>
         ) : null}
       </section>
 
       <section className="chat-history" aria-live="polite">
         <p className="chat-label">대화 기록</p>
-        <div className="message-list" ref={messageListRef}>
-          {session?.messages.map((message) => (
-            <article className={`message ${message.role === 'user' ? 'user-message' : 'patient-message'}`} key={message.id}>
-              <span>{message.role === 'user' ? '의료진' : chatPatientLabel}</span>
-              <p>{message.content}</p>
-            </article>
-          ))}
+        <div className="message-list">
+          {timelineItems.map((item) =>
+            item.kind === 'system' ? (
+              <article className="system-timeline-message" key={item.id}>
+                <p>{item.event.content}</p>
+              </article>
+            ) : item.kind === 'physicalExam' ? (
+              <PhysicalExamResultCard event={item.event} key={item.id} />
+            ) : (
+              <article className={`message ${item.message.role === 'user' ? 'user-message' : 'patient-message'}`} key={item.id}>
+                <span>{item.message.role === 'user' ? '의료진' : chatPatientLabel}</span>
+                <p>{item.message.content}</p>
+              </article>
+            ),
+          )}
           {isLoading ? <article className="message patient-message pending"><span>{chatPatientLabel}</span><p>응답을 생각하고 있습니다…</p></article> : null}
+          <div ref={chatEndRef} />
         </div>
       </section>
 
@@ -184,6 +245,34 @@ export default function ChatSidebar({
         </div>
       </div>
     </aside>
+  );
+}
+
+function PhysicalExamResultCard({ event }: { event: PhysicalExamEvent }) {
+  const statusLabel =
+    event.status === 'abnormal'
+      ? '비정상'
+      : event.status === 'unavailable'
+        ? '확인 불가'
+        : '정상';
+  const positionLabel = event.position === 'supine' ? '누움' : '앉음';
+  const expectedLabel = event.expectedPosition === 'supine' ? '누움' : '앉음';
+
+  return (
+    <article className={`physical-exam-card ${event.status}`}>
+      <div>
+        <span>신체진찰 결과</span>
+        <strong>{event.label}</strong>
+      </div>
+      <p>{event.result}</p>
+      <footer>
+        <em>{statusLabel}</em>
+        <span>
+          시행 자세 {positionLabel}
+          {event.position !== event.expectedPosition ? ` / 권장 ${expectedLabel}` : ''}
+        </span>
+      </footer>
+    </article>
   );
 }
 

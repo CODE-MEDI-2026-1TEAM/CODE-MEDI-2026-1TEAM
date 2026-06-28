@@ -10,8 +10,11 @@ import type {
   CpxCase,
   Evaluation,
   EvaluationItemStatus,
+  HandHygienePhase,
   Message,
+  PhysicalExamEvent,
   Session,
+  SystemTimelineEvent,
 } from './types';
 
 const isConversationDebugEnabled =
@@ -30,7 +33,9 @@ export default function App() {
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'desk' | 'bed'>('desk');
-  const [isHandWashed, setIsHandWashed] = useState(false);
+  const [systemTimelineEvents, setSystemTimelineEvents] = useState<
+    SystemTimelineEvent[]
+  >([]);
 
   const activeCase = useMemo(
     () =>
@@ -51,13 +56,13 @@ export default function App() {
       choosePatientCaseKey(
         activeCase
           ? {
-            age: activeCase.patientProfile.age,
-            ageRaw: activeCase.patientProfile.ageRaw,
-            name: activeCase.patientProfile.name,
-            seed: activeCase.slug,
-            sex: activeCase.patientProfile.sex,
-            title: activeCase.title,
-          }
+              age: activeCase.patientProfile.age,
+              ageRaw: activeCase.patientProfile.ageRaw,
+              name: activeCase.patientProfile.name,
+              seed: activeCase.slug,
+              sex: activeCase.patientProfile.sex,
+              title: activeCase.title,
+            }
           : null,
       ),
     [activeCase],
@@ -83,6 +88,7 @@ export default function App() {
     }
 
     setSession(null);
+    setSystemTimelineEvents([]);
     setIsEvaluationModalOpen(false);
     setIsLoading(true);
     setError(null);
@@ -150,16 +156,23 @@ export default function App() {
         simulationCaseId: session.case.simulationCaseId,
         content: trimmed,
         contentLength: trimmed.length,
+        patientPosition: viewMode === 'bed' ? 'supine' : 'sitting',
       });
 
       try {
-        const data = await request<{ message: Message; debug?: object }>(`/sessions/${session.id}/messages`, {
+        const data = await request<{
+          message?: Message;
+          debug?: object;
+        }>(`/sessions/${session.id}/messages`, {
           method: 'POST',
-          body: JSON.stringify({ content: trimmed }),
+          body: JSON.stringify({
+            content: trimmed,
+            patientPosition: viewMode === 'bed' ? 'supine' : 'sitting',
+          }),
         });
         debugConversation('frontend.message.response', {
           sessionId: session.id,
-          assistantReply: data.message.content,
+          assistantReply: data.message?.content ?? null,
           backendDebug: data.debug ?? null,
         });
         const refreshed = await request<{ session: Session }>(
@@ -176,7 +189,7 @@ export default function App() {
         setIsLoading(false);
       }
     },
-    [session],
+    [session, viewMode],
   );
 
   const evaluateSession = useCallback(async () => {
@@ -197,11 +210,11 @@ export default function App() {
       setSession((current) =>
         current?.id === session.id
           ? {
-            ...current,
-            status: 'completed',
-            endedAt: new Date().toISOString(),
-            evaluation: data.evaluation,
-          }
+              ...current,
+              status: 'completed',
+              endedAt: new Date().toISOString(),
+              evaluation: data.evaluation,
+            }
           : current,
       );
       setIsEvaluationModalOpen(true);
@@ -211,6 +224,46 @@ export default function App() {
       setIsEvaluating(false);
     }
   }, [isEvaluating, session]);
+
+  const recordHandHygiene = useCallback(async () => {
+    if (!session || session.status === 'completed') return;
+
+    setError(null);
+    const phase = determineHandHygienePhase(session, viewMode);
+    const label = handHygienePhaseLabel(phase);
+
+    try {
+      const data = await request<{
+        handHygieneEvent: {
+          createdAt: string;
+          label: string;
+          messageCount: number;
+          phase: HandHygienePhase;
+        };
+        handHygieneCount: number;
+        session: Session;
+      }>(`/sessions/${session.id}/hand-hygiene`, {
+        method: 'POST',
+        body: JSON.stringify({ label, phase }),
+      });
+      setSession(data.session);
+      setSystemTimelineEvents((events) => [
+        ...events,
+        {
+          id:
+            typeof crypto.randomUUID === 'function'
+              ? crypto.randomUUID()
+              : `hand-hygiene-${Date.now()}`,
+          content: `${data.handHygieneEvent.label}을 하였습니다. 총 ${data.handHygieneCount}회`,
+          createdAt: new Date().toISOString(),
+        },
+      ]);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : '손소독 기록에 실패했습니다.',
+      );
+    }
+  }, [session, viewMode]);
 
   useEffect(() => {
     request<{ cases: CpxCase[] }>('/cases')
@@ -258,15 +311,12 @@ export default function App() {
           {viewMode === 'desk' ? '침대에 눕히기' : '책상으로 돌아가기'}
         </button>
         <button
-          className={isHandWashed ? 'view-toggle-button is-active' : 'view-toggle-button'}
-          disabled={isHandWashed}
-          onClick={() => {
-            setIsHandWashed(true);
-            window.setTimeout(() => setIsHandWashed(false), 1000);
-          }}
+          className="view-toggle-button"
+          disabled={!session || session.status === 'completed'}
+          onClick={recordHandHygiene}
           type="button"
         >
-          {isHandWashed ? '소독 완료' : '손 소독하기'}
+          손소독하기
         </button>
       </div>
 
@@ -289,6 +339,7 @@ export default function App() {
         onOpenEvaluation={() => setIsEvaluationModalOpen(true)}
         onSendMessage={sendMessage}
         session={session}
+        systemTimelineEvents={systemTimelineEvents}
         vitals={vitals}
       />
 
@@ -495,7 +546,33 @@ function EvaluationResultModal({
               tone="neutral"
               value={evaluation.suggestions.length}
             />
+            <EvaluationMetricCard
+              label="손소독"
+              suffix="회"
+              tone={evaluation.handHygieneCount > 0 ? 'positive' : 'warning'}
+              value={evaluation.handHygieneCount}
+            />
           </div>
+
+          <section className="evaluation-hygiene-card">
+            <span>손소독 타이밍</span>
+            {evaluation.handHygieneMoments?.length ? (
+              <ul>
+                {evaluation.handHygieneMoments.map((moment, index) => (
+                  <li key={`${moment.createdAt}-${index}`}>
+                    {moment.label}
+                    <em>{moment.messageCount === 0 ? '문진 전' : `질문 ${moment.messageCount}개 후`}</em>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>기록된 손소독 타이밍이 없습니다.</p>
+            )}
+          </section>
+
+          <PhysicalExamSummaryCard
+            findings={evaluation.physicalExamFindings ?? []}
+          />
 
           <section className="evaluation-domain-card">
             <div className="evaluation-domain-heading">
@@ -567,19 +644,174 @@ function debugConversation(event: string, payload: Record<string, unknown>) {
   console.info(`[conversation-debug] ${event}`, payload);
 }
 
+function determineHandHygienePhase(
+  session: Session,
+  viewMode: 'bed' | 'desk',
+): HandHygienePhase {
+  const userMessageCount = session.messages.filter(
+    (message) => message.role === 'user',
+  ).length;
+
+  if (userMessageCount === 0) {
+    return 'initial_greeting';
+  }
+
+  if (viewMode === 'bed') {
+    return 'before_patient_contact';
+  }
+
+  return 'during_interview';
+}
+
+function handHygienePhaseLabel(phase: HandHygienePhase) {
+  if (phase === 'initial_greeting') {
+    return '환자 맞이 전 손소독';
+  }
+
+  if (phase === 'before_patient_contact') {
+    return '환자 접촉 전 손소독';
+  }
+
+  return '문진 중 손소독';
+}
+
+const PHYSICAL_EXAM_CHECKLIST = {
+  sitting: [
+    ['head_inspection_palpation', '두부 시진/촉진'],
+    ['oral_tongue_exam', '구강·혀 검사'],
+    ['skin_inspection', '피부 시진'],
+    ['cranial_nerve_exam', '뇌신경검사'],
+    ['cerebellar_exam', '소뇌기능검사'],
+  ],
+  supine: [
+    ['motor_exam', '운동검사'],
+    ['sensory_exam', '감각검사'],
+    ['dtr_exam', '심부건반사(DTR)'],
+    ['neck_stiffness', '경부강직'],
+    ['kernig_sign', 'Kernig'],
+    ['brudzinski_sign', 'Brudzinski'],
+  ],
+} as const;
+
+function PhysicalExamSummaryCard({
+  findings,
+}: {
+  findings: PhysicalExamEvent[];
+}) {
+  const findingsByKey = new Map(
+    findings.map((finding) => [finding.examKey, finding]),
+  );
+
+  return (
+    <section className="evaluation-physical-card">
+      <div>
+        <span>Physical Exam</span>
+        <h3>신체진찰 수행 요약</h3>
+      </div>
+      <div className="evaluation-physical-groups">
+        <PhysicalExamChecklistGroup
+          findingsByKey={findingsByKey}
+          items={PHYSICAL_EXAM_CHECKLIST.sitting}
+          title="앉음"
+        />
+        <PhysicalExamChecklistGroup
+          findingsByKey={findingsByKey}
+          items={PHYSICAL_EXAM_CHECKLIST.supine}
+          title="누움"
+        />
+      </div>
+    </section>
+  );
+}
+
+function PhysicalExamChecklistGroup({
+  findingsByKey,
+  items,
+  title,
+}: {
+  findingsByKey: Map<string, PhysicalExamEvent>;
+  items: readonly (readonly [string, string])[];
+  title: string;
+}) {
+  return (
+    <div className="evaluation-physical-group">
+      <strong>{title}</strong>
+      <ul>
+        {items.map(([key, label]) => {
+          const finding = physicalExamFindingForKey(findingsByKey, key);
+          const statusLabel = finding
+            ? finding.status === 'abnormal'
+              ? '비정상'
+              : finding.status === 'unavailable'
+                ? '확인 불가'
+                : '정상'
+            : '미시행';
+
+          return (
+            <li className={finding ? finding.status : 'missing'} key={key}>
+              <span>{finding ? '✓' : '–'}</span>
+              <p>{label}</p>
+              <em>{statusLabel}</em>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+function physicalExamFindingForKey(
+  findingsByKey: Map<string, PhysicalExamEvent>,
+  key: string,
+) {
+  if (
+    ['brudzinski_sign', 'kernig_sign', 'neck_stiffness'].includes(key) &&
+    findingsByKey.has('meningeal_sign')
+  ) {
+    return findingsByKey.get('meningeal_sign');
+  }
+
+  return findingsByKey.get(key);
+}
+
 function EvaluationMetricCard({
   label,
+  suffix = '',
   tone,
   value,
 }: {
   label: string;
+  suffix?: string;
   tone: 'neutral' | 'positive' | 'warning';
   value: number;
 }) {
   return (
     <section className={`evaluation-metric-card ${tone}`}>
       <span>{label}</span>
-      <strong>{value}</strong>
+      <strong>{value}{suffix}</strong>
+    </section>
+  );
+}
+
+function EvaluationResultSection({
+  items,
+  title,
+  tone,
+}: {
+  items: string[];
+  title: string;
+  tone: 'neutral' | 'positive' | 'warning';
+}) {
+  return (
+    <section className={`evaluation-result-section ${tone}`}>
+      <h3>{title}</h3>
+      {items.length > 0 ? (
+        <ul>
+          {items.map((item) => <li key={item}>{item}</li>)}
+        </ul>
+      ) : (
+        <p>표시할 항목이 없습니다.</p>
+      )}
     </section>
   );
 }
@@ -611,29 +843,6 @@ function EvaluationStatusSection({
         </ul>
       ) : (
         <p>평가 항목이 없습니다.</p>
-      )}
-    </section>
-  );
-}
-
-function EvaluationResultSection({
-  items,
-  title,
-  tone,
-}: {
-  items: string[];
-  title: string;
-  tone: 'neutral' | 'positive' | 'warning';
-}) {
-  return (
-    <section className={`evaluation-result-section ${tone}`}>
-      <h3>{title}</h3>
-      {items.length > 0 ? (
-        <ul>
-          {items.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      ) : (
-        <p>표시할 항목이 없습니다.</p>
       )}
     </section>
   );
