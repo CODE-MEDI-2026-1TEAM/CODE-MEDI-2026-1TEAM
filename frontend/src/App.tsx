@@ -212,6 +212,11 @@ export default function App() {
         `/sessions/${session.id}/evaluate`,
         { method: 'POST' },
       );
+      console.log('[evaluate] original API response:', data);
+      console.log(
+        '[evaluate] original API response (JSON):',
+        JSON.stringify(data, null, 2),
+      );
       setSession((current) =>
         current?.id === session.id
           ? {

@@ -1364,8 +1364,8 @@ h1 {
   scrollbar-color: var(--color-neutral-300) transparent;
 }
 .message {
-  width: max-content;
-  max-width: 88%;
+  width: fit-content;
+  max-width: min(88%, 300px);
 }
 .message span {
   @apply text-label-05 text-neutral-400;
@@ -1380,6 +1380,7 @@ h1 {
   padding: 10px 12px;
   border-radius: 4px 12px 12px 12px;
   word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 .user-message {
   align-self: flex-end;
@@ -1641,6 +1642,8 @@ h1 {
   justify-items: center;
 }
 .mic-button {
+  @apply bg-primary-500;
+
   display: grid;
   width: 58px;
   height: 58px;

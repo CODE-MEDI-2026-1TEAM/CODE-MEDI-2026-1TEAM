@@ -27,10 +27,15 @@ export function useVoiceConversation({
   const [transcript, setTranscript] = useState('');
   const [isVoiceReplyEnabled, setIsVoiceReplyEnabled] = useState(true);
   const lastSpokenMessageIdRef = useRef<string | null>(null);
+  const isSpeechOutputActiveRef = useRef(false);
+  const ignoreTranscriptsUntilRef = useRef(0);
   const speechSynthesis = useSpeechSynthesis();
 
   const latestAssistantMessage = useMemo(
-    () => session?.messages.filter((message) => message.role === 'assistant').at(-1),
+    () =>
+      session?.messages
+        .filter((message) => message.role === 'assistant')
+        .at(-1),
     [session],
   );
   const voiceProfile = useMemo(() => {
@@ -46,11 +51,36 @@ export function useVoiceConversation({
     };
   }, [session?.case.patientProfile]);
 
+  useEffect(() => {
+    isSpeechOutputActiveRef.current = speechSynthesis.isSpeaking;
+    if (speechSynthesis.isSpeaking) {
+      ignoreTranscriptsUntilRef.current = Date.now() + 3_000;
+    } else {
+      ignoreTranscriptsUntilRef.current = Math.max(
+        ignoreTranscriptsUntilRef.current,
+        Date.now() + 800,
+      );
+    }
+  }, [speechSynthesis.isSpeaking]);
+
   // 파이널 transcript 처리: 전송문을 표시하고, 성공 시에만 비운다(실패 시 유지).
   const handleFinalTranscript = useCallback(
     async (content: string) => {
       const trimmed = content.trim();
       if (!trimmed) return;
+      if (
+        isSpeechOutputActiveRef.current ||
+        Date.now() < ignoreTranscriptsUntilRef.current
+      ) {
+        debugConversation('voice.finalTranscript.ignoredDuringSpeechOutput', {
+          sessionId: session?.id ?? null,
+          caseSlug: session?.case.slug ?? null,
+          transcript: trimmed,
+          transcriptLength: trimmed.length,
+        });
+        setTranscript('');
+        return;
+      }
       setTranscript(trimmed);
       debugConversation('voice.finalTranscript', {
         sessionId: session?.id ?? null,
@@ -71,9 +101,10 @@ export function useVoiceConversation({
 
   // 마이크 토글 전 에러를 지운다(기존 handleVoiceToggle).
   const toggle = useCallback(() => {
+    if (speechSynthesis.isSpeaking) return;
     onClearError();
     speechRecognition.toggle();
-  }, [onClearError, speechRecognition]);
+  }, [onClearError, speechRecognition, speechSynthesis.isSpeaking]);
 
   // 음성 재생 토글: 끄면 진행 중인 TTS를 중단한다.
   const setVoiceReplyEnabled = useCallback(
@@ -95,12 +126,22 @@ export function useVoiceConversation({
     if (!latestAssistantMessage || !isVoiceReplyEnabled) return;
     if (latestAssistantMessage.id === lastSpokenMessageIdRef.current) return;
     lastSpokenMessageIdRef.current = latestAssistantMessage.id;
-    speechSynthesis.speak(latestAssistantMessage.content, voiceProfile);
-  }, [isVoiceReplyEnabled, latestAssistantMessage, speechSynthesis, voiceProfile]);
+    speechRecognition.cancel();
+    setTranscript('');
+    ignoreTranscriptsUntilRef.current = Date.now() + 3_000;
+    void speechSynthesis.speak(latestAssistantMessage.content, voiceProfile);
+  }, [
+    isVoiceReplyEnabled,
+    latestAssistantMessage,
+    speechRecognition,
+    speechSynthesis,
+    voiceProfile,
+  ]);
 
   return {
     transcript,
     isListening: speechRecognition.isListening,
+    isSpeaking: speechSynthesis.isSpeaking,
     isSupported: speechRecognition.isSupported,
     toggle,
     isVoiceReplyEnabled,
