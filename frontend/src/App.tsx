@@ -1,27 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
 import ClinicScene from './components/ClinicScene';
 import type { CpxCase, Message, Session } from './types';
-
-const apiBaseUrl =
-  import.meta.env.VITE_API_BASE_URL ??
-  (import.meta.env.PROD
-    ? 'https://code-medi-2026-1team.onrender.com'
-    : 'http://localhost:3000');
-
-async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const response = await fetch(`${apiBaseUrl}${path}`, {
-    headers: { 'Content-Type': 'application/json', ...options?.headers },
-    ...options,
-  });
-
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(text || `Request failed with ${response.status}`);
-  }
-
-  return response.json() as Promise<T>;
-}
 
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
