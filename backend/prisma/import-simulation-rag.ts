@@ -1,65 +1,63 @@
 import 'dotenv/config';
 import { createHash, randomUUID } from 'crypto';
-import { createReadStream, readFileSync } from 'fs';
+import { readFileSync } from 'fs';
 import { join, resolve } from 'path';
-import { createInterface } from 'readline';
 import OpenAI from 'openai';
 import { Pool } from 'pg';
 import { evaluationModuleForSimulationTopic } from '../src/rag/simulation-rag-map';
 
-type CaseIndexEntry = {
-  case_id: string;
-  topic_id: string;
-  topic_label: string;
-  system: string;
-  patient_name?: string | null;
-  age?: number | null;
-  sex?: string | null;
-  opening_statement?: string | null;
-  setting?: string | null;
-  requires_manual_review?: boolean;
-  source_page_range?: { start: number; end: number };
+// --- New consolidated format types (seizure_simulation_rag.json) ---
+
+type NewIdentity = {
+  sex: string;
+  age: string; // e.g. "21세", "생후 7개월"
+  name: string;
+  respondent?: string; // for infant cases answered by a guardian
 };
 
-type SimulationCase = {
-  case_id: string;
-  case_number_in_pdf?: number;
-  topic: {
-    topic_id: string;
-    topic_label: string;
-    system?: string;
-  };
-  source?: unknown;
-  patient_visible: {
-    identity?: {
-      name?: string;
-      age?: number;
-      sex?: string;
-    };
-    setting?: string;
-    opening_statement?: string;
-    vital_signs_available_on_scenario_card?: unknown;
-    history_blocks?: Record<string, string>;
-    physical_exam_results?: string;
-    patient_question_or_concern?: string;
-    actor_notes_or_special_behavior?: string | null;
-    raw_profile_text?: string;
-  };
-  examiner_only?: {
-    scenario_task?: string;
-    likely_diagnoses?: string[];
-    planned_tests?: string[];
-    planned_treatments_or_education?: string[];
-  };
-  quality?: {
-    flags?: string[];
-    requires_manual_review?: boolean;
-  };
+type NewHistory = Record<string, string | string[]>;
+
+type NewPhysicalExam = Record<string, string | string[]> | string;
+
+type NewPatientVisible = {
+  initial_scenario: string;
+  identity: NewIdentity;
+  chief_complaint: string;
+  vital_signs_after_arrival?: Record<string, string>;
+  history?: NewHistory;
+  physical_exam?: NewPhysicalExam;
+  patient_question?: string;
+  special_notes?: string;
 };
+
+type NewExaminerOnly = {
+  task?: string;
+  likely_diagnoses?: string[];
+  required_test_plans?: string[];
+  required_treatment_plans?: string[];
+  required_education_plans?: string[];
+  expected_skills?: string[];
+};
+
+type NewSimulationCase = {
+  case_id: string;
+  case_number: number;
+  patient_visible: NewPatientVisible;
+  examiner_only: NewExaminerOnly;
+  teaching_notes?: string[];
+};
+
+type NewSimulationFile = {
+  simulation_rag_usage?: unknown;
+  cases: NewSimulationCase[];
+  simulation_chunks?: unknown[];
+};
+
+// --- DB chunk type ---
 
 type PatientVisibleChunk = {
   id: string;
-  case_id: string;
+  case_id: string; // simulationCaseId
   topic_id: string;
   topic_label?: string;
   section: string;
@@ -67,51 +65,33 @@ type PatientVisibleChunk = {
   metadata: Record<string, unknown>;
 };
 
-type Args = {
-  all: boolean;
-  topic?: string;
-  caseId?: string;
-  limit?: number;
-  includeManualReview: boolean;
+// History key → section name: compatible with simulation-rag-retriever.service.ts intent rules
+const HISTORY_KEY_TO_SECTION: Record<string, string> = {
+  O: 'history_onset',
+  L: 'history_location',
+  D: 'history_duration',
+  Co: 'history_course',
+  Ex: 'history_experience',
+  C: 'history_character',
+  A: 'history_associated',
+  F: 'history_factors',
+  E: 'history_events',
+  외상: 'history_trauma',
+  과거력: 'history_past',
+  약물: 'history_medication',
+  사회력: 'history_social',
+  가족력: 'history_family',
+  여성력: 'history_gynecologic',
 };
+
+const TOPIC_ID = 'seizure';
+const TOPIC_LABEL = '경련';
 
 const root = resolve(__dirname, '../src/rag/simulationRAG');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false },
 });
-
-function parseArgs(argv: string[]): Args {
-  const args: Args = {
-    all: false,
-    topic: 'seizure',
-    includeManualReview: false,
-  };
-
-  for (let i = 0; i < argv.length; i++) {
-    const arg = argv[i];
-    if (arg === '--all') {
-      args.all = true;
-      args.topic = undefined;
-    } else if (arg === '--topic') {
-      args.topic = argv[++i];
-      args.all = false;
-    } else if (arg === '--case') {
-      args.caseId = argv[++i];
-      args.all = false;
-    } else if (arg === '--limit') {
-      args.limit = Number(argv[++i]);
-    } else if (arg === '--include-manual-review') {
-      args.includeManualReview = true;
-    }
-  }
-
-  return args;
-}
-
-function readJson<T>(relativePath: string): T {
-  return JSON.parse(readFileSync(join(root, relativePath), 'utf-8')) as T;
-}
 
 function getOpenAI(): OpenAI {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -125,65 +105,127 @@ function computeHash(text: string): string {
   return createHash('sha256').update(text).digest('hex');
 }
 
-function caseJsonPath(entry: CaseIndexEntry): string {
-  return join(
-    root,
-    'data',
-    'cases',
-    entry.topic_id,
-    `${entry.case_id}.json`,
-  );
+function parseAge(ageStr: string): number | null {
+  const match = /^(\d+)세/.exec(ageStr);
+  return match ? parseInt(match[1], 10) : null;
 }
 
-function publicTitle(cpxCase: SimulationCase): string {
-  const identity = cpxCase.patient_visible.identity ?? {};
-  const patient = [identity.age ? `${identity.age}세` : null, identity.sex]
-    .filter(Boolean)
-    .join(' ');
-  const patientPart = patient ? ` ${patient}` : '';
-  return `${cpxCase.topic.topic_label}${patientPart} 환자`;
+function valueToText(value: string | string[]): string {
+  return Array.isArray(value) ? value.join('\n') : value;
 }
 
-function buildChecklist(cpxCase: SimulationCase): string[] {
-  const blocks = cpxCase.patient_visible.history_blocks ?? {};
-  const labels = Object.keys(blocks).map((key) => `문진: ${key}`);
+function publicTitle(cpxCase: NewSimulationCase): string {
+  const { age, sex } = cpxCase.patient_visible.identity;
+  const parts = [age, sex].filter(Boolean);
+  const patientPart = parts.length ? ` ${parts.join(' ')}` : '';
+  return `${TOPIC_LABEL}${patientPart} 환자`;
+}
 
-  if (cpxCase.patient_visible.physical_exam_results) {
+function buildChecklist(cpxCase: NewSimulationCase): string[] {
+  const labels: string[] = [];
+
+  for (const key of Object.keys(cpxCase.patient_visible.history ?? {})) {
+    labels.push(`문진: ${key}`);
+  }
+
+  if (cpxCase.patient_visible.physical_exam) {
     labels.push('신체진찰 관련 소견 확인');
   }
 
-  if (cpxCase.examiner_only?.planned_tests?.length) {
+  if (cpxCase.examiner_only?.required_test_plans?.length) {
     labels.push('필요 검사 설명');
   }
 
-  if (cpxCase.examiner_only?.planned_treatments_or_education?.length) {
+  if (cpxCase.examiner_only?.required_treatment_plans?.length) {
     labels.push('치료/교육 계획 설명');
   }
 
   return labels;
 }
 
-function buildPatientProfile(cpxCase: SimulationCase) {
+function buildPatientProfile(cpxCase: NewSimulationCase) {
+  const { identity, vital_signs_after_arrival } = cpxCase.patient_visible;
   return {
-    ...cpxCase.patient_visible.identity,
-    setting: cpxCase.patient_visible.setting,
-    topicId: cpxCase.topic.topic_id,
-    topicLabel: cpxCase.topic.topic_label,
-    system: cpxCase.topic.system,
-    source: cpxCase.source,
-    requiresManualReview: cpxCase.quality?.requires_manual_review ?? false,
+    name: identity.name,
+    age: parseAge(identity.age),
+    ageRaw: identity.age,
+    sex: identity.sex,
+    respondent: identity.respondent,
+    topicId: TOPIC_ID,
+    topicLabel: TOPIC_LABEL,
+    system: '신경',
+    vitalSigns: vital_signs_after_arrival,
+    requiresManualReview: false,
     tone: '실제 환자처럼 짧고 자연스럽게 답함',
   };
 }
 
-async function upsertCase(cpxCase: SimulationCase): Promise<string> {
+function buildChunksForCase(cpxCase: NewSimulationCase): PatientVisibleChunk[] {
+  const chunks: PatientVisibleChunk[] = [];
   const simulationCaseId = cpxCase.case_id;
-  const topicId = cpxCase.topic.topic_id;
-  const openingStatement =
-    cpxCase.patient_visible.opening_statement ??
-    `${cpxCase.topic.topic_label} 때문에 왔어요.`;
+
+  // Initial info chunk (scenario context + chief complaint)
+  chunks.push({
+    id: `${simulationCaseId}_initial`,
+    case_id: simulationCaseId,
+    topic_id: TOPIC_ID,
+    topic_label: TOPIC_LABEL,
+    section: 'chief_complaint',
+    text: `${cpxCase.patient_visible.initial_scenario}\n주호소: ${cpxCase.patient_visible.chief_complaint}`,
+    metadata: { scope: 'patient_dialogue', key: 'initial' },
+  });
+
+  // History chunks — one per key, mapped to section names for intent matching
+  const history = cpxCase.patient_visible.history ?? {};
+  for (const [key, value] of Object.entries(history)) {
+    const text = valueToText(value);
+    if (!text || text === '-') continue;
+
+    const section = HISTORY_KEY_TO_SECTION[key] ?? `history_${key}`;
+    chunks.push({
+      id: `${simulationCaseId}_${key}`,
+      case_id: simulationCaseId,
+      topic_id: TOPIC_ID,
+      topic_label: TOPIC_LABEL,
+      section,
+      text: `[${key}] ${text}`,
+      metadata: { scope: 'patient_dialogue', key },
+    });
+  }
+
+  // Physical exam chunk
+  const physExam = cpxCase.patient_visible.physical_exam;
+  if (physExam) {
+    let physText: string;
+    if (typeof physExam === 'string') {
+      physText = physExam;
+    } else {
+      physText = Object.entries(physExam)
+        .map(([k, v]) => `[${k}] ${valueToText(v)}`)
+        .join('\n');
+    }
+
+    if (physText && physText !== '-') {
+      chunks.push({
+        id: `${simulationCaseId}_physical_exam`,
+        case_id: simulationCaseId,
+        topic_id: TOPIC_ID,
+        topic_label: TOPIC_LABEL,
+        section: 'physical_exam',
+        text: physText,
+        metadata: { scope: 'physical_exam' },
+      });
+    }
+  }
+
+  return chunks;
+}
+
+async function upsertCase(cpxCase: NewSimulationCase): Promise<string> {
+  const simulationCaseId = cpxCase.case_id;
+  const openingStatement = cpxCase.patient_visible.chief_complaint;
   const likelyDiagnoses = cpxCase.examiner_only?.likely_diagnoses ?? [];
-  const evaluationModuleId = evaluationModuleForSimulationTopic(topicId);
+  const evaluationModuleId = evaluationModuleForSimulationTopic(TOPIC_ID);
   const patientPrompt = JSON.stringify(cpxCase.patient_visible);
 
   const existing = await pool.query<{ id: string }>(
@@ -198,9 +240,9 @@ async function upsertCase(cpxCase: SimulationCase): Promise<string> {
     simulationCaseId,
     publicTitle(cpxCase),
     openingStatement,
-    cpxCase.quality?.requires_manual_review ? 'needs-review' : 'simulation',
+    'simulation',
     simulationCaseId,
-    topicId,
+    TOPIC_ID,
     evaluationModuleId,
     JSON.stringify(buildPatientProfile(cpxCase)),
     openingStatement,
@@ -295,7 +337,8 @@ async function upsertChunk(
   }
 
   const row = existing.rows[0];
-  const needsEmbedding = row.content_hash !== contentHash || !row.has_embedding;
+  const needsEmbedding =
+    row.content_hash !== contentHash || !row.has_embedding;
 
   await pool.query(
     `UPDATE "SimulationChunk"
@@ -321,8 +364,11 @@ async function embedAndSave(
 ): Promise<number> {
   if (items.length === 0) return 0;
 
-  const model = process.env.OPENAI_EMBEDDING_MODEL ?? 'text-embedding-3-small';
-  const batchSize = Number(process.env.SIMULATION_RAG_EMBED_BATCH_SIZE ?? 64);
+  const model =
+    process.env.OPENAI_EMBEDDING_MODEL ?? 'text-embedding-3-small';
+  const batchSize = Number(
+    process.env.SIMULATION_RAG_EMBED_BATCH_SIZE ?? 64,
+  );
   let embedded = 0;
 
   for (let start = 0; start < items.length; start += batchSize) {
@@ -349,91 +395,47 @@ async function embedAndSave(
   return embedded;
 }
 
-async function collectChunks(
-  selectedCaseIds: Set<string>,
-  caseIdBySimulationCaseId: Map<string, string>,
-): Promise<{
-  createdOrUpdated: number;
-  needsEmbedding: Array<{ id: string; text: string }>;
-}> {
-  const chunksPath = join(root, 'data', 'patient_visible_chunks.jsonl');
-  const rl = createInterface({
-    input: createReadStream(chunksPath, { encoding: 'utf-8' }),
-    crlfDelay: Infinity,
-  });
-
-  let createdOrUpdated = 0;
-  const needsEmbedding: Array<{ id: string; text: string }> = [];
-
-  for await (const line of rl) {
-    if (!line.trim()) continue;
-    const chunk = JSON.parse(line) as PatientVisibleChunk;
-    if (!selectedCaseIds.has(chunk.case_id)) continue;
-
-    const caseId = caseIdBySimulationCaseId.get(chunk.case_id);
-    if (!caseId) continue;
-
-    const result = await upsertChunk(chunk, caseId);
-    createdOrUpdated++;
-    if (result.needsEmbedding) {
-      needsEmbedding.push({ id: result.id, text: result.text });
-    }
-  }
-
-  return { createdOrUpdated, needsEmbedding };
-}
-
 async function main() {
-  const args = parseArgs(process.argv.slice(2));
-  const caseIndex = readJson<CaseIndexEntry[]>('data/case_index.json');
-  let selected = caseIndex;
-
-  if (args.caseId) {
-    selected = selected.filter((entry) => entry.case_id === args.caseId);
-  } else if (!args.all && args.topic) {
-    selected = selected.filter((entry) => entry.topic_id === args.topic);
-  }
-
-  if (!args.includeManualReview) {
-    selected = selected.filter((entry) => !entry.requires_manual_review);
-  }
-
-  if (args.limit && Number.isFinite(args.limit)) {
-    selected = selected.slice(0, args.limit);
-  }
-
-  if (selected.length === 0) {
-    console.log('No SimulationRAG cases matched the import filters.');
-    return;
-  }
+  const dataFilePath = join(root, 'data', 'seizure_simulation_rag.json');
+  const raw = readFileSync(dataFilePath, 'utf-8');
+  const simulationFile = JSON.parse(raw) as NewSimulationFile;
+  const cases = simulationFile.cases;
 
   console.log('[SimulationRAG Import]');
-  console.log(`cases: ${selected.length}`);
-  console.log(
-    `filter: ${args.all ? 'all' : args.caseId ? `case=${args.caseId}` : `topic=${args.topic}`}`,
-  );
+  console.log(`source: seizure_simulation_rag.json`);
+  console.log(`cases: ${cases.length}`);
 
   const openai = getOpenAI();
-  const selectedCaseIds = new Set<string>();
-  const caseIdBySimulationCaseId = new Map<string, string>();
   let importedCases = 0;
+  let upsertedChunks = 0;
+  const needsEmbedding: Array<{ id: string; text: string }> = [];
 
-  for (const entry of selected) {
-    const raw = readFileSync(caseJsonPath(entry), 'utf-8');
-    const cpxCase = JSON.parse(raw) as SimulationCase;
+  for (const cpxCase of cases) {
     const caseId = await upsertCase(cpxCase);
-    selectedCaseIds.add(cpxCase.case_id);
-    caseIdBySimulationCaseId.set(cpxCase.case_id, caseId);
     importedCases++;
+
+    const chunks = buildChunksForCase(cpxCase);
+    for (const chunk of chunks) {
+      const result = await upsertChunk(chunk, caseId);
+      upsertedChunks++;
+      if (result.needsEmbedding) {
+        needsEmbedding.push({ id: result.id, text: result.text });
+      }
+    }
+
+    console.log(
+      `  [${cpxCase.case_id}] ${publicTitle(cpxCase)} — ${chunks.length} chunks`,
+    );
   }
 
-  const chunks = await collectChunks(selectedCaseIds, caseIdBySimulationCaseId);
-  const embedded = await embedAndSave(openai, chunks.needsEmbedding);
+  const embedded = await embedAndSave(openai, needsEmbedding);
 
-  console.log(`imported cases: ${importedCases}`);
-  console.log(`upserted chunks: ${chunks.createdOrUpdated}`);
+  console.log(`\nimported cases: ${importedCases}`);
+  console.log(`upserted chunks: ${upsertedChunks}`);
   console.log(`embedded chunks: ${embedded}`);
-  console.log(`skipped embeddings: ${chunks.createdOrUpdated - chunks.needsEmbedding.length}`);
+  console.log(
+    `skipped embeddings: ${upsertedChunks - needsEmbedding.length}`,
+  );
 }
 
 main()
