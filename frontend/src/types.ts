@@ -57,6 +57,12 @@ export type Message = {
   createdAt: string;
 };
 
+export type SystemTimelineEvent = {
+  id: string;
+  content: string;
+  createdAt: string;
+};
+
 export type Session = {
   id: string;
   status: 'active' | 'completed';

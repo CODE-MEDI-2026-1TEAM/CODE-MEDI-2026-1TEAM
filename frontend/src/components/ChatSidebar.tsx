@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
 import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
-import type { CpxCase, Session } from '../types';
+import type { CpxCase, Session, SystemTimelineEvent } from '../types';
 
 const vitalSigns = [
   ['혈압', '120/82mmHg'],
@@ -20,6 +20,7 @@ type ChatSidebarProps = {
   onEvaluate: () => Promise<void>;
   onOpenEvaluation: () => void;
   onClearError: () => void;
+  systemTimelineEvents: SystemTimelineEvent[];
 };
 
 export default function ChatSidebar({
@@ -32,6 +33,7 @@ export default function ChatSidebar({
   onEvaluate,
   onOpenEvaluation,
   onClearError,
+  systemTimelineEvents,
 }: ChatSidebarProps) {
   const chatEndRef = useRef<HTMLDivElement>(null);
   const voice = useVoiceConversation({ session, onSendMessage, onClearError });
@@ -63,6 +65,27 @@ export default function ChatSidebar({
   const timeProgress = useMemo(
     () => Math.max(0, Math.min(100, (remainingSeconds / EXAM_DURATION_SECONDS) * 100)),
     [remainingSeconds],
+  );
+  const timelineItems = useMemo(
+    () =>
+      [
+        ...(session?.messages.map((message) => ({
+          createdAt: message.createdAt,
+          id: message.id,
+          kind: 'message' as const,
+          message,
+        })) ?? []),
+        ...systemTimelineEvents.map((event) => ({
+          createdAt: event.createdAt,
+          event,
+          id: event.id,
+          kind: 'system' as const,
+        })),
+      ].sort(
+        (a, b) =>
+          new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
+      ),
+    [session?.messages, systemTimelineEvents],
   );
 
   return (
@@ -145,12 +168,18 @@ export default function ChatSidebar({
       <section className="chat-history" aria-live="polite">
         <p className="chat-label">대화 기록</p>
         <div className="message-list">
-          {session?.messages.map((message) => (
-            <article className={`message ${message.role === 'user' ? 'user-message' : 'patient-message'}`} key={message.id}>
-              <span>{message.role === 'user' ? '의료진' : '환자'}</span>
-              <p>{message.content}</p>
-            </article>
-          ))}
+          {timelineItems.map((item) =>
+            item.kind === 'system' ? (
+              <article className="system-timeline-message" key={item.id}>
+                <p>{item.event.content}</p>
+              </article>
+            ) : (
+              <article className={`message ${item.message.role === 'user' ? 'user-message' : 'patient-message'}`} key={item.id}>
+                <span>{item.message.role === 'user' ? '의료진' : '환자'}</span>
+                <p>{item.message.content}</p>
+              </article>
+            ),
+          )}
           {isLoading ? <article className="message patient-message pending"><span>환자</span><p>응답을 생각하고 있습니다…</p></article> : null}
           <div ref={chatEndRef} />
         </div>

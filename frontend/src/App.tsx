@@ -5,7 +5,13 @@ import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
-import type { CpxCase, Evaluation, Message, Session } from './types';
+import type {
+  CpxCase,
+  Evaluation,
+  Message,
+  Session,
+  SystemTimelineEvent,
+} from './types';
 
 const isConversationDebugEnabled =
   import.meta.env.VITE_ENABLE_CONVERSATION_DEBUG === 'true';
@@ -23,6 +29,9 @@ export default function App() {
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'desk' | 'bed'>('desk');
+  const [systemTimelineEvents, setSystemTimelineEvents] = useState<
+    SystemTimelineEvent[]
+  >([]);
 
   const activeCase = useMemo(
     () =>
@@ -71,6 +80,7 @@ export default function App() {
     }
 
     setSession(null);
+    setSystemTimelineEvents([]);
     setIsEvaluationModalOpen(false);
     setIsLoading(true);
     setError(null);
@@ -200,6 +210,22 @@ export default function App() {
     }
   }, [isEvaluating, session]);
 
+  const recordHandHygiene = useCallback(() => {
+    if (!session || session.status === 'completed') return;
+
+    setSystemTimelineEvents((events) => [
+      ...events,
+      {
+        id:
+          typeof crypto.randomUUID === 'function'
+            ? crypto.randomUUID()
+            : `hand-hygiene-${Date.now()}`,
+        content: '손소독을 하였습니다.',
+        createdAt: new Date().toISOString(),
+      },
+    ]);
+  }, [session]);
+
   useEffect(() => {
     request<{ cases: CpxCase[] }>('/cases')
       .then((data) => {
@@ -244,6 +270,14 @@ export default function App() {
         >
           {viewMode === 'desk' ? '침대에 눕히기' : '책상으로 돌아가기'}
         </button>
+        <button
+          className="view-toggle-button"
+          disabled={!session || session.status === 'completed'}
+          onClick={recordHandHygiene}
+          type="button"
+        >
+          손소독하기
+        </button>
       </div>
 
       <div className="scene-overlay top-left">
@@ -265,6 +299,7 @@ export default function App() {
         onOpenEvaluation={() => setIsEvaluationModalOpen(true)}
         onSendMessage={sendMessage}
         session={session}
+        systemTimelineEvents={systemTimelineEvents}
       />
 
       {session?.evaluation && isEvaluationModalOpen ? (
