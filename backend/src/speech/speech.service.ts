@@ -1,4 +1,8 @@
-import { BadGatewayException, BadRequestException, Injectable } from '@nestjs/common';
+import {
+  BadGatewayException,
+  BadRequestException,
+  Injectable,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import OpenAI, { toFile } from 'openai';
 
@@ -31,7 +35,9 @@ export class SpeechService {
 
   async transcribe(audio: UploadedAudioFile) {
     if (!allowedAudioTypes.has(audio.mimetype)) {
-      throw new BadRequestException(`Unsupported audio type: ${audio.mimetype}`);
+      throw new BadRequestException(
+        `Unsupported audio type: ${audio.mimetype}`,
+      );
     }
 
     try {
@@ -77,7 +83,8 @@ export class SpeechService {
 
   private filenameFor(audio: UploadedAudioFile) {
     const extension = this.extensionFor(audio.mimetype);
-    const baseName = audio.originalname?.replace(/\.[a-z0-9]+$/i, '') || 'voice';
+    const baseName =
+      audio.originalname?.replace(/\.[a-z0-9]+$/i, '') || 'voice';
     return `${baseName}.${extension}`;
   }
 
