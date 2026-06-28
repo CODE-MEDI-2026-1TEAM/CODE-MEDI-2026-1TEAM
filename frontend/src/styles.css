@@ -492,14 +492,18 @@ h1 {
   border-bottom: 1px solid #e4ebed;
 }
 .evaluation-score-ring {
+  --score-percent: 0%;
+
+  position: relative;
   display: grid;
   width: 104px;
   height: 104px;
-  place-items: center;
+  align-content: center;
+  justify-items: center;
   color: #23695a;
-  background: #fff;
-  border: 8px solid #cfe4dc;
-  border-top-color: #23695a;
+  background:
+    radial-gradient(circle at center, #fff 0 62%, transparent 63%),
+    conic-gradient(#23695a 0 var(--score-percent), #cfe4dc var(--score-percent) 100%);
   border-radius: 50%;
 }
 .evaluation-score-ring span {

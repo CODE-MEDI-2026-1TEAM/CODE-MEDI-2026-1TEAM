@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import type { CSSProperties } from 'react';
 import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
 import ClinicScene from './components/ClinicScene';
@@ -351,6 +352,8 @@ function EvaluationResultModal({
   evaluation: Evaluation;
   onClose: () => void;
 }) {
+  const score = Math.max(0, Math.min(100, evaluation.score));
+
   return (
     <section
       aria-labelledby="evaluation-result-title"
@@ -375,9 +378,12 @@ function EvaluationResultModal({
         </header>
 
         <div className="evaluation-score-panel">
-          <div className="evaluation-score-ring">
+          <div
+            className="evaluation-score-ring"
+            style={{ '--score-percent': `${score}%` } as CSSProperties}
+          >
             <span>총점</span>
-            <strong>{evaluation.score}</strong>
+            <strong>{score}</strong>
           </div>
           <div>
             <h3>위험도 평가</h3>
