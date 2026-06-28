@@ -77,18 +77,47 @@ function selectKoreanVoice(
   voices: SpeechSynthesisVoice[],
   preference: VoicePreset["voicePreference"],
 ) {
-  const koreanVoices = voices.filter((voice) => voice.lang.toLowerCase().startsWith("ko"));
-  const preferredNamePattern =
-    preference === "female"
-      ? /female|woman|yuna|유나|여성|여자/i
-      : /male|man|남성|남자/i;
+  const koreanVoices = voices.filter(isKoreanVoice);
+  const preferredKoreanVoice = bestVoiceFor(koreanVoices, preference);
 
-  return (
-    koreanVoices.find((voice) => preferredNamePattern.test(voice.name)) ??
-    koreanVoices[0] ??
-    voices.find((voice) => voice.lang.toLowerCase().startsWith("ko")) ??
-    null
-  );
+  if (preferredKoreanVoice) return preferredKoreanVoice;
+  if (koreanVoices.length > 0) return bestVoiceFor(koreanVoices, "female") ?? koreanVoices[0];
+
+  return bestVoiceFor(voices, preference) ?? voices[0] ?? null;
+}
+
+function bestVoiceFor(
+  voices: SpeechSynthesisVoice[],
+  preference: VoicePreset["voicePreference"],
+) {
+  const preferredPattern = preference === "female"
+    ? /female|woman|girl|yuna|yu-na|유나|sunhi|sun-hi|sora|seo-?yeon|서연|여성|여자|여아/i
+    : /male|man|boy|injoon|in-?joon|joon|준|minsu|민수|남성|남자|남아/i;
+
+  const scoredVoices = voices
+    .map((voice) => {
+      const searchableText = `${voice.name} ${voice.voiceURI} ${voice.lang}`;
+      const isPreferred = preferredPattern.test(searchableText);
+      const isKorean = isKoreanVoice(voice);
+
+      return {
+        score:
+          (isPreferred ? 100 : 0) +
+          (isKorean ? 50 : 0) +
+          (voice.localService ? 8 : 0),
+        voice,
+      };
+    })
+    .filter((entry) => entry.score >= 100)
+    .sort((a, b) => b.score - a.score);
+
+  return scoredVoices[0]?.voice ?? null;
+}
+
+function isKoreanVoice(voice: SpeechSynthesisVoice) {
+  const searchableText = `${voice.name} ${voice.voiceURI} ${voice.lang}`;
+
+  return /^ko(-|_)?/i.test(voice.lang) || /korean|korea|한국|ko-kr/i.test(searchableText);
 }
 
 function inferVoicePreference(sex?: string): VoicePreset["voicePreference"] {
