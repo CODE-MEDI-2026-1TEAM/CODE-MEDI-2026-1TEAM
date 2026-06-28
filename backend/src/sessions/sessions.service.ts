@@ -16,6 +16,8 @@ import { SimulationRagRetrieverService } from '../rag/simulation-rag-retriever.s
 import { CreateMessageDto } from './dto/create-message.dto';
 import { CreateSessionDto } from './dto/create-session.dto';
 
+const INITIAL_PATIENT_GREETING = '안녕하세요.';
+
 @Injectable()
 export class SessionsService {
   private readonly logger = new Logger(SessionsService.name);
@@ -42,7 +44,7 @@ export class SessionsService {
         messages: {
           create: {
             role: MessageRole.assistant,
-            content: cpxCase.openingStatement,
+            content: INITIAL_PATIENT_GREETING,
           },
         },
       },

@@ -31,7 +31,7 @@ export default function App() {
 
   const patientReply =
     latestAssistantMessage?.content ??
-    activeCase?.openingStatement ??
+    (activeCase ? '안녕하세요.' : null) ??
     '진료를 시작하면 환자 응답이 여기에 표시됩니다.';
   const isPatientSpeaking = Boolean(latestAssistantMessage) && !isLoading;
 
@@ -137,7 +137,7 @@ export default function App() {
       <div className="scene-overlay top-left">
         <p className="eyebrow">CODE MEDI Seizure Lab</p>
         <h1>{activeCase ? patientDisplayName(activeCase) : '케이스 배정 대기'}</h1>
-        <span>{activeCase?.title ?? '무작위 환자 배정을 시작하세요'}</span>
+        <span>{activeCase?.title ?? '환자 배정을 시작하세요'}</span>
         <button className="case-change-button" onClick={openCaseModal} type="button">
           재배정
         </button>
@@ -161,8 +161,7 @@ export default function App() {
         >
           <div className="case-modal">
             <header className="case-modal-header">
-              <p className="eyebrow">Seizure CPX Assignment</p>
-              <h2 id="case-picker-title">무작위 환자 배정</h2>
+              <h2 id="case-picker-title">환자 배정</h2>
               <p>실제 CPX처럼 케이스를 직접 고르지 않고, 준비된 경련 환자 중 한 명을 무작위로 배정합니다.</p>
             </header>
 

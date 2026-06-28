@@ -23,7 +23,7 @@ async function main() {
       occupation: '대학생',
       tone: '당황스럽지만 질문에는 협조적으로 짧게 답함',
     },
-    openingStatement: '선생님, 어제 경련 증상이 있었다고 해서 왔습니다.',
+    openingStatement: '안녕하세요.',
     hiddenDiagnosis: '청소년 근간대 뇌전증 의심',
     checklist: [
       '경련 발생 시점',
