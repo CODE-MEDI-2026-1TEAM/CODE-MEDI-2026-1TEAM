@@ -26,6 +26,27 @@ export type EvaluationItemStatus = {
   feedback: string;
 };
 
+type ClinicalActionSummary = {
+  handHygieneCount: number;
+  handHygieneEvents?: Array<{
+    createdAt: string;
+    label: string;
+    messageCount: number;
+    phase: string;
+  }>;
+  physicalExamEvents?: Array<{
+    createdAt: string;
+    examKey: string;
+    expectedPosition: string;
+    label: string;
+    matchedText: string;
+    messageCount: number;
+    position: string;
+    result: string;
+    status: string;
+  }>;
+};
+
 export type HistoryTakingCode =
   | 'O'
   | 'L'
@@ -104,6 +125,7 @@ export class LlmService {
     cpxCase: CpxCaseForPrompt,
     messages: ConversationMessage[],
     criteriaPack?: EvaluationCriteriaPack | null,
+    clinicalActions?: ClinicalActionSummary,
   ): Promise<EvaluationResult> {
     try {
       const completion = await this.getClient().chat.completions.create({
@@ -113,11 +135,26 @@ export class LlmService {
         messages: [
           {
             role: 'system',
-            content: this.buildEvaluationSystemPrompt(cpxCase, criteriaPack),
+            content: this.buildEvaluationSystemPrompt(
+              cpxCase,
+              criteriaPack,
+              clinicalActions,
+            ),
           },
           {
             role: 'user',
-            content: JSON.stringify({ conversation: messages }, null, 2),
+            content: JSON.stringify(
+              {
+                clinicalActions: clinicalActions ?? {
+                  handHygieneCount: 0,
+                  handHygieneEvents: [],
+                  physicalExamEvents: [],
+                },
+                conversation: messages,
+              },
+              null,
+              2,
+            ),
           },
         ],
       });
@@ -184,7 +221,11 @@ export class LlmService {
   private buildEvaluationSystemPrompt(
     cpxCase: CpxCaseForPrompt,
     criteriaPack?: EvaluationCriteriaPack | null,
+    clinicalActions?: ClinicalActionSummary,
   ) {
+    const handHygieneCount = clinicalActions?.handHygieneCount ?? 0;
+    const handHygieneEvents = clinicalActions?.handHygieneEvents ?? [];
+    const physicalExamEvents = clinicalActions?.physicalExamEvents ?? [];
     const criteriaSection = criteriaPack
       ? [
           '',
@@ -207,7 +248,22 @@ export class LlmService {
     return [
       'You are an evaluator for Korean CPX medical interview practice.',
       'Evaluate only the student messages in the supplied conversation.',
+      'Also evaluate supplied clinicalActions as actions performed in the simulation UI.',
       'Do not invent student actions or questions that are not present in the conversation.',
+      'Hand hygiene scoring rule:',
+      '- If clinicalActions.handHygieneCount is 0, mark missed hand hygiene as a missed item or suggestion under clinical etiquette/infection control.',
+      '- If clinicalActions.handHygieneCount is 1-2, recognize it as partially performed. Award credit only when the timing is clinically appropriate.',
+      '- If clinicalActions.handHygieneCount is 3 or more, award additional credit for infection control consistency, but do not let it compensate for critical missed history, red flags, diagnosis, or patient education.',
+      '- Timing matters more than raw count. initial_greeting means hand hygiene before or at first patient greeting and should be strongly credited. before_patient_contact means hand hygiene before touching/examining/moving the patient and should be strongly credited. during_interview is supportive but less important unless it occurs before a patient-contact action.',
+      '- Use clinicalActions.handHygieneEvents[].messageCount to judge timing relative to the conversation: messageCount 0 means before any student question; higher values mean later in the interview.',
+      '- Mention hand hygiene timing explicitly in strengths, missedItems, or suggestions when it materially affects the score.',
+      'Physical exam scoring rule:',
+      '- clinicalActions.physicalExamEvents are system-observed physical exams. Treat them as completed actions, not patient dialogue.',
+      '- For seizure CPX, strongly evaluate whether the student attempted the sitting exams: head inspection/palpation, oral/tongue exam, skin inspection, cranial nerve exam, cerebellar exam.',
+      '- Also evaluate whether the student attempted the supine exams: motor exam, sensory exam, DTR, neck stiffness, Kernig, Brudzinski, or a complete meningeal sign exam.',
+      '- Credit attempts only when the requested exam is specific enough. Generic phrases such as just "검사하겠습니다" should not count unless a matched physicalExamEvent exists.',
+      '- If position differs from expectedPosition, give partial credit but mention positioning/timing as a suggestion.',
+      '- Use the result/status to judge whether the student should incorporate abnormal findings into clinical reasoning and patient education.',
       'Return valid JSON only with this exact shape:',
       '{"score": number, "strengths": string[], "missedItems": string[], "missedItemStatus": [{"item": string, "historyCode": "O|L|D|Co|Ex|C|A_F|외|과|약|사|가|여|null", "isPerformed": boolean}], "riskAssessment": string, "suggestions": string[], "caseInstructionStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}], "patientEducationStatus": [{"item": string, "category": string, "status": "met|partial|unmet", "evidence": string[], "feedback": string}]}',
       'score must be an integer from 0 to 100.',
@@ -226,6 +282,11 @@ export class LlmService {
       `Hidden diagnosis: ${cpxCase.hiddenDiagnosis}`,
       `Checklist: ${JSON.stringify(cpxCase.checklist)}`,
       `Red flags: ${JSON.stringify(cpxCase.redFlags)}`,
+      `Clinical actions: ${JSON.stringify({
+        handHygieneCount,
+        handHygieneEvents,
+        physicalExamEvents,
+      })}`,
       criteriaSection,
     ].join('\n');
   }
