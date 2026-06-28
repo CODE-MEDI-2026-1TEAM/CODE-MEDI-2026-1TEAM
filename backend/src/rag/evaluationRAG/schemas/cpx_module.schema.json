@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CPX Clinical Expression Module",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "module_id",
+    "clinical_expression_number",
+    "title_ko",
+    "source_pdf_pages",
+    "source_markdown"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "module_id": {
+      "type": "string"
+    },
+    "clinical_expression_number": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 48
+    },
+    "title_ko": {
+      "type": "string"
+    },
+    "domain_ko": {
+      "type": "string"
+    },
+    "source_pdf_pages": {
+      "type": "object",
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "type": "integer"
+        },
+        "end": {
+          "type": "integer"
+        }
+      }
+    },
+    "source_markdown": {
+      "type": "string"
+    },
+    "retrieval_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evaluation_use": {
+      "type": "object"
+    }
+  }
+}
