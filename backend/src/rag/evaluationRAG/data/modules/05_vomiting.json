@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cpx-05-vomiting",
+  "clinical_expression_number": 5,
+  "title_ko": "구토",
+  "domain_ko": "소화기",
+  "source_document": "CPX 총론.pdf",
+  "source_pdf_pages": {
+    "start": 100,
+    "end": 105
+  },
+  "source_markdown": "docs/modules/05_vomiting.md",
+  "retrieval_tags": [
+    "구토",
+    "소화기",
+    "CPX",
+    "병력청취",
+    "신체진찰",
+    "환자교육"
+  ],
+  "evaluation_use": {
+    "required_common_rubric_ids": [
+      "history_taking",
+      "patient_education",
+      "ppi_listening",
+      "ppi_patient_context",
+      "ppi_understandable_explanation",
+      "ppi_rapport",
+      "ppi_structure",
+      "physical_exam_attitude",
+      "common_safety"
+    ],
+    "module_specific_evaluation_blocks": [
+      {
+        "id": "history_taking",
+        "label": "증례 특이 병력 청취",
+        "source_hint": "기본진찰사항 > 병력청취"
+      },
+      {
+        "id": "physical_exam",
+        "label": "증례 특이 신체 진찰 및 임상술기",
+        "source_hint": "P/E, 신체 진찰, 임상술기"
+      },
+      {
+        "id": "patient_education",
+        "label": "증례 특이 환자 교육",
+        "source_hint": "STEP, 교육, 환자 안내/생활 습관 교육"
+      },
+      {
+        "id": "diagnostic_reasoning",
+        "label": "감별 진단·검사·치료 설명",
+        "source_hint": "질병별 진단/치료 계획, 증례별 알고리즘, 기본적 진단 계획"
+      }
+    ],
+    "implementation_note": "이 JSON은 모듈 라우팅·검색용이다. 항목별 정답 판정은 케이스 데이터의 required_questions, red_flags, required_exam, patient_education_points를 우선한다."
+  },
+  "extracted_hints": {
+    "history_taking_text": "",
+    "physical_exam_text": "4. 피부 : 발진. 피부 긴장도\n소화기계 의심 시 [누워세 5. 복부* : 시- 청- 타-촉\n신경계 의심 시\n[앉아세 6. 뇌신경검人K동공 반사. 안구 운동, 얼굴 감각, 얼굴 운동)\n7. 팔다리 신경학적 검진 : 운동. 감각，DTR\n[누워세 8. 수막 자극징후\n[임상 술기]\n모형이준비되어 있음\n|기\n1. 정맥주사\n- 협조해 주셔서 감사합니다. 불편한 것은 없으신가요?\n고가\no\n 口\n토하는 것 때문에 많이 힘드셨을 것 같습니다.\n추정\n진단\n김ᄋᄋ님의 경우 전날 먹은 음식을 다 토하고，녹색 담즙이 나온 점, 신체 진찰 상 복부 압\n통과 반발 압통, 복벽 강직 소견, 그리고 2개월 전에 복부 수술을 받은 것을 종합했을 때\n급성 장폐색이 가장 의심이 됩니다.\n감별\n진단\n하지만 구토를 일으키는 원인으로 식중독이나 소화궤양 등의 질횐을 완전히 배제할 수 없습\n니다.\n검사\n따라서 정확한 진단을 위해 복부 X-ray. 전체혈구검人h 전해질검사 등이 필요합니다. 괜찮으\n신가요?\n치료\n정확한 진단이 나오기 전까지는 입원을 하고 금식하시면 증상이 좀 나아질 것입니다.\n영상검사와 혈액검사 결과에 따라 수술이 필요할 수도 있는 상황입니다. 이해되셨나요?\n예후\n襄\n隱\n아직 정확히 진단된 것은 아니기 때문에 너무 걱정하지 마시기 바랍니다. 지금부터 잘 치료\n를 받으시면 호전되실 수 있습니다. 증상이 있을 때 병원에 잘 오셨습니다.\n교육\n혹시라도 어지럽거나 목이 몹시 마른다거나 소변량이 줄어드는 경우 탈수 증상이므로 수액\n치료가 필요합니다. 이런 증상이 생기면 바로 말씀해 주시기 바랍니다. 앞으로도 식중독\n예방을 위해 식사 전에는 항상 손을 씻고, 위험한 음식물은 가려 먹는 것이 좋습니다.\n항구토제는 일시적으로 증상을 완화할 뿐이므로 가급적 사용하지 않는 것이 좋습니다.\n질문\n마지막으로 혹시 궁금한 점이 있으신가요?"
+  },
+  "quality_note": "도표·알고리즘·표는 PDF 텍스트 레이어의 읽기 순서가 흐트러질 수 있다. 원본 PDF 쪽수와 함께 사용한다."
+}
