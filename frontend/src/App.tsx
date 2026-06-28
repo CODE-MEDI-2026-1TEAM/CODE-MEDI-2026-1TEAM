@@ -195,7 +195,12 @@ export default function App() {
         isPatientSpeaking={isPatientSpeaking}
         patientCaseKey={patientCaseKey}
         patientReply={patientReply}
-        showPatientBubble={!isCaseModalOpen && Boolean(session)}
+        showPatientBubble={
+          !isCaseModalOpen &&
+          !isEvaluationModalOpen &&
+          !isEvaluating &&
+          Boolean(session)
+        }
       />
 
       <div className="scene-overlay top-left">
