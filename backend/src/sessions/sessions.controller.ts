@@ -25,6 +25,11 @@ export class SessionsController {
     return this.sessionsService.createMessage(sessionId, createMessageDto);
   }
 
+  @Post(':sessionId/hand-hygiene')
+  recordHandHygiene(@Param('sessionId') sessionId: string) {
+    return this.sessionsService.recordHandHygiene(sessionId);
+  }
+
   @Post(':sessionId/evaluate')
   evaluate(@Param('sessionId') sessionId: string) {
     return this.sessionsService.evaluate(sessionId);

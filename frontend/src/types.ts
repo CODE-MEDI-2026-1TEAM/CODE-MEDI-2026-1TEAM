@@ -68,6 +68,7 @@ export type Session = {
   status: 'active' | 'completed';
   startedAt: string;
   endedAt?: string | null;
+  handHygieneCount: number;
   case: CpxCase;
   messages: Message[];
   evaluation?: Evaluation | null;
@@ -80,5 +81,6 @@ export type Evaluation = {
   missedItems: string[];
   riskAssessment: string;
   suggestions: string[];
+  handHygieneCount: number;
   createdAt: string;
 };

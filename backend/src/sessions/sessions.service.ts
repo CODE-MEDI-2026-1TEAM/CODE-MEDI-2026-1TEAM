@@ -268,6 +268,40 @@ export class SessionsService {
     return response;
   }
 
+  async recordHandHygiene(sessionId: string) {
+    const session = await this.getSessionForWork(sessionId);
+
+    if (session.status === SessionStatus.completed) {
+      throw new ConflictException(
+        'Cannot record hand hygiene for a completed session',
+      );
+    }
+
+    const updatedSession = await this.prisma.session.update({
+      where: { id: sessionId },
+      data: {
+        handHygieneCount: {
+          increment: 1,
+        },
+      },
+      include: this.sessionInclude(),
+    });
+
+    this.logger.log(
+      JSON.stringify({
+        event: 'clinicalAction.handHygiene.recorded',
+        sessionId,
+        caseId: updatedSession.caseId,
+        handHygieneCount: updatedSession.handHygieneCount,
+      }),
+    );
+
+    return {
+      handHygieneCount: updatedSession.handHygieneCount,
+      session: updatedSession,
+    };
+  }
+
   async evaluate(sessionId: string) {
     const session = await this.getSessionForWork(sessionId);
 
@@ -298,6 +332,9 @@ export class SessionsService {
       session.case,
       messages,
       criteriaPack,
+      {
+        handHygieneCount: session.handHygieneCount,
+      },
     );
 
     const savedEvaluation = await this.prisma.$transaction(async (tx) => {
@@ -309,6 +346,7 @@ export class SessionsService {
           missedItems: evaluation.missedItems,
           riskAssessment: evaluation.riskAssessment,
           suggestions: evaluation.suggestions,
+          handHygieneCount: session.handHygieneCount,
         },
       });
 

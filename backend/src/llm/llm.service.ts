@@ -18,6 +18,10 @@ type CpxCaseForPrompt = {
   patientPrompt: string;
 };
 
+type ClinicalActionSummary = {
+  handHygieneCount: number;
+};
+
 export type EvaluationResult = {
   score: number;
   strengths: string[];
@@ -72,6 +76,7 @@ export class LlmService {
     cpxCase: CpxCaseForPrompt,
     messages: ConversationMessage[],
     criteriaPack?: EvaluationCriteriaPack | null,
+    clinicalActions?: ClinicalActionSummary,
   ): Promise<EvaluationResult> {
     try {
       const completion = await this.getClient().chat.completions.create({
@@ -81,11 +86,24 @@ export class LlmService {
         messages: [
           {
             role: 'system',
-            content: this.buildEvaluationSystemPrompt(cpxCase, criteriaPack),
+            content: this.buildEvaluationSystemPrompt(
+              cpxCase,
+              criteriaPack,
+              clinicalActions,
+            ),
           },
           {
             role: 'user',
-            content: JSON.stringify({ conversation: messages }, null, 2),
+            content: JSON.stringify(
+              {
+                clinicalActions: clinicalActions ?? {
+                  handHygieneCount: 0,
+                },
+                conversation: messages,
+              },
+              null,
+              2,
+            ),
           },
         ],
       });
@@ -151,7 +169,9 @@ export class LlmService {
   private buildEvaluationSystemPrompt(
     cpxCase: CpxCaseForPrompt,
     criteriaPack?: EvaluationCriteriaPack | null,
+    clinicalActions?: ClinicalActionSummary,
   ) {
+    const handHygieneCount = clinicalActions?.handHygieneCount ?? 0;
     const criteriaSection = criteriaPack
       ? [
           '',
@@ -172,7 +192,9 @@ export class LlmService {
     return [
       'You are an evaluator for Korean CPX medical interview practice.',
       'Evaluate only the student messages in the supplied conversation.',
+      'Also evaluate supplied clinicalActions as actions performed in the simulation UI.',
       'Do not invent student actions or questions that are not present in the conversation.',
+      'Hand hygiene rule: if clinicalActions.handHygieneCount is 1 or more, recognize hand hygiene as performed under clinical etiquette/infection control. If it is 0, mark missed hand hygiene as a missed item or suggestion when relevant. Do not require repeated hand hygiene more than once unless the encounter clearly requires it.',
       'Return valid JSON only with this exact shape:',
       '{"score": number, "strengths": string[], "missedItems": string[], "riskAssessment": string, "suggestions": string[]}',
       'score must be an integer from 0 to 100.',
@@ -182,6 +204,7 @@ export class LlmService {
       `Hidden diagnosis: ${cpxCase.hiddenDiagnosis}`,
       `Checklist: ${JSON.stringify(cpxCase.checklist)}`,
       `Red flags: ${JSON.stringify(cpxCase.redFlags)}`,
+      `Clinical actions: ${JSON.stringify({ handHygieneCount })}`,
       criteriaSection,
     ].join('\n');
   }

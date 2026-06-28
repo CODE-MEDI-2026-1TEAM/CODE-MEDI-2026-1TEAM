@@ -210,20 +210,35 @@ export default function App() {
     }
   }, [isEvaluating, session]);
 
-  const recordHandHygiene = useCallback(() => {
+  const recordHandHygiene = useCallback(async () => {
     if (!session || session.status === 'completed') return;
 
-    setSystemTimelineEvents((events) => [
-      ...events,
-      {
-        id:
-          typeof crypto.randomUUID === 'function'
-            ? crypto.randomUUID()
-            : `hand-hygiene-${Date.now()}`,
-        content: '손소독을 하였습니다.',
-        createdAt: new Date().toISOString(),
-      },
-    ]);
+    setError(null);
+
+    try {
+      const data = await request<{
+        handHygieneCount: number;
+        session: Session;
+      }>(`/sessions/${session.id}/hand-hygiene`, {
+        method: 'POST',
+      });
+      setSession(data.session);
+      setSystemTimelineEvents((events) => [
+        ...events,
+        {
+          id:
+            typeof crypto.randomUUID === 'function'
+              ? crypto.randomUUID()
+              : `hand-hygiene-${Date.now()}`,
+          content: `손소독을 하였습니다. 총 ${data.handHygieneCount}회`,
+          createdAt: new Date().toISOString(),
+        },
+      ]);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : '손소독 기록에 실패했습니다.',
+      );
+    }
   }, [session]);
 
   useEffect(() => {
@@ -505,6 +520,12 @@ function EvaluationResultModal({
               tone="neutral"
               value={evaluation.suggestions.length}
             />
+            <EvaluationMetricCard
+              label="손소독"
+              suffix="회"
+              tone={evaluation.handHygieneCount > 0 ? 'positive' : 'warning'}
+              value={evaluation.handHygieneCount}
+            />
           </div>
 
           <section className="evaluation-domain-card">
@@ -571,17 +592,19 @@ function debugConversation(event: string, payload: Record<string, unknown>) {
 
 function EvaluationMetricCard({
   label,
+  suffix = '',
   tone,
   value,
 }: {
   label: string;
+  suffix?: string;
   tone: 'neutral' | 'positive' | 'warning';
   value: number;
 }) {
   return (
     <section className={`evaluation-metric-card ${tone}`}>
       <span>{label}</span>
-      <strong>{value}</strong>
+      <strong>{value}{suffix}</strong>
     </section>
   );
 }
