@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dyslipidemia-005",
+  "case_number_in_pdf": 82,
+  "topic": {
+    "topic_start_page": 181,
+    "topic_id": "dyslipidemia",
+    "topic_label": "이상지질혈증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 189,
+      "end": 190
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "강의건",
+      "age": 45,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "콜레스테롤 수치가 높대요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "118/78mmHg",
+      "pulse": "84회/분",
+      "respiratory_rate": null,
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 45세\n\"콜레스테롤 수치가 높대요”",
+    "history_blocks": {
+      "onset": "1 달전",
+      "character": "측정 시 제대로 측정함/허리둘레 35인치\n총 콜레스테롤 280，LD 192. HDL35, 중성지방 270(모두 비정상)",
+      "associated_symptoms": "체중 증가 (+)\n식습관 : 고기 위주로 골고루 먹음\n운동 ：\n예전에는 1 시간씩 하다가 최근 일 스트레스가 많아서 하지 못함\n대사증후군 진단 기준 (+)\n월상안/ 다모증/자색선조 ( - / - / - )\n다음/ 다뇨/거품뇨/하지 부종(一/ - / - / - )\n더위/추위불내성 ( - / - )",
+      "past_history": "DM/HTN/dyslipidemia/TB/간염(+ /+ /-/—/一). 심혈관 질환(ᅳ)",
+      "medications": "^■뇨약, 고혈압약",
+      "social_history": "술(+, 1 병/주 2〜3회 ), 담배(+，35갑년)",
+      "family_history": "어머니 : 고혈압, 아버지 : 심근경색으로 돌아가심\nGeneral\n키, 몸무게, 허리둘레，BMI 측정/혈압, 맥박 확인\nHEENT\n눈(공막) 시진, 눈 주위 시진, 갑상생 진찰. 경동맥 청진/모두 정상"
+    },
+    "physical_exam_results": "Chest\n심음 청진 정상\nAbdomen\n복부 청진, 촉진 모두 정상\nExtermity\n팔꿈치, 무릎, 발꿈치 시진, 오목 부종 확인/모두 정상\n|유\n地\nVJ",
+    "patient_question_or_concern": "“약 안 먹어도 되나요? 약 먹으면 평생 먹어야 하나요? ”",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 45세\n\"콜레스테롤 수치가 높대요”\n0\n1 달전\nL\n-\nD\n-\nCo\n-\nEx\n-\nC\n측정 시 제대로 측정함/허리둘레 35인치\n총 콜레스테롤 280，LD 192. HDL35, 중성지방 270(모두 비정상)\nA\n체중 증가 (+)\n식습관 : 고기 위주로 골고루 먹음\n운동 ：\n예전에는 1 시간씩 하다가 최근 일 스트레스가 많아서 하지 못함\n대사증후군 진단 기준 (+)\n월상안/ 다모증/자색선조 ( - / - / - )\n다음/ 다뇨/거품뇨/하지 부종(一/ - / - / - )\n더위/추위불내성 ( - / - )\nF\n-\nE\n-\n외\n-\n과\nDM/HTN/dyslipidemia/TB/간염(+ /+ /-/—/一). 심혈관 질환(ᅳ)\n약\n^■뇨약, 고혈압약\n사\n술(+, 1 병/주 2〜3회 ), 담배(+，35갑년)\n가\n어머니 : 고혈압, 아버지 : 심근경색으로 돌아가심\nGeneral\n키, 몸무게, 허리둘레，BMI 측정/혈압, 맥박 확인\nHEENT\n눈(공막) 시진, 눈 주위 시진, 갑상생 진찰. 경동맥 청진/모두 정상\nP/E\nChest\n심음 청진 정상\nAbdomen\n복부 청진, 촉진 모두 정상\nExtermity\n팔꿈치, 무릎, 발꿈치 시진, 오목 부종 확인/모두 정상\n|유\n地\nVJ\n질문\n“약 안 먹어도 되나요? 약 먹으면 평생 먹어야 하나요? ”"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육\n\n성이\n진단 3개\n1. 대人6 후군에 동반된 이상지질혈증\n2. 일차성 고콜레스테롤혈증\n3. 당뇨병에 의한 고콜레스테롤혈증\n필요한 치료 계획 2가지\n1. 스타틴\n2. 생활 습관 개선\n이상지질혈증 케이스에서는 많은 분들께서 허리둘레 질문하는 걸 잘\n잊어버리니 주의하시고, 지질 수치는 검진 결과표를 보시면 정상수치\n들과 함께 주어집니다. 따라서 정상 수치 외우는 데에 너무 스트레스 받지 않아도 되지만 나중\n에 필기 준비할 때는 어차피 외워야하니 지금 외워 두는 것도 좋습니다.\n식습관, 운동 등 생활 습관에 대해 꼭 질문하시고, 잘못된 생활습관이 나오더라도 중립적으로\n듣고 기억하셨다가 나중에 교육하실 때 재언급하면서 교육하는 게 좋습니다. 교육할항목들이\n많으니 (식습관, 운동, 술, 담배, 정기 검진 둥) 시간 배분에 신경써 주어야 합니다.",
+    "likely_diagnoses": [],
+    "planned_tests": [],
+    "planned_treatments_or_education": [
+      "스타틴",
+      "생활 습관 개선"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례\n1鋒. 免 • > % J\n懸^^^확1\n지침\n• 45세 남자 강의건씨가 콜레스테롤 수치가 높다며 내원하였다.\n[활력 징후] 혈압 : 118/78mmHg\n맥박 : 84회/분\nS .S ■\n18회/분\n체온 ：\n36.7°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육\n•\n성이\n진단 3개\n1. 대人6 후군에 동반된 이상지질혈증\n2. 일차성 고콜레스테롤혈증\n3. 당뇨병에 의한 고콜레스테롤혈증\n• 필요한 치료 계획 2가지\n1. 스타틴\n2. 생활 습관 개선\n이상지질혈증 케이스에서는 많은 분들께서 허리둘레 질문하는 걸 잘\n잊어버리니 주의하시고, 지질 수치는 검진 결과표를 보시면 정상수치\n들과 함께 주어집니다. 따라서 정상 수치 외우는 데에 너무 스트레스 받지 않아도 되지만 나중\n에 필기 준비할 때는 어차피 외워야하니 지금 외워 두는 것도 좋습니다.\n식습관, 운동 등 생활 습관에 대해 꼭 질문하시고, 잘못된 생활습관이 나오더라도 중립적으로\n듣고 기억하셨다가 나중에 교육하실 때 재언급하면서 교육하는 게 좋습니다. 교육할항목들이\n많으니 (식습관, 운동, 술, 담배, 정기 검진 둥) 시간 배분에 신경써 주어야 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

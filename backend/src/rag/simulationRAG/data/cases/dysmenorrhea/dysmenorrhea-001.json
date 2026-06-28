@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dysmenorrhea-001",
+  "case_number_in_pdf": 248,
+  "topic": {
+    "topic_start_page": 639,
+    "topic_id": "dysmenorrhea",
+    "topic_label": "월경통",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 639,
+      "end": 640
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "안유진",
+      "age": 33,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "월경 때마다 배가 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "36.3°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 33세\n\"월경 때마다 배가 아파요”",
+    "history_blocks": {
+      "onset": "3~4년 전",
+      "location": "아랫배, 등쪽으로 통증이 뻗치기도 함",
+      "duration": "월경할 때 내내 아픔，가끔 월경 卜2일 전부터",
+      "course": "점점 심해짐",
+      "character": "[양상] 바늘로 쿡쿡쑤시고쥐어짜는 듯한 통증\n[NRS]\n6~7\n월경 주기 원래 좀 불규칙적, 월경량 많진 않음\n성교통(+), 성교 출혈(一), 임신 시도 1 년째인데 아직 소식 없음",
+      "associated_symptoms": "[전신] 발열/오한(ᅳ/->\n[신장/ 비뇨] F/U/N/D( - / 一/—/ᅳ). 복부 만져지는 덩이(一)",
+      "events": "6개월 전 건강 검진(자궁경부암검사 정상), 가다실 백신 안 맞음",
+      "trauma_history": "자궁 내 장치(ᅳ)",
+      "medications": "진통제(효과 없음)，호르몬제, 피임약(一/-)",
+      "social_history": "음주/흡연( - / - ) , 직업 : 주부(임신이 잘 안되는 것 같아 스트레스)",
+      "family_history": "언니 월경통(+) ,엄마 월경통(+，출산 후 나아짐)",
+      "gynecologic_history": "초경부터 원래 불규칙한 주기(30일 ±5일), LMP 2주 전\n결혼(+), 피임(ᅳ), 임신 시도 1 년 째, “임신 잘 안 돼요”, 현재 임신 가능성 : 모르겠음\nGeneral\nV/S ：\nstable\nHEENT\n눈(-), 구강H , 갑상샘/림프절( - M , 피부 긴장도/부종(- / - )"
+    },
+    "physical_exam_results": "Abdomen\n복부 압통(一), 하복부 불편감(자금은 없음), CVAT(-)\n골반 내진 설명하면 종이 줌\nPosterior fornix 자극 시 통증, 계란 크기로 만져지는 난소\n자궁은 정상 크기, 초음파는 소견 종이 없음\nExtermity\nPitting edema (—)\nᅳ쁘\n특이시항\n상황 제시문에는 ‘아랫배 통증’이라 되어 있어 생리와 관련 있다는 사살을 모르고 들어감,\n문진 人I작할 때 무엇이 가장 불편하냐고 물으면 “생리 때마다 배가 아파요”라고 말함",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 33세\n\"월경 때마다 배가 아파요”\n0\n3~4년 전\nL\n아랫배, 등쪽으로 통증이 뻗치기도 함\nD\n월경할 때 내내 아픔，가끔 월경 卜2일 전부터\nCo\n점점 심해짐\nEx\n-\nC\n[양상] 바늘로 쿡쿡쑤시고쥐어짜는 듯한 통증\n[NRS]\n6~7\n월경 주기 원래 좀 불규칙적, 월경량 많진 않음\n성교통(+), 성교 출혈(一), 임신 시도 1 년째인데 아직 소식 없음\nA\n[전신] 발열/오한(ᅳ/->\n[신장/ 비뇨] F/U/N/D( - / 一/—/ᅳ). 복부 만져지는 덩이(一)\nF\n-\nE\n6개월 전 건강 검진(자궁경부암검사 정상), 가다실 백신 안 맞음\n외\n자궁 내 장치(ᅳ)\n과\n-\n약\n진통제(효과 없음)，호르몬제, 피임약(一/-)\n사\n음주/흡연( - / - ) , 직업 : 주부(임신이 잘 안되는 것 같아 스트레스)\n가\n언니 월경통(+) ,엄마 월경통(+，출산 후 나아짐)\n여\n초경부터 원래 불규칙한 주기(30일 ±5일), LMP 2주 전\n결혼(+), 피임(ᅳ), 임신 시도 1 년 째, “임신 잘 안 돼요”, 현재 임신 가능성 : 모르겠음\nGeneral\nV/S ：\nstable\nHEENT\n눈(-), 구강H , 갑상샘/림프절( - M , 피부 긴장도/부종(- / - )\nP/E\nAbdomen\n복부 압통(一), 하복부 불편감(자금은 없음), CVAT(-)\n골반 내진 설명하면 종이 줌\nPosterior fornix 자극 시 통증, 계란 크기로 만져지는 난소\n자궁은 정상 크기, 초음파는 소견 종이 없음\nExtermity\nPitting edema (—)\nᅳ쁘\n특이시항\n상황 제시문에는 ‘아랫배 통증’이라 되어 있어 생리와 관련 있다는 사살을 모르고 들어감,\n문진 人I작할 때 무엇이 가장 불편하냐고 물으면 “생리 때마다 배가 아파요”라고 말함"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육/\n^능성이 높은 진단 2개\n1. 자궁내막증\n2. 자궁내막종",
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "골반영상검人K초음파, CT)",
+      "진단적 복강경",
+      "혈액검사"
+    ],
+    "planned_treatments_or_education": [
+      "대증 치료",
+      "정기적 산부인과 검진 교육",
+      "임신을 원할 경우 수술이필요함을 설명"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "n\n^■황\n지침\ni 실전 모의 증례 ^\n• 33세 여자 안유진씨가 아랫배 복통으로 내원하였다.\n[활력 징휘 혈압 : 126/80mmHg\n맥박 : 80회/분\n호읍 • 17회/분\n체온 ：\n36.3°C\n[응시자는이 환자에게] 증상과 관련된병력을청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육/\n• ^능성이 높은 진단 2개\n1. 자궁내막증\n2. 자궁내막종\n• 필요한 검사 계획 3가지\n1. 골반영상검人K초음파, CT)\n2. 진단적 복강경\n3. 혈액검사\n• 필요한 치료 계획 3가지\n1. 대증 치료\n2. 정기적 산부인과 검진 교육\n3. 임신을 원할 경우 수술이필요함을 설명\n월경 이상/월경통항목의 경우본증례의 환자처럼 상황지침에서 소\nb\nᄂ\n^ 냐\n를\n\n화기 증상을 호소할수도 있습니다.\n실제로 여성 환자가 복통올 호소하는 경우 산부인과 질환의 가능성도 고려해야 한다는 사실은\n소화기 항목에서도 중요합니다. 월경통을 호소하는 환자는 병력 청취와 P/E를 통해 통증의 특\n성을 확인할 수 있고> 원발성 아니면 골반 내 이상이 원인인지를 알 수 있습니다.\n본증례의 환자는 월경 기간중 통증, 성교통, 불임，골반 내진 시 통증둥의 증상을 종합해 볼 때\n자궁내막증이 가장 의심되며, 복강경을 통한 power bum, chocolate cyst 등을 확인하면 진단할\n수 있습니다. 현재 환자는 임신을 원하므로 통증과 불임을 해결하기 위한 복강경자궁내막종 제\n거를 치료 옵션 중 하나로 제시할 수 있습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

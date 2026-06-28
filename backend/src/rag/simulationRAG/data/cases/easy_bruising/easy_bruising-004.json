@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "easy_bruising-004",
+  "case_number_in_pdf": 135,
+  "topic": {
+    "topic_start_page": 339,
+    "topic_id": "easy_bruising",
+    "topic_label": "쉽게 멍이 듦",
+    "system": "전신"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 347,
+      "end": 348
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김지수",
+      "age": 35,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "멍이 쉽게 생겨요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": null,
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "“멍이 쉽게 생겨요”",
+    "history_blocks": {
+      "onset": "3일 전부터\n오른쪽 팔, 왼쪽 종아리 ᅳ 가슴\n3일 내내 지속, 사라지지 않음",
+      "course": "점점 수가 늘어남",
+      "experience": "처음\n좁쌀 모양의 붉은 반점\n통증(-), 가려움(一)，따가움H , 감각 이상H , 열감(一), 눌렸을 때 소실(-)",
+      "associated_symptoms": "[전신] 발열/ 오한/체중 감소/ 피로/ 두통(\n\n/\n\n/\n\n/ ᅳ/\n)\n[소화기] 복통/ 구토/ 설人卜\n/ 황달/ 복수( 一/\n\n/\n\n/\n\n/\n\n)\n[출혈 경향]\n혈뇨/ 혈변/ 흑색변/ 객혈/ 토혈( ᅳ/ ᅳ/ 一/ ᅳ/ ᅳ)\n[근골격] 관절통/ 혈관절( ᅵ/ ᅳ)\n[응급] 호흡곤란/ 식은땀/ 어지럼/ 두근거림/소변량 감소(\n\n/\n\n/\n\n/\n\n/\n\n)\n열흘 전 몸살 감기로 3일 간 약 복용(약 성분은 모름)\n어렸을 때 감기 걸리고, 약 먹었을 때는 이런 적 없었음\nexam/event (—/ - )",
+      "trauma_history": "외상(一>. 수술력(一)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )\n백혈병 (ᅳ)",
+      "medications": "아스피린/와파린 (ᅳ/ᅳ)",
+      "social_history": "술/담배/ 커피(一/ - / - ) , 주부",
+      "family_history": "눈\n입\n1\n11\n샘\n1\n1 '\nI\n,1\nI\n1\nI\n!\ni\n1_____\n전신 피부(안보이는 곳은 꼭 탈의하여 획인 )\n흉부 청진\n\n\n\n부황 뜬 것 같은 반점이 팔과 다리, 가슴에 있음"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "“멍이 쉽게 생겨요”\n0\n3일 전부터\n오른쪽 팔, 왼쪽 종아리 ᅳ 가슴\n3일 내내 지속, 사라지지 않음\nCo\n점점 수가 늘어남\nEx\n처음\n좁쌀 모양의 붉은 반점\n통증(-), 가려움(一)，따가움H , 감각 이상H , 열감(一), 눌렸을 때 소실(-)\nA\n[전신] 발열/ 오한/체중 감소/ 피로/ 두통(\n-\n/\n-\n/\n-\n/ ᅳ/ -\n)\n[소화기] 복통/ 구토/ 설人卜\n/ 황달/ 복수( 一/\n-\n/\n-\n/\n-\n/\n-\n)\n[출혈 경향]\n혈뇨/ 혈변/ 흑색변/ 객혈/ 토혈( ᅳ/ ᅳ/ 一/ ᅳ/ ᅳ)\n[근골격] 관절통/ 혈관절( ᅵ/ ᅳ)\n[응급] 호흡곤란/ 식은땀/ 어지럼/ 두근거림/소변량 감소(\n-\n/\n-\n/\n-\n/\n-\n/\n-\n)\n열흘 전 몸살 감기로 3일 간 약 복용(약 성분은 모름)\n어렸을 때 감기 걸리고, 약 먹었을 때는 이런 적 없었음\nexam/event (—/ - )\n외\n외상(一>. 수술력(一)\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n백혈병 (ᅳ)\n약\n아스피린/와파린 (ᅳ/ᅳ)\n사\n술/담배/ 커피(一/ - / - ) , 주부\n가\n눈\n입\n1\n11\n샘\n1\n1 '\nI\n,1\nI\n1\nI\n!\ni\n1_____\n전신 피부(안보이는 곳은 꼭 탈의하여 획인 )\n흉부 청진\n-\n-\n-\n부황 뜬 것 같은 반점이 팔과 다리, 가슴에 있음\n-\n질문\n-\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n.、교육':",
+    "likely_diagnoses": [
+      "I T P",
+      "약물 유발 혈소판 감소증",
+      "혈우병"
+    ],
+    "planned_tests": [
+      "C B C",
+      "P B S",
+      "혈액응고검사"
+    ],
+    "planned_treatments_or_education": [
+      "• 경과 관찰",
+      "스테로이드"
+    ],
+    "expected_skills_raw": "항문 직장 진찰 : 항문 직장 진찰을 통해 혈변 여부를 확인하여 현재 소화기계 출혈\n이 있지는 않은지 진찰해 볼 수 있습니다.\n멍이 쉽게 들 환자는 매번 출제가 예상되는 H P 환자에 대해서 공부하\n는 것이 중요합니다.\nITP 환자는 대개 상기도 감염의 병력이 있고，그로 인해 혈소판감소증이 생겨 출혈반이 나타나\n게 됩니다. 따라서 병력 청취를할 때 반드시 상기도 감염 병력에 대해서 물어봐야합니다.\nUP는 다른 질환이 배제되어야진단을 할수가 있기 때문에 먼저 다른 질환을 배제히는 검사를\n시행해야 합니다. 그 검사로 CBC, PBS, 필요하다면 골수검사를 진행해야 합니다.\nITP의 치료는 혈소판의 수(3만개)에 따라서 경과 관찰을 할지 스테로이드나 면역 글로불린 치\n료를할지 결정하게 됩니다. 또한 출혈이나 멍이 생길 수 있는 생활습관에 대해서 교육을 하고,\n혹시 생길지 모르는 응급상황에 대한 언급을 해야 합니다. 만년 족보인 ITP 이외에도 의인성\n쿠싱증후군, 혈우병 등도 충분히 출제될 수 있으니 알아 두시면 좋습니다.",
+    "author_commentary_tail": "항문 직장 진찰 : 항문 직장 진찰을 통해 혈변 여부를 확인하여 현재 소화기계 출혈\n이 있지는 않은지 진찰해 볼 수 있습니다.\n멍이 쉽게 들 환자는 매번 출제가 예상되는 H P 환자에 대해서 공부하\n는 것이 중요합니다.\nITP 환자는 대개 상기도 감염의 병력이 있고，그로 인해 혈소판감소증이 생겨 출혈반이 나타나\n게 됩니다. 따라서 병력 청취를할 때 반드시 상기도 감염 병력에 대해서 물어봐야합니다.\nUP는 다른 질환이 배제되어야진단을 할수가 있기 때문에 먼저 다른 질환을 배제히는 검사를\n시행해야 합니다. 그 검사로 CBC, PBS, 필요하다면 골수검사를 진행해야 합니다.\nITP의 치료는 혈소판의 수(3만개)에 따라서 경과 관찰을 할지 스테로이드나 면역 글로불린 치\n료를할지 결정하게 됩니다. 또한 출혈이나 멍이 생길 수 있는 생활습관에 대해서 교육을 하고,\n혹시 생길지 모르는 응급상황에 대한 언급을 해야 합니다. 만년 족보인 ITP 이외에도 의인성\n쿠싱증후군, 혈우병 등도 충분히 출제될 수 있으니 알아 두시면 좋습니다.",
+    "scenario_card_raw": "B\ni 실전 모의 증례\n^ •황\n지침\n• 3 5 세 여자 김지수씨가 멍이 쉽게 든다면서 내원하였다.\n[활력 징휘\n혈압 :\n1 2 0 / 8 0\nm\nm\nH\ng\n맥박 : 8 0 회/분\n• 2 ■音\n: 2 ᄋ호1 / 분\n체온 ：\n3 6 . 5 ° C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n.、교육':\n• 가능성이 높은 진단 3 개\n1 . I T P\n2 . 약물 유발 혈소판 감소증\n3 . 혈우병\n• 필요한 검사 계획 3 가지\n1 . C B C\n2 . P B S\n3 . 혈액응고검사\n• 필요한 치료 계획 2 가지\n1 • 경과 관찰\n2 . 스테로이드\n예상\n술기\n항문 직장 진찰 : 항문 직장 진찰을 통해 혈변 여부를 확인하여 현재 소화기계 출혈\n이 있지는 않은지 진찰해 볼 수 있습니다.\n멍이 쉽게 들 환자는 매번 출제가 예상되는 H P 환자에 대해서 공부하\n는 것이 중요합니다.\nITP 환자는 대개 상기도 감염의 병력이 있고，그로 인해 혈소판감소증이 생겨 출혈반이 나타나\n게 됩니다. 따라서 병력 청취를할 때 반드시 상기도 감염 병력에 대해서 물어봐야합니다.\nUP는 다른 질환이 배제되어야진단을 할수가 있기 때문에 먼저 다른 질환을 배제히는 검사를\n시행해야 합니다. 그 검사로 CBC, PBS, 필요하다면 골수검사를 진행해야 합니다.\nITP의 치료는 혈소판의 수(3만개)에 따라서 경과 관찰을 할지 스테로이드나 면역 글로불린 치\n료를할지 결정하게 됩니다. 또한 출혈이나 멍이 생길 수 있는 생활습관에 대해서 교육을 하고,\n혹시 생길지 모르는 응급상황에 대한 언급을 해야 합니다. 만년 족보인 ITP 이외에도 의인성\n쿠싱증후군, 혈우병 등도 충분히 출제될 수 있으니 알아 두시면 좋습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

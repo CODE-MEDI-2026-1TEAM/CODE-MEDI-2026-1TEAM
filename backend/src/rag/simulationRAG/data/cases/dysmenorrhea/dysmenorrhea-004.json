@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dysmenorrhea-004",
+  "case_number_in_pdf": 251,
+  "topic": {
+    "topic_start_page": 639,
+    "topic_id": "dysmenorrhea",
+    "topic_label": "월경통",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 647,
+      "end": 648
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "정원주",
+      "age": 26,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "121/80mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "18회/분",
+      "temperature": "36.0°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 26세\n“월경통이 심해요”",
+    "history_blocks": {
+      "onset": "4달전",
+      "location": "복부",
+      "duration": "생리 기간 내내",
+      "course": "“점점 심해져요”(처음에는 NRS 4점, 현재는 7점〉",
+      "experience": "처음",
+      "character": "생리색 : 선홍색，양은 일반적\n쥐어짜는 듯한 통증, NRS 7점, 일상 생활 지장(+)",
+      "associated_symptoms": "[비뇨]\nF/ U/ N/ D(- / - / - / - )\n[자궁 근종]\n하복부에 만져지는 덩어리(一)\n[일차성 월경통]\n오심/구토/설사( - / - / - )\n[출혈성 질환]\n멍이 잘 생김/ 코피 (一/ᅳ)\n[감염]\n발열/오한/질분비물 변화( - / - / - )",
+      "factors": "성교통(+, 4달 전부터 심해짐)",
+      "events": "올해 초 건강 검진에서 이상 없었음",
+      "medications": "이부프로펜 (+. 효과 적음)",
+      "social_history": "술(+. 1달에 1~2번. 맥주 1~2잔), 담배(-), 직업 ：\n직장인",
+      "family_history": "내막증(+. 어머니)",
+      "gynecologic_history": "결혼 (-)\n[산과력] 0\n[월경력]\n12\no_\n0-0-0\n세/폐경H , 생리 주기 ：\n28일. 생리통(+), 생리량 ：\n매일 패드 3~4개\n신 가능성/성생활 : 성경험/산부인과적 질환(_/+ /이"
+    },
+    "physical_exam_results": "General\n—\nHEENT\n결막 시진 상 빈혈 (_)\nChest\n\nAbdomen\n복부 시/청/타/촉( - / - / - / _ ) , CVATd(-)\n골반 내진 : 자궁이 후굴되어 고정\nExtermity",
+    "patient_question_or_concern": "“암이나 심각한 병은 아니겠죠? ”\n특이시항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 26세\n“월경통이 심해요”\n0\n4달전\n•\nL\n복부\nD\n생리 기간 내내\nCo\n“점점 심해져요”(처음에는 NRS 4점, 현재는 7점〉\nEx\n처음\nC\n생리색 : 선홍색，양은 일반적\n쥐어짜는 듯한 통증, NRS 7점, 일상 생활 지장(+)\nA\n[비뇨]\nF/ U/ N/ D(- / - / - / - )\n[자궁 근종]\n하복부에 만져지는 덩어리(一)\n[일차성 월경통]\n오심/구토/설사( - / - / - )\n[출혈성 질환]\n멍이 잘 생김/ 코피 (一/ᅳ)\n[감염]\n발열/오한/질분비물 변화( - / - / - )\nF\n성교통(+, 4달 전부터 심해짐)\nE\n올해 초 건강 검진에서 이상 없었음\n외\n과\n-\n약\n이부프로펜 (+. 효과 적음)\n사\n술(+. 1달에 1~2번. 맥주 1~2잔), 담배(-), 직업 ：\n직장인\n가\n내막증(+. 어머니)\n여\n결혼 (-)\n[산과력] 0-\n[월경력]\n12\no_\n0-0-0\n세/폐경H , 생리 주기 ：\n28일. 생리통(+), 생리량 ：\n매일 패드 3~4개\n신 가능성/성생활 : 성경험/산부인과적 질환(_/+ /이\nP/E\nGeneral\n—\nHEENT\n결막 시진 상 빈혈 (_)\nChest\n-\nAbdomen\n복부 시/청/타/촉( - / - / - / _ ) , CVATd(-)\n골반 내진 : 자궁이 후굴되어 고정\nExtermity\n-\n질문\n“암이나 심각한 병은 아니겠죠? ”\n특이시항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "자궁내막증",
+      "일차성 월경통",
+      "자궁선근증"
+    ],
+    "planned_tests": [
+      "골반초음파",
+      "CA-125 검사",
+      "진단적 복강경"
+    ],
+    "planned_treatments_or_education": [
+      "GnRH agonist",
+      "경구피임제",
+      "난소남종절제술"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "B\nL\n실전 모의 증례\n^■황\n지침\n' 26세 여자 정원주씨가 월경통을 주소로 내원하였다.\n[활력 징휘 혈압 : 121/80mmHg\n맥박 : 70회/분\n호흡 : 18회/분\n체온 ：\n36.0°C\n[응시X fe 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육\n• 가능성이 높은 진단 3개\n1. 자궁내막증\n2. 일차성 월경통\n3. 자궁선근증\n• 필요한 검사 계획 3가지\n1. 골반초음파\n2. CA-125 검사\n3. 진단적 복강경\n• 필요한 치료 계획 3가지\n1. GnRH agonist\n2. 경구피임제\n3. 난소남종절제술\n자궁내막증이 의심되는 환자입니다. 월경통, 성교통과 함께 골반 내진\n을 통해 impression을 잡아야 하는 문제 입 니다.\n자궁내막증과 함께 일차성 월경통, 자궁근종, 자^선근증도 감별을 해야 합니다. 비뇨기계 감염\n과 관련된 항목을 묻는 것도 잊어서는 안되겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dyslipidemia-006",
+  "case_number_in_pdf": 83,
+  "topic": {
+    "topic_start_page": 181,
+    "topic_id": "dyslipidemia",
+    "topic_label": "이상지질혈증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 191,
+      "end": 194
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박중희",
+      "age": 42,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "중성지방이 높아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/100mmHg",
+      "pulse": "78회/분",
+      "respiratory_rate": null,
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 42세\n“중성지방이 높아요”",
+    "history_blocks": {
+      "onset": "한달전부터",
+      "experience": "1 년 전 검人[에서도 중성지방 높다는 소견 나옴",
+      "character": "측정 시 제대로 측정함/허리둘레 90cm，BMI 28\nT-Chol 201. TG 453, LDL, HDL 정상",
+      "associated_symptoms": "[전신] 체중 변화/부종/피로( - / - / - )\n[순환기] 흉통/호흡곤란/어지럼( - / - / - )\n[내분비] 더위/안면홍조/체중 변화/여드름/중심 비만/天[색선조(一/ - / - / 一/ - / 一)\n[비뇨기] 거품뇨/소변량 변화/다음/다갈(一/ - / - / - )\n[소화기] 복통/ 변비/속쓰림/황달/복수/소화불량",
+      "factors": "식습관 ：\n기름지고 불규칙한 식사, 짠 음식 좋아함, 야식도 자주 먹는 편\n운동 ：\n거의 하지 않음",
+      "past_history": "DM/HTN/Dyslipidemia/Tb/Hepatitis(-/+/-/—/-)",
+      "medications": "혈압약 복용중\n人!■\n음주력 : 소주 1 병(주 3회), 흡연력 : 하루 반 갑X30년 = 15갑년",
+      "family_history": "어머니 심근경색으로 人병\nGeneral\n키,몸무게ᅳ BMI 측정, 허리둘레"
+    },
+    "physical_exam_results": "HEENT\n눈(공막) 시진 : 황달 확인, 눈 주위 시진 : 황색종 확인\n갑상샘 진찰, 경동맥 청진\nChest\n심장 청진\nAbdomen\n복부 청진/촉진\nExtermity\n팔꿈치. 무릎, 발꿈치 시진 : 황색종(xanthoma)/ 오목부종\nf\\>\nl»\n느",
+    "patient_question_or_concern": "“그럼 어떤 약을 먹어야 하나요? ”\n대답이 느린 환자\nCPX 주제별 내용 정리\n호흡기\n기침\n콧물/코막힘\n객혈\n>\n\\\ni\nj\n^\n|\n1\nsx\n/\nT\n::\n广\nJT\n>\nm\n了\nf\n^ <\n호흡곤란",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 42세\n“중성지방이 높아요”\n0\n한달전부터\nL\n-\nD\n-\nCo\n-\nEx\n1 년 전 검人[에서도 중성지방 높다는 소견 나옴\nC\n측정 시 제대로 측정함/허리둘레 90cm，BMI 28\nT-Chol 201. TG 453, LDL, HDL 정상\nA\n[전신] 체중 변화/부종/피로( - / - / - )\n[순환기] 흉통/호흡곤란/어지럼( - / - / - )\n[내분비] 더위/안면홍조/체중 변화/여드름/중심 비만/天[색선조(一/ - / - / 一/ - / 一)\n[비뇨기] 거품뇨/소변량 변화/다음/다갈(一/ - / - / - )\n[소화기] 복통/ 변비/속쓰림/황달/복수/소화불량\nF\n식습관 ：\n기름지고 불규칙한 식사, 짠 음식 좋아함, 야식도 자주 먹는 편\n운동 ：\n거의 하지 않음\nE\n-\n외\n-\n과\nDM/HTN/Dyslipidemia/Tb/Hepatitis(-/+/-/—/-)\n약\n혈압약 복용중\n人!■\n음주력 : 소주 1 병(주 3회), 흡연력 : 하루 반 갑X30년 = 15갑년\n가\n어머니 심근경색으로 人병\nGeneral\n키,몸무게ᅳ BMI 측정, 허리둘레\nP/E\nHEENT\n눈(공막) 시진 : 황달 확인, 눈 주위 시진 : 황색종 확인\n갑상샘 진찰, 경동맥 청진\nChest\n심장 청진\nAbdomen\n복부 청진/촉진\nExtermity\n팔꿈치. 무릎, 발꿈치 시진 : 황색종(xanthoma)/ 오목부종\nf\\>\nl»\n느\n질문\n“그럼 어떤 약을 먹어야 하나요? ”\n대답이 느린 환자\n\nCPX 주제별 내용 정리\n호흡기\n기침\n콧물/코막힘\n객혈\n>\n\\\ni\n\nj\n\n^\n|\n\n1\nsx\n/\nT\n\n::\n\n广\nJT\n>\nm\n了\nf\n^ <\n호흡곤란"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육",
+    "likely_diagnoses": [
+      "알코올에 의한 고중성지방혈증",
+      "대人!증후군에 동반된 이상지질혈증",
+      "가족성 이상지질혈증",
+      "Statin",
+      "Fibrate"
+    ],
+    "planned_tests": [],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■\n실전 모의 증례\n'\n상황\n지침\n• 42세 남자 박중희씨가 중성지방이 높다며 내원하였다.\n[활력 징후] 혈압 : 140/100mmHg\n맥박 : 78회/분\n오音 • 21회/분\n체온 ：\n36.8°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오•\n환자\n교육\n• 가능성이 높은 진단 3개\n1. 알코올에 의한 고중성지방혈증\n2. 대人!증후군에 동반된 이상지질혈증\n3. 가족성 이상지질혈증\n• 복용해야 할 약물 2가지\n1. Statin\n2. Fibrate\n이상지질혈증, 고혈압둥의 대사증후군 관련해서 문진할 때는 생활습\n(30\"\n관에 대해 구체적으로 물어 보는 것이 좋습니다. 또한 이상지질혈증의\n경우 결과지를 제시하는 경우가 많은데, 이를 읽고 이상 소견에 대해 해석을 할 수 있어야 해서\n어느 정도의 지식이 필요합니다.\n일차성 이상지질혈증을 감별하기 위해 황색종을 찾아 보는 신체 진찰이나 심혈관 잘환의 가족\n력을 물어 보는 것 또한 해야 합니다.\n많은 경우가 생활 습관 이상이나 대사증후군에 의한 이상지질혈증이 많은데, 이 경우 다방면에\n서 생활습관에 대한 교육이나 치료 방식에 대한 설명을 해주면 더욱 좋은 결과를 얻을 수 있을\n것입니다. 또한환자가대답이 느릴 수 있는데, 이때 너무 답답해 하지 말고불필요한문진을 줄\n이는 등의 대처를 하면 좋은 결과를 얻을수 있을 것입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

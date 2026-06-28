@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dyslipidemia-003",
+  "case_number_in_pdf": 80,
+  "topic": {
+    "topic_start_page": 181,
+    "topic_id": "dyslipidemia",
+    "topic_label": "이상지질혈증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 185,
+      "end": 186
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "정민혁",
+      "age": 35,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "건강 검진에서 콜레스테롤이 높아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": null,
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 35세\n“건강 검진에서 콜레스테롤이 높아요”",
+    "history_blocks": {
+      "onset": "1달 전 검사한 결과가 2주 전에 나옴",
+      "experience": "1 년 전 건강 검진에서는 중성지방만 높았음",
+      "character": "공복 상태에서 바르게 측정\n[검진 수치]\n총 콜레스테롤 340. 중성지방 230, LDL215, HDL35\n키 175cm, 몸무게 73kg, 허리둘레 33inch",
+      "associated_symptoms": "[전신]\n발열/오한/체중 변화/피로/감기 기운\n(- / - / + , 운동 및 식단으로 8kg 감량/ - / - )\n[순환기]\n흉통/두근거림/호흡곤란 ( - / - / - )\n[신경계]\n두통/팔다리 힘 빠짐/감각 이상/말 어눌(- / - / - / - >\n[갑상샘]\n추위불내성/ 변비( - / - )\n[쿠싱증후군]\n복부자색선조/출혈 경향(一/一)\n[신증후군]\n거품뇨/부종 ( - / - )\n[당뇨병]\n다음/ 다뇨/다\n갈\n>",
+      "past_history": "DM/TB/HTN/간염( - / - / +, 3년/+，HBV 보균자)",
+      "medications": "고혈압약(+, 3년 전)",
+      "social_history": "술(+, social), 담배(+, 15갑년), 커피(-)\n식습관 ：\n육류, 기름진 음식, 탄수호度 좋아함，최근 저탄고지 식단 시작(고기, 버터)\n운동 ：\n일주일 크〜5회 헬스，직업 : 현장관리직, 스트레스 (+)",
+      "family_history": "뇌졸중/심혈관 질환( - / - )，고혈압(+，부모님 모두), 이상지질혈증(+，부모님 모두)\nGeneral\nV/S 확인\nHEENT\n경동맥 청진/결막/공막( - / - / - )，입/피부 탈수 소견(-/一), 갑상샘(-)"
+    },
+    "physical_exam_results": "Chest\n흉부 청진 정상\nAbdomen\n복부 시/청/ 타/촉( - / _ / - / - )\nExtermity\n피부 긴장도, 오목 부종 정상, 황색종(ᅳ)",
+    "patient_question_or_concern": "I “저탄고지 식단을 더 하면 안 될까요? ”",
+    "actor_notes_or_special_behavior": "건강 검진 결과지 제시되어 있음",
+    "raw_profile_text": "성별/나이\n남성/ 35세\n“건강 검진에서 콜레스테롤이 높아요”\n0\n1달 전 검사한 결과가 2주 전에 나옴\nL\n-\nD\n-\nCo\n-\nEx\n1 년 전 건강 검진에서는 중성지방만 높았음\nC\n공복 상태에서 바르게 측정\n[검진 수치]\n총 콜레스테롤 340. 중성지방 230, LDL215, HDL35\n키 175cm, 몸무게 73kg, 허리둘레 33inch\nA\n[전신]\n발열/오한/체중 변화/피로/감기 기운\n(- / - / + , 운동 및 식단으로 8kg 감량/ - / - )\n[순환기]\n흉통/두근거림/호흡곤란 ( - / - / - )\n[신경계]\n두통/팔다리 힘 빠짐/감각 이상/말 어눌(- / - / - / - >\n[갑상샘]\n추위불내성/ 변비( - / - )\n[쿠싱증후군]\n복부자색선조/출혈 경향(一/一)\n[신증후군]\n거품뇨/부종 ( - / - )\n[당뇨병]\n다음/ 다뇨/다\n갈\n>\nF\n-\nE\n-\n외\n-\n과\nDM/TB/HTN/간염( - / - / +, 3년/+，HBV 보균자)\n약\n고혈압약(+, 3년 전)\n사\n술(+, social), 담배(+, 15갑년), 커피(-)\n식습관 ：\n육류, 기름진 음식, 탄수호度 좋아함，최근 저탄고지 식단 시작(고기, 버터)\n운동 ：\n일주일 크〜5회 헬스，직업 : 현장관리직, 스트레스 (+)\n가\n뇌졸중/심혈관 질환( - / - )，고혈압(+，부모님 모두), 이상지질혈증(+，부모님 모두)\nGeneral\nV/S 확인\nHEENT\n경동맥 청진/결막/공막( - / - / - )，입/피부 탈수 소견(-/一), 갑상샘(-)\nP/E\nChest\n흉부 청진 정상\nAbdomen\n복부 시/청/ 타/촉( - / _ / - / - )\nExtermity\n피부 긴장도, 오목 부종 정상, 황색종(ᅳ)\n질문\nI “저탄고지 식단을 더 하면 안 될까요? ”\n특이 사항\n건강 검진 결과지 제시되어 있음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육\n.\n성이 높은 진단 2 개\n1 . 원발성 이상지질혈증\n2 . 7 |족성 고콜레스터匿혈증",
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "갑상샘교 ᅵ능검사",
+      "당뇨검사",
+      "신7",
+      "능검사"
+    ],
+    "planned_treatments_or_education": [
+      "스타틴복용",
+      "생활 습관 교정"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■\n실전 모의 증례\n상황\n지침\n• 3 5 세 남자 정민혁씨가 콜레스테롤 수치가 높다며 내원하였다.\n[활력 징후] 혈압 : 1 3 6 / 8 6 m\nm\nH\ng\n맥박 : 7 0 회/분\n토톱 :\n1 6 회/분\n체온 ：\n3 6 . 5 ° C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육\n.\n성이 높은 진단 2 개\n1 . 원발성 이상지질혈증\n2 . 7 |족성 고콜레스터匿혈증\n• 필요한 검사 계획 3 가지\n1 . 갑상샘교 ᅵ능검사\n2 . 당뇨검사\n3 . 신7\n1능검사\n• 필요한 치료 계획 2 가지\n1 . 스타틴복용\n2 . 생활 습관 교정\n우선 검사가 공복 상태에서 제대로 이루어졌는지 확인해야 합니다. 일\n반적으로 지질 수치의 정상치도 제시해 주지만 대략적인 범위를숙지\n하시는 것을 추천드립니다.\n원발성 이외에 이상지질혈증올 일으킬 수 있는 갑상샘, 쿠심, 신증후군, 당뇨에 대한 질문도\n빠뜨려서는 안 됩니다. 심장，신장, 눈, 뇌의 혈관합병증증상에 대해서도 자세히 문진해야합\n니다.\n신체 진찰에서는황색종을꼭 떠올려주세요. 이상지질혈증의 위험성 및 조기 치료의 중요성에\n대해서는충분한시간을 내어 교육하는 것이 좋습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
