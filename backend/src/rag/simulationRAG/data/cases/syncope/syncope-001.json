@@ -1,0 +1,100 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "syncope-001",
+  "case_number_in_pdf": 61,
+  "topic": {
+    "topic_start_page": 143,
+    "topic_id": "syncope",
+    "topic_label": "실신",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 143,
+      "end": 144
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김준서",
+      "age": 27,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "가끔 기절해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "36.4°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/27세\n“가끔 기절해요”",
+    "history_blocks": {
+      "onset": "어제 점심",
+      "location": "외상^ ^",
+      "duration": "목격자 진술 상 1 분 이내, 본인이 느끼기에 10초 정도",
+      "experience": "학생 때. 군대에서 3~ 4번 있었음(중학생 때 조회 시간, 고등학교 수업 중. 군대 행군 시간 때).\n3가지 사건 공통점을 물으니 오래 서 있을 때 쓰러지는 것 같다고 함",
+      "character": "학생식당에서 점심 먹으려고 기다리는데 날이 좀 후덥지근. 줄이 길어 30~40분 기다리다 정신\n잃음, 의식 없었음, 주변 친구들이 쓰러지는 것 목격함\n[전조 증상] N/V, 어지러움. 눈 앞 캄캄함(+>, 두근거림(+)\n[실신 중] 경련(-), 쓰러질 때 문에 기대서 쓰러졌고 다른 증상 없었음. 주저앉듯이 쓰러짐\n안구편위/혀깨문 흔적 (-/-)\n[실신 휘 두통(-), 팔다리 힘 빠짐(+), 힘이 없는 느낌/피로한 느낌(+/+)\n머리 다친 곳 없음, 기억 없음, 일어났을 때 식은땀(+)",
+      "associated_symptoms": "[전신] 발열/오한/피로/식은땀/체중(- / - / - / _ / - )\n[순환] 두근거림/호흡곤란(-/-)\n[소화] 설사/구토/혈변/흑색변/토혈(- / - / - / - / - )\n[호흡] 가슴통증(-)\n[신장/비뇨] 다음/다뇨/다갈(-/-/_), 혈뇨(_)\n[정신] 죽을 것 같은 공포감/불안(-/-)\n[신경] 두통/시야장애/보행장애/팔다리 힘 빠짐(-/ -/-/ _)\n[기타] 저혈당H , 일어났을 때 피곤/어지럼(+/+), 팔다리 쳐짐(+). 탈수 증상H",
+      "factors": "한 자세로 오래 있을 때 심해짐, 갑자기 일어날 때(一), 앉았다 일어설 때(+, “오래 앉아 있다가\n일어나면 어지러워요”). 악화요인 : 사람 많은 곳, 쓰러진 전날 다소 오랫 동안 공복 유지됨",
+      "trauma_history": "머리 외상H",
+      "past_history": "—",
+      "medications": "비타민, 글루코A卜민",
+      "social_history": "술(+ 1 〜2번/ 1주, 1병). 담배(+ 5갑년), 커피 ：\n2니잔/day\n대학생 : 요즘 과제 하느라 수면 부족, 스트레스(+, 학업), 식사 : 불규칙적. 인스턴트 식품 좋아함"
+    },
+    "physical_exam_results": "General\nV /S ：\nstable\nHEENT\n결막/구강/손등 피부 긴장도 (-/-/-). 머리 시/촉(一/-). 외상 (-)\n뇌신경/E0M 정상, 경동맥 청진(-)\nChest\n심음 청진(-> (심음, 경동맥 청진 둘 다 카드 제공 x )\nExtremity\n팔다리 근력/감각(-/-), Pitting edema(-)",
+    "patient_question_or_concern": "“다음에 또 반복될 까 무서워요* 중요한 자리에서 이럴까 봐 걱정돼요;\n특이\n항\nVJ",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/27세\n“가끔 기절해요”\n0\n어제 점심\nL\n외상^ ^\nD\n목격자 진술 상 1 분 이내, 본인이 느끼기에 10초 정도\nCo\n-\nEx\n학생 때. 군대에서 3~ 4번 있었음(중학생 때 조회 시간, 고등학교 수업 중. 군대 행군 시간 때).\n3가지 사건 공통점을 물으니 오래 서 있을 때 쓰러지는 것 같다고 함\nC\n학생식당에서 점심 먹으려고 기다리는데 날이 좀 후덥지근. 줄이 길어 30~40분 기다리다 정신\n잃음, 의식 없었음, 주변 친구들이 쓰러지는 것 목격함\n[전조 증상] N/V, 어지러움. 눈 앞 캄캄함(+>, 두근거림(+)\n[실신 중] 경련(-), 쓰러질 때 문에 기대서 쓰러졌고 다른 증상 없었음. 주저앉듯이 쓰러짐\n안구편위/혀깨문 흔적 (-/-)\n[실신 휘 두통(-), 팔다리 힘 빠짐(+), 힘이 없는 느낌/피로한 느낌(+/+)\n머리 다친 곳 없음, 기억 없음, 일어났을 때 식은땀(+)\nA\n[전신] 발열/오한/피로/식은땀/체중(- / - / - / _ / - )\n[순환] 두근거림/호흡곤란(-/-)\n[소화] 설사/구토/혈변/흑색변/토혈(- / - / - / - / - )\n[호흡] 가슴통증(-)\n[신장/비뇨] 다음/다뇨/다갈(-/-/_), 혈뇨(_)\n[정신] 죽을 것 같은 공포감/불안(-/-)\n[신경] 두통/시야장애/보행장애/팔다리 힘 빠짐(-/ -/-/ _)\n[기타] 저혈당H , 일어났을 때 피곤/어지럼(+/+), 팔다리 쳐짐(+). 탈수 증상H\nF\n한 자세로 오래 있을 때 심해짐, 갑자기 일어날 때(一), 앉았다 일어설 때(+, “오래 앉아 있다가\n일어나면 어지러워요”). 악화요인 : 사람 많은 곳, 쓰러진 전날 다소 오랫 동안 공복 유지됨\nE\n-\n외\n머리 외상H\n과\n—\n약\n비타민, 글루코A卜민\n사\n술(+ 1 〜2번/ 1주, 1병). 담배(+ 5갑년), 커피 ：\n2니잔/day\n대학생 : 요즘 과제 하느라 수면 부족, 스트레스(+, 학업), 식사 : 불규칙적. 인스턴트 식품 좋아함\n가\n-\nP/E\nGeneral\nV /S ：\nstable\nHEENT\n결막/구강/손등 피부 긴장도 (-/-/-). 머리 시/촉(一/-). 외상 (-)\n뇌신경/E0M 정상, 경동맥 청진(-)\nChest\n심음 청진(-> (심음, 경동맥 청진 둘 다 카드 제공 x )\nExtremity\n팔다리 근력/감각(-/-), Pitting edema(-)\n질문\n“다음에 또 반복될 까 무서워요* 중요한 자리에서 이럴까 봐 걱정돼요;\n특이\n항\nVJ"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n가능성이 높은 진단 3개\n1. 혈관 □ I주신경성 실신\n2. 기립성 저혈압\n필요한 검사 계획 3가지\n1. 기립경 검사\n2• 심전도\n3. 혈당검人卜\n필요한 치료 계획 3가지\n1. 안심 후실신 시 대처 방법 교육\n2\n. 위험 요인(e.g. 스트레스 및 악화 상황) 회피 교육\n3. 실신 반복 시 혈관수축제，베타 블로커 등 약물 치료\n3. 저혈당\n실신의 경우 신경계 질환 및 내분비 질환에 대한 감별이 필요하므로 시\n( 3 r O 거■월관\n간분배가중요합니다. 실신 전/실신 도중/실신 후의 증상•과공복상태\n는 아니었는지, 불안하지는 않는자등을 통해 어느 계통의 문제인지를 감별해야 합니다.\n실신은 혼히 겪기 쉬운 증상은 아니고»환자가 많이 놀랐을 가능성이 크므로 뇌쪽 문제가 아님을\n알려주어 환자가 안심할 수 있도록 하는 것이 좋습니다. 하지만 넘어지면서 머리쪽 외상의 가능\n성이 있으므로 신체 진찰과정 중 머리 외상음 없는지 꼼꼼히 살펴보고，앞으로도 실신할 것 같은\n느낌이 들 때 대처 방안을 교육함으로써 환자•의사 관계에서 좋은 점수를 받을 수 있을 것입니다.",
+    "likely_diagnoses": [
+      "혈관 □ I주신경성 실신",
+      "기립성 저혈압",
+      "기립경 검사",
+      "• 심전도",
+      "혈당검人卜",
+      "안심 후실신 시 대처 방법 교육",
+      "위험 요인(e.g. 스트레스 및 악화 상황) 회피 교육",
+      "실신 반복 시 혈관수축제，베타 블로커 등 약물 치료",
+      "저혈당"
+    ],
+    "planned_tests": [
+      "기립경 검사",
+      "• 심전도",
+      "혈당검人卜",
+      "안심 후실신 시 대처 방법 교육",
+      "위험 요인(e.g. 스트레스 및 악화 상황) 회피 교육",
+      "실신 반복 시 혈관수축제，베타 블로커 등 약물 치료",
+      "저혈당"
+    ],
+    "planned_treatments_or_education": [
+      "안심 후실신 시 대처 방법 교육",
+      "위험 요인(e.g. 스트레스 및 악화 상황) 회피 교육",
+      "실신 반복 시 혈관수축제，베타 블로커 등 약물 치료",
+      "저혈당"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■ 9| 실신 (Syncope)\n환자\n교육/\n실전 모의 증례 S\n* 27세 남자 김준서씨가 기절했다며 내원하였다.\n[활력 징후] 혈압 : 126/80mmHg\n맥박 : 70회/분\n상황\n호흡: 17회/분\n지침\n1\n체온 ：\n36.4°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오•\n가능성이 높은 진단 3개\n1. 혈관 □ I주신경성 실신\n2. 기립성 저혈압\n필요한 검사 계획 3가지\n1. 기립경 검사\n2• 심전도\n3. 혈당검人卜\n필요한 치료 계획 3가지\n1. 안심 후실신 시 대처 방법 교육\n2\n. 위험 요인(e.g. 스트레스 및 악화 상황) 회피 교육\n3. 실신 반복 시 혈관수축제，베타 블로커 등 약물 치료\n3. 저혈당\n실신의 경우 신경계 질환 및 내분비 질환에 대한 감별이 필요하므로 시\n( 3 r O 거■월관\n간분배가중요합니다. 실신 전/실신 도중/실신 후의 증상•과공복상태\n는 아니었는지, 불안하지는 않는자등을 통해 어느 계통의 문제인지를 감별해야 합니다.\n실신은 혼히 겪기 쉬운 증상은 아니고»환자가 많이 놀랐을 가능성이 크므로 뇌쪽 문제가 아님을\n알려주어 환자가 안심할 수 있도록 하는 것이 좋습니다. 하지만 넘어지면서 머리쪽 외상의 가능\n성이 있으므로 신체 진찰과정 중 머리 외상음 없는지 꼼꼼히 살펴보고，앞으로도 실신할 것 같은\n느낌이 들 때 대처 방안을 교육함으로써 환자•의사 관계에서 좋은 점수를 받을 수 있을 것입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

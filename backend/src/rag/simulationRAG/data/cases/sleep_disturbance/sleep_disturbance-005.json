@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "sleep_disturbance-005",
+  "case_number_in_pdf": 193,
+  "topic": {
+    "topic_start_page": 483,
+    "topic_id": "sleep_disturbance",
+    "topic_label": "수면장애",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 491,
+      "end": 492
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김덕수",
+      "age": 48,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "금연하느라 커피를 마시게 됐는데, 커피까지 줄이기는 힘들어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/82mmHg",
+      "pulse": "75회/분",
+      "respiratory_rate": "16회/분",
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 48세\nu 잠을 못자요”",
+    "history_blocks": {
+      "onset": "3개월 전",
+      "duration": "매일",
+      "character": "오전 3시에 잠들어서 오전 7시에 깸\n입면장애 (11 시 누워서 3시에 잠 든다, 잠 올 때까지 누워 있음)\n유지장애(중간에 3~4번 깸，깨서 잠 올 때까지 누워 있음)\n낮잠(+, 낮에 1~2시간)\n아내와 수면, 잠자리 쾌적함, 자지 않을 때도 침대 누워 있음，자기 전 누워서 휴대폰\nIV 人[용, 저녁 10시에 간식, 자기 전 운동(一)",
+      "associated_symptoms": "[수면무호흡증] 키 170cm, 몸무게 70kg, 허리둘레 32인치\n코골이/자도 개운하지 않은 느낌/낮잠(—/-/+ )\n[하지불안증후군]\n(ᅳ)\n[렘 수면 행동장애] 꿈/악몽/수면 중 활동( - / - / - )\n[내분비] 더위불내성/체중감소/설사( - / - / - )\n[정신/ 신경] 우울/불안/초조/식욕저하(- / - / _ / 니\n호흡곤란/GERD/신체 증상이나 통증/야간뇨(- / - / + , 허리 통증/+)",
+      "factors": "스트레스/최근 수면 환경 변화/최근 특별한 사건/여행( - / - / - / - )",
+      "trauma_history": "허리 (최근 화분 들면서 다침，물리 치료 받는 중)",
+      "medications": "소염진통제(허리 다쳐서 0|플 때만)，수면제(ᅳ)",
+      "social_history": "술(一), 담배(-, 최근에 끊음, 과거 20갑년)\n커피 (+，하루에 2~3잔，저녁 식후에도 한 잔 먹음)\n직업 : 패스트푸드 사장, 운동 : (-)"
+    },
+    "physical_exam_results": "시행하지 않음",
+    "patient_question_or_concern": "“금연하느라 커피를 마시게 됐는데, 커피까지 줄이기는 힘들어요.”\n특이^卜항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 48세\nu 잠을 못자요”\n0\n3개월 전\nL\nD\n매일\nCo\nEx\n-\nC\n오전 3시에 잠들어서 오전 7시에 깸\n입면장애 (11 시 누워서 3시에 잠 든다, 잠 올 때까지 누워 있음)\n유지장애(중간에 3~4번 깸，깨서 잠 올 때까지 누워 있음)\n낮잠(+, 낮에 1~2시간)\n아내와 수면, 잠자리 쾌적함, 자지 않을 때도 침대 누워 있음，자기 전 누워서 휴대폰\nIV 人[용, 저녁 10시에 간식, 자기 전 운동(一)\nA\n[수면무호흡증] 키 170cm, 몸무게 70kg, 허리둘레 32인치\n코골이/자도 개운하지 않은 느낌/낮잠(—/-/+ )\n[하지불안증후군]\n(ᅳ)\n[렘 수면 행동장애] 꿈/악몽/수면 중 활동( - / - / - )\n[내분비] 더위불내성/체중감소/설사( - / - / - )\n[정신/ 신경] 우울/불안/초조/식욕저하(- / - / _ / 니\n호흡곤란/GERD/신체 증상이나 통증/야간뇨(- / - / + , 허리 통증/+)\nF\n스트레스/최근 수면 환경 변화/최근 특별한 사건/여행( - / - / - / - )\nE\n-\n외\n허리 (최근 화분 들면서 다침，물리 치료 받는 중)\n과\n-\n약\n소염진통제(허리 다쳐서 0|플 때만)，수면제(ᅳ)\n사\n술(一), 담배(-, 최근에 끊음, 과거 20갑년)\n커피 (+，하루에 2~3잔，저녁 식후에도 한 잔 먹음)\n직업 : 패스트푸드 사장, 운동 : (-)\n가\n-\nP/E\n시행하지 않음\n질문\n“금연하느라 커피를 마시게 됐는데, 커피까지 줄이기는 힘들어요.”\n특이^卜항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "원발성 불면증",
+      "허리 통증에 의한 불면증",
+      "수면일기",
+      "수면다원검사",
+      "허리 MRI",
+      "수면 위생 교육",
+      "수면제 처방",
+      "진통제"
+    ],
+    "planned_tests": [
+      "수면일기",
+      "수면다원검사",
+      "허리 MRI"
+    ],
+    "planned_treatments_or_education": [
+      "수면 위생 교육",
+      "수면제 처방",
+      "진통제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "A\n실전 모의 증례\n-\"1\n^■황\n지침\n• 48세 남자 김덕수씨가 잠을 못 자 내원하였다.\n[활력 징후] 혈압 : 120/82mmHg\n맥박 : 75회/분\n호흡 : 16회/분\n체온 ：\n36.8°C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육\n. 가능성이 높은 진단 2개\n1. 원발성 불면증\n2. 허리 통증에 의한 불면증\n* 필요한 검사 계획 3가지\n1. 수면일기\n2. 수면다원검사\n3. 허리 MRI\n• 필요한 치료 계획 3가지\n1. 수면 위생 교육\n2. 수면제 처방\n3. 진통제\n수면장애의 경우대부분원발성 불면증이니, 역류성 식도염이나통증\n°ii 의한 불면 등 신체적인 문제가 아닌지 먼저 확인 후수면 습관에 대\n해 문진하면 되겠습니다.\n신체 진찰이 없을가능성이 많지만，수면 위생에 관해 물어봐야 하는 항목이 많으므로시간분\n배에 신경 써야합니다.\n이 환자의 경우 금연으로 인해 커피를 끊지 못하겠다고 하는데, 디카페인 커피를 권유하거나금\n연에 대한 약물 치료도 같이 권유하는 등으로 대답할 수 있습니다.\n이와 같이 교육 부분에서 예상치 못한 질문이 나올 수 있으니 나올 수 있는 여러 질문에 대해 대\n비해두는 게 좋겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

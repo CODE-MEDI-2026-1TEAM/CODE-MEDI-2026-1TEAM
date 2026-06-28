@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "skin_rash-001",
+  "case_number_in_pdf": 172,
+  "topic": {
+    "topic_start_page": 435,
+    "topic_id": "skin_rash",
+    "topic_label": "피부 발진",
+    "system": "관절/근골격/피부"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 435,
+      "end": 436
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "정기영",
+      "age": 52,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "몸에 발진이 생긴 것 같아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "123/80mmHg",
+      "pulse": "77회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 52세\n“몸에 발진이 생긴 것 같아요”",
+    "history_blocks": {
+      "onset": "2개월 전",
+      "location": "人워하다가 우연히 등에 발진이 생긴 것을 확인",
+      "duration": "발견 이후로 계속 있음",
+      "course": "500원 동전 크기였는데, 지금은 계란 크기로 커짐",
+      "experience": "처음",
+      "character": "[크기] 500원 ᅳ계란 크기\n[모양] 둥근 모양\n[색] 붉은색\n[개수]\n1 개, 여러 개가 합쳐지는 양상 x\n가려움(+. 좀 긁었다, 옷에 스치면 가렵다), 따가움/압통( - / - )\n딱지/궤양/고름/비늘 ( - / - / - / - )",
+      "associated_symptoms": "[류마티스] SLE/베체트/ RA/관절통( - / - / - / - )\n[기타]\n음식/여행(ᅳ/ᅳ), 화학익품/장신구(~/ᅳ)\n샴푸, 로션 등 기타 특이 사항 X. 감염(_), 아나필락시스(-)",
+      "factors": "3개월 전 테니스 동호회에서 테니스 치러 갔다가 씻지 못한 채 운전하고 돌0 卜오면서 찜찝한 느낌\n이후로 생긴 것 같다고 말함, 人 t워하면 크기 변화 등이 있는지 물어보면 잘 모르겠다고 말함",
+      "events": "검진 상 이상 없음",
+      "past_history": "고등어 알러지 있음(최근에 먹은 적 없음), BPH",
+      "medications": "전립선비대증 약물 6개월 이상 복용 중",
+      "social_history": "흡연(一), 음주(+, social). 직업 : 人부직 은퇴 후 현재 무직\n운동(테니스 자주 침), 스트레스(+), 식습관 특이 人® 없음",
+      "family_history": "General\nV/S ：\nstable\nHEENT\n눈 (一), 구강(이, 갑상샘/림프절(一/-). 피부 긴장도/부종(ᅳ/시"
+    },
+    "physical_exam_results": "Chest\nAbdomen\n[피부] 오른쪽 등에 7 ᅵ운데는 하얗고 주변은 빨간색의 큰 발진 분장. 오른\n쪽 등 가운데 (견갑골 아래 대략 T7 level에 우ᅵ치). 상의를 많이\n노출시켜야 분장한 발진 확인 가능(구글에 ‘몸백선’ 검색하면\n나오는 사진과 유사함)\n압통H , 눌렸을 때 하얗게 변함H . 가려움H , 심음/호흡음(정상)\n팔다리/배/가슴 발진 (-/-/-> , 딱지/잔물 (-/ -)\n관절통/입안 궤양 (-/ -)\nExtermity\nPitting edema (-)\n“피부과 약0 1 독하다고 들었는데, 위장관에 영향은 없나요? ”\n“혹시 가족에게 옮기는 피부병은 아닌가요? ”\n1이 사항\n상체 외 다른 부위도 확인이 필요하므로 하의 탈의 요청하면 사EI구니 특01시항 없다는 카드 제공\n\n...\n卜\n^\ni",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 52세\n“몸에 발진이 생긴 것 같아요”\n0\n2개월 전\nL\n人워하다가 우연히 등에 발진이 생긴 것을 확인\nD\n발견 이후로 계속 있음\nCo\n500원 동전 크기였는데, 지금은 계란 크기로 커짐\nEx\n처음\nC\n[크기] 500원 ᅳ계란 크기\n[모양] 둥근 모양\n[색] 붉은색\n[개수]\n1 개, 여러 개가 합쳐지는 양상 x\n가려움(+. 좀 긁었다, 옷에 스치면 가렵다), 따가움/압통( - / - )\n딱지/궤양/고름/비늘 ( - / - / - / - )\nA\n[류마티스] SLE/베체트/ RA/관절통( - / - / - / - )\n[기타]\n음식/여행(ᅳ/ᅳ), 화학익품/장신구(~/ᅳ)\n샴푸, 로션 등 기타 특이 사항 X. 감염(_), 아나필락시스(-)\nF\n3개월 전 테니스 동호회에서 테니스 치러 갔다가 씻지 못한 채 운전하고 돌0 卜오면서 찜찝한 느낌\n이후로 생긴 것 같다고 말함, 人 t워하면 크기 변화 등이 있는지 물어보면 잘 모르겠다고 말함\nE\n검진 상 이상 없음\n외\n-\n과\n고등어 알러지 있음(최근에 먹은 적 없음), BPH\n약\n전립선비대증 약물 6개월 이상 복용 중\n사\n흡연(一), 음주(+, social). 직업 : 人부직 은퇴 후 현재 무직\n운동(테니스 자주 침), 스트레스(+), 식습관 특이 人® 없음\n가\n-\nGeneral\nV/S ：\nstable\nHEENT\n눈 (一), 구강(이, 갑상샘/림프절(一/-). 피부 긴장도/부종(ᅳ/시\nP/E\nChest\nAbdomen\n[피부] 오른쪽 등에 7 ᅵ운데는 하얗고 주변은 빨간색의 큰 발진 분장. 오른\n쪽 등 가운데 (견갑골 아래 대략 T7 level에 우ᅵ치). 상의를 많이\n노출시켜야 분장한 발진 확인 가능(구글에 ‘몸백선’ 검색하면\n나오는 사진과 유사함)\n압통H , 눌렸을 때 하얗게 변함H . 가려움H , 심음/호흡음(정상)\n팔다리/배/가슴 발진 (-/-/-> , 딱지/잔물 (-/ -)\n관절통/입안 궤양 (-/ -)\nExtermity\nPitting edema (-)\n“피부과 약0 1 독하다고 들었는데, 위장관에 영향은 없나요? ”\n“혹시 가족에게 옮기는 피부병은 아닌가요? ”\n1이 사항\n상체 외 다른 부위도 확인이 필요하므로 하의 탈의 요청하면 사EI구니 특01시항 없다는 카드 제공\n-\n...\n\n卜\n^\ni"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "몸백선증",
+      "접촉피부염",
+      "익물 발진"
+    ],
+    "planned_tests": [
+      "우드등검사",
+      "피부따끔검사",
+      "첩포검人卜"
+    ],
+    "planned_treatments_or_education": [
+      "항진균제 복용",
+      "보습제 처방",
+      "개인 위생 관리(습한 환경 만들지 않기)"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "n\ni 실전 모의 증례 I\n• 52세 남자 정기영씨가 피부 발진으로 내원하였다.\n^■황\n지침\n[활력 징후] 혈압 : 123/80mmHg\n맥박 : 77회/분\n■오■읍 : 1 6-2.1 /분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 3개\n1. 몸백선증\n2. 접촉피부염\n3. 익물 발진\n• 필요한 검사 계획 3가지\n교육\n1. 우드등검사\n2. 피부따끔검사\n3. 첩포검人卜\n• 필요한 치료 계획 3가지\n1. 항진균제 복용\n2. 보습제 처방\n3. 개인 위생 관리(습한 환경 만들지 않기)\n피부 발진은 매우 다양한 원인에 의해서 나타날 수 있기 때문에 접근이 어\n려울 수 있습니다. 모의 환자는 피부에 실제 병 변과 유사한 분장을 하고 있\n으므로 평소 연습 시 자주 출제되는 콜린성 두드러기, 약물 발진, 아토피 피부염, 접촉 피부염, 몸백선,\n다형홍반등의 피부사진을눈으로 익숙하게 여러 번 보는 것이 중요합니다.\n피부의 병변이 융기형인지 편평한지 구분후 바이러스, 세균에 의한감염 혹은 자가면역, 알레르기\n둥에 의한홍반인지 아니면 진균, 면역/유전, 약물에 의한 색소 침착 이상인지를 확인 후자세하게 문\n진올 시작해야 합니다. 피부 발진이 언제 발생했는지, 어느 부위에 생겨서 다른부위로 퍼지는지, 크\n기의 변화는 있는지, 가렵거나 따가운지 등을물어 볼 필요가 있고, 음식, 약물, 웃, 장신구등의 유발\n요인은 없는지 추가로 확인해야합니다. P/E를 할 때 환자가 언급한 부위 외에도 피부 병변이 있을 수\n있기 때문에 검사의 목적을 정확하게 설명 후 환자가수치심을 느끼지 않도록 배려하면서 구석구석\n꼼꼼하게 확인해야 합니다.\n二\n---------\n-------- ---------------------------------------- -\n^"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

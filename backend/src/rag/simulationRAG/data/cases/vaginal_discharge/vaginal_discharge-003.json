@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vaginal_discharge-003",
+  "case_number_in_pdf": 235,
+  "topic": {
+    "topic_start_page": 603,
+    "topic_id": "vaginal_discharge",
+    "topic_label": "질분비물",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 609,
+      "end": 610
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김미연",
+      "age": 57,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원한 환자에서 진단을 위해 반드시 질분비물",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/85mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "25회/분",
+      "temperature": "36.3°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 57세\n“질에서 분비물이 나와요”",
+    "history_blocks": {
+      "onset": "3개월이상으로 오래됨",
+      "duration": "매일",
+      "course": "비슷",
+      "experience": "처음",
+      "character": "맑은 색의 액체가 팬티라이너 3~4장 정도로",
+      "associated_symptoms": "[전신] 발열/오한/근육통/피로/부종( - / - / - / - / - )\n두통/시야 변화( - / - )\n[소화개 A /N / V /D / C (-/-/ -/ -/ -), 복통(+, 아랫배)\n[비뇨개\nF/U/N/D/옆구리 통증( - / _ / - / - / - ) , 외음부 가려움(-)\n[폐경] 안면홍조/식은땀/ 더위불내성(ᅳ/ _ / 一)",
+      "events": "작년 건강 검진에서 이상 없었음",
+      "trauma_history": "맹장 수술(+, 20년 전)",
+      "past_history": "DM/TB/HTN(+/-/+), Hyperlipidemia/간염(一/-)",
+      "medications": "HTN/DM(+/+) : 조절 잘 됨\n人!\n술/ 담배/커피 (+/+/+, 모두 소량씩)\n직업 : 식당 지배인, 식사 규칙적, 골고루，스트레스 어느 정도 받는 편",
+      "gynecologic_history": "[산과력] 2-0ᅳ0-2\n폐경 4년 전, 폐경 증상(-)\n마지막 성관계 : 남편과 3일 전, 질세척은 매일 샤워 시 비누로 간단히"
+    },
+    "physical_exam_results": "General\nV/S 정상\nHEENT\n입/피부 탈수 소견(一/ - )\nAbdomen\n촉진 시 아랫배 통증(+), CVAT(-)\nExtremity\n피부 긴장도• 오목 부종 정상\n기타\n골반 내진 : 위축된 질 점막 소견, 맑은 분비물, DRE(-)\n편",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 57세\n“질에서 분비물이 나와요”\n0\n3개월이상으로 오래됨\nL\n-\nD\n매일\nCo\n비슷\nEx\n처음\nC\n맑은 색의 액체가 팬티라이너 3~4장 정도로\nA\n[전신] 발열/오한/근육통/피로/부종( - / - / - / - / - )\n두통/시야 변화( - / - )\n[소화개 A /N / V /D / C (-/-/ -/ -/ -), 복통(+, 아랫배)\n[비뇨개\nF/U/N/D/옆구리 통증( - / _ / - / - / - ) , 외음부 가려움(-)\n[폐경] 안면홍조/식은땀/ 더위불내성(ᅳ/ _ / 一)\nF\n-\nE\n작년 건강 검진에서 이상 없었음\n외\n맹장 수술(+, 20년 전)\n과\nDM/TB/HTN(+/-/+), Hyperlipidemia/간염(一/-)\n약\nHTN/DM(+/+) : 조절 잘 됨\n人!•\n술/ 담배/커피 (+/+/+, 모두 소량씩)\n직업 : 식당 지배인, 식사 규칙적, 골고루，스트레스 어느 정도 받는 편\n가\n-\n여\n[산과력] 2-0ᅳ0-2\n폐경 4년 전, 폐경 증상(-)\n마지막 성관계 : 남편과 3일 전, 질세척은 매일 샤워 시 비누로 간단히\nP/E\nGeneral\nV/S 정상\nHEENT\n입/피부 탈수 소견(一/ - )\nAbdomen\n촉진 시 아랫배 통증(+), CVAT(-)\nExtremity\n피부 긴장도• 오목 부종 정상\n기타\n골반 내진 : 위축된 질 점막 소견, 맑은 분비물, DRE(-)\n편\n특이사항"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "위축성 질염",
+      "세균성 질염",
+      "PID"
+    ],
+    "planned_tests": [
+      "질분비물검사",
+      "Whiff test",
+      "질초음파"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "질분비물검사 : 질분비물을 주소로 내원한 환자에서 진단을 위해 반드시 질분비물\n검人隱 시행해야 합니다.\n질분비물의 경우 환자의 나이에 따라 염두에 두어야 할 질병에 차이가\n납니다.\n젊은 여성의 경우성전파성 질환과 임신과관련된 합병증 등을 생각해 봐야 하며, 고령의 경우\n폐경 후위축성 질염 등을확인해야합니다. 또한분비물이 요도에서 나오는것은아닌지 확인할\n필요가 있습니다.\n신체 검진에서 골반 내진은 필수이 며, 직장수지검사도 세트로 검사하는 습관을 기르도록 합니\n다. 평상 시에 질세척은 어떤 식으로 하는지 여줘보는 것도 중요합니다. 마찬가지로 여성력과 성\n관계력, 피임기구사용 여부는 중요하며, 교육에서는 알맞은 질세척 방법을꼭 교육하는 것을 잊\n지 말아야 합니다.\n二",
+    "author_commentary_tail": "검人隱 시행해야 합니다.\n질분비물의 경우 환자의 나이에 따라 염두에 두어야 할 질병에 차이가\n납니다.\n젊은 여성의 경우성전파성 질환과 임신과관련된 합병증 등을 생각해 봐야 하며, 고령의 경우\n폐경 후위축성 질염 등을확인해야합니다. 또한분비물이 요도에서 나오는것은아닌지 확인할\n필요가 있습니다.\n신체 검진에서 골반 내진은 필수이 며, 직장수지검사도 세트로 검사하는 습관을 기르도록 합니\n다. 평상 시에 질세척은 어떤 식으로 하는지 여줘보는 것도 중요합니다. 마찬가지로 여성력과 성\n관계력, 피임기구사용 여부는 중요하며, 교육에서는 알맞은 질세척 방법을꼭 교육하는 것을 잊\n지 말아야 합니다.\n二",
+    "scenario_card_raw": "실전 모의 증례\n^■황\n지침\n• 57세 여자 김미연씨가 질에서 분비물이 나와 내원하였다.\n[활력 징후] 혈압 : 120/85mmHg\n맥박 : 70회/분\n호흡 : 25회/분\n체온 ：\n36.3°C\n[응시:다는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n환자\n교육\n-* 1 / J'\n• 가능성이 높은 진단 3개\n1. 위축성 질염\n2. 세균성 질염\n3. PID\n• 필요한 검사 계획 3가지\n1. 질분비물검사\n2. Whiff test\n3. 질초음파\n예상\n술기\n질분비물검사 : 질분비물을 주소로 내원한 환자에서 진단을 위해 반드시 질분비물\n검人隱 시행해야 합니다.\n질분비물의 경우 환자의 나이에 따라 염두에 두어야 할 질병에 차이가\n납니다.\n젊은 여성의 경우성전파성 질환과 임신과관련된 합병증 등을 생각해 봐야 하며, 고령의 경우\n폐경 후위축성 질염 등을확인해야합니다. 또한분비물이 요도에서 나오는것은아닌지 확인할\n필요가 있습니다.\n신체 검진에서 골반 내진은 필수이 며, 직장수지검사도 세트로 검사하는 습관을 기르도록 합니\n다. 평상 시에 질세척은 어떤 식으로 하는지 여줘보는 것도 중요합니다. 마찬가지로 여성력과 성\n관계력, 피임기구사용 여부는 중요하며, 교육에서는 알맞은 질세척 방법을꼭 교육하는 것을 잊\n지 말아야 합니다.\n二-------\n------------------- ---"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

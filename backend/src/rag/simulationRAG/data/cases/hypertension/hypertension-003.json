@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hypertension-003",
+  "case_number_in_pdf": 74,
+  "topic": {
+    "topic_start_page": 167,
+    "topic_id": "hypertension",
+    "topic_label": "고혈압",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 173,
+      "end": 174
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이주현",
+      "age": 52,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "병원에만 오면 혈압이 높은 것 같아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "180/100mmHg",
+      "pulse": "105회/분",
+      "respiratory_rate": "18회/분",
+      "temperature": "36.2°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 52세\n‘‘혈압이 높아요”",
+    "history_blocks": {
+      "onset": "오늘 측정함",
+      "location": "병원에서만 혈압이 높음( 정상적으로 측정)\n‘",
+      "experience": "처음",
+      "character": "키 153cm, 몸무게 60kg, 허리둘레 29inch",
+      "associated_symptoms": "[전신]\n부종 (-)\n[신경계]\n시야장애(一)\n[일차성알도스테론증]\n피로/저림 ( - / _ )\n[크롬친화세포종]\n두통(+, 왼쪽 머리가 간헐적으로 아픔，NRS 2-3), 식은땀(-),\n두근거림 (+. 병원에만 오면 두근거림 )\n[갑상샘기능항진증]\n\n[쿠싱증후군]\n자색선조/달덩이 얼굴(- / - )",
+      "medications": "人 f\n술(+. social), 스트레스(+，코로나 때문에), 담배/운동( - / - )\n직업 : 포목점\n식사 : 국물이 없으면 밥을 못 먹을 정도로 짠 음식 선호",
+      "family_history": "아버지 : 고혈압, 당뇨/어머니 : 고지혈증",
+      "gynecologic_history": "4년 전 폐경"
+    },
+    "physical_exam_results": "General\n고혈압\nHEENT\n결막/공막 정상, 구강 탈수(一). 갑상샘 정상，경정맥/경동맥 정상\nChest\n심음 정상\nAbdomen\n신장혈관 잡음(ᅳ>，복부 종괴(ᅳ)\nExtermity\n|\nPTPE(-), 피부 긴장도 정상",
+    "patient_question_or_concern": "“병원에만 오면 혈압이 높은 것 같아요.”\n특이 ^용항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 52세\n‘‘혈압이 높아요”\n0\n오늘 측정함\nL\n병원에서만 혈압이 높음( 정상적으로 측정)\n‘\nD\n-\nCo\n-\nEx\n처음\nC\n키 153cm, 몸무게 60kg, 허리둘레 29inch\nA\n[전신]\n부종 (-)\n[신경계]\n시야장애(一)\n[일차성알도스테론증]\n피로/저림 ( - / _ )\n[크롬친화세포종]\n두통(+, 왼쪽 머리가 간헐적으로 아픔，NRS 2-3), 식은땀(-),\n두근거림 (+. 병원에만 오면 두근거림 )\n[갑상샘기능항진증]\n-\n[쿠싱증후군]\n자색선조/달덩이 얼굴(- / - )\nF\n-\nE\n-\n외\n-\n과\n-\n약\n-\n人 f\n술(+. social), 스트레스(+，코로나 때문에), 담배/운동( - / - )\n직업 : 포목점\n식사 : 국물이 없으면 밥을 못 먹을 정도로 짠 음식 선호\n가\n아버지 : 고혈압, 당뇨/어머니 : 고지혈증\n여\n4년 전 폐경\nP/E\nGeneral\n고혈압\nHEENT\n결막/공막 정상, 구강 탈수(一). 갑상샘 정상，경정맥/경동맥 정상\nChest\n심음 정상\nAbdomen\n신장혈관 잡음(ᅳ>，복부 종괴(ᅳ)\nExtermity\n|\nPTPE(-), 피부 긴장도 정상\n질문\n“병원에만 오면 혈압이 높은 것 같아요.”\n특이 ^용항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육",
+    "likely_diagnoses": [
+      "백의고혈압",
+      "크롬친화세포종",
+      "본태 고혈압"
+    ],
+    "planned_tests": [
+      "24시간 혈압 측정",
+      "복부 CT"
+    ],
+    "planned_treatments_or_education": [
+      "생활 습관 개선",
+      "가정혈압 측정"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "^\n실전 모의 증례\n^■황\n지침\n• 52세 여자 이주현씨가 혈압이 높다며 내원하였다.\n[활력 징후] 혈압 : 180/100mmHg\n맥박: 105회/분\n호흡: 18회/분\n체온 ：\n36.2°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육\n• 가능성이 높은 진단 3개\n1. 백의고혈압\n2. 크롬친화세포종\n3. 본태 고혈압\n• 필요한 검사 계획 2가지\n1.24시간 혈압 측정\n2. 복부 CT\n• 필요한 치료 계획 2가지\n1. 생활 습관 개선\n2. 가정혈압 측정\n백의고혈압을 진단하기 위해선 부신，갑상샘，신장 이상 등을 꼼꼼히\n확인하여 이차성 고혈압을 배제해 주는과정이 필요합니다. 따라서 문\n진에 오랜 시간이 걸릴 수 있습니다.\n본 증례에서는 두통이 있으며, 병원에 오면 두근거리는 증상이 있기 때문에 크롬친화세포종과\n백의고혈압으로추정 진단을 잡을수 있습니다. 따라서 측정 전 커피, 담배 금지, 5분 이상 앉아\n서 휴식 후 측정하는 등의 올바른 혈압 측정법을 교육하여 정확한 혈압을 다시 측정하도록 하\n고, 24시간 혈압측정 역시 필요할수 있습니다. 또한 혈액검사와 영상검사를 통해 크롬친화세\n포종을 확인해 줍니다.\n환자 교육에서는 기저 질환의 치료와 함께 고혈압의 합병증을 설명하여 생활 습관을 교정하도\n록 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "breaking_bad_news-001",
+  "case_number_in_pdf": 286,
+  "topic": {
+    "topic_start_page": 737,
+    "topic_id": "breaking_bad_news",
+    "topic_label": "나쁜 소식 전하기",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 745,
+      "end": 746
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "최은형",
+      "age": 28,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "저번에 시행한 HIV 확진검사 결과 들으러 왔어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": "72회/분",
+      "respiratory_rate": "25회/분",
+      "temperature": "36.3°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 28 세\n주소\n“저번에 시행한 HIV 확진검사 결과 들으러 왔어요”\n知^출놓學J»,' '-\"'*\nSetting\n[Present illness]\n고열과 기침. 가래 등의 호흡기 감염 증상으로 내원했던 환자, 폐렴 의심하에\n여러 가지 검사 진행하였고, 클럽에서 알게 된 남자와 성관계를 가졌던 병력 상\nHIV 의심되어 선별검사 시행함, 선별검사에서 양성 나왔으며, 이는 위양성의\n가능성이 높음을 설명하며 확진검사를 권유드려 시행한 상태\n보호자 없이 혼자 방문하였고, 증상이 많이 호전되었기 때문에 검사 결과가 안\n좋게 나오지는 않을 것 같지만 살짝 걱정은 됨\nPerception\n론^ # ^ ^ ^ ^\nHIV 선별검사 양성 알고 있고, 위양성의 가능성이 높음을 설명드렸던 것도 기억함\n확진검사 시행한 것 알고 있음\nInvitation\n결과는 혼자 듣겠다고 함. 자세히 알고 싶어 하며 진단/치료 모두 듣겠다고 함\nKnowledge\n\n4 나V, - ' V.:: •■\n[제시문 주어진 내용]\nHIV 확진검사 양성\n환자의 의지와 관계없이 보건소로 검사 결과 통보되어 역학 조Aᅡ가 진행됨\n선별검사와 확진검사 모두 위양성이 나올 확률은 0에 가까움\n최근 combination antiviral therapy로 유의미하게 장기 생존율이 증가될 수 있음\n가^ ] 세\n, ‘\nEmotion\nr 자, .\n[분뇌 “제가 지금 에이즈라는말씀이네요? ”\n[부정] “아니 증상도 좋아졌는데 못믿겠어요 저번에 폐렴이라고 하셨었는데…”\n“검사가 잘못된 거 아니에요? ”\n[우울]\n“말도안돼요…”, “그남자때문인가요 •••?”\n[수용] “그럼 이제 어떡하면 좋나요”\nStrategy\n[HIV 감염 상태와 에이즈의 차이점을 설명드림]\n에이즈는 더 이상 불치병이 아닌 고혈압과 당뇨처럼 관리가 중요한 질병임을 설명\n드리면서 환자의 건강에 최대한 도움이 되도록 노력할테니 걱정말라고 말씀 드림\nHM 감염 人|실은 유출될 일이 없고 보건소 직원들도 이를 유출할 경우 법적인 문제가\n발생한다는 人|살을 익히 알고 있어 비밀 유지에 최선을 다한다고 말씀 드림\n앞으로 정7 1적으로 만나서 필요한 검사와 진찰을 받는 것0 1 중요함을 설명\n환자의 질문 or\n걱정거리",
+    "history_blocks": {},
+    "physical_exam_results": null,
+    "patient_question_or_concern": "m m\n없음",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 28 세\n주소\n“저번에 시행한 HIV 확진검사 결과 들으러 왔어요”\n知^출놓學J»,' '-\"'*\nSetting\n[Present illness]\n고열과 기침. 가래 등의 호흡기 감염 증상으로 내원했던 환자, 폐렴 의심하에\n여러 가지 검사 진행하였고, 클럽에서 알게 된 남자와 성관계를 가졌던 병력 상\nHIV 의심되어 선별검사 시행함, 선별검사에서 양성 나왔으며, 이는 위양성의\n가능성이 높음을 설명하며 확진검사를 권유드려 시행한 상태\n보호자 없이 혼자 방문하였고, 증상이 많이 호전되었기 때문에 검사 결과가 안\n좋게 나오지는 않을 것 같지만 살짝 걱정은 됨\nPerception\n론^ # ^ ^ ^ ^\nHIV 선별검사 양성 알고 있고, 위양성의 가능성이 높음을 설명드렸던 것도 기억함\n확진검사 시행한 것 알고 있음\nInvitation\n결과는 혼자 듣겠다고 함. 자세히 알고 싶어 하며 진단/치료 모두 듣겠다고 함\nKnowledge\n-\n4 나V, - ' V.:: •■\n[제시문 주어진 내용]\n• HIV 확진검사 양성\n• 환자의 의지와 관계없이 보건소로 검사 결과 통보되어 역학 조Aᅡ가 진행됨\n• 선별검사와 확진검사 모두 위양성이 나올 확률은 0에 가까움\n• 최근 combination antiviral therapy로 유의미하게 장기 생존율이 증가될 수 있음\n가^ ] 세\n, ‘\nEmotion\nr 자, .\n[분뇌 “제가 지금 에이즈라는말씀이네요? ”\n[부정] “아니 증상도 좋아졌는데 못믿겠어요 저번에 폐렴이라고 하셨었는데…”\n“검사가 잘못된 거 아니에요? ”\n[우울]\n“말도안돼요…”, “그남자때문인가요 •••?”\n[수용] “그럼 이제 어떡하면 좋나요”\nStrategy\n[HIV 감염 상태와 에이즈의 차이점을 설명드림]\n에이즈는 더 이상 불치병이 아닌 고혈압과 당뇨처럼 관리가 중요한 질병임을 설명\n드리면서 환자의 건강에 최대한 도움이 되도록 노력할테니 걱정말라고 말씀 드림\nHM 감염 人|실은 유출될 일이 없고 보건소 직원들도 이를 유출할 경우 법적인 문제가\n발생한다는 人|살을 익히 알고 있어 비밀 유지에 최선을 다한다고 말씀 드림\n앞으로 정7 1적으로 만나서 필요한 검사와 진찰을 받는 것0 1 중요함을 설명\n환자의 질문 or\n걱정거리\n질문\nm m\n\n없음"
+  },
+  "examiner_only": {
+    "scenario_task": "검사 결과에 대해 설명하고\n향후 치료 계획에 대해 환자에게 설명하시오*\n^■자\n교육\n환자가 보이는 반응 3가지\n1. 분노\n2. 부정\n3. 우울\n향후 환자에게 도움이 될 수 있는 치료 방향이나 고려할 점 2가지\n1. 정기적인 진찰을 통해 건강한 상태를 유지\n2. 경제적 지원이 필요하면 연결\n주로 암 환자나 그에 따른 추가적 인 조치에 대한 증례로 나오다가 이\n번에는 HIV 감염이라는 다소 새로운 부분으로 구성되었습니다.\n증례를 보면 알겠지만 병력이나 제시되어 있는 글이 많아 약간 당황할 수 있는 여지를 주었는\n데, 이럴 때일수록 침착하게 읽어나가서 상담의 순서 및 방향을 머릿속에 구성해야합니다.\n증례의 환자는분노> 부정，우울，수용의 여러 반응을:！■이고 있고> 이에 대한주치의로서의 적절\n한 반응이 무엇일지 생각해 봅니다.\n아직 감염 초기 상태이며, 건강한 상태로 유추되므로 희망과 격려, 그리고 최선을 다할 것을 약\n속드리는 것으로 상담을 마무리하면 좋을 것입 니다.",
+    "likely_diagnoses": [],
+    "planned_tests": [],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "B\n{ 실전모의 증례\n• 28세 남자 최은형씨가 HIV 확진검사 결고» 듣기 위해 내원하였다.\n^■황\n지침\n[활력 징후] 혈압 : l25/80mmHg\n맥박 : 72회/분\n호흡 : 25회/분\n체온 ：\n36.3°C\n[응시자는 이 환자에게] 검사 결과에 대해 설명하고\n향후 치료 계획에 대해 환자에게 설명하시오*\n^■자\n교육\n• 환자가 보이는 반응 3가지\n1. 분노\n2. 부정\n3. 우울\n• 향후 환자에게 도움이 될 수 있는 치료 방향이나 고려할 점 2가지\n1. 정기적인 진찰을 통해 건강한 상태를 유지\n2. 경제적 지원이 필요하면 연결\n주로 암 환자나 그에 따른 추가적 인 조치에 대한 증례로 나오다가 이\n번에는 HIV 감염이라는 다소 새로운 부분으로 구성되었습니다.\n증례를 보면 알겠지만 병력이나 제시되어 있는 글이 많아 약간 당황할 수 있는 여지를 주었는\n데, 이럴 때일수록 침착하게 읽어나가서 상담의 순서 및 방향을 머릿속에 구성해야합니다.\n증례의 환자는분노> 부정，우울，수용의 여러 반응을:！■이고 있고> 이에 대한주치의로서의 적절\n한 반응이 무엇일지 생각해 봅니다.\n아직 감염 초기 상태이며, 건강한 상태로 유추되므로 희망과 격려, 그리고 최선을 다할 것을 약\n속드리는 것으로 상담을 마무리하면 좋을 것입 니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [
+      "structured_history_labels_not_detected"
+    ],
+    "requires_manual_review": true
+  }
+}

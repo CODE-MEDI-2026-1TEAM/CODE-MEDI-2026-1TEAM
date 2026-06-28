@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "acute_abdominal_pain-002",
+  "case_number_in_pdf": 2,
+  "topic": {
+    "topic_start_page": 15,
+    "topic_id": "acute_abdominal_pain",
+    "topic_label": "급성 복통",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 17,
+      "end": 18
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "정민성",
+      "age": 51,
+      "sex": "남자"
+    },
+    "setting": "응급실",
+    "opening_statement": "배가아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "124/82mmHg",
+      "pulse": "88회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "37.3°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 51 세\n주소\n“배가아파요”",
+    "history_blocks": {
+      "onset": "^ 늘아침",
+      "location": "명치 부위",
+      "duration": "지속",
+      "course": "큰 차이^음",
+      "experience": "이전에도 2차례",
+      "character": "쥐어 짜는듯한 통증, NRS 6~8점\n방사통 (+) ：\n등",
+      "associated_symptoms": "[전신] 발열/식은땀/체중 감소/오한/피로감( - / 一/+. 2달간 8kg 감소/一/ -)\n[소화기] 구역/구토/식욕 부진/ 변비/설人K一/ᅳ/+/■/ᅳ)\n지방변(+ )，황달(一), 혈변(一)\n[비뇨] 빈뇨/절박뇨/야간뇨/배뇨통(+，소변이 지주 마려움/ - / 一/-)\n[내분비] 다음(+), 다뇨(+), 다갈(+)",
+      "factors": "식후, 음주 후 심해지는 통증, 통증으로 인해 식사량 감소\n자세에 따른 변화(+, 앞으로 숙이면 완화) /어제 저녁 회식에서 음주함",
+      "events": "2년 전 내시경 모두 받음，위염 있어 약 처방 받음",
+      "past_history": "DM/TB/HTN/간염(ᅳ/ - / - / - ) , 전립선 비대증(+)",
+      "medications": "전립선 비대증약",
+      "social_history": "술(+) ：\n1주일 > 4 번, 하루 소주 2병，최근 줄였음\n담배 (+) : 30갑년，최근 금연\n직업 : 회사원",
+      "family_history": "General\nV/S 확인\nHEENT\n구강 탈수 소견(ᅳ). 결막/공막 정상"
+    },
+    "physical_exam_results": "Abdomen\n복부 시/청/타/촉( - / - / - / + )\n명치 부위 Td/rTd(+/-), DRE/CVAK-/-)\nExtermity\n피부 긴장도/오목 부종( - / - )",
+    "patient_question_or_concern": "“심각한 병일까요? ”\nI 이 사항\n응급실에서 진료 진행",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 51 세\n주소\n“배가아파요”\n0\n^ 늘아침\nL\n명치 부위\nD\n지속\nCo\n큰 차이^음\nEx\n이전에도 2차례\nC\n쥐어 짜는듯한 통증, NRS 6~8점\n방사통 (+) ：\n등\nA\n[전신] 발열/식은땀/체중 감소/오한/피로감( - / 一/+. 2달간 8kg 감소/一/ -)\n[소화기] 구역/구토/식욕 부진/ 변비/설人K一/ᅳ/+/■/ᅳ)\n지방변(+ )，황달(一), 혈변(一)\n[비뇨] 빈뇨/절박뇨/야간뇨/배뇨통(+，소변이 지주 마려움/ - / 一/-)\n[내분비] 다음(+), 다뇨(+), 다갈(+)\nF\n식후, 음주 후 심해지는 통증, 통증으로 인해 식사량 감소\n자세에 따른 변화(+, 앞으로 숙이면 완화) /어제 저녁 회식에서 음주함\nE\n2년 전 내시경 모두 받음，위염 있어 약 처방 받음\n외\n-\n과\nDM/TB/HTN/간염(ᅳ/ - / - / - ) , 전립선 비대증(+)\n약\n전립선 비대증약\n사\n술(+) ：\n1주일 > 4 번, 하루 소주 2병，최근 줄였음\n담배 (+) : 30갑년，최근 금연\n직업 : 회사원\n가\n-\nGeneral\nV/S 확인\nHEENT\n구강 탈수 소견(ᅳ). 결막/공막 정상\nP/E\nAbdomen\n복부 시/청/타/촉( - / - / - / + )\n명치 부위 Td/rTd(+/-), DRE/CVAK-/-)\nExtermity\n피부 긴장도/오목 부종( - / - )\n질문\n“심각한 병일까요? ”\nI 이 사항\n응급실에서 진료 진행"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "만성췌장염",
+      "급성췌장염",
+      "위궤양"
+    ],
+    "planned_tests": [
+      "복부 CT",
+      "복부초음파",
+      "혈중 amylase/lipase 농도"
+    ],
+    "planned_treatments_or_education": [
+      "진통제",
+      "수분 공급및안정",
+      "소화효소 ^충"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "B\n[ 실전 모의 증례\n• 51 세 남자 정민성씨가 배가 아파 내원하였다(현재 응급실).\n'\n5>!',\n상황\n지침\n[활력 징휘 혈압 : 124/82mmHg\n맥박 : 88회/분\n호흡: 17회/분\n체온 ：\n37.3°C\n'泰\ns\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 기능성이 높은 진단 3개\n1. 만성췌장염\n2. 급성췌장염\n3. 위궤양\n• 필요한 검사 계획 3가지\n::교육\n1. 복부 CT\n2. 복부초음파\n3. 혈중 amylase/lipase 농도\n• 필요한 치료 계획 3가지\n1. 진통제\n2. 수분 공급및안정\n3. 소화효소 ^충\n급성 복통은 복부의 각 부위별로 발생할 수 있는 질흰을 숙지하고 해\nq € J\n당되는 부위에 나타날 수 있는 碰들을 시사하는 증상들에 대해 구체\n적으로 물어보는 것이 좋습니다.\n본 증례의 경우 명치 부위의 지속적 통증을 호소했으므로 위나 십이지장, 혹은 췌장의 문제일\n가능성이 높습니다. 따라서 필수적인 소화기 증상(ANVDC) 이외에 지방변, 체중 감소, 최근 생\n긴 당뇨 증상등질병 특이적인 추가문진을 통해 복통의 원인을 더욱 확실히 추정할수 있습니\n다. 그러나 위궤양, 위암, 혹은 급성 췌장염에 대한 배제가 필요하므로 이에 대한 진단적 접근또\n한 환자에게 설명해 주면 좋습니다"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

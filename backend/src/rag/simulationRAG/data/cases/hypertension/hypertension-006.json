@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hypertension-006",
+  "case_number_in_pdf": 77,
+  "topic": {
+    "topic_start_page": 167,
+    "topic_id": "hypertension",
+    "topic_label": "고혈압",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 179,
+      "end": 180
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이지은",
+      "age": 34,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "혈압이 높아요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "150/96mmHg",
+      "pulse": "85회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 34세\n\"혈압이 높아요”",
+    "history_blocks": {
+      "onset": "3달 전",
+      "course": "출산 후 계속 안 떨어짐",
+      "experience": "임신 전에는 정상",
+      "character": "운동, 커피, 담배 안하고 안정 취하고 잰 혈압\n다른 이상 없음",
+      "associated_symptoms": "[전신] 체중 변화(- ), 피로(+，“아이 키우느라 피곤해요”)\n뒷목 뻐근함(+), 코골이 (+)\n[순환기] 호흡곤란/흉통/두근거림( - / - / - )\n[소화기] 변비/설사 ( - / - )\n[내분비] 두통/부종/더위불내성(ᅳ/ᅳ/ᅳ), 복부선조/ 여드름(ᅳ/ᅳ)\n[비뇨기] 소변 거품/ 다뇨/빈뇨( - / - / 一)",
+      "factors": "\"아기 때문에 잠을 거의 못자요”",
+      "past_history": "DM/HTN/dyslipidemia/TB/간염 (一/+ / - / - / - )",
+      "medications": "人 f\n술(- ), 담배(一，이전에 7갑년), 커피(+, 1〜2잔/ 일)，직업 ：\n은행원(복귀 예정)",
+      "family_history": "아버지 : 고혈압, 노ᅵ출혈로 돌아가심",
+      "gynecologic_history": "3개월 전 40주 질식 분만, 출산 시 문제 없었음\nGeneral\n혈압，맥박 확인\nHEENT\n갑상샘 시진/촉진, 경정맥 관찰, 경동맥 촉진/청진/모두 정상"
+    },
+    "physical_exam_results": "Chest\n심음 청진, 호흡음 청진 모두 정상\nAbdomen\n복부 잡음, 복부덩이 촉진 모두 정상\nExtermity\n오목 부종，피부 긴장도 모두 정상",
+    "patient_question_or_concern": "특이 ^ᅡ항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 34세\n\"혈압이 높아요”\n0\n3달 전\nL\n-\nD\n-\nCo\n출산 후 계속 안 떨어짐\nEx\n임신 전에는 정상\nC\n운동, 커피, 담배 안하고 안정 취하고 잰 혈압\n다른 이상 없음\nA\n[전신] 체중 변화(- ), 피로(+，“아이 키우느라 피곤해요”)\n뒷목 뻐근함(+), 코골이 (+)\n[순환기] 호흡곤란/흉통/두근거림( - / - / - )\n[소화기] 변비/설사 ( - / - )\n[내분비] 두통/부종/더위불내성(ᅳ/ᅳ/ᅳ), 복부선조/ 여드름(ᅳ/ᅳ)\n[비뇨기] 소변 거품/ 다뇨/빈뇨( - / - / 一)\nF\n\"아기 때문에 잠을 거의 못자요”\nE\n-\n외\n-\n과\nDM/HTN/dyslipidemia/TB/간염 (一/+ / - / - / - )\n약\n-\n人 f\n술(- ), 담배(一，이전에 7갑년), 커피(+, 1〜2잔/ 일)，직업 ：\n은행원(복귀 예정)\n가\n아버지 : 고혈압, 노ᅵ출혈로 돌아가심\n여\n3개월 전 40주 질식 분만, 출산 시 문제 없었음\nGeneral\n혈압，맥박 확인\nHEENT\n갑상샘 시진/촉진, 경정맥 관찰, 경동맥 촉진/청진/모두 정상\nP/E\nChest\n심음 청진, 호흡음 청진 모두 정상\nAbdomen\n복부 잡음, 복부덩이 촉진 모두 정상\nExtermity\n오목 부종，피부 긴장도 모두 정상\n질문\n-\n특이 ^ᅡ항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육",
+    "likely_diagnoses": [
+      "임신성 고혈압",
+      "본태 고혈압",
+      "갑상샘항진증"
+    ],
+    "planned_tests": [
+      "갑상샘;71능검새TSH, T3, T4i free T3)",
+      "24시간 심전도",
+      "24시간 소변 메타네프린"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 혈압 측정 : 혈압이 현재 150/96mmHg로 높은 상황이기 때문에 진료실에서 한\n번 더 혈압을 측정해야 합니다.\n2. 안저검사 : 과거력에 고혈압이 있으므로 눈 이상이 없는지 확인하기 위해 안저검\n사를 시행해야 합니다.\n；",
+    "author_commentary_tail": "는 일차성 고혈압, 일시적으로 나타날수 있는 백의 고혈압, 이차성 고혈압을떠올리면 됩니다.\n；\n이차성 고혈압에는신장 질병, 갑상샘 질병, 부신 질병이 있을수 있으니, 각각에 대한 감별 진단\nI 을하면됩니다.\ni 혈압 및 맥박 확인하는 것 잊지 마시고, 교육 때는 생활습관 교육을 꼭 설명해 주어야 합니다.\ni\n..........\n.\ny\n가\n■모-합 ■■함니■■二",
+    "scenario_card_raw": "•\n실전모의 증례\n^■황\n지침\n• 34세 여자 이지은씨가 혈압이 높다며 내원하였다.\n[활력 징후] 혈압 : 150/96mmHg\n맥박 : 85회/분\n호흡 : 20회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n교육\n• 가능성이 높은 진단 3개\n1. 임신성 고혈압\n2. 본태 고혈압\n3. 갑상샘항진증\n• 필요한 검사 계획 3가지\n1. 갑상샘;71능검새TSH, T3, T4i free T3)\n2. 24시간 심전도\n3. 24시간 소변 메타네프린\n예상\n술기\n1. 혈압 측정 : 혈압이 현재 150/96mmHg로 높은 상황이기 때문에 진료실에서 한\n번 더 혈압을 측정해야 합니다.\n2. 안저검사 : 과거력에 고혈압이 있으므로 눈 이상이 없는지 확인하기 위해 안저검\n사를 시행해야 합니다.\n；\n\n문진을하다가임신 중인 사실을 알게 된 후 당황하실 수 있지만, 당황\n：\n\ny i M\nf\n하지 마시고 평소 고혈압문진했던 대로 하면 됩니다. 고혈압 케이스\n；\n는 일차성 고혈압, 일시적으로 나타날수 있는 백의 고혈압, 이차성 고혈압을떠올리면 됩니다.\n；\n\n이차성 고혈압에는신장 질병, 갑상샘 질병, 부신 질병이 있을수 있으니, 각각에 대한 감별 진단\nI 을하면됩니다.\ni 혈압 및 맥박 확인하는 것 잊지 마시고, 교육 때는 생활습관 교육을 꼭 설명해 주어야 합니다.\ni\n..........\n.\ny\n가\n■모-합 ■■함니■■二"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

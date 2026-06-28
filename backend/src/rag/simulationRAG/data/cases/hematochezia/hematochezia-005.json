@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "hematochezia-005",
+  "case_number_in_pdf": 26,
+  "topic": {
+    "topic_start_page": 59,
+    "topic_id": "hematochezia",
+    "topic_label": "혈변",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 67,
+      "end": 68
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "황지영",
+      "age": 65,
+      "sex": "여자"
+    },
+    "setting": "응급실",
+    "opening_statement": ", -",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "100/65mmHg",
+      "pulse": "115회/분",
+      "respiratory_rate": "19회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별八나이\n여성/ 65세\n주소\n“혈변이 있어 왔어요”",
+    "history_blocks": {
+      "onset": "4시간 전",
+      "course": "처음과 비슷",
+      "character": "묽은변과 피 섞여 나옴，냄새(一)\n변 4번 전부 변기 가득한 출혈/선홍색",
+      "associated_symptoms": "[전신] 발열/오한/식은땀/체중감소 ( - / - / - / - )\n[응고질환] 지혈장애/멍이 잘 듦( - / _ )\n[소화기] 명치 통증(+, VAS 4-5), 신물/설人^배변 시 항문 통증(+ /+ /-)\n[응급] 어지럼/숨참/두근거림 (+/+/+)",
+      "factors": "악화 (+) ：\n식후",
+      "events": "3년 전 위염 진단/대장내시경 하지 않음",
+      "past_history": "DM/TB/HTN/간염( - / ᅳ/ - / - ) , 관절염(+)",
+      "medications": "관절 : 5개월 전 진통소염제\n人 f\n술/ 담배( - / —), 케1K+, 하루 3~4잔)\n식습관 ：\n규칙적, 야채 자주 섭취，최근에 먹지 않던 음식 먹은 적 없음\n스트레스(+) ：\n명치 통증 심해짐, 직업 : 콜센터 직원",
+      "family_history": "아버지 : 고혈압",
+      "trauma_history": "복부 외상(-)",
+      "gynecologic_history": "폐경"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n입/피부 탈수 소견( - / - ) , 결막/공막(ᅳ/一)\nChest\n흉부 청진 정상\nAbdomen\nEpigastric Td(+)\nDRE ：\n붉은변. 덩이(一)\n골반 내진 정상\nExtermity\n피부 긴장도 소실",
+    "patient_question_or_concern": "“암인가요? ”",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별八나이\n여성/ 65세\n주소\n“혈변이 있어 왔어요”\n0\n4시간 전\nL\n-\nD\n-\nCo\n처음과 비슷\nEx\n-\nC\n묽은변과 피 섞여 나옴，냄새(一)\n변 4번 전부 변기 가득한 출혈/선홍색\nA\n[전신] 발열/오한/식은땀/체중감소 ( - / - / - / - )\n[응고질환] 지혈장애/멍이 잘 듦( - / _ )\n[소화기] 명치 통증(+, VAS 4-5), 신물/설人^배변 시 항문 통증(+ /+ /-)\n[응급] 어지럼/숨참/두근거림 (+/+/+)\nF\n악화 (+) ：\n식후\nE\n3년 전 위염 진단/대장내시경 하지 않음\n과\nDM/TB/HTN/간염( - / ᅳ/ - / - ) , 관절염(+)\n약\n관절 : 5개월 전 진통소염제\n人 f\n술/ 담배( - / —), 케1K+, 하루 3~4잔)\n식습관 ：\n규칙적, 야채 자주 섭취，최근에 먹지 않던 음식 먹은 적 없음\n스트레스(+) ：\n명치 통증 심해짐, 직업 : 콜센터 직원\n가\n아버지 : 고혈압\n외\n복부 외상(-)\n여\n폐경\nP/E\nGeneral\nV/S 확인\nHEENT\n입/피부 탈수 소견( - / - ) , 결막/공막(ᅳ/一)\nChest\n흉부 청진 정상\nAbdomen\nEpigastric Td(+)\nDRE ：\n붉은변. 덩이(一)\n골반 내진 정상\nExtermity\n피부 긴장도 소실\n질문\n“암인가요? ”\n특이 사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육",
+    "likely_diagnoses": [
+      "위궤양",
+      "위염",
+      "궤양 천공"
+    ],
+    "planned_tests": [
+      "위내시경",
+      "복부 X-ray",
+      "경직장초음파"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 혈압 측정 : 환자가 저혈량성 쇼크에 빠진 것은 아닌지 감별하기 위해 혈압 측정\n이 필요합니다.\n2. 항문 직장 진찰 : 항문 직장 진찰을 통해 혈변의 색과 양상을 획인합니다. 항문에\n치핵이나 치열이 관찰되지는 않은지, 직장에서 덩이가 만져지지는 않은지 확인해\n야 합니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 : 응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n돼\n^\n^\nI 출혈과 관련된 경우 응급 여부를 판별하는 것이 중요합니다. 출혈이\ni\n심하여 빈혈 소견을 보이는 경우 수액 공급이나 수혈이 필요함을 설명\n：",
+    "author_commentary_tail": "； ；：» .\n. I\n위의 케이스와 같이 고령의 경우 기질성 질환을 감별해야하므로 체중 변화, 변 굵기의 변화등\ni\n을 물어 보는 것도 중요합니다. 마찬가지로 출혈과 관련된 경우에는 응고 질환과 약물을 물어\ni\n보아야합니다.\ni\nw vi 二\nr\nv\n\" , -\"i- v ' I",
+    "scenario_card_raw": "실전 모의 증례\n지침\n• 65세 여자 황지영씨가 혈변으로 내원하였다.\n[활력 징휘 혈압 : 100/65mmHg\n맥박 : 115회/분\n호흡 : 19회/분\n체온 ：\n36.5긴\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 3개\n1. 위궤양\n2. 위염\n3. 궤양 천공\n• 필요한 검사 계획 3가지\n1. 위내시경\n2. 복부 X-ray\n3. 경직장초음파\n예상\n술기\n1. 혈압 측정 : 환자가 저혈량성 쇼크에 빠진 것은 아닌지 감별하기 위해 혈압 측정\n이 필요합니다.\n2. 항문 직장 진찰 : 항문 직장 진찰을 통해 혈변의 색과 양상을 획인합니다. 항문에\n치핵이나 치열이 관찰되지는 않은지, 직장에서 덩이가 만져지지는 않은지 확인해\n야 합니다.\n3. 설명동의서 받기 : 위내시경검사가 필요한 환자입니다. 위내시경에 대한 설명 후\n동의서를 받을 수 있습니다.\n4. 환자 상태 보고 : 응급실에 내원한 환자의 시나리오로 교수님께 환자 상태 보고를\n시행할 수 있습니다.\n돼\n^\n^\nI 출혈과 관련된 경우 응급 여부를 판별하는 것이 중요합니다. 출혈이\ni\n심하여 빈혈 소견을 보이는 경우 수액 공급이나 수혈이 필요함을 설명\n：\n\n하는 것이 중요합니다. 출혈 기간과 출혈량, 색깔을 참고하여 출혈의 부위와 질환을 감별할 수\n|\n있으므로 혈변의 양상을 자세히 물어 봅니다.\n； ；：» .\n. I\n위의 케이스와 같이 고령의 경우 기질성 질환을 감별해야하므로 체중 변화, 변 굵기의 변화등\ni\n을 물어 보는 것도 중요합니다. 마찬가지로 출혈과 관련된 경우에는 응고 질환과 약물을 물어\ni\n보아야합니다.\ni\nw vi 二\nr-\nv\n\" , -\"i- v ' I"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vaccination-003",
+  "case_number_in_pdf": 268,
+  "topic": {
+    "topic_start_page": 679,
+    "topic_id": "vaccination",
+    "topic_label": "예방접종",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 689,
+      "end": 692
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": null,
+      "age": null,
+      "sex": null
+    },
+    "setting": "외래/미상",
+    "opening_statement": "오늘은 수두만 맞고 갈게요. MMR은 다음에 맞을게요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "90/60mmHg",
+      "pulse": "90회/분",
+      "respiratory_rate": null,
+      "temperature": "36.50C"
+    },
+    "opening_profile_text": "인적 ^卜항\n성장/발달\n예방접종력\n확인\n0주\nHBV\n1 개월\nHBV\n2 개월\nDTap\nPolio\nHib\nPneumo\n4개월\nDTap\nPolio\nHib\nPneumo\n6 개월\nHBV\nDTap\nPolio\nHib\nPneumo\n12~15개월\nHib\nMMR\nPneumo\n일본뇌염\n18개월\nDTap\n6개월까지 필요한 여I 방접종 실시\n생년월일로 정확한 만 나이 확인\n[성장] 성장 속도 정상, 키/몸무게 80백분위수\n[발달] 운동, 적응, 언어, 사회적 행동 모두 정상 발달\n모유수유하며 밥 먹여보고 있음\n출산력\n임신 40주, 3.1kg, 50cm. 질식분만\n분만 과정 중 문제 없었음\n과거병력\n최근 한 달 전쯤 돌발진 진단 받은 적 있으나 현재 다 나음\n최근 1개월 내 홍역/볼거리/수두(一/ - / - )\n금기\n항\n확인\n면역결핍 질환/백혈병/암(一/ᅳ/一)\n최근 경련/신경계 질환( - / - )\n최근 스테로이드/수혈/ 면역억제제/면역 글로불린 투여(ᅳ/一/ᅳ/ᅳ)\n알레르기 젤라틴/네오마이신/달걀( - / - / - )\n이전 예방접종 후 이상 반응(+, 생후 2개월에 맞은 백신주사로 하루 동안 발열\n있었음)\n요\noi\n사며\nJO",
+    "history_blocks": {},
+    "physical_exam_results": null,
+    "patient_question_or_concern": "“오늘은 수두만 맞고 갈게요. MMR은 다음에 맞을게요.”\n예방접종 수첩, 성장곡선 주어짐\n접종표에 오늘 맞을 백신 날짜, 병원 이름 기재할 것\nm\n{\n실전모의증례\n만 6세 남아가 예방접종을 위해 내원하였다.\n[활력 징후] 혈압 : 120/80mmHg\n^■황\n지침\n맥박 : 80회/분\n호흡 ：\n20회/분\n체온 ：\n36.2°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n예방접종 계획에 대해 환아 보호자와 논의하시오\n성장 및 발달에 대한 평가 2개\n1. 정상 성장\n2. 정상 발달\n교육\n오늘 접종 가능한 백신 4가지\n1. DTaP\n2. Polio\n3. MMR\n4. 일본뇌염\n6세 건강한 남아로 정기적으로 예방접종해 온 환자 케이스입니다.\n예방접종표를보고 맞아야할 백신을확인하는 것이 중요합니다.\n접종표에는 없지만 Influenza 백신에 대해 묻는 것도 잊지 말아야 합니다.\n0/1M\nHBV\n1m\nBCG\n2m\nDTaP\nPolio\nHib\nPneumo\n4m\nDTaP\nPolio\nHib\nPneumo\n6m\nDTaP\nPolio\nHib\nPneumo\n12~15m\nHib\nMMR\n■A .C Z\nPneumo\n일본뇌염\n18mo\nDTaP\n6yr\nDTaP\nPolio\nMMR\n일본뇌염\n12yr\nTd\n일본뇌염\n예방접종력\n확인\n6세 전까지 필요한 예방접종 모두 실시\n성장/발달\n출산력\n과거 병력\n[성장] 키 115cm, 몸무게 21kg, 성장속도 정상\n[발달] 운동, 적응, 언어,사회적행동 모두 정상발달\n식생활 : 밥 잘 먹음\n임신 41주, 질식분만 3.3kg\n분만 과정 중 문제 없었음\n소아 질환력 : 출생 후 않았던 적 없음\n최근 1개월 내 홍역/볼거리/수두( - / - / - )\n최근 입원한 적 (+) : 1 년 전 때로 입원 치료받음\n현재 앓고 있는 질환(-)\n금기시항\n확인\n① 면역결핍 질환/백혈병/암(-/_/->\n② 최근 경련/신경계 질환(-/-)\n③ 최근 스테로이드/수혈/면역억제제/면역 글로불린 투여(-/-/-/+ , 1 년 전)\n④ 알레르기 : 젤라틴/네오마이신/달걀(- / - / - )\n⑤ 이전 예방접종 후 이상 반응(-)\n질문\n“면역 글로불린 치료 받을 때 MMR 못맞는다 했는데. 오늘 맞아도 괜찮은가요? ”",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "인적 ^卜항\n성장/발달\n예방접종력\n확인\n0주\nHBV\n1 개월\nHBV\n2 개월\nDTap\nPolio\nHib\nPneumo\n4개월\nDTap\nPolio\nHib\nPneumo\n6 개월\nHBV\nDTap\nPolio\nHib\nPneumo\n12~15개월\nHib\nMMR\nPneumo\n일본뇌염\n18개월\nDTap\n6개월까지 필요한 여I 방접종 실시\n생년월일로 정확한 만 나이 확인\n[성장] 성장 속도 정상, 키/몸무게 80백분위수\n[발달] 운동, 적응, 언어, 사회적 행동 모두 정상 발달\n모유수유하며 밥 먹여보고 있음\n출산력\n임신 40주, 3.1kg, 50cm. 질식분만\n분만 과정 중 문제 없었음\n과거병력\n최근 한 달 전쯤 돌발진 진단 받은 적 있으나 현재 다 나음\n최근 1개월 내 홍역/볼거리/수두(一/ - / - )\n금기\n항\n확인\n면역결핍 질환/백혈병/암(一/ᅳ/一)\n최근 경련/신경계 질환( - / - )\n최근 스테로이드/수혈/ 면역억제제/면역 글로불린 투여(ᅳ/一/ᅳ/ᅳ)\n알레르기 젤라틴/네오마이신/달걀( - / - / - )\n이전 예방접종 후 이상 반응(+, 생후 2개월에 맞은 백신주사로 하루 동안 발열\n있었음)\n요\noi\n사며\nJO\n질문\n“오늘은 수두만 맞고 갈게요. MMR은 다음에 맞을게요.”\n예방접종 수첩, 성장곡선 주어짐\n접종표에 오늘 맞을 백신 날짜, 병원 이름 기재할 것\n\nm\n{\n실전모의증례\n• 만 6세 남아가 예방접종을 위해 내원하였다.\n[활력 징후] 혈압 : 120/80mmHg\n^■황\n지침\n맥박 : 80회/분\n호흡 ：\n20회/분\n체온 ：\n36.2°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n예방접종 계획에 대해 환아 보호자와 논의하시오\n• 성장 및 발달에 대한 평가 2개\n1. 정상 성장\n2. 정상 발달\n교육\n• 오늘 접종 가능한 백신 4가지\n1. DTaP\n2. Polio\n3. MMR\n4. 일본뇌염\n6세 건강한 남아로 정기적으로 예방접종해 온 환자 케이스입니다.\n예방접종표를보고 맞아야할 백신을확인하는 것이 중요합니다.\n접종표에는 없지만 Influenza 백신에 대해 묻는 것도 잊지 말아야 합니다.\n\n0/1M\nHBV\n1m\nBCG\n2m\nDTaP\nPolio\nHib\nPneumo\n4m\nDTaP\nPolio\nHib\nPneumo\n6m\nDTaP\nPolio\nHib\nPneumo\n12~15m\nHib\nMMR\n■A .C Z\nPneumo\n일본뇌염\n18mo\nDTaP\n6yr\nDTaP\nPolio\nMMR\n일본뇌염\n12yr\nTd\n일본뇌염\n예방접종력\n확인\n6세 전까지 필요한 예방접종 모두 실시\n성장/발달\n출산력\n과거 병력\n[성장] 키 115cm, 몸무게 21kg, 성장속도 정상\n[발달] 운동, 적응, 언어,사회적행동 모두 정상발달\n식생활 : 밥 잘 먹음\n임신 41주, 질식분만 3.3kg\n분만 과정 중 문제 없었음\n소아 질환력 : 출생 후 않았던 적 없음\n최근 1개월 내 홍역/볼거리/수두( - / - / - )\n최근 입원한 적 (+) : 1 년 전 때로 입원 치료받음\n현재 앓고 있는 질환(-)\n금기시항\n확인\n① 면역결핍 질환/백혈병/암(-/_/->\n② 최근 경련/신경계 질환(-/-)\n③ 최근 스테로이드/수혈/면역억제제/면역 글로불린 투여(-/-/-/+ , 1 년 전)\n④ 알레르기 : 젤라틴/네오마이신/달걀(- / - / - )\n⑤ 이전 예방접종 후 이상 반응(-)\n질문\n“면역 글로불린 치료 받을 때 MMR 못맞는다 했는데. 오늘 맞아도 괜찮은가요? ”\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n예방접종 계획에 대해 논의하시오\n^■자\n교육\n예방접종 후 교육할 내용 3가지\n1. 환아에서 이상 반응이 없는지 병원에서 30분, 귀가 후 3일 정도 유의 깊게 관찰하기\n2. 하루 동안 목욕하지 않고 접종 부위 긁지 않기\n3. 수두가 생백신이므로 한 달 간격을 두고 12개월에 해당히는 정기 예방접종을 맞도록\n하기\n14개월 건강한 남아로 아직 12〜15개월에 해당하는 백신을 맞지 않았 ;\n습니다.\n|\n환아가과거 백신 접종후이상 반응증상이 있어 보호자가 걱정하므로 이에 대해 충분한교육\n|\n을 시행하도록 합니다.\nI\nI\n수두 외에 정기 예방접종 항목을 오늘부터 한 달 간격을 두고 맞도록 생백신 주의 사항을 설명\ni\n합니다.\ni\n...\n.........\n,\n. . . . . I\n예방접종은 신체 진찰 없이 보호자와 면담을 통해 확인해야 할 사항이 많으므로 기존 질병과 다\ni\n■\n'\n1\n;■ I\n르게 flow를 만들어보고 연습하도록 합니 다.\n!\n二",
+    "likely_diagnoses": [],
+    "planned_tests": [],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "1^ 실전 모의 증례\n>逆, ; V, 식\n상황\n지침\n• 14개월 남아 김남준군이 수두 예방접종을 위해 보호자와 함께 내원하였다.\n[활력 징휘 혈압 : 90/60mmHg\n맥박 : 90회/분\n호톱 • 23회/분\n체온 ：\n36.50C\n[응시자는 이 환아의 보호자에게 환아에 대한]\n증상과 관련된 병력을 청취하고\n예방접종 계획에 대해 논의하시오\n^■자\n교육\n• 예방접종 후 교육할 내용 3가지\n1. 환아에서 이상 반응이 없는지 병원에서 30분, 귀가 후 3일 정도 유의 깊게 관찰하기\n2. 하루 동안 목욕하지 않고 접종 부위 긁지 않기\n3. 수두가 생백신이므로 한 달 간격을 두고 12개월에 해당히는 정기 예방접종을 맞도록\n하기\n14개월 건강한 남아로 아직 12〜15개월에 해당하는 백신을 맞지 않았 ;\n습니다.\n|\n환아가과거 백신 접종후이상 반응증상이 있어 보호자가 걱정하므로 이에 대해 충분한교육\n|\n을 시행하도록 합니다.\nI\nI\n수두 외에 정기 예방접종 항목을 오늘부터 한 달 간격을 두고 맞도록 생백신 주의 사항을 설명\ni\n합니다.\ni\n...\n- .........\n,\n. . . . . I\n예방접종은 신체 진찰 없이 보호자와 면담을 통해 확인해야 할 사항이 많으므로 기존 질병과 다\ni\n■\n'\n1\n;■ I\n르게 flow를 만들어보고 연습하도록 합니 다.\n!\n二\n\n」"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [
+      "patient_name_not_confidently_parsed",
+      "structured_history_labels_not_detected"
+    ],
+    "requires_manual_review": true
+  }
+}

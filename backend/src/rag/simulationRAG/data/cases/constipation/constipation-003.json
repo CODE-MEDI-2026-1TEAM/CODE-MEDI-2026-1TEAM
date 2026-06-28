@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "constipation-003",
+  "case_number_in_pdf": 37,
+  "topic": {
+    "topic_start_page": 87,
+    "topic_id": "constipation",
+    "topic_label": "배변 이상(변비)",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 91,
+      "end": 92
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이성훈",
+      "age": 55,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "변을 잘 못 봐요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/70mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": null,
+      "temperature": "36.30C"
+    },
+    "opening_profile_text": "1 성별/나이\n남성/ 55세\n.................\n장^ ^ Vv\n\"변을 잘 못 봐요”",
+    "history_blocks": {
+      "onset": "4개월 전부터",
+      "duration": "변을 일주일에 한번 겨우 봄",
+      "course": "심해진 것 같음",
+      "experience": "처음",
+      "character": "변이 가늘어지면서 잘 끊김",
+      "associated_symptoms": "[전신] 발열/오한/체중감소/야간발한/근육통/ 피로/부종\n(—/—/+ , 5kg 1년/—/—/—/—)\n[소화기] A /N / V / D / C (- / - / - / - / + )\n잔변감/혈변/변 볼 때 통증/손가락으로 변을 파냄(+ / - / - / - )\n배변 시간 20분\n[내분비] 추위불내성(一)",
+      "events": "건강 검진을 받아본 적이 없음(一)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "social_history": "술(+, 소주 1 병, 주 2회), 담배(+, 1갑씩 20년), 커피(- )\n직업 : 회人원, 스트레스 (+. 근무량이 많아져서 그만 둘 준비 중임 )\n근무 시에 거의 앉아 있음, 밥 먹을 때만 움직임, 운동량 적음\n식人[량에 문제 없고 음식도 골고루 먹음",
+      "family_history": "General\nV/S 정상\nHEENT\n결막/공막(ᅳ/ᅳ), 갑상샘(ᅵ), 입/피부 탈수 소견(ᅳ/니"
+    },
+    "physical_exam_results": "Chest",
+    "patient_question_or_concern": "“걱정해야하나요? ”\n특이 사항\n없음",
+    "actor_notes_or_special_behavior": "없음\nAbdomen\n복부 시/청/ 타/촉, 특이 소견 없음\nExtermity\n피부 긴장도• 오목 부종 정상\n기타\nDRE(+. 손가락 끝에 혈변이 묻어 나옴)\n질문\n“걱정해야하나요? ”\n특이 사항\n없음",
+    "raw_profile_text": "1 성별/나이\n남성/ 55세\n.................\n장^ ^ Vv\n\"변을 잘 못 봐요”\n0\n4개월 전부터\nL\n-\nD\n변을 일주일에 한번 겨우 봄\nCo\n심해진 것 같음\nEx\n처음\nC\n변이 가늘어지면서 잘 끊김\nA\n[전신] 발열/오한/체중감소/야간발한/근육통/ 피로/부종\n(—/—/+ , 5kg 1년/—/—/—/—)\n[소화기] A /N / V / D / C (- / - / - / - / + )\n잔변감/혈변/변 볼 때 통증/손가락으로 변을 파냄(+ / - / - / - )\n배변 시간 20분\n[내분비] 추위불내성(一)\nF\n-\nE\n건강 검진을 받아본 적이 없음(一)\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n-\n사\n술(+, 소주 1 병, 주 2회), 담배(+, 1갑씩 20년), 커피(- )\n직업 : 회人원, 스트레스 (+. 근무량이 많아져서 그만 둘 준비 중임 )\n근무 시에 거의 앉아 있음, 밥 먹을 때만 움직임, 운동량 적음\n식人[량에 문제 없고 음식도 골고루 먹음\n가\n-\nGeneral\nV/S 정상\nHEENT\n결막/공막(ᅳ/ᅳ), 갑상샘(ᅵ), 입/피부 탈수 소견(ᅳ/니\nP/E\nChest\n특이사항 없음\nAbdomen\n복부 시/청/ 타/촉, 특이 소견 없음\nExtermity\n피부 긴장도• 오목 부종 정상\n기타\nDRE(+. 손가락 끝에 혈변이 묻어 나옴)\n질문\n“걱정해야하나요? ”\n특이 사항\n없음"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "기능성 변비",
+      "대장암"
+    ],
+    "planned_tests": [
+      "대장내시경",
+      "대장 통과 시간 측정",
+      "대장조영술"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문 직장 진찰 : 변비와 체중 감소, 잔변감, 담배 20갑년 등으로 보아 종양, 치\n핵. 치열, 궤양 등으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을 시행해\n봅니다.\n2. 설명동의서 받기 : 대장암 감별을 위한 대장내시경을 위해 설명동의서를 받습니다.\n가능성 변비. 대장암 감별 위한 대장조영술을 위해 설명동의서를 받습니다.\n변비의 주된 원인은 생활 습관과 식습관, 배변 습관과 관련된 기능\n성 변비입니다. 많은 경우 배변 시간이 길거나운동량이 적으며, 음식\n을 고기 위주로만 먹는 등 편식하는 경우가 많습니다. 하지만 고령의 변비 환자에서는 대장암\n의 가능성도 무시할수 없는데, 변이 점점 가늘어지거나 홉연력이 있을 경우에 의심해 보아야\n합니다.\n변비와 관련된 배변 습관을 자세히 문진한 후 기억해 두었다가 마지막 교육 때 꼭 교정이 필요\n한부분을 언급해 주도록합니다. 위 환자의 경우 건강검진을 받은 적이 없는데, 환자 나이가50\n세 이상임을 참고할 때 매년 대장내시경이 필요하다는 것을 교육할 필요가 있겠습니다.",
+    "author_commentary_tail": "핵. 치열, 궤양 등으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을 시행해\n봅니다.\n2. 설명동의서 받기 : 대장암 감별을 위한 대장내시경을 위해 설명동의서를 받습니다.\n가능성 변비. 대장암 감별 위한 대장조영술을 위해 설명동의서를 받습니다.\n변비의 주된 원인은 생활 습관과 식습관, 배변 습관과 관련된 기능\n성 변비입니다. 많은 경우 배변 시간이 길거나운동량이 적으며, 음식\n을 고기 위주로만 먹는 등 편식하는 경우가 많습니다. 하지만 고령의 변비 환자에서는 대장암\n의 가능성도 무시할수 없는데, 변이 점점 가늘어지거나 홉연력이 있을 경우에 의심해 보아야\n합니다.\n변비와 관련된 배변 습관을 자세히 문진한 후 기억해 두었다가 마지막 교육 때 꼭 교정이 필요\n한부분을 언급해 주도록합니다. 위 환자의 경우 건강검진을 받은 적이 없는데, 환자 나이가50\n세 이상임을 참고할 때 매년 대장내시경이 필요하다는 것을 교육할 필요가 있겠습니다.",
+    "scenario_card_raw": "■\n실전 모의 증례\n지침\n• 55세 남자 이성훈씨가 변을 잘 못 봐 내원하였다.\n[활력 징휘 혈압 : 120/70mmHg\n맥박 : 70회/분\n토읍 ■\n25회/분\n체온 ：\n36.30C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n. 가능성이 높은 진단 2개\n1. 기능성 변비\n2. 대장암\n• 필요한 검사 계획 3가지\n1. 대장내시경\n2. 대장 통과 시간 측정\n3. 대장조영술\n예상\n술기\n1. 항문 직장 진찰 : 변비와 체중 감소, 잔변감, 담배 20갑년 등으로 보아 종양, 치\n핵. 치열, 궤양 등으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을 시행해\n봅니다.\n2. 설명동의서 받기 : 대장암 감별을 위한 대장내시경을 위해 설명동의서를 받습니다.\n가능성 변비. 대장암 감별 위한 대장조영술을 위해 설명동의서를 받습니다.\n변비의 주된 원인은 생활 습관과 식습관, 배변 습관과 관련된 기능\n성 변비입니다. 많은 경우 배변 시간이 길거나운동량이 적으며, 음식\n을 고기 위주로만 먹는 등 편식하는 경우가 많습니다. 하지만 고령의 변비 환자에서는 대장암\n의 가능성도 무시할수 없는데, 변이 점점 가늘어지거나 홉연력이 있을 경우에 의심해 보아야\n합니다.\n변비와 관련된 배변 습관을 자세히 문진한 후 기억해 두었다가 마지막 교육 때 꼭 교정이 필요\n한부분을 언급해 주도록합니다. 위 환자의 경우 건강검진을 받은 적이 없는데, 환자 나이가50\n세 이상임을 참고할 때 매년 대장내시경이 필요하다는 것을 교육할 필요가 있겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

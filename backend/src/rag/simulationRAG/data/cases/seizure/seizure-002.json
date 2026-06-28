@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "seizure-002",
+  "case_number_in_pdf": 208,
+  "topic": {
+    "topic_start_page": 533,
+    "topic_id": "seizure",
+    "topic_label": "경련",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 535,
+      "end": 536
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "송창희",
+      "age": 47,
+      "sex": "남자"
+    },
+    "setting": "응급실",
+    "opening_statement": "경련을 했대요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "152/92mmHg",
+      "pulse": "92회/분",
+      "respiratory_rate": "22회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/47세\n“경련을 했대요”",
+    "history_blocks": {
+      "onset": "1 시간 전",
+      "location": "胃",
+      "duration": "5분 미만(동료들 증언)",
+      "experience": "처음",
+      "character": "[양상]\n의식 없었고 뼛뼛하게 굳었음\n목이 돌아갔고 경련 후 피로감\n입을 꽉 깨물고 눈을 치켜 뜨고 있었음",
+      "associated_symptoms": "[전신]\n발열(+, 2주 전 감기 몸살), 피로(+>\n[신경]\n지남력 정상, 목 뼛뼛함(+)，두통(+, NRS7)\n[호흡기]\n기침(+), 가래(+)",
+      "factors": "최근^ ^",
+      "medications": "감기 증상 있을 때 타이레놀",
+      "social_history": "술(+). 담배(+), 스트레스(+, 최근 과로)\n직업 : 건설현장소장\n운동(-)",
+      "family_history": "아버지 뇌졸중\nGeneral\n고혈압, 호흡수 증가, 발열 (+)"
+    },
+    "physical_exam_results": "HEENT\n얼굴 근력/감각/반사 정상\n수막 자극 징후 (+)\nChest\n\nExtremity\n팔다리 근력/감각/반사 정상",
+    "patient_question_or_concern": "“아버지처럼 뇌졸중일까 걱정돼요;\nm\nm\nᅳ\n1ᅳ",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/47세\n“경련을 했대요”\n0\n1 시간 전\nL\n胃\nD\n5분 미만(동료들 증언)\nCo\n-\nEx\n처음\nC\n[양상]\n의식 없었고 뼛뼛하게 굳었음\n목이 돌아갔고 경련 후 피로감\n입을 꽉 깨물고 눈을 치켜 뜨고 있었음\nA\n[전신]\n발열(+, 2주 전 감기 몸살), 피로(+>\n[신경]\n지남력 정상, 목 뼛뼛함(+)，두통(+, NRS7)\n[호흡기]\n기침(+), 가래(+)\nF\n최근^ ^\nE\n-\n외\n-\n과\n-\n약\n감기 증상 있을 때 타이레놀\n사\n술(+). 담배(+), 스트레스(+, 최근 과로)\n직업 : 건설현장소장\n운동(-)\n가\n아버지 뇌졸중\nGeneral\n고혈압, 호흡수 증가, 발열 (+)\nP/E\nHEENT\n얼굴 근력/감각/반사 정상\n수막 자극 징후 (+)\nChest\n-\nExtremity\n팔다리 근력/감각/반사 정상\n질문\n“아버지처럼 뇌졸중일까 걱정돼요;\nm\nm\nᅳ\n1ᅳ"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n. 가능성이 높은 진단 2개\n1. 뇌수막염\n2. 뇌출혈",
+    "likely_diagnoses": [
+      "뇌수막염",
+      "뇌출혈"
+    ],
+    "planned_tests": [
+      "CSF tapping",
+      "안저검사",
+      "뇌영상검人^"
+    ],
+    "planned_treatments_or_education": [
+      "응급 상황 교육",
+      "재발 시 외상 방지 교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례\n지침\n• 47세 남자 송창희씨가 경련을 하여 응급실을 통해 내원하였다.\n[활력 징휘 혈압 : 152/92mmHg\n맥박 : 92회/분\n호흡 : 22회/분\n체온 ：\n37.8쯔\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n. 가능성이 높은 진단 2개\n1. 뇌수막염\n2. 뇌출혈\n• 필요한 검사 계획 3가지\n1. CSF tapping\n2. 안저검사\n3. 뇌영상검人^\n• 필요한 치료 계획 2가지\n1. 응급 상황 교육\n2. 재발 시 외상 방지 교육\n경련 환자의 경우 경련 당시의 상황을구체적으로문진하는 것이 중요\n합니다. 경련 전 상황이 어떤지, 전조증상이 있는지, 팔다리 떨림/벳벳\n함 등의 양상이 어땠는지, 경련 후에는 어떤 증상이 있었는지를 통해 판단해야 합니다.\n본증례의 경우뇌수막염이 가장 의심되지만 경련 주제는뇌출혈, 뇌전증, 내분비적 원인 등다\n양한 진단을 생각할수 있으므로 추정 진단이 한 번에 잡히지 않더라도 침착하게 이어가야 합니\n다• 신체 진찰에서는 뇌신경검사, 감각검사, 근력검사 등을 진행해야 하므로 시간이 부족할 수\n있습니다. 많은 연습이 필요한주제입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

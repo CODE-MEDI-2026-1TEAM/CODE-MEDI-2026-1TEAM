@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "menstrual_abnormality-002",
+  "case_number_in_pdf": 242,
+  "topic": {
+    "topic_start_page": 625,
+    "topic_id": "menstrual_abnormality",
+    "topic_label": "월경 이상",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 627,
+      "end": 628
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김미경",
+      "age": 32,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원한 환자로 매달 주기적으로 통증이 있다는 사실",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "37.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 32세\n“월경을 안 해요”",
+    "history_blocks": {
+      "onset": "3개월 전",
+      "location": "“배가 아픈 것은 아닌데 하복부가 불편해요”, 매달 주기적으로 통증은 있음",
+      "duration": "1 달에 한 번씩 통증, 월경과 상관있는 것 같음",
+      "course": "심해짐，4개월 전까진 생리 규칙적이다가 3개월 전 갑자기 생리가 없어짐",
+      "character": "[양상] 불편한 느낌, 마지막 성교 5일 전, 성교통(一). 성교 시 출혈(-)\n결혼하고 임신 시도 1 년째인데 아직 소식 없음",
+      "associated_symptoms": "[전신] 발열/오한/체중 감소/체중 증가( - / - / - / _ )\n[신장/ 비뇨] F /U /N /D (-/-/-/-)\n[기타] 어지럼/두근거림(-/ -), 멍/잇몸 출혈(一/—), PCOS(-), Prolactinoma(-)\n쿠싱(一), 화끈거림H , 성격 예민H , 기타 폐경기 증상(一>\n복통 (+) ：\n한 달에 한 번씩 통증01 나타남. 생리 주71와 연관 있는 것 같고_ 7~8일\n지속, NRS 3~4점 (오늘도 아픈지 물으니 아프다고 함)\n갑상샘기능항진증 H , 무리한 운동/다이어트/두통/유즙 분비 (-/-/-/->",
+      "events": "부인과적 시술(ᅳ), 매년 자궁경부암검사 잘 받고 결과 정상, HPV 백신도 맞음",
+      "past_history": "고혈압/당뇨/고지혈증(一/—/ - ), 부인과 질환(_>, 질염，PID(+, 치료 잘 받음)",
+      "medications": "호르몬제/피임약 ( - / - )",
+      "social_history": "흡연 (一), 음주(+, social, 2주에 1 번 정도)，커피(1~2잔/ day), 스트레스(+)",
+      "family_history": "조기 폐경(ᅳ)",
+      "gynecologic_history": "초경 초6，월경통 심해짐，월경량 : 점점 줄다가 직전 생리 때는 하루에 중형패드 1 장,\n원래 규칙적, 얼마 전부터 주기 점점 길어짐, 평소 주기 28일，LMP 4달 전\n결혼(+), 피임(一), 임신인가 해서 오늘 테스트기 해 봤는데 음성\n임신 계획하나 1~2년째 안 됨，0 -0~3-0(유산 3번，1 번은 수술 받음)\n성교통 없음, 성관계 전 후 질출혈 없음"
+    },
+    "physical_exam_results": "General\nV/S ：\nstable\nHEENT\n눈 (-). 구강 (-). 갑상샘/림프절 (-/ -), 피부 긴장도/부종 (- / - )\nAbdomen\n복부 시/청/타/촉(- / - / - / - ), CVAT/DRE(-/-). SI복부 Td/rTd(-/-)\n골반 내진 설명하면 5줄 정도로 정상 소견 적혀 있는 종이 제공(Posterior\nfornix). 자극 시 통증(一), 난소_ 자궁 특이 人[항 없음\nExtremity\nPitting edema (ᅳ)",
+    "patient_question_or_concern": "“임신이 안돼서 너무 걱정입니다.”",
+    "actor_notes_or_special_behavior": "제시문 상황 지침에는 월경이 이상하다고 적혀 있음",
+    "raw_profile_text": "성별/나이\n여성/ 32세\n“월경을 안 해요”\n0\n3개월 전\nL\n“배가 아픈 것은 아닌데 하복부가 불편해요”, 매달 주기적으로 통증은 있음\nD\n1 달에 한 번씩 통증, 월경과 상관있는 것 같음\nCo\n심해짐，4개월 전까진 생리 규칙적이다가 3개월 전 갑자기 생리가 없어짐\nEx\n-\nC\n[양상] 불편한 느낌, 마지막 성교 5일 전, 성교통(一). 성교 시 출혈(-)\n결혼하고 임신 시도 1 년째인데 아직 소식 없음\nA\n[전신] 발열/오한/체중 감소/체중 증가( - / - / - / _ )\n[신장/ 비뇨] F /U /N /D (-/-/-/-)\n[기타] 어지럼/두근거림(-/ -), 멍/잇몸 출혈(一/—), PCOS(-), Prolactinoma(-)\n쿠싱(一), 화끈거림H , 성격 예민H , 기타 폐경기 증상(一>\n복통 (+) ：\n한 달에 한 번씩 통증01 나타남. 생리 주71와 연관 있는 것 같고_ 7~8일\n지속, NRS 3~4점 (오늘도 아픈지 물으니 아프다고 함)\n갑상샘기능항진증 H , 무리한 운동/다이어트/두통/유즙 분비 (-/-/-/->\nF\n-\nE\n부인과적 시술(ᅳ), 매년 자궁경부암검사 잘 받고 결과 정상, HPV 백신도 맞음\n외\n-\n과\n고혈압/당뇨/고지혈증(一/—/ - ), 부인과 질환(_>, 질염，PID(+, 치료 잘 받음)\n약\n호르몬제/피임약 ( - / - )\n사\n흡연 (一), 음주(+, social, 2주에 1 번 정도)，커피(1~2잔/ day), 스트레스(+)\n가\n조기 폐경(ᅳ)\n여\n초경 초6，월경통 심해짐，월경량 : 점점 줄다가 직전 생리 때는 하루에 중형패드 1 장,\n원래 규칙적, 얼마 전부터 주기 점점 길어짐, 평소 주기 28일，LMP 4달 전\n결혼(+), 피임(一), 임신인가 해서 오늘 테스트기 해 봤는데 음성\n임신 계획하나 1~2년째 안 됨，0 -0~3-0(유산 3번，1 번은 수술 받음)\n성교통 없음, 성관계 전 후 질출혈 없음\nP/E\nGeneral\nV/S ：\nstable\nHEENT\n눈 (-). 구강 (-). 갑상샘/림프절 (-/ -), 피부 긴장도/부종 (- / - )\nAbdomen\n복부 시/청/타/촉(- / - / - / - ), CVAT/DRE(-/-). SI복부 Td/rTd(-/-)\n골반 내진 설명하면 5줄 정도로 정상 소견 적혀 있는 종이 제공(Posterior\nfornix). 자극 시 통증(一), 난소_ 자궁 특이 人[항 없음\nExtremity\nPitting edema (ᅳ)\n질문\n“임신이 안돼서 너무 걱정입니다.”\n특이사항\n제시문 상황 지침에는 월경이 이상하다고 적혀 있음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n환자\n교육/:〉",
+    "likely_diagnoses": [
+      "아셔만증후군",
+      "자궁내막증",
+      "조기난소부전(조기 폐경)"
+    ],
+    "planned_tests": [
+      "호르몬검시(FSH, LH, Estradiol, AMH)",
+      "진단적 복강경 또는 자궁경",
+      "갑상샘기능검사"
+    ],
+    "planned_treatments_or_education": [
+      "임신을 원할 경우 검사 결과에 따라 유착박리술",
+      "경구피임약"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례\n^■황\n지침\n• 32세 여자 김미경씨가 월경 이상으로 내원하였다.\n[활력 징후] 혈압 : 126/80mmHg\n맥박 : 80회/분\n호흡: 17회/분\n체온 ：\n37.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n환자\n교육/:〉\n• 가능성이 높은 진단 3개\n1. 아셔만증후군\n1. 자궁내막증\n3. 조기난소부전(조기 폐경)\n• 필요한 검사 계획 3가지\n1. 호르몬검시(FSH, LH, Estradiol, AMH)\n2. 진단적 복강경 또는 자궁경\n3. 갑상샘기능검사\n• 필요한 치료 계획 2가지\n1. 임신을 원할 경우 검사 결과에 따라 유착박리술\n2. 경구피임약\n|\n웨\nᅤ\n무월경을 주소로 내원한 환자로 매달 주기적으로 통증이 있다는 사실\n；\n\n을통해 월경 주기와의 관련성을 생각할 수 있습니다. 또한 결혼하고 ：\n；\n\n임신 시도 중인데, 임신이 잘 안되고 있으며, 월경통이 심해진 것을 알수 있습니다.\n；\n\n여성력 중산과력을 자세하게 물어보면 과거3번의 유산 경험이있다는 것을 알수 있는데,이를\n|\nj 통해 자궁내막의 유착이 발생해 월경혈이 외부로 배출되지 못해 매달주기적인 하복부 불편감\n|\n; 을 호소한다고 볼수 있습니다.\n임신을 원하는 경우유착박리술을 시도해 볼 수 있으며, 1번의 인공유산 외 2번의 유산력이 있\n|\n; 으므로 환자 교육 시 항인지 질항체증후군의 가능성을 설명하면서 류마티스 내과 진료 의뢰를\n;\ni\n권유하는 것도 도음이 될 수 있습니다.\ni\n느-------................식\n------—\n------ -------- ----- 1"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

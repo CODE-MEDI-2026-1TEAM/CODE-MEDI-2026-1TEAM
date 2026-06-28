@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dizziness-002",
+  "case_number_in_pdf": 201,
+  "topic": {
+    "topic_start_page": 509,
+    "topic_id": "dizziness",
+    "topic_label": "어지럼",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 515,
+      "end": 516
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박선영",
+      "age": 35,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "어지러워요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "118/95mmHg",
+      "pulse": "75회/분",
+      "respiratory_rate": null,
+      "temperature": "36.6°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/35세\n“어지러워요”",
+    "history_blocks": {
+      "onset": "열흘 전(침대에서 일어나 아침 식사 준비 중에 처음 어지럼을 느낌)",
+      "course": "열흘 전보다 나아짐",
+      "experience": "처음",
+      "character": "빙빙도는 느낌\n정신을 잃거나 쓰러진 적은 없음",
+      "associated_symptoms": "최근 감기 증상/ 기침/발열( - / - / - )\n오심/구토 ( - / - )\n이명(+, 왼쪽에서 ‘삐’ 소리가 들림). 이충만감/청력 감소(ᅳ/一)\n구음장애/팔다리 감각 이상/근력 저하( - / - / - )\n손 떨림/몸 벳벳( - / - )\n체중감소/피로(一/ - )\n목마름/두근거림/ 혈변/흑색변",
+      "factors": "머리 움직이거나, 자세 변화 시 어지럼 심해짐\n가만히 쉬면 조금 괜찮아짐",
+      "trauma_history": "DM/TB/HTN/간염( - / - / - / 一), 어렸을 때 이마 꿰맨 적 있음(수술은 X )",
+      "past_history": "LMP 4주，규칙적，양 보통",
+      "social_history": "술(+. social), 담배(->. 커피(+, 하루 1〜2잔)\n스트레스 (+) : 열흘 전 손님 초대하여 음식 차리느라 매우 바쁘고 힘들었음"
+    },
+    "physical_exam_results": "General\nV/S 확인\nDix-hallpike : 좌측 검사 시 안진은 없으나 어지럼 호소\nHead shaking(- )\n정상 : light reflex. 안구 운동검사, 소뇌 기능검사, 사지 감각，근력\noi\nr으:\n15\nOii",
+    "patient_question_or_concern": "특0了사i 어",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/35세\n“어지러워요”\n0\n열흘 전(침대에서 일어나 아침 식사 준비 중에 처음 어지럼을 느낌)\nL\n-\nD\n-\nCo\n열흘 전보다 나아짐\nEx\n처음\nC\n빙빙도는 느낌\n정신을 잃거나 쓰러진 적은 없음\nA\n최근 감기 증상/ 기침/발열( - / - / - )\n오심/구토 ( - / - )\n이명(+, 왼쪽에서 ‘삐’ 소리가 들림). 이충만감/청력 감소(ᅳ/一)\n구음장애/팔다리 감각 이상/근력 저하( - / - / - )\n손 떨림/몸 벳벳( - / - )\n체중감소/피로(一/ - )\n목마름/두근거림/ 혈변/흑색변\nF\n머리 움직이거나, 자세 변화 시 어지럼 심해짐\n가만히 쉬면 조금 괜찮아짐\nE\n-\n외\nDM/TB/HTN/간염( - / - / - / 一), 어렸을 때 이마 꿰맨 적 있음(수술은 X )\n과\nLMP 4주，규칙적，양 보통\n약\n-\n사\n술(+. social), 담배(->. 커피(+, 하루 1〜2잔)\n스트레스 (+) : 열흘 전 손님 초대하여 음식 차리느라 매우 바쁘고 힘들었음\n가\n-\nP/E\nGeneral\nV/S 확인\nDix-hallpike : 좌측 검사 시 안진은 없으나 어지럼 호소\nHead shaking(- )\n정상 : light reflex. 안구 운동검사, 소뇌 기능검사, 사지 감각，근력\noi\nr으:\n15\nOii\n질문\n특0了사i 어 -"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "메니에르병",
+      "전정신경염"
+    ],
+    "planned_tests": [
+      "전정신경검사",
+      "임피던스 청각검人卜"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 이경검사 ：\n메니에르병이 의심되는 환자이므로 이경검人*\n통해 중이강 내 삼출\n액을 확인합니다.\n2. 혈압 측정 : 어지럼증 환자에서 혈압이 너무 높거나 낮은지 혈압을 측정합니다.\n어지럼으로 내원한 환자의 경우중추성인지, 말초성인지 크게 분류할\n수 있습니다.\n어지럼의 양상, 동반증상 등을 자세히 물어봐야 하고, 신체 진찰 등을 통해 이를 감별해야 합니\n다. 어떨 때 어지럼이 악화되고 어떨 때 호전되는지가 감별에 중요한 힌트가될 수도 있습니다.\nDix-haUpike 검사, head shaking 검사, Romberg 검사둥 어지럼증을 감별하기 위해 수행해야\n되는 검사법들의 시행 방법과의미에 대해서 공부하고 넘어 갑니다.\n대개 호전되는 경우가 많으니 안심시켜 주고, 어지럼증이 나타날 때 안정된 곳에서 휴식을 취해\n2차적인 외상을 방지하도록 주의시킵니다.",
+    "author_commentary_tail": "메니에르병이 의심되는 환자이므로 이경검人*\n통해 중이강 내 삼출\n액을 확인합니다.\n2. 혈압 측정 : 어지럼증 환자에서 혈압이 너무 높거나 낮은지 혈압을 측정합니다.\n어지럼으로 내원한 환자의 경우중추성인지, 말초성인지 크게 분류할\n수 있습니다.\n어지럼의 양상, 동반증상 등을 자세히 물어봐야 하고, 신체 진찰 등을 통해 이를 감별해야 합니\n다. 어떨 때 어지럼이 악화되고 어떨 때 호전되는지가 감별에 중요한 힌트가될 수도 있습니다.\nDix-haUpike 검사, head shaking 검사, Romberg 검사둥 어지럼증을 감별하기 위해 수행해야\n되는 검사법들의 시행 방법과의미에 대해서 공부하고 넘어 갑니다.\n대개 호전되는 경우가 많으니 안심시켜 주고, 어지럼증이 나타날 때 안정된 곳에서 휴식을 취해\n2차적인 외상을 방지하도록 주의시킵니다.",
+    "scenario_card_raw": "I k 실전 모의 증례\n^■황\n지침\n讀놨^합*^^\n• 35세 여자 박선영씨가 어지럼을 호소하며 내원하였다.\n[활력 징휘 혈압 : 118/95mmHg\n맥박 : 75회/분\n호톱 * 22회/분\n체온 ：\n36.6°C\n[응人I자는 이 환지에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n^■자\n• 가능성이 높은 진단 2개\n1. 메니에르병\n2. 전정신경염\n• 필요한 검사 계획 2가지\n1. 전정신경검사\n2. 임피던스 청각검人卜\n예상\n술기\n1. 이경검사 ：\n메니에르병이 의심되는 환자이므로 이경검人*\n통해 중이강 내 삼출\n액을 확인합니다.\n2. 혈압 측정 : 어지럼증 환자에서 혈압이 너무 높거나 낮은지 혈압을 측정합니다.\n어지럼으로 내원한 환자의 경우중추성인지, 말초성인지 크게 분류할\n수 있습니다.\n어지럼의 양상, 동반증상 등을 자세히 물어봐야 하고, 신체 진찰 등을 통해 이를 감별해야 합니\n다. 어떨 때 어지럼이 악화되고 어떨 때 호전되는지가 감별에 중요한 힌트가될 수도 있습니다.\nDix-haUpike 검사, head shaking 검사, Romberg 검사둥 어지럼증을 감별하기 위해 수행해야\n되는 검사법들의 시행 방법과의미에 대해서 공부하고 넘어 갑니다.\n대개 호전되는 경우가 많으니 안심시켜 주고, 어지럼증이 나타날 때 안정된 곳에서 휴식을 취해\n2차적인 외상을 방지하도록 주의시킵니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

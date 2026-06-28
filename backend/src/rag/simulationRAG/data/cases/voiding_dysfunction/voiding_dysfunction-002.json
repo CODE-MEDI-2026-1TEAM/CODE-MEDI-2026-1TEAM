@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "voiding_dysfunction-002",
+  "case_number_in_pdf": 122,
+  "topic": {
+    "topic_start_page": 301,
+    "topic_id": "voiding_dysfunction",
+    "topic_label": "배뇨 이상",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 303,
+      "end": 304
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김영식",
+      "age": 72,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "소변을 자주 봐요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "136/86mmHg",
+      "pulse": "76회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 72세\n주소\n“소변을 자주 봐요”",
+    "history_blocks": {
+      "onset": "6개월 전",
+      "duration": "계속",
+      "course": "한 달 전부터 심해짐",
+      "character": "[횟쉬\n하루 3〜4회에서 6〜7회, 한 달 전부터 하루 10번\n[양]\n1 회 소변량은 감소* 하루에 보는 소변 총 양은 비슷함\n[성상]\n거품/피( - / - ) , 색 변화/냄새( - / - )",
+      "associated_symptoms": "[전신]\n발열/오한/식은땀/체중 감소/피로/부종\n(一/一/一/一/+, 밤에 소변으로 자주 깸/一)\n[비뇨기]\n빈뇨/절박뇨/야간뇨/배뇨통 (+ /+ /+ /-)\n주저뇨/요끊김/복압 배뇨/잔뇨감(+/+/+/+)\n옆구리 통증/아랫배 통증(ᅳ/-. 조금 묵직함)\n[생식기]\n외성기 통증/가려움증/분비물( - / - / - )",
+      "factors": "성관계(+, 아내와 1 달 전. 아내는 증상 없음)，위험한 성관계(-)",
+      "events": "몇 년 전 건강 검진 정상",
+      "trauma_history": "복부 외상(- ). 비뇨기계 외상(-)",
+      "past_history": "DM/TB/HTN/간염 ( - / ᅳ/+/- )",
+      "medications": "고혈압약",
+      "social_history": "술(+，일주일에 1 번, 하루 소주 1 병), 담배 (+, 5년 전 끊음，금연 전 20갑년, 하루에 1갑)\n커피(+，하루에 3~4잔)/직업 : 회사 이사/물 하루에 2L씩 마심",
+      "family_history": "General\nV/S 확인\nHEENT\n결막/공막( - / - ) , 입/피부 탈수 소견(一/一)"
+    },
+    "physical_exam_results": "Abdomen\n복부 시/촉/타/청(一/一/ - / ᅳ), CVA tenderness(ᅳ)\nDRE(+, 전립선 40cc로 전반적으로 커져 있음), 압통(ᅳ)\nExtermity\n피부 긴장도• 오목 부종 정상\nᅳ질문ᅳ",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 72세\n주소\n“소변을 자주 봐요”\n0\n6개월 전\nL\n-\nD\n계속\nCo\n한 달 전부터 심해짐\nEx\n-\nC\n[횟쉬\n하루 3〜4회에서 6〜7회, 한 달 전부터 하루 10번\n[양]\n1 회 소변량은 감소* 하루에 보는 소변 총 양은 비슷함\n[성상]\n거품/피( - / - ) , 색 변화/냄새( - / - )\nA\n[전신]\n발열/오한/식은땀/체중 감소/피로/부종\n(一/一/一/一/+, 밤에 소변으로 자주 깸/一)\n[비뇨기]\n빈뇨/절박뇨/야간뇨/배뇨통 (+ /+ /+ /-)\n주저뇨/요끊김/복압 배뇨/잔뇨감(+/+/+/+)\n옆구리 통증/아랫배 통증(ᅳ/-. 조금 묵직함)\n[생식기]\n외성기 통증/가려움증/분비물( - / - / - )\nF\n성관계(+, 아내와 1 달 전. 아내는 증상 없음)，위험한 성관계(-)\nE\n몇 년 전 건강 검진 정상\n외\n복부 외상(- ). 비뇨기계 외상(-)\n과\nDM/TB/HTN/간염 ( - / ᅳ/+/- )\n약\n고혈압약\n사\n술(+，일주일에 1 번, 하루 소주 1 병), 담배 (+, 5년 전 끊음，금연 전 20갑년, 하루에 1갑)\n커피(+，하루에 3~4잔)/직업 : 회사 이사/물 하루에 2L씩 마심\n가\n-\nGeneral\nV/S 확인\nHEENT\n결막/공막( - / - ) , 입/피부 탈수 소견(一/一)\nP/E\nAbdomen\n복부 시/촉/타/청(一/一/ - / ᅳ), CVA tenderness(ᅳ)\nDRE(+, 전립선 40cc로 전반적으로 커져 있음), 압통(ᅳ)\nExtermity\n피부 긴장도• 오목 부종 정상\nᅳ질문ᅳ\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*",
+    "likely_diagnoses": [
+      "양성 전립선비대증",
+      "전립선염",
+      "전립선암"
+    ],
+    "planned_tests": [
+      "경직장초음파",
+      "혈액 PSA",
+      "소변검사"
+    ],
+    "planned_treatments_or_education": [
+      "익물 치료(알파 차단제)",
+      "경요도 전립선절제술"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "a\n[ 실전 모의 증례\n• 72세 남자 김영식씨가 소변 보는 게 불편해 내원하였다.\n지침\n[활력 징휘 혈압 : 136/86mmHg\n맥박 : 76회/분\n호흡 : 17회/분\n체온 ：\n36.8°C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n• 가능성이 높은 진단 3개\n'W 0聽\n1. 양성 전립선비대증\n2. 전립선염\n3. 전립선암\n• 필요한 검사 계획 3가지\n교육\n1. 경직장초음파\n2. 혈액 PSA\n3. 소변검사\n讓\n鬚\n• 필요한 치료 계획 2가지\n1. 익물 치료(알파 차단제)\n2. 경요도 전립선절제술\n배뇨 이상의 경우 상황 지침의 주 호소만으로는 어떤 것이 불편한지\n알 수 없기 때문에 문진 처음부터 무엇이 불편한지 묻고 그에 대해\n집중하는 것이 좋습니다.\n남성의 경우 전립선 비대증이 흔한 만큼，직장수지검사를 배먹지 않도록 주의합니다.\n이 환자의 경우 양성 전립선 비대증으로 인한 빈뇨로 내원한증례입니다. 출혈, 다뇨，설사와\n같이 체내에서 수분이 빠져나가는 증상의 경우 항상 제일 먼저 탈수를 확인하도록 습관을 들여\n놓는 것이 좋습니다.\n본 환자에서 치료로 약물을 고려할 때, 기저 질환으로 고혈압을 가지고 있으므로 고혈압약제\n조정 시에 복용 중인 약물에 대해서 의사와꼭 상담해야 됨을 주지시킵니다.\n二\n-\n-\n-\n-\n-\n.\n」\n. . —\n…\n-\n.\n.\n.\n.\n.\n.\n.\n.\n:\n--------------------------------------------- .........................................- ........................................"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

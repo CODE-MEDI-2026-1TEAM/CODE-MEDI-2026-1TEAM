@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "sexual_violence-002",
+  "case_number_in_pdf": 294,
+  "topic": {
+    "topic_start_page": 765,
+    "topic_id": "sexual_violence",
+    "topic_label": "성 폭력",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 767,
+      "end": 770
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "고지현",
+      "age": 22,
+      "sex": "여자"
+    },
+    "setting": "응급실",
+    "opening_statement": "성 폭행을 당했어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": "72회/분",
+      "respiratory_rate": null,
+      "temperature": "36.6°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 22세\n“성 폭행을 당했어요”\n언제\n오늘 새벽 3人1(4시간 전)\n어디서\n친구^ᅡ취방\n누가\n동아리 동기 남자 1 명, 조용한 성격이며, 친분이 별로 없음\n성 폭력 내용\n친구 자취방에서 동기들과 함께 술을 마시다가 방에 들어가 자고 있었음\n이상한 느낌이 들어 일어났는데 누가 도망가고 있었고, 바지가 벗겨져 있었음\n목격자 없었음\n질내 人정(+), 구강/항문( - / 一), 콘돔/물건 사용(一/ -)\n기타 폭행\n신체적 폭행은 기억이 나지 않으나 손목과 발목에 멍이 있음\n복통(+, 아랫배가 뻐근)\n의식\n자다가 일어나 기억이 없음\n사후조치\n샤워/양치/소변/옷갈아 입음/피임약(+/+/+/+, 벗은 옷은 들고 옴/시\n경찰 신고 (+)\n상태\n우울/불안/자살 사고/타살 사고 ( - / + / - / - )\n^■과력\n[월경력] 규칙적，LMP10일전\n[성관계] 마지막 성관계 2주 전(콘돔 人® )\n[산과력] 임신한 적없음\n력\n지방간(+), 자취해 가족과 따로 삼\n의지되는 사람 ：\n친구, 술(+, 주 5회 이상), 담배(+, 2갑년)",
+    "history_blocks": {},
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n결막/공막(一/ᅳ), 입/피부 탈수 소견(ᅵ/ᅳ)\nChest\n\nAbdomen\n복부 시/청/ 타/촉( - / - / - / - )\n골반 진찰 : 질 열상이 있음，DRE ：\n이상 없음\nExtremity\n상처 시진/촉진 : 팔 다리에 멍이 있음",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "“임신이 제일 걱정이에요:\n증거물 채취는 진행했다고 가정\nB{ 실전 모의 증레\n20세 여자 김채연씨가 성 폭력을 당해 응급실에 왔다.\n■ 현재 시간 : 오전 3시 3 0 S\n■ 진료실에는 간호사가 동반하였다고 가정\n지침\n[활력 징휘 혈압 : 120/80mmHg\n맥박 : 80회/분\n호흡 ：\n24회/분\n체온 ：\n36.8\"C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n'교육\n필요한 검사 계획 4가지\n1. 소변임신반응검사\n2. STD 항체검人K임질. 트리코모나스)\n3. 골반초음파검사\n4. 질분H ᅵ물검사\n임신을 막기 위한 치료 계획 2가지\n1. 人[■후피임약\n2. 자궁내 장치\n예상\n1. 산부인과 진찰 : 자궁경부펴바름검人h 질분비물검人유\n성 폭력의 경우 산부인과 진찰(자궁경부펴바름검人h 질분비물검사)를 루틴으로\n시행해 봅니다.\n술기\n2. 설명동의서 받기\n사후피임약과 자궁 내 장치 치료를 위해 설명동의서를 받습니다.\n성 폭력에 대한 신체 진찰을 위해 설명동의서를 받습니다.\n많은 학생들이 어려워하는 성 폭력 방입니다. 처음 환자를 대면하면 안\n전한 환경임을 인지시켜 주는 등 환자를 안심시키호 이후에 동의서와\n비밀 보장을설명하는 것이 좋습니다.\n이후에 성 폭력 상황과 이전 생리력에 대해 문진으로 정보를 얻고> P/E에서는 주로 증거 채취를\n위한 과정임을 설명하면 환자가 해당 내용에 대한 카드를 줄 것입니다. 마지막으로 환자 교육에\n서는 어떤 검사를 할 예정인지와 함께 재방문 시기를 안내하고 정신과적 치료로 도옴을 줄 수\n있음을 알려주는 것을 잊지 말도록 합니다.\n성별/나이\n여성/ 20세\n^소\n\"성 폭행을 당했어요”\n언제\n오전 2시 (현재 시각 오전 3시 30분)\n어디서\n집에 가는 골목길에서\n누가\n모르는 남자, 키가 크고 건장한 체구\n마스크를 쓰고 있어서 얼굴은 자세히 기억하지 못함\n성폭력 내용\n집에 가는 길에 따라와서 어두운 곳으로 끌고 가서 성 폭행\n질내 삽입(+)，구강(ᅳ), 항문 성교(一)\n질내 사정 여부 모르겠음\n콘돔 人 f용(一)\n물건 사용(->\n기타 폭행\n얼굴과 손，발등에 멍이 여러 개\n의식\n의식소식(ᅳ)\n사후 조치\n바로 병원에 옴\n소변(一), 入워(ᅳ)，양치질(ᅳ)，환복(一), 사후피임약(ᅳ)\n^정상태\n불안하고 두려움\n^■과력\n미혼，0 -0 -0 -0\nLMP 2주 전\n마지막 성관계 : 3달 전，콘동으로 피임, 임신 가능성(一)\nPHx\n특이사항^음\n기타 약물 용력 없음\nP/E\n구강\n시진 정상\n팔\n오른쪽 손목에 멍 있음，압통 있음\n다리\n왼쪽 발목에 멍 있음, 압통 있음\n골반 진찰\n소량의 피와 열상이 있음\nPosterior fomix에 정액으로 추정되는 액체 있음\n성 폭행키트 : 검체 수집완료\nDRE\n이상^ ^\n질문\n“임신 가능성이 있을까요7",
+    "raw_profile_text": "성별/나이\n여성/ 22세\n“성 폭행을 당했어요”\n언제\n오늘 새벽 3人1(4시간 전)\n어디서\n친구^ᅡ취방\n누가\n동아리 동기 남자 1 명, 조용한 성격이며, 친분이 별로 없음\n성 폭력 내용\n친구 자취방에서 동기들과 함께 술을 마시다가 방에 들어가 자고 있었음\n이상한 느낌이 들어 일어났는데 누가 도망가고 있었고, 바지가 벗겨져 있었음\n목격자 없었음\n질내 人정(+), 구강/항문( - / 一), 콘돔/물건 사용(一/ -)\n기타 폭행\n신체적 폭행은 기억이 나지 않으나 손목과 발목에 멍이 있음\n복통(+, 아랫배가 뻐근)\n의식\n자다가 일어나 기억이 없음\n사후조치\n샤워/양치/소변/옷갈아 입음/피임약(+/+/+/+, 벗은 옷은 들고 옴/시\n경찰 신고 (+)\n상태\n우울/불안/자살 사고/타살 사고 ( - / + / - / - )\n^■과력\n[월경력] 규칙적，LMP10일전\n[성관계] 마지막 성관계 2주 전(콘돔 人® )\n[산과력] 임신한 적없음\n력\n지방간(+), 자취해 가족과 따로 삼\n의지되는 사람 ：\n친구, 술(+, 주 5회 이상), 담배(+, 2갑년)\nP/E\nGeneral\nV/S 확인\nHEENT\n결막/공막(一/ᅳ), 입/피부 탈수 소견(ᅵ/ᅳ)\nChest\n-\nAbdomen\n복부 시/청/ 타/촉( - / - / - / - )\n골반 진찰 : 질 열상이 있음，DRE ：\n이상 없음\nExtremity\n상처 시진/촉진 : 팔 다리에 멍이 있음\n질문\n특이사항\n“임신이 제일 걱정이에요:\n증거물 채취는 진행했다고 가정\n\nB{ 실전 모의 증레\n• 20세 여자 김채연씨가 성 폭력을 당해 응급실에 왔다.\n■ 현재 시간 : 오전 3시 3 0 S\n■ 진료실에는 간호사가 동반하였다고 가정\n지침\n[활력 징휘 혈압 : 120/80mmHg\n맥박 : 80회/분\n호흡 ：\n24회/분\n체온 ：\n36.8\"C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오•\n'교육\n• 필요한 검사 계획 4가지\n1. 소변임신반응검사\n2. STD 항체검人K임질. 트리코모나스)\n3. 골반초음파검사\n4. 질분H ᅵ물검사\n• 임신을 막기 위한 치료 계획 2가지\n1. 人[■후피임약\n2. 자궁내 장치\n예상\n1. 산부인과 진찰 : 자궁경부펴바름검人h 질분비물검人유\n- 성 폭력의 경우 산부인과 진찰(자궁경부펴바름검人h 질분비물검사)를 루틴으로\n시행해 봅니다.\n술기\n2. 설명동의서 받기\n- 사후피임약과 자궁 내 장치 치료를 위해 설명동의서를 받습니다.\n- 성 폭력에 대한 신체 진찰을 위해 설명동의서를 받습니다.\n많은 학생들이 어려워하는 성 폭력 방입니다. 처음 환자를 대면하면 안\n전한 환경임을 인지시켜 주는 등 환자를 안심시키호 이후에 동의서와\n비밀 보장을설명하는 것이 좋습니다.\n이후에 성 폭력 상황과 이전 생리력에 대해 문진으로 정보를 얻고> P/E에서는 주로 증거 채취를\n위한 과정임을 설명하면 환자가 해당 내용에 대한 카드를 줄 것입니다. 마지막으로 환자 교육에\n서는 어떤 검사를 할 예정인지와 함께 재방문 시기를 안내하고 정신과적 치료로 도옴을 줄 수\n있음을 알려주는 것을 잊지 말도록 합니다.\n\n성별/나이\n여성/ 20세\n^소\n\"성 폭행을 당했어요”\n언제\n오전 2시 (현재 시각 오전 3시 30분)\n어디서\n집에 가는 골목길에서\n누가\n모르는 남자, 키가 크고 건장한 체구\n마스크를 쓰고 있어서 얼굴은 자세히 기억하지 못함\n성폭력 내용\n집에 가는 길에 따라와서 어두운 곳으로 끌고 가서 성 폭행\n질내 삽입(+)，구강(ᅳ), 항문 성교(一)\n질내 사정 여부 모르겠음\n콘돔 人 f용(一)\n물건 사용(->\n기타 폭행\n얼굴과 손，발등에 멍이 여러 개\n의식\n의식소식(ᅳ)\n사후 조치\n바로 병원에 옴\n소변(一), 入워(ᅳ)，양치질(ᅳ)，환복(一), 사후피임약(ᅳ)\n^정상태\n불안하고 두려움\n^■과력\n미혼，0 -0 -0 -0\nLMP 2주 전\n마지막 성관계 : 3달 전，콘동으로 피임, 임신 가능성(一)\nPHx\n특이사항^음\n기타 약물 용력 없음\nP/E\n구강\n시진 정상\n팔\n오른쪽 손목에 멍 있음，압통 있음\n다리\n왼쪽 발목에 멍 있음, 압통 있음\n골반 진찰\n소량의 피와 열상이 있음\nPosterior fomix에 정액으로 추정되는 액체 있음\n성 폭행키트 : 검체 수집완료\nDRE\n이상^ ^\n질문\n“임신 가능성이 있을까요7"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "소변임신검사",
+      "성병검사",
+      "질분비물검사"
+    ],
+    "planned_treatments_or_education": [
+      "사후 피임제",
+      "예방적 항생제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "[QI { 실전 모의 증례\n• 22세 여자 고지현씨가 성 폭력을 당했다며 내원하였다.\n^ ■황\n지침\n[활력 징휘 혈압 : l20/80mmHg\n맥박 : 72회/분\n오흡 • 16회/분\n체온 ：\n36.6°C\n[응人I자는 0 1 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오ᅵ\n환자\n• 필요한 검사 계획 3가지\n1. 소변임신검사\n2. 성병검사\n3. 질분비물검사\n보육\n• 필요한 치료 계획 2가지\n1. 사후 피임제\n2. 예방적 항생제\n성 폭력은 환지~의사 관계 형성에 많은 어려음을 느끼는 주제입 니다.\n상황에 따라 임 기응변으로 대응하기 보다는 자신의 플로우를 확실히\n세워놓고, 그 사이에 들어갈 멘트들을 미리 준비해 놓아야 자연스러운 진행이 가능합니다. 특히\n나 도입부와 환자 교육은 어떤 사례가 나와도 유사하게 진행할 수 있으므로 반드시 숙지하시기\n바랍니다.\n또한성 폭력을 당한 환자의 입장이므로 SP의 말과 행동이 느리고 소극적일 수 있습니다. 따라\n서 시간 관리에 유의하며 연습해야 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [
+      "structured_history_labels_not_detected"
+    ],
+    "requires_manual_review": true
+  }
+}

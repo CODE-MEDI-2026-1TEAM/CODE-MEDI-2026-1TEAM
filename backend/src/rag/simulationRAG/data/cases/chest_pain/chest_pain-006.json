@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "chest_pain-006",
+  "case_number_in_pdf": 58,
+  "topic": {
+    "topic_start_page": 127,
+    "topic_id": "chest_pain",
+    "topic_label": "가슴통증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 137,
+      "end": 138
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박지훈",
+      "age": 25,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "왼쪽 가슴이 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "130/80mmHg",
+      "pulse": "106회/분",
+      "respiratory_rate": "24회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/25세\n주소\n\"왼쪽 가슴이 아파요”",
+    "history_blocks": {
+      "onset": "일주일 전",
+      "location": "왼쪽 가슴 전체적인 통증",
+      "duration": "7 일",
+      "course": "7일 내내 일정함",
+      "experience": "처음",
+      "character": "갑자기 시작된 통증，방사통(-), 일상 생활에 지장 있는 통증 NRS : 7",
+      "associated_symptoms": "[전신] 발열/오한/식은땀/체중 감소/의식 소실( - / - / - / - / - )\n[호흡기] 호흡곤란(+, 통증과 함께 시작됨). 갈증/어지럼/두근거림(_ / ᅳ/ - )\n기침/ 가래/객혈/쌕쌕거림 (+ / - / - / - )\n[피뷔 발진(一)\n[정신] 우울/불안( - / ᅳ)",
+      "factors": "악화(+, 기침, 크게 들이쉴 때), 이동 시/완화(+, 휴식 시)\n자세，식사와 연관 없음",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "social_history": "술 ：\nsocial. 담배(+, 8갑년), 커피(-)\n운동 ：\n계단으로 걷는 등의 일상 생활에서 운동을 하였으나 이마저도 못 함\n직업 : 공인중개사"
+    },
+    "physical_exam_results": "General\nV/S 확인, 키 180cm, 몸무게 70kg\nHEENT\n입/피부 탈수 소견( - / - )\nChest\n흉부 청진 정상\nExtremity\n피부 긴장도, 오목 부종 정상",
+    "patient_question_or_concern": "J\n^음",
+    "actor_notes_or_special_behavior": "말하는 속도가 느리고 숨쉬고 들이쉬는 것이 매우 느림",
+    "raw_profile_text": "성별/나이\n남성/25세\n주소\n\"왼쪽 가슴이 아파요”\n0\n일주일 전\nL\n왼쪽 가슴 전체적인 통증\nD\n7 일\nCo\n7일 내내 일정함\nEx\n처음\nC\n갑자기 시작된 통증，방사통(-), 일상 생활에 지장 있는 통증 NRS : 7\nA\n[전신] 발열/오한/식은땀/체중 감소/의식 소실( - / - / - / - / - )\n[호흡기] 호흡곤란(+, 통증과 함께 시작됨). 갈증/어지럼/두근거림(_ / ᅳ/ - )\n기침/ 가래/객혈/쌕쌕거림 (+ / - / - / - )\n[피뷔 발진(一)\n[정신] 우울/불안( - / ᅳ)\nF\n악화(+, 기침, 크게 들이쉴 때), 이동 시/완화(+, 휴식 시)\n자세，식사와 연관 없음\nE\n-\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n-\n사\n술 ：\nsocial. 담배(+, 8갑년), 커피(-)\n운동 ：\n계단으로 걷는 등의 일상 생활에서 운동을 하였으나 이마저도 못 함\n직업 : 공인중개사\n가\n-\nP/E\nGeneral\nV/S 확인, 키 180cm, 몸무게 70kg\nHEENT\n입/피부 탈수 소견( - / - )\nChest\n흉부 청진 정상\nExtremity\n피부 긴장도, 오목 부종 정상\n질문 J\n^음\n특이 사항\n말하는 속도가 느리고 숨쉬고 들이쉬는 것이 매우 느림"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "기흉",
+      "늑막염",
+      "폐렴"
+    ],
+    "planned_tests": [
+      "흉부 X-ray",
+      "ABGA"
+    ],
+    "planned_treatments_or_education": [
+      "가슴 천자",
+      "진통제",
+      "항생제"
+    ],
+    "expected_skills_raw": "설명동의서 받기 : 기흉과 늑막염. 폐렴 등을 감별하기 위한 ABGA를 시행하기 전\n설명동의서를 받습니다.\n가슴 통증의 경우 심혈관，비심혈관계로 나누어서 생각하는 것이 중요\n합니다.\n위의 케이스 경우 비심혈관계에 해당하는 케이스이므로 폐, 소화기, 신경, 근골격, 정신과 관련\n되었는지 감별 진단하는 것이 중요합니다.\n젊은 남성이 갑자기 발생한 호흡곤란과 통증을 호소한다면 기흉을 가장 먼저 의심해 보고 키와\n몸무게를 물어 보는 것도 도움이 될 수 있습니다. 또한 그 외에도 자세나 호흡에 따라 통증이 달\n라지는지 물어 본다면 좀 더 감별을 잘할수 있습니다. 그리고 가슴통증의 원인이 다잉하므로 항\n상 심근경색을 의미하지 않음을 교육하는 것도 의사-환자 관계를 쌓는데에 도움이 됩니다.\n^",
+    "author_commentary_tail": "설명동의서 받기 : 기흉과 늑막염. 폐렴 등을 감별하기 위한 ABGA를 시행하기 전\n설명동의서를 받습니다.\n가슴 통증의 경우 심혈관，비심혈관계로 나누어서 생각하는 것이 중요\n합니다.\n위의 케이스 경우 비심혈관계에 해당하는 케이스이므로 폐, 소화기, 신경, 근골격, 정신과 관련\n되었는지 감별 진단하는 것이 중요합니다.\n젊은 남성이 갑자기 발생한 호흡곤란과 통증을 호소한다면 기흉을 가장 먼저 의심해 보고 키와\n몸무게를 물어 보는 것도 도움이 될 수 있습니다. 또한 그 외에도 자세나 호흡에 따라 통증이 달\n라지는지 물어 본다면 좀 더 감별을 잘할수 있습니다. 그리고 가슴통증의 원인이 다잉하므로 항\n상 심근경색을 의미하지 않음을 교육하는 것도 의사-환자 관계를 쌓는데에 도움이 됩니다.\n^",
+    "scenario_card_raw": "關\n{ 실전 모의 증례\n• 25세 남자 박지훈씨가 왼쪽 가슴이 아파 내원하였다.\n^■황\n지침\n노藤'f 食'^^\n[활력 징후] 혈압 : 130/80mmHg\n맥박 ：\n106회/분\n호흡 : 24회/분\n체온 ：\n37. r c\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 3개\n1. 기흉\n2. 늑막염\n3. 폐렴\n교육\n• 필요한 검사 계획 2가지\n1. 흉부 X-ray\n2. ABGA\n• 필요한 치료 계획 3가지\n1. 가슴 천자\n2. 진통제\n3. 항생제\n예상\n술기\n설명동의서 받기 : 기흉과 늑막염. 폐렴 등을 감별하기 위한 ABGA를 시행하기 전\n설명동의서를 받습니다.\n가슴 통증의 경우 심혈관，비심혈관계로 나누어서 생각하는 것이 중요\n합니다.\n위의 케이스 경우 비심혈관계에 해당하는 케이스이므로 폐, 소화기, 신경, 근골격, 정신과 관련\n되었는지 감별 진단하는 것이 중요합니다.\n젊은 남성이 갑자기 발생한 호흡곤란과 통증을 호소한다면 기흉을 가장 먼저 의심해 보고 키와\n몸무게를 물어 보는 것도 도움이 될 수 있습니다. 또한 그 외에도 자세나 호흡에 따라 통증이 달\n라지는지 물어 본다면 좀 더 감별을 잘할수 있습니다. 그리고 가슴통증의 원인이 다잉하므로 항\n상 심근경색을 의미하지 않음을 교육하는 것도 의사-환자 관계를 쌓는데에 도움이 됩니다.\n- - - - - ---------------- -------------------------------------------------------------- ------------------------------------------------------------------------------------------------------------^"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

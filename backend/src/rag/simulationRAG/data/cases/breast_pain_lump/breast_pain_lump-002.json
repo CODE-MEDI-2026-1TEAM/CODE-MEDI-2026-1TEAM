@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "breast_pain_lump-002",
+  "case_number_in_pdf": 229,
+  "topic": {
+    "topic_start_page": 589,
+    "topic_id": "breast_pain_lump",
+    "topic_label": "유방통/유방덩이",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 591,
+      "end": 594
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이단비",
+      "age": 33,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "오른쪽 유방 전체가 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "37.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 33세\n“오른쪽 유방 전체가 아파요”",
+    "history_blocks": {
+      "onset": "1달 전부터 심해짐",
+      "location": "오른쪽 유방 전체가 아픈데, 특히 오른쪽 유방 바깥쪽 통증이 심함",
+      "duration": "^卜루 종일",
+      "course": "1 년 전부터 통증은 있었는데, 점점 심해지는 것 같음",
+      "character": "오른쪽 유방이 얼얼하게 아프고 심해졌다가 괜찮아졌다가 함\n기끔 오른쪽 유방 바깥쪽에 덩어리가 만져짐",
+      "associated_symptoms": "열감/부종/ 발적/유방 피부 변화( - / - / - / - )\n겨드랑이 멍울/피부 함몰/유두 함몰/유두 분비물( - / - / - / - )",
+      "factors": "술 마시면 통증이 심해짐",
+      "events": "3년 전에 유방암 검진 이상 소견 없음",
+      "trauma_history": "유방 수술을 하거나 보형물 넣은 적 없음",
+      "medications": "호르몬제, 피임약( - / - )",
+      "social_history": "커피 하루에 3잔 이상, 운동 거의 안함, 기름진 음식 좋아하고 즐김",
+      "family_history": "어머니: 유방암",
+      "gynecologic_history": "초경 : 초등학교 6학년，월경 주기 규칙적, 월경량 보통，월경통 없음\n미혼, 마지막 성관계 오래되어 임신 가능성 없음. 출산력 없음\nGeneral\nV/S : stable\nHEENT\n눈 (一), 구강 (一>. 갑상샘/림프절 ( - / - ) , 피부 긴장도/부종 (-/->"
+    },
+    "physical_exam_results": "Chest\n심음/호흡음(정상), 유방 모형에서 만져지는 덩이는 없음\n통증을 호소하는 오른쪽 바깥 부위와 겨드랑이 림프절 눌러도 지금은\n아프지 않다고 말함\n유방 피부 변화/유두 변화/유두 분비물 ( - / - / - )\n골반 내진(정상 카드 줌 흉부 ：\n시/촉/타/청 ( - / - / - / - )\nExtremity\nPitting edema (-)",
+    "patient_question_or_concern": "“큰 병은 아닐까 걱정돼요;\n01\n환자는 유방 모형을 입고 있으며. 분홍색 가운을 그 위에 입고 있음\n유방 진찰 시 정중하게 환자가 수치심을 느끼지 않도록 하는 것이 중요함\nB{ 실전\n모의\n증례\n36세 여자 송미영씨가 유방에 뭐가 만져진다며 내원하였다.\n^■황\n지침\n% r ”\n[활력 징후] 혈압 : 122/80mmHg\n맥박 : 72회/분\n호흡 : 14호|/분\n체온 : 36.61C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n^활1霉놓儀\n가능성이 높은 진단 2개\n1• 양성 유방종양\n2. 유방암\n^•자\n필요한 검사 계획 3가지\n교육\n1. 유방초음파\n2. 유방촬영술\n3. 유방조직검사\n필요한 치료 계획 2가지\n1. 경과 관찰\n2. 자가검진 교육\nz ^ X\n유방덩이는유방 신체 검진이 필수적이므로 시간관리에 압박을 느낄\n수 있는 주제입니다.\n시간이 촉박하다고 모형 촉진을 소홀히 할 경우 오히려 진단을 놓치는 경우가 많으니 바쁘더라\n도 꼼꼼하게 만져봐야합니다. 환자 입장에서 유방촉진은 상당히 성가신 과정이므로 환자~의사\n관계를 신경 쓰면서 진찰해야합니다.\n촉진 도중에 환자의 불편함을 고려해 주는 멘트를 해주고，진찰이 끝난 후 옷가지를 챙겨주고 고\n생하셨다는 인사말을 건네는 것도 좋은 방법 입 니 다.\n환자 교육에서는자가 검진 및 주기적 검진 일정을 환자의 나이대에 맞게 설명해 주어야합니다.\n성별/나이\n여성/ 36세\n주소\n“유방에 뭐가 만져져요”\n0\n3년 전\nL\n왼쪽 바깥 위쪽\nD\n계속\nCo\n동일\nEx\n보통 생리 일주일 전에 생기고 생리 시작하면 없어짐\n이번엔 생리 시작했지만 없어지지 않아 내원\nC\n[크기/ 모양]\n손톱크기 (1cm)\n[개수]\n1개\n[통증/ 발적/ 열감]\n통증이 있을 때는 NRS 2~3점\n[피부이상]\n[유두이상]\nA\n[전신] 발열/오한/피로/체중 감소( - / - / - / - )\n[유방] 젖분비/유두출혈(/ᅳ/一)\n[림프절] 목덩이/겨드랑이덩이( - / - )\nF\n커피 (-)\nE\n2년마다 유방 검진 받음, 이상 없음\n외\n\n과\n이VI/TB/HTN/간염 ( - / - / - / - )\n약\n호르몬제제 (- )\n人 누\n술/담배( - / - ) , 커피(+，2〜3잔)\n식습관 ：\n골고루, 규칙적\n가\n어머니: 유방암\n여\n[월경력]\n양 적당, 주기 규칙적，LMP 이틀 전, 초경 12세\n[결혼력]\n기혼.출산한 적없음\n[산과력]\n0ᅳ0-1 (인공유산)一0，현재 임신 준비 중\nP/E\nGeneral\nV/S 확인\nHEENT\n\nChest\n유방 시/촉진 : 앉은 자세/누운 자세 모두\n만져지는 덩이 없음, 림프절 정상\nAbdomen\n\nExtremity\n\n질문\n“어머니도 유방암이라 걱정이 돼요；\n특이시항\nri\nH\nI\nI\n/o\nl\noi\n/\nhx\no\nf",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 33세\n“오른쪽 유방 전체가 아파요”\n0\n1달 전부터 심해짐\nL\n오른쪽 유방 전체가 아픈데, 특히 오른쪽 유방 바깥쪽 통증이 심함\nD\n^卜루 종일\nCo\n1 년 전부터 통증은 있었는데, 점점 심해지는 것 같음\nEx\n-\nC\n오른쪽 유방이 얼얼하게 아프고 심해졌다가 괜찮아졌다가 함\n기끔 오른쪽 유방 바깥쪽에 덩어리가 만져짐\nA\n열감/부종/ 발적/유방 피부 변화( - / - / - / - )\n겨드랑이 멍울/피부 함몰/유두 함몰/유두 분비물( - / - / - / - )\nF\n술 마시면 통증이 심해짐\nE\n3년 전에 유방암 검진 이상 소견 없음\n외\n유방 수술을 하거나 보형물 넣은 적 없음\n과\n-\n약\n호르몬제, 피임약( - / - )\n사\n커피 하루에 3잔 이상, 운동 거의 안함, 기름진 음식 좋아하고 즐김\n가\n어머니: 유방암\n여\n초경 : 초등학교 6학년，월경 주기 규칙적, 월경량 보통，월경통 없음\n미혼, 마지막 성관계 오래되어 임신 가능성 없음. 출산력 없음\nGeneral\nV/S : stable\nHEENT\n눈 (一), 구강 (一>. 갑상샘/림프절 ( - / - ) , 피부 긴장도/부종 (-/->\nP/E\nChest\n심음/호흡음(정상), 유방 모형에서 만져지는 덩이는 없음\n통증을 호소하는 오른쪽 바깥 부위와 겨드랑이 림프절 눌러도 지금은\n아프지 않다고 말함\n유방 피부 변화/유두 변화/유두 분비물 ( - / - / - )\n골반 내진(정상 카드 줌 흉부 ：\n시/촉/타/청 ( - / - / - / - )\nExtremity\nPitting edema (-)\n질문\n“큰 병은 아닐까 걱정돼요;\n01\n환자는 유방 모형을 입고 있으며. 분홍색 가운을 그 위에 입고 있음\n유방 진찰 시 정중하게 환자가 수치심을 느끼지 않도록 하는 것이 중요함\n\nB{ 실전\n모의\n증례\n• 36세 여자 송미영씨가 유방에 뭐가 만져진다며 내원하였다.\n^■황\n지침\n% r ”\n[활력 징후] 혈압 : 122/80mmHg\n맥박 : 72회/분\n호흡 : 14호|/분\n체온 : 36.61C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n^활1霉놓儀\n• 가능성이 높은 진단 2개\n1• 양성 유방종양\n2. 유방암\n^•자\n• 필요한 검사 계획 3가지\n교육\n1. 유방초음파\n2. 유방촬영술\n3. 유방조직검사\n• 필요한 치료 계획 2가지\n1. 경과 관찰\n2. 자가검진 교육\nz ^ X\n유방덩이는유방 신체 검진이 필수적이므로 시간관리에 압박을 느낄\n수 있는 주제입니다.\n시간이 촉박하다고 모형 촉진을 소홀히 할 경우 오히려 진단을 놓치는 경우가 많으니 바쁘더라\n도 꼼꼼하게 만져봐야합니다. 환자 입장에서 유방촉진은 상당히 성가신 과정이므로 환자~의사\n관계를 신경 쓰면서 진찰해야합니다.\n촉진 도중에 환자의 불편함을 고려해 주는 멘트를 해주고，진찰이 끝난 후 옷가지를 챙겨주고 고\n생하셨다는 인사말을 건네는 것도 좋은 방법 입 니 다.\n환자 교육에서는자가 검진 및 주기적 검진 일정을 환자의 나이대에 맞게 설명해 주어야합니다.\n\n성별/나이\n여성/ 36세\n주소\n“유방에 뭐가 만져져요”\n0\n3년 전\nL\n왼쪽 바깥 위쪽\nD\n계속\nCo\n동일\nEx\n보통 생리 일주일 전에 생기고 생리 시작하면 없어짐\n이번엔 생리 시작했지만 없어지지 않아 내원\nC\n[크기/ 모양]\n손톱크기 (1cm)\n[개수]\n1개\n[통증/ 발적/ 열감]\n통증이 있을 때는 NRS 2~3점\n[피부이상] -\n[유두이상] -\nA\n[전신] 발열/오한/피로/체중 감소( - / - / - / - )\n[유방] 젖분비/유두출혈(/ᅳ/一)\n[림프절] 목덩이/겨드랑이덩이( - / - )\nF\n커피 (-)\nE\n2년마다 유방 검진 받음, 이상 없음\n외\n-\n과\n이VI/TB/HTN/간염 ( - / - / - / - )\n약\n호르몬제제 (- )\n人 누\n술/담배( - / - ) , 커피(+，2〜3잔)\n식습관 ：\n골고루, 규칙적\n가\n어머니: 유방암\n여\n[월경력]\n양 적당, 주기 규칙적，LMP 이틀 전, 초경 12세\n[결혼력]\n기혼.출산한 적없음\n[산과력]\n0ᅳ0-1 (인공유산)一0，현재 임신 준비 중\nP/E\nGeneral\nV/S 확인\nHEENT\n-\nChest\n유방 시/촉진 : 앉은 자세/누운 자세 모두\n만져지는 덩이 없음, 림프절 정상\nAbdomen\n-\nExtremity\n-\n질문\n“어머니도 유방암이라 걱정이 돼요；\n특이시항\nri\nH\nI\nI\n/o\nl\noi\n/\nhx\no\nf"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "섬유낭병",
+      "카페인 유발 유방통",
+      "생리적 유방통"
+    ],
+    "planned_tests": [
+      "유방초음파",
+      "유방촬영술",
+      "유방조직검사(core needle biopsy)"
+    ],
+    "planned_treatments_or_education": [
+      "안심시키기 및 생활 습관 교정(카페인 섭취 감량)",
+      "대증 치료",
+      "유방 자가검진 교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례 ^\n>\n^•황\n지침\n• 33세 여자 이단비씨가 오른쪽 유방이 아파 내원하였다.\n[활력 징후] 혈압 : 126/80mmHg\n맥박 : 80회/분\n호흡: 17회/분\n체온 ：\n37.5°C\n[응시:다는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 3개\n1. 섬유낭병\n1. 카페인 유발 유방통\n3. 생리적 유방통\n• 필요한 검사 계획 3가지\n1. 유방초음파\n2. 유방촬영술\n3. 유방조직검사(core needle biopsy)\n• 필요한 치료 계획 3가지\n1. 안심시키기 및 생활 습관 교정(카페인 섭취 감량)\n2. 대증 치료\n3. 유방 자가검진 교육\n수ᅩ\n본 증례의 환자는유방암 가족력이 있지만 유방암 peak age에 비해 젊\n그\n은 연령이므로 악성 종양의 가능성은 다소 떨어집니다. 이런 경우 생\n리 주기와 연관되어 유방통이 나타나는 것은 아닌지 확인할 필요가 있습니다.\n커피, 콜라，차 등에 포함된 카페인에 의해 유방통이 발생할수 있음은 기존에 자주 출제된 항목\n이기 때문에 사회력 항목에서 자세하게 물어봐야 하며, 본 환자처럼 기름진 음식을 즐겨 먹는\n경우 유방암 위험이 증가할수 있음을 교육 때 환자에게 알릴 필요가 있습니다.\n앞선 증례의 환자와 마찬가지로 유방암 가족력이 있기 때문에 유방 자가 검진과 정기적인 유방\n검사가중요함을교육해야합니다. 마지막으로 유방 P/E 를할때 겨드랑이 림프절 촉진과 쇄골\n림프절 촉진을 배먹는 경우가 있는데, 주의할 필요가 있습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

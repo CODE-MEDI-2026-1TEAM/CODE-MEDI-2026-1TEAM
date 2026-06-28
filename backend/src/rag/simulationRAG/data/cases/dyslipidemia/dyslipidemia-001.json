@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "dyslipidemia-001",
+  "case_number_in_pdf": 78,
+  "topic": {
+    "topic_start_page": 181,
+    "topic_id": "dyslipidemia",
+    "topic_label": "이상지질혈증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 181,
+      "end": 182
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이영훈",
+      "age": 56,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "건강 검진에서 콜레스테롤 수치가 높다고 들었어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/85mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 56세\n“건강 검진에서 콜레스테롤 수치가 높다고 들었어요”",
+    "history_blocks": {
+      "onset": "1개월 전 건강 검진",
+      "location": "ᅳ",
+      "course": "검사 전 수칙 잘 지킴(8시간 금식 잘 했음)",
+      "experience": "3년 전에 200 넘었었는데 치료는 안 받음(의사가 약 안 먹어도 된다고 함)",
+      "character": "공복 상태에서 측정함, 총 콜레스테롤 270, HDL 35, LDL 193. TG 200 이상",
+      "associated_symptoms": "키 170cm, 몸무게 80kg, 허리둘레 36인치\n[전신]\n체중 증가(+, 2개월간 2kg 증가)\n[순환기]\n흉통/두근거림/호흡곤란 ( - / - / - )\n[신증후군]\n거품뇨/ 부종 (-/-)\n[신경계]\n두통/팔다리 힘 빠짐/감각 이상/말 어눌( - / - / - / - )\n[신경]\n수면무호흡(一)\n[내분비]\n자색선조(ᅳ), 더위/추위불내성(ᅳ/ᅳ)",
+      "events": "3년 전 검진에서 수치 높다고 들음",
+      "past_history": "HTN/DM(+/+), 이번 건강 검진에서 위염. 식도염 소견 발견",
+      "medications": "HTN/DM(+, 먹은지 오래됨, 잘 먹는 중/+)\n아스피린 (1 년 전부터 의사가 같이 먹으면 좋다고 권해서 먹는 중)\n人^\n흡연/음주(+/+), 스트레스(+，대구에 본인 거주용 펜션을 짓는데 소음 때문에 인근 주민들\n과 마찰 있음, 이로 인해 음주, 식욕 증가)\n운동(+, 매일 자전거, 예전에는 열심히 했는데 요즘엔 스트레스 받아서 일주일에 많아야 한\n번 정도 함)\n식사 : 기름진 음식과 술자리 좋아함. 식사는 규칙적, 한식, 짜게 먹고 국물 좋아함. 그러나\n맵고 자극적인 음식은 HTN, DM 진단 이후로 잘 안 먹고 있었음, 최근까지 식사 잘 신경\n쓰다가 펜션 스트레스로 야식, 기름진 것 많이 먹음",
+      "family_history": "아버지 : HTN. DM. 급사(Ml, 30년 전 人[망, 人[망 당시 55세), 어머니 : HTN(20YA 투약 중)"
+    },
+    "physical_exam_results": "General\nV/S ：\n혈압 140/85mmHg\nHEENT\n결막/공막(- / - ), 구강 진찰/림프절/피부 긴장도/갑상샘\n경동맥 청진(-), 안저검사 정상\nChest\n흉부 진찰 심음 포함 모두 정상\nAbdomen\n복부 및 흉부에 Xanthoma(-)\nExtermity\nPitting edema(- ), 아킬레스건 부위 Xanthoma(-)",
+    "patient_question_or_concern": "“스타틴이 고혈압, 당뇨약이랑 먹으면 안 좋다는데 괜찮나요?\"\nSP가 말이 너무 많아서 시간 부족, 적당히 끊고 다음 질문으로 넘어기야 함\n아킬레스건 황색종은 보여 달라고 요청하면 양말 벗어 줌",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 56세\n“건강 검진에서 콜레스테롤 수치가 높다고 들었어요”\n0\n1개월 전 건강 검진\nL\nᅳ\nD\n-\nCo\n검사 전 수칙 잘 지킴(8시간 금식 잘 했음)\nEx\n3년 전에 200 넘었었는데 치료는 안 받음(의사가 약 안 먹어도 된다고 함)\nC\n공복 상태에서 측정함, 총 콜레스테롤 270, HDL 35, LDL 193. TG 200 이상\nA\n키 170cm, 몸무게 80kg, 허리둘레 36인치\n[전신]\n체중 증가(+, 2개월간 2kg 증가)\n[순환기]\n흉통/두근거림/호흡곤란 ( - / - / - )\n[신증후군]\n거품뇨/ 부종 (-/-)\n[신경계]\n두통/팔다리 힘 빠짐/감각 이상/말 어눌( - / - / - / - )\n[신경]\n수면무호흡(一)\n[내분비]\n자색선조(ᅳ), 더위/추위불내성(ᅳ/ᅳ)\nF\n-\nE\n3년 전 검진에서 수치 높다고 들음\n외\n-\n과\nHTN/DM(+/+), 이번 건강 검진에서 위염. 식도염 소견 발견\n약\nHTN/DM(+, 먹은지 오래됨, 잘 먹는 중/+)\n아스피린 (1 년 전부터 의사가 같이 먹으면 좋다고 권해서 먹는 중)\n人^\n흡연/음주(+/+), 스트레스(+，대구에 본인 거주용 펜션을 짓는데 소음 때문에 인근 주민들\n과 마찰 있음, 이로 인해 음주, 식욕 증가)\n운동(+, 매일 자전거, 예전에는 열심히 했는데 요즘엔 스트레스 받아서 일주일에 많아야 한\n번 정도 함)\n식사 : 기름진 음식과 술자리 좋아함. 식사는 규칙적, 한식, 짜게 먹고 국물 좋아함. 그러나\n맵고 자극적인 음식은 HTN, DM 진단 이후로 잘 안 먹고 있었음, 최근까지 식사 잘 신경\n쓰다가 펜션 스트레스로 야식, 기름진 것 많이 먹음\n가\n아버지 : HTN. DM. 급사(Ml, 30년 전 人[망, 人[망 당시 55세), 어머니 : HTN(20YA 투약 중)\nP/E\nGeneral\nV/S ：\n혈압 140/85mmHg\nHEENT\n결막/공막(- / - ), 구강 진찰/림프절/피부 긴장도/갑상샘\n경동맥 청진(-), 안저검사 정상\nChest\n흉부 진찰 심음 포함 모두 정상\nAbdomen\n복부 및 흉부에 Xanthoma(-)\nExtermity\nPitting edema(- ), 아킬레스건 부위 Xanthoma(-)\n질문\n“스타틴이 고혈압, 당뇨약이랑 먹으면 안 좋다는데 괜찮나요?\"\nSP가 말이 너무 많아서 시간 부족, 적당히 끊고 다음 질문으로 넘어기야 함\n아킬레스건 황색종은 보여 달라고 요청하면 양말 벗어 줌"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.",
+    "likely_diagnoses": [
+      "■일차성고콜레스테롤혈증",
+      "가족성 고콜레스테롤혈증",
+      "대사증후군"
+    ],
+    "planned_tests": [
+      "■혈액검人 K 간기능검사포함)",
+      "소변검사",
+      "혈당검人卜"
+    ],
+    "planned_treatments_or_education": [
+      "스타틴복용",
+      "생활 습관 교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "12\nK\nm\n실전 모의 증례 ^\n• 56세 남자 이영훈씨가 콜레스테롤 수치가 높아 내원하였다.\n[활력 징후] 혈압 : 140/85mmHg\n지침\n맥박 ：\n80회/분\n호흡: 17회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n• 가능성이 높은 진단 3개\n1■일차성고콜레스테롤혈증\n2. 가족성 고콜레스테롤혈증\n3. 대사증후군\n환자\n• 필요한 검사 계획 3가지\n교육\n1■혈액검人 K 간기능검사포함)\n2. 소변검사\n3. 혈당검人卜\n• 필요한 치료 계획 2가지\n1. 스타틴복용\n2. 생활 습관 교육\nᄋ\n- 一흐\n_ - _ _ 끼빠- 여”\n—\n- - - _\n야히각\n이상지질혈증 모듈은 환자가 이전에 시행한 지질검사 결과를 가지고\n■핵를 방문할 확률이 높습니다. 환자에게 검사 결과를 차근차근 설명해 주고\n또 어떤 결과가 문제인지 설명해주면 환자-의사 관계에 도움이 되므로 정상 지질 수치를 외워\n두는 것이 좋겠습니 다. 또한 지질검사가 공복 상태에서 올바르게 측정된 것인지 확인하는 것이\n중요합니다.\n일차성 고콜레스테롤혈증 뿐만 아니라 이차적으로 지질 수치를 높일 수 있는 질환들을 감별\n하기 위한 질문들을 체계적으로 준비할 필요가 있으며，생활 습관 교정이 무엇보다 중요하므로\n환자 교육에 많은 시간을 투자할 수 있도록 대비하는 것이 좋겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

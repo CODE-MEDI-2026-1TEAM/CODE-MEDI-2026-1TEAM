@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "chest_pain-005",
+  "case_number_in_pdf": 57,
+  "topic": {
+    "topic_start_page": 127,
+    "topic_id": "chest_pain",
+    "topic_label": "가슴통증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 135,
+      "end": 136
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김광윤",
+      "age": 44,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "가슴 통증이 있어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "144/88mmHg",
+      "pulse": "91회/분",
+      "respiratory_rate": "14회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/44세\n주소\n\"가슴 통증이 있어요”",
+    "history_blocks": {
+      "onset": "1시간 전",
+      "location": "가슴전체",
+      "duration": "20분정도",
+      "course": "비슷함",
+      "experience": "3차례 가슴 통증 있었음, 지속 시간은 5분 가량",
+      "character": "쥐어짜는 통증 NRS 7점\n방사통(+) ：\n왼쪽 어깨쪽",
+      "associated_symptoms": "[전신] 발열/오한/식은땀/체중 감소/의식 소실( - / - / - / 一/ - )\n[순환기] 두근거림/호흡곤란(一/ᅳ)",
+      "factors": "완화(- ) : 휴식에도안괜찮아짐",
+      "events": "2년 전 건강 검진에서 고혈압 진단",
+      "past_history": "DM/TB/HTN/간염 (- / - / + / - )",
+      "medications": "人^\n술(+) ：\n일주일에 4호I, 한번에 소주 1 병\n담배 (+) ：\n하루 1갑, 20갑년\n커피 (- )\n스트레스 (+) ：\n업무스트레스 많음",
+      "family_history": "아버지 : 고혈압，고지혈증"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n구강 탈수 소견(ᅳ), 결막/공막 정상\n경동맥 시진/청진 정상\nChest\n심음 청진\n심장 부위 압통/ 열감/피부 변화(ᅳ/ᅵ/ᅳ)\nExtremity\n피부 긴장도• 오목 부종 정상\nFl>\n幽\n_vi",
+    "patient_question_or_concern": "어으\nt l A a\n특이 ^卜항\n표정 계속 찜그리고 불편해 함",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/44세\n주소\n\"가슴 통증이 있어요”\n0\n1시간 전\nL\n가슴전체\nD\n20분정도\nCo\n비슷함\nEx\n3차례 가슴 통증 있었음, 지속 시간은 5분 가량\nC\n쥐어짜는 통증 NRS 7점\n방사통(+) ：\n왼쪽 어깨쪽\nA\n[전신] 발열/오한/식은땀/체중 감소/의식 소실( - / - / - / 一/ - )\n[순환기] 두근거림/호흡곤란(一/ᅳ)\nF\n완화(- ) : 휴식에도안괜찮아짐\nE\n2년 전 건강 검진에서 고혈압 진단\n외\n-\n과\nDM/TB/HTN/간염 (- / - / + / - )\n약\n-\n人^\n술(+) ：\n일주일에 4호I, 한번에 소주 1 병\n담배 (+) ：\n하루 1갑, 20갑년\n커피 (- )\n스트레스 (+) ：\n업무스트레스 많음\n가\n아버지 : 고혈압，고지혈증\nP/E\nGeneral\nV/S 확인\nHEENT\n구강 탈수 소견(ᅳ), 결막/공막 정상\n경동맥 시진/청진 정상\nChest\n심음 청진\n심장 부위 압통/ 열감/피부 변화(ᅳ/ᅵ/ᅳ)\nExtremity\n피부 긴장도• 오목 부종 정상\nFl>-\n幽\n_vi\n질문\n어으\nt l A a\n특이 ^卜항\n표정 계속 찜그리고 불편해 함"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "• 급성 심근경색",
+      "불안정협심증"
+    ],
+    "planned_tests": [
+      "심전도",
+      "심근효소검사",
+      "니트로글리세린 투여",
+      "관상동맥조영술"
+    ],
+    "planned_treatments_or_education": [
+      "니트로글리세린 투여",
+      "관상동맥조영술"
+    ],
+    "expected_skills_raw": "1. 설명동의서 받기 : 급성 신근경색 감별을 위한 관상동맥조영술을 하기 전 설명동\n의서를 받습니다.\n2. 혈압 측정 : 현재 혈압이 높고. 고혈압력이 있으므로 진료실에서 다시 측정해 봅\n니다.\n돼\n^\n^\n이 가슴통증증례의 경우도 쥐어짜는 통증이 심해지고，lo분 이상유\n지抓 >?剛도 3한\n1 지 S fe 4姬\n보아 1 •ᄋ폐 해증 또는 급\n성 심근경색이 의심됩니다. 가슴 통증에서 가장 흔히 떠올리는 진단이고, 이 증례도 해당되지\n만, 늑막염, 기흉, 심막염, 늑간골절, 심내막염, 대동맥 박리 등 흉통을 유발할 수 있는 원인은 다\n양하기 때문에 악화/완화 인자를 꼼꼼하게 물어 보고, 신체 진찰에서는 시진, 촉진을 통해서 피\n부 변화 및 압통은 없는지 확인하는 것도 잊지 않도록 합니다.\n불안정 협심증 또는 급성 심근경색이 의심되는 경우 빠르게 검사와 치료가 진행되어야 하므로\n검사의 필요성과 방치했을 시의 위험성에 대해서 확실하게 말할 수 있어야 합니다.",
+    "author_commentary_tail": "^\n^\n이 가슴통증증례의 경우도 쥐어짜는 통증이 심해지고，lo분 이상유\n지抓 >?剛도 3한\n1 지 S fe 4姬\n보아 1 •ᄋ폐 해증 또는 급\n성 심근경색이 의심됩니다. 가슴 통증에서 가장 흔히 떠올리는 진단이고, 이 증례도 해당되지\n만, 늑막염, 기흉, 심막염, 늑간골절, 심내막염, 대동맥 박리 등 흉통을 유발할 수 있는 원인은 다\n양하기 때문에 악화/완화 인자를 꼼꼼하게 물어 보고, 신체 진찰에서는 시진, 촉진을 통해서 피\n부 변화 및 압통은 없는지 확인하는 것도 잊지 않도록 합니다.\n불안정 협심증 또는 급성 심근경색이 의심되는 경우 빠르게 검사와 치료가 진행되어야 하므로\n검사의 필요성과 방치했을 시의 위험성에 대해서 확실하게 말할 수 있어야 합니다.",
+    "scenario_card_raw": "실전 모의 증례________________________________________________________________\n• 44세 남자 김광윤씨가 가슴 통증으로 내원하였다.\n[활력 징후] 혈압 : 144/88mmHg\n맥박 ：\n91회/분\n호흡 : 14회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 2개\n1• 급성 심근경색\n2. 불안정협심증\n환자\n• 필요한 검사계획2가지\n교육\n1. 심전도\n2. 심근효소검사\n필요한 치료 계획 2가지\n1. 니트로글리세린 투여\n2. 관상동맥조영술\n예상\n술기\n1. 설명동의서 받기 : 급성 신근경색 감별을 위한 관상동맥조영술을 하기 전 설명동\n의서를 받습니다.\n2. 혈압 측정 : 현재 혈압이 높고. 고혈압력이 있으므로 진료실에서 다시 측정해 봅\n니다.\n돼\n^\n^\n이 가슴통증증례의 경우도 쥐어짜는 통증이 심해지고，lo분 이상유\n지抓 >?剛도 3한\n1 지 S fe 4姬\n보아 1 •ᄋ폐 해증 또는 급\n성 심근경색이 의심됩니다. 가슴 통증에서 가장 흔히 떠올리는 진단이고, 이 증례도 해당되지\n만, 늑막염, 기흉, 심막염, 늑간골절, 심내막염, 대동맥 박리 등 흉통을 유발할 수 있는 원인은 다\n양하기 때문에 악화/완화 인자를 꼼꼼하게 물어 보고, 신체 진찰에서는 시진, 촉진을 통해서 피\n부 변화 및 압통은 없는지 확인하는 것도 잊지 않도록 합니다.\n불안정 협심증 또는 급성 심근경색이 의심되는 경우 빠르게 검사와 치료가 진행되어야 하므로\n검사의 필요성과 방치했을 시의 위험성에 대해서 확실하게 말할 수 있어야 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

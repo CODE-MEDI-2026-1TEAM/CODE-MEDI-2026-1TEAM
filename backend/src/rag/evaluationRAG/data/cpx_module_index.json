@@ -1,0 +1,578 @@
+[
+  {
+    "module_id": "cpx-01-acute_abdominal_pain",
+    "clinical_expression_number": 1,
+    "title_ko": "급성 복통",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 70,
+      "end": 79
+    },
+    "markdown_file": "docs/modules/01_acute_abdominal_pain.md",
+    "json_file": "data/modules/01_acute_abdominal_pain.json"
+  },
+  {
+    "module_id": "cpx-02-dyspepsia_chronic_abdominal_pain",
+    "clinical_expression_number": 2,
+    "title_ko": "소화불량/만성 복통",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 80,
+      "end": 87
+    },
+    "markdown_file": "docs/modules/02_dyspepsia_chronic_abdominal_pain.md",
+    "json_file": "data/modules/02_dyspepsia_chronic_abdominal_pain.json"
+  },
+  {
+    "module_id": "cpx-03-hematemesis",
+    "clinical_expression_number": 3,
+    "title_ko": "토혈",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 88,
+      "end": 93
+    },
+    "markdown_file": "docs/modules/03_hematemesis.md",
+    "json_file": "data/modules/03_hematemesis.json"
+  },
+  {
+    "module_id": "cpx-04-hematochezia",
+    "clinical_expression_number": 4,
+    "title_ko": "혈변",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 94,
+      "end": 99
+    },
+    "markdown_file": "docs/modules/04_hematochezia.md",
+    "json_file": "data/modules/04_hematochezia.json"
+  },
+  {
+    "module_id": "cpx-05-vomiting",
+    "clinical_expression_number": 5,
+    "title_ko": "구토",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 100,
+      "end": 105
+    },
+    "markdown_file": "docs/modules/05_vomiting.md",
+    "json_file": "data/modules/05_vomiting.json"
+  },
+  {
+    "module_id": "cpx-06-bowel_habit_change",
+    "clinical_expression_number": 6,
+    "title_ko": "배변 이상(변비/설사)",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 106,
+      "end": 115
+    },
+    "markdown_file": "docs/modules/06_bowel_habit_change.md",
+    "json_file": "data/modules/06_bowel_habit_change.json"
+  },
+  {
+    "module_id": "cpx-07-jaundice",
+    "clinical_expression_number": 7,
+    "title_ko": "황달",
+    "domain_ko": "소화기",
+    "source_pdf_pages": {
+      "start": 116,
+      "end": 123
+    },
+    "markdown_file": "docs/modules/07_jaundice.md",
+    "json_file": "data/modules/07_jaundice.json"
+  },
+  {
+    "module_id": "cpx-08-chest_pain",
+    "clinical_expression_number": 8,
+    "title_ko": "가슴 통증",
+    "domain_ko": "순환기",
+    "source_pdf_pages": {
+      "start": 124,
+      "end": 129
+    },
+    "markdown_file": "docs/modules/08_chest_pain.md",
+    "json_file": "data/modules/08_chest_pain.json"
+  },
+  {
+    "module_id": "cpx-09-syncope",
+    "clinical_expression_number": 9,
+    "title_ko": "실신",
+    "domain_ko": "순환기",
+    "source_pdf_pages": {
+      "start": 130,
+      "end": 135
+    },
+    "markdown_file": "docs/modules/09_syncope.md",
+    "json_file": "data/modules/09_syncope.json"
+  },
+  {
+    "module_id": "cpx-10-palpitation",
+    "clinical_expression_number": 10,
+    "title_ko": "두근거림",
+    "domain_ko": "순환기",
+    "source_pdf_pages": {
+      "start": 136,
+      "end": 143
+    },
+    "markdown_file": "docs/modules/10_palpitation.md",
+    "json_file": "data/modules/10_palpitation.json"
+  },
+  {
+    "module_id": "cpx-11-hypertension",
+    "clinical_expression_number": 11,
+    "title_ko": "고혈압",
+    "domain_ko": "순환기",
+    "source_pdf_pages": {
+      "start": 144,
+      "end": 149
+    },
+    "markdown_file": "docs/modules/11_hypertension.md",
+    "json_file": "data/modules/11_hypertension.json"
+  },
+  {
+    "module_id": "cpx-12-dyslipidemia",
+    "clinical_expression_number": 12,
+    "title_ko": "이상지질혈증",
+    "domain_ko": "순환기",
+    "source_pdf_pages": {
+      "start": 150,
+      "end": 157
+    },
+    "markdown_file": "docs/modules/12_dyslipidemia.md",
+    "json_file": "data/modules/12_dyslipidemia.json"
+  },
+  {
+    "module_id": "cpx-13-cough",
+    "clinical_expression_number": 13,
+    "title_ko": "기침",
+    "domain_ko": "호흡기",
+    "source_pdf_pages": {
+      "start": 158,
+      "end": 163
+    },
+    "markdown_file": "docs/modules/13_cough.md",
+    "json_file": "data/modules/13_cough.json"
+  },
+  {
+    "module_id": "cpx-14-rhinorrhea_nasal_congestion",
+    "clinical_expression_number": 14,
+    "title_ko": "콧물/코막힘",
+    "domain_ko": "호흡기",
+    "source_pdf_pages": {
+      "start": 164,
+      "end": 171
+    },
+    "markdown_file": "docs/modules/14_rhinorrhea_nasal_congestion.md",
+    "json_file": "data/modules/14_rhinorrhea_nasal_congestion.json"
+  },
+  {
+    "module_id": "cpx-15-hemoptysis",
+    "clinical_expression_number": 15,
+    "title_ko": "객혈",
+    "domain_ko": "호흡기",
+    "source_pdf_pages": {
+      "start": 172,
+      "end": 177
+    },
+    "markdown_file": "docs/modules/15_hemoptysis.md",
+    "json_file": "data/modules/15_hemoptysis.json"
+  },
+  {
+    "module_id": "cpx-16-dyspnea",
+    "clinical_expression_number": 16,
+    "title_ko": "호흡곤란",
+    "domain_ko": "호흡기",
+    "source_pdf_pages": {
+      "start": 178,
+      "end": 185
+    },
+    "markdown_file": "docs/modules/16_dyspnea.md",
+    "json_file": "data/modules/16_dyspnea.json"
+  },
+  {
+    "module_id": "cpx-17-urine_volume_change",
+    "clinical_expression_number": 17,
+    "title_ko": "소변량 변화(다뇨증/핍뇨)",
+    "domain_ko": "신장/비뇨",
+    "source_pdf_pages": {
+      "start": 186,
+      "end": 195
+    },
+    "markdown_file": "docs/modules/17_urine_volume_change.md",
+    "json_file": "data/modules/17_urine_volume_change.json"
+  },
+  {
+    "module_id": "cpx-18-red_urine",
+    "clinical_expression_number": 18,
+    "title_ko": "붉은색 소변",
+    "domain_ko": "신장/비뇨",
+    "source_pdf_pages": {
+      "start": 196,
+      "end": 203
+    },
+    "markdown_file": "docs/modules/18_red_urine.md",
+    "json_file": "data/modules/18_red_urine.json"
+  },
+  {
+    "module_id": "cpx-19-voiding_dysfunction",
+    "clinical_expression_number": 19,
+    "title_ko": "배뇨 이상/소변찔끔증",
+    "domain_ko": "신장/비뇨",
+    "source_pdf_pages": {
+      "start": 204,
+      "end": 213
+    },
+    "markdown_file": "docs/modules/19_voiding_dysfunction.md",
+    "json_file": "data/modules/19_voiding_dysfunction.json"
+  },
+  {
+    "module_id": "cpx-20-fever",
+    "clinical_expression_number": 20,
+    "title_ko": "발열",
+    "domain_ko": "전신",
+    "source_pdf_pages": {
+      "start": 214,
+      "end": 221
+    },
+    "markdown_file": "docs/modules/20_fever.md",
+    "json_file": "data/modules/20_fever.json"
+  },
+  {
+    "module_id": "cpx-21-easy_bruising",
+    "clinical_expression_number": 21,
+    "title_ko": "쉽게 멍이 듦",
+    "domain_ko": "전신",
+    "source_pdf_pages": {
+      "start": 222,
+      "end": 229
+    },
+    "markdown_file": "docs/modules/21_easy_bruising.md",
+    "json_file": "data/modules/21_easy_bruising.json"
+  },
+  {
+    "module_id": "cpx-22-fatigue",
+    "clinical_expression_number": 22,
+    "title_ko": "피로",
+    "domain_ko": "전신",
+    "source_pdf_pages": {
+      "start": 230,
+      "end": 237
+    },
+    "markdown_file": "docs/modules/22_fatigue.md",
+    "json_file": "data/modules/22_fatigue.json"
+  },
+  {
+    "module_id": "cpx-23-weight_loss",
+    "clinical_expression_number": 23,
+    "title_ko": "체중 감소",
+    "domain_ko": "전신",
+    "source_pdf_pages": {
+      "start": 238,
+      "end": 245
+    },
+    "markdown_file": "docs/modules/23_weight_loss.md",
+    "json_file": "data/modules/23_weight_loss.json"
+  },
+  {
+    "module_id": "cpx-24-weight_gain_obesity",
+    "clinical_expression_number": 24,
+    "title_ko": "체중증가/비만",
+    "domain_ko": "전신",
+    "source_pdf_pages": {
+      "start": 246,
+      "end": 253
+    },
+    "markdown_file": "docs/modules/24_weight_gain_obesity.md",
+    "json_file": "data/modules/24_weight_gain_obesity.json"
+  },
+  {
+    "module_id": "cpx-25-joint_pain_swelling",
+    "clinical_expression_number": 25,
+    "title_ko": "관절 통증/부기",
+    "domain_ko": "관절/근골격/피부",
+    "source_pdf_pages": {
+      "start": 254,
+      "end": 263
+    },
+    "markdown_file": "docs/modules/25_joint_pain_swelling.md",
+    "json_file": "data/modules/25_joint_pain_swelling.json"
+  },
+  {
+    "module_id": "cpx-26-neck_low_back_pain",
+    "clinical_expression_number": 26,
+    "title_ko": "목통증/허리통증",
+    "domain_ko": "관절/근골격/피부",
+    "source_pdf_pages": {
+      "start": 264,
+      "end": 274
+    },
+    "markdown_file": "docs/modules/26_neck_low_back_pain.md",
+    "json_file": "data/modules/26_neck_low_back_pain.json"
+  },
+  {
+    "module_id": "cpx-27-skin_rash",
+    "clinical_expression_number": 27,
+    "title_ko": "피부 발진",
+    "domain_ko": "관절/근골격/피부",
+    "source_pdf_pages": {
+      "start": 275,
+      "end": 283
+    },
+    "markdown_file": "docs/modules/27_skin_rash.md",
+    "json_file": "data/modules/27_skin_rash.json"
+  },
+  {
+    "module_id": "cpx-28-mood_change",
+    "clinical_expression_number": 28,
+    "title_ko": "기분 변화",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 284,
+      "end": 289
+    },
+    "markdown_file": "docs/modules/28_mood_change.md",
+    "json_file": "data/modules/28_mood_change.json"
+  },
+  {
+    "module_id": "cpx-29-anxiety",
+    "clinical_expression_number": 29,
+    "title_ko": "불안",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 290,
+      "end": 295
+    },
+    "markdown_file": "docs/modules/29_anxiety.md",
+    "json_file": "data/modules/29_anxiety.json"
+  },
+  {
+    "module_id": "cpx-30-sleep_disorder",
+    "clinical_expression_number": 30,
+    "title_ko": "수면장애",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 296,
+      "end": 303
+    },
+    "markdown_file": "docs/modules/30_sleep_disorder.md",
+    "json_file": "data/modules/30_sleep_disorder.json"
+  },
+  {
+    "module_id": "cpx-31-memory_decline",
+    "clinical_expression_number": 31,
+    "title_ko": "기억력 저하",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 304,
+      "end": 313
+    },
+    "markdown_file": "docs/modules/31_memory_decline.md",
+    "json_file": "data/modules/31_memory_decline.json"
+  },
+  {
+    "module_id": "cpx-32-dizziness",
+    "clinical_expression_number": 32,
+    "title_ko": "어지럼",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 314,
+      "end": 321
+    },
+    "markdown_file": "docs/modules/32_dizziness.md",
+    "json_file": "data/modules/32_dizziness.json"
+  },
+  {
+    "module_id": "cpx-33-headache",
+    "clinical_expression_number": 33,
+    "title_ko": "두통",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 322,
+      "end": 329
+    },
+    "markdown_file": "docs/modules/33_headache.md",
+    "json_file": "data/modules/33_headache.json"
+  },
+  {
+    "module_id": "cpx-34-seizure",
+    "clinical_expression_number": 34,
+    "title_ko": "경련",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 330,
+      "end": 335
+    },
+    "markdown_file": "docs/modules/34_seizure.md",
+    "json_file": "data/modules/34_seizure.json"
+  },
+  {
+    "module_id": "cpx-35-motor_sensory_abnormality",
+    "clinical_expression_number": 35,
+    "title_ko": "근력/감각 이상",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 336,
+      "end": 345
+    },
+    "markdown_file": "docs/modules/35_motor_sensory_abnormality.md",
+    "json_file": "data/modules/35_motor_sensory_abnormality.json"
+  },
+  {
+    "module_id": "cpx-36-altered_mental_status",
+    "clinical_expression_number": 36,
+    "title_ko": "의식장애",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 346,
+      "end": 353
+    },
+    "markdown_file": "docs/modules/36_altered_mental_status.md",
+    "json_file": "data/modules/36_altered_mental_status.json"
+  },
+  {
+    "module_id": "cpx-37-tremor_movement_disorder",
+    "clinical_expression_number": 37,
+    "title_ko": "떨림/운동이상",
+    "domain_ko": "정신/신경",
+    "source_pdf_pages": {
+      "start": 354,
+      "end": 363
+    },
+    "markdown_file": "docs/modules/37_tremor_movement_disorder.md",
+    "json_file": "data/modules/37_tremor_movement_disorder.json"
+  },
+  {
+    "module_id": "cpx-38-breast_pain_lump",
+    "clinical_expression_number": 38,
+    "title_ko": "유방통/유방덩이",
+    "domain_ko": "산부/여성/소아",
+    "source_pdf_pages": {
+      "start": 364,
+      "end": 373
+    },
+    "markdown_file": "docs/modules/38_breast_pain_lump.md",
+    "json_file": "data/modules/38_breast_pain_lump.json"
+  },
+  {
+    "module_id": "cpx-39-vaginal_discharge_bleeding",
+    "clinical_expression_number": 39,
+    "title_ko": "질분비물/질출혈",
+    "domain_ko": "산부/여성/소아",
+    "source_pdf_pages": {
+      "start": 374,
+      "end": 385
+    },
+    "markdown_file": "docs/modules/39_vaginal_discharge_bleeding.md",
+    "json_file": "data/modules/39_vaginal_discharge_bleeding.json"
+  },
+  {
+    "module_id": "cpx-40-menstrual_abnormality_dysmenorrhea",
+    "clinical_expression_number": 40,
+    "title_ko": "월경이상/월경통",
+    "domain_ko": "산부/여성/소아",
+    "source_pdf_pages": {
+      "start": 386,
+      "end": 395
+    },
+    "markdown_file": "docs/modules/40_menstrual_abnormality_dysmenorrhea.md",
+    "json_file": "data/modules/40_menstrual_abnormality_dysmenorrhea.json"
+  },
+  {
+    "module_id": "cpx-41-prenatal_care",
+    "clinical_expression_number": 41,
+    "title_ko": "산전진찰",
+    "domain_ko": "산부/여성/소아",
+    "source_pdf_pages": {
+      "start": 396,
+      "end": 404
+    },
+    "markdown_file": "docs/modules/41_prenatal_care.md",
+    "json_file": "data/modules/41_prenatal_care.json"
+  },
+  {
+    "module_id": "cpx-42-growth_developmental_delay",
+    "clinical_expression_number": 42,
+    "title_ko": "성장/발달지연",
+    "domain_ko": "산부/여성/소아",
+    "source_pdf_pages": {
+      "start": 405,
+      "end": 417
+    },
+    "markdown_file": "docs/modules/42_growth_developmental_delay.md",
+    "json_file": "data/modules/42_growth_developmental_delay.json"
+  },
+  {
+    "module_id": "cpx-43-vaccination",
+    "clinical_expression_number": 43,
+    "title_ko": "예방접종",
+    "domain_ko": "산부/여성/소아",
+    "source_pdf_pages": {
+      "start": 418,
+      "end": 427
+    },
+    "markdown_file": "docs/modules/43_vaccination.md",
+    "json_file": "data/modules/43_vaccination.json"
+  },
+  {
+    "module_id": "cpx-44-alcohol_smoking_counseling",
+    "clinical_expression_number": 44,
+    "title_ko": "음주/금연상담",
+    "domain_ko": "상담",
+    "source_pdf_pages": {
+      "start": 428,
+      "end": 437
+    },
+    "markdown_file": "docs/modules/44_alcohol_smoking_counseling.md",
+    "json_file": "data/modules/44_alcohol_smoking_counseling.json"
+  },
+  {
+    "module_id": "cpx-45-substance_misuse",
+    "clinical_expression_number": 45,
+    "title_ko": "물질오남용",
+    "domain_ko": "상담",
+    "source_pdf_pages": {
+      "start": 438,
+      "end": 443
+    },
+    "markdown_file": "docs/modules/45_substance_misuse.md",
+    "json_file": "data/modules/45_substance_misuse.json"
+  },
+  {
+    "module_id": "cpx-46-breaking_bad_news",
+    "clinical_expression_number": 46,
+    "title_ko": "나쁜 소식 전하기",
+    "domain_ko": "상담",
+    "source_pdf_pages": {
+      "start": 444,
+      "end": 450
+    },
+    "markdown_file": "docs/modules/46_breaking_bad_news.md",
+    "json_file": "data/modules/46_breaking_bad_news.json"
+  },
+  {
+    "module_id": "cpx-47-domestic_sexual_violence",
+    "clinical_expression_number": 47,
+    "title_ko": "가정폭력/성폭력",
+    "domain_ko": "상담",
+    "source_pdf_pages": {
+      "start": 451,
+      "end": 459
+    },
+    "markdown_file": "docs/modules/47_domestic_sexual_violence.md",
+    "json_file": "data/modules/47_domestic_sexual_violence.json"
+  },
+  {
+    "module_id": "cpx-48-suicide_risk",
+    "clinical_expression_number": 48,
+    "title_ko": "자살",
+    "domain_ko": "상담",
+    "source_pdf_pages": {
+      "start": 460,
+      "end": 464
+    },
+    "markdown_file": "docs/modules/48_suicide_risk.md",
+    "json_file": "data/modules/48_suicide_risk.json"
+  }
+]

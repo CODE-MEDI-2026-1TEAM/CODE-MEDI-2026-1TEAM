@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "low_back_pain-002",
+  "case_number_in_pdf": 167,
+  "topic": {
+    "topic_start_page": 423,
+    "topic_id": "low_back_pain",
+    "topic_label": "허리통증",
+    "system": "관절/근골격/피부"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 425,
+      "end": 426
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김덕배",
+      "age": 60,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "허리가 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "142/96mmHg",
+      "pulse": "75회/분",
+      "respiratory_rate": "16회/분",
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 60세\n“허리가 아파요”",
+    "history_blocks": {
+      "onset": "일주일 전",
+      "location": "오른쪽 허리, 오른쪽 허벅지 외측，정강이 안쪽",
+      "duration": "움직일 때마다 통증",
+      "course": "오늘 아침부터 심해짐 (아침에 약수터 등산)",
+      "experience": "3년 전부터 허리 통증",
+      "character": "[양상]\n허리 : 묵직하고 둔함, 압통/열감( - / - ) , 조조강직(一)，파행(+)\n허벅지부터 정강이 : 느낌이 이상함, 내 다리가 아닌듯\n[통증]\n허리는 NRS 6~7, 아침에는 NRS 9",
+      "associated_symptoms": "[전신]\n발열/피로감/체중 감소/식욕 감소/근육통( - / - / - / - / _ )\n[신경]\n하지 감각 저하/하지 근력 약화(+，Rt/+, Rt), 배뇨 이상(-)",
+      "factors": "악화 : 뒤로 허리 젖힘/오래 걷기(+/+)\n완화 : 휴식/숙일 때/누워 있을 때/쪼그려 앉을 때 (+/+/+/+)",
+      "events": "일주일 전 허리 삐끗함(화분 옮김)\n1년 전 건강 검진 정상",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "medications": "人 f\n술/담배/커피 ( - / - / - )\n직업 : 은퇴함, 이전 고등학교 선생님",
+      "family_history": "형 : 허리 디스크무 수술함\nGeneral\nV/S 확인\nHEENT\n결막/공막(一/ - ) ，입/피부 탈수 소견(一/ - )"
+    },
+    "physical_exam_results": "Chest\n심음/호흡음 ( - / - )\n'현0혹^놓f敎.\nExtremity\n[허리 관절] 뒤로 젖힐 때 통증, ROM 감소^ 압통/ 열감( - / - )\n하지 감각 저하/하지 근력 저하(± /± ), DTR 이상(-/ᅳ)\nSLR test(+, - ) , Patrick(- - ) , 발등 동맥 촉지 정상",
+    "patient_question_or_concern": "“형처럼 디스크 수술 받0K)ᅣ\n할 수도 있나요? ”\n특이 ^卜항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 60세\n“허리가 아파요”\n0\n일주일 전\nL\n오른쪽 허리, 오른쪽 허벅지 외측，정강이 안쪽\nD\n움직일 때마다 통증\nCo\n오늘 아침부터 심해짐 (아침에 약수터 등산)\nEx\n3년 전부터 허리 통증\nC\n[양상]\n허리 : 묵직하고 둔함, 압통/열감( - / - ) , 조조강직(一)，파행(+)\n허벅지부터 정강이 : 느낌이 이상함, 내 다리가 아닌듯\n[통증]\n허리는 NRS 6~7, 아침에는 NRS 9\nA\n[전신]\n발열/피로감/체중 감소/식욕 감소/근육통( - / - / - / - / _ )\n[신경]\n하지 감각 저하/하지 근력 약화(+，Rt/+, Rt), 배뇨 이상(-)\nF\n악화 : 뒤로 허리 젖힘/오래 걷기(+/+)\n완화 : 휴식/숙일 때/누워 있을 때/쪼그려 앉을 때 (+/+/+/+)\nE\n일주일 전 허리 삐끗함(화분 옮김)\n1년 전 건강 검진 정상\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n人 f\n술/담배/커피 ( - / - / - )\n직업 : 은퇴함, 이전 고등학교 선생님\n가\n형 : 허리 디스크무 수술함\nGeneral\nV/S 확인\nHEENT\n결막/공막(一/ - ) ，입/피부 탈수 소견(一/ - )\nP/E\nChest\n심음/호흡음 ( - / - )\n'현0혹^놓f敎.\nExtremity\n[허리 관절] 뒤로 젖힐 때 통증, ROM 감소^ 압통/ 열감( - / - )\n하지 감각 저하/하지 근력 저하(± /± ), DTR 이상(-/ᅳ)\nSLR test(+, - ) , Patrick(- - ) , 발등 동맥 촉지 정상\n질문\n“형처럼 디스크 수술 받0K)ᅣ\n할 수도 있나요? ”\n특이 ^卜항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시모\n교육",
+    "likely_diagnoses": [
+      "척추관협착증",
+      "디스크 탈출증",
+      "요추염좌"
+    ],
+    "planned_tests": [
+      "요추 X-ray",
+      "요추 MRI"
+    ],
+    "planned_treatments_or_education": [
+      "통증 조절",
+      "안정과 과도한 운동 제한",
+      "운동요법"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "\\\n실전 모의 증례\n상황\n지침\n• 60세 남자 김덕배씨가 허리가 아파 내원하였다.\n[활력 징휘 혈압 : 142/96mmHg\n맥박 : 75회/분\n호흡 : 16회/분\n체온 : 36.8°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시모\n교육\n• 가능성이 높은 진단 3개\n1. 척추관협착증\n2. 디스크 탈출증\n3. 요추염좌\n• 필요한 검사 계획 2가지\n1. 요추 X-ray\n2. 요추 MRI\n• 필요한 치료 계획 3가지\n1. 통증 조절\n2. 안정과 과도한 운동 제한\n3. 운동요법\n허리 통증은 특이적인 신체 진찰도 있을 뿐더러, 시행해야 되는 신체\n진찰이 많아 시간이 부족할수 있습니다.\n신체 진찰 시에는 필요한자세를 말로 설명하기 보다는，직접 시범을 보이는 것이 더 효과적입\n니다.\n허리 수술을 걱정하는 경우가 많으므로，이에 대해서 자세 교정 및 운동, 대증 치료, 약물 치료\n등에도 효과 없을 시에 수술을 고려할 수 있다고 안심시켜 주는 것이 좋겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

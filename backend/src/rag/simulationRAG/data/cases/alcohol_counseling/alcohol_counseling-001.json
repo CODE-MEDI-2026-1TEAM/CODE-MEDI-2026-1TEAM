@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "alcohol_counseling-001",
+  "case_number_in_pdf": 270,
+  "topic": {
+    "topic_start_page": 697,
+    "topic_id": "alcohol_counseling",
+    "topic_label": "음주 상담",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 699,
+      "end": 700
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김두필",
+      "age": 50,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "누나랑 매형이 술 그만 먹으라고 해서 왔어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "134/82mmHg",
+      "pulse": "82회/분",
+      "respiratory_rate": null,
+      "temperature": "36.6°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 50세\n^소\n“누나랑 매형이 술 그만 먹으라고 해서 왔어요”\n음주량\n한 달에 3일 정도 빼고는 매일\n하루에 소주 3〜4병 ( 많이 먹으면 5병까지도 口1심)\n음주 양과 빈도 늘었음\n^ 주의도/\n경험\n음주 운전 해서 6개월 징역 살 때 타의적으로 금주함\n당시 금단 증상 ：\n손 떨림/불안/불면/메스꺼움(+/+/+/+)\n금주 생각은 아직 없음\n누나와 매형이 술 너무 많이 먹는다고 건강이 걱정된다고 해서 내원\n음주이유\n계기 : 20세부터, 대학교 때 친구들과 어울려 다니며 음주 시작\n현재 : 스트레스로 혼자 먹기도 하고 거래처 人1람들 대접 위해 먹기도 함\nCAGE\nC ：\n생각해 본 적 없음\nA ：\n비난까지는 아니지만 가족들이 한 소리 함\nG ：\n아침에 일어나 후회 정도 하지만, 죄책감까지는 아님\nE ：\n해장술은 아니지만 평소에도 아침에 술을 조금 □ᅡ실 때는 있다.\n^용\n[법적] 음주 운전으로6개월징역산 적있음\n[의위\n[활동]\n[관계] 가족들이한 소리 하는정도\n[신체]\n의존\n금단 증상 ：\n손 떨림/불안/불면/메스꺼움(+/+/+/+)",
+    "history_blocks": {
+      "associated_symptoms": "체중 감소/속쓰림/소화불량/황달/피로( + / - / - / _ / - )",
+      "medications": "Relevance",
+      "social_history": "담배(+. 30갑년, 하루에 1갑)\n직업 : 중소기업 人®\n스트레스(+) : 人卜업 운영하면서 스트레스 많음\n운동(+> : 거래처 人®들과 골프",
+      "past_history": "건강 검진 상 지방간/고지혈증 있었으나 치료 안 받음"
+    },
+    "physical_exam_results": "거口 ᅵ혈관종/간/비장비대/복수/황달/ Flapping tremor/DRE",
+    "patient_question_or_concern": "특이시항",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 50세\n^소\n“누나랑 매형이 술 그만 먹으라고 해서 왔어요”\n음주량\n한 달에 3일 정도 빼고는 매일\n하루에 소주 3〜4병 ( 많이 먹으면 5병까지도 口1심)\n음주 양과 빈도 늘었음\n^ 주의도/\n경험\n음주 운전 해서 6개월 징역 살 때 타의적으로 금주함\n당시 금단 증상 ：\n손 떨림/불안/불면/메스꺼움(+/+/+/+)\n금주 생각은 아직 없음\n누나와 매형이 술 너무 많이 먹는다고 건강이 걱정된다고 해서 내원\n음주이유\n계기 : 20세부터, 대학교 때 친구들과 어울려 다니며 음주 시작\n현재 : 스트레스로 혼자 먹기도 하고 거래처 人1람들 대접 위해 먹기도 함\nCAGE\nC ：\n생각해 본 적 없음\nA ：\n비난까지는 아니지만 가족들이 한 소리 함\nG ：\n아침에 일어나 후회 정도 하지만, 죄책감까지는 아님\nE ：\n해장술은 아니지만 평소에도 아침에 술을 조금 □ᅡ실 때는 있다.\n^용\n[법적] 음주 운전으로6개월징역산 적있음\n[의위 -\n[활동] -\n[관계] 가족들이한 소리 하는정도\n[신체] -\n의존\n금단 증상 ：\n손 떨림/불안/불면/메스꺼움(+/+/+/+)\nA\n체중 감소/속쓰림/소화불량/황달/피로( + / - / - / _ / - )\n약\n-\nRelevance\n사\n담배(+. 30갑년, 하루에 1갑)\n직업 : 중소기업 人®\n스트레스(+) : 人卜업 운영하면서 스트레스 많음\n운동(+> : 거래처 人®들과 골프\n가\n-\n과\n건강 검진 상 지방간/고지혈증 있었으나 치료 안 받음\nP/E\n거口 ᅵ혈관종/간/비장비대/복수/황달/ Flapping tremor/DRE\n질문\n-\n특이시항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "알코올 의존",
+      "알코올남용"
+    ],
+    "planned_tests": [
+      "간기능검사",
+      "혈액검사"
+    ],
+    "planned_treatments_or_education": [
+      "복부^음파",
+      "행동 치료",
+      "약물 치료",
+      "신체 증상 및 내과적 질환 교정"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "B[ 실전 모의 증례\n• 50세 남자 김두필씨가 금주 상담을 위해 내원하였다.\n[활력 징후] 혈압 : 134/82mmHg\n^■황\n지침\n맥박 : 82회/분\n호톱 : 18회/분\n체온 ：\n36.6°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오•\n• 가능성이 높은 진단 2개\n1. 알코올 의존\n2. 알코올남용\n• 필요한 검사 계획 3가지\n1. 간기능검사\n2. 혈액검사\n• 필요한 치료 계획 3가지\n3. 복부^음파\n1. 행동 치료\n2. 약물 치료\n3. 신체 증상 및 내과적 질환 교정\nA-—— — — —.---------------------------------------\nj\n금주할 생각이 당장 없지만 가족에 의해 병원에 온환자증례로 음주\n；\n\n( 3 ■내척활\n의 나본 점을 몇 가지 언급해주는 것 만으로도 쉽게 금주 권유에 설득\n! 되는환자입니다.\nI\ni\n음주 요인에 대해서 자세히 물어보고, 힘든 일에 대해서 공감해 주며, 면담 시 라里 형성에 도음\nI\ni\n이될것입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

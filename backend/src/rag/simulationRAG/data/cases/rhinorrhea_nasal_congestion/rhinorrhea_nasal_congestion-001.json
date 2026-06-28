@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "rhinorrhea_nasal_congestion-001",
+  "case_number_in_pdf": 90,
+  "topic": {
+    "topic_start_page": 209,
+    "topic_id": "rhinorrhea_nasal_congestion",
+    "topic_label": "콧물/코막힘",
+    "system": "호흡기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 209,
+      "end": 210
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "안건",
+      "age": 30,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "콧물이 심하게 나와요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "125/80mmHg",
+      "pulse": "81회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 30세\n“콧물이 심하게 나와요”",
+    "history_blocks": {
+      "onset": "2주전",
+      "location": "양쪽 : 한 쪽만 나올 때도 있고 심할 땐 양쪽 번갈아 가면서 나옴",
+      "duration": "매일 하루 종일",
+      "course": "심해짐",
+      "experience": "3~4년 전에도 가끔 있었으나 자연 호전됨",
+      "character": "투명하고 물같은 콧물, 피(一), 냄새(一), 심할 때는 휴지 20장",
+      "associated_symptoms": "[전신] 발열/오한( - / - ) , 체중 변화(-)\n[호흡] 헛기침/재채기(+/+), 눈，코 가려움/코 뒤로 넘어감/코막힘(+/+/+)\n인후통/쌕쌕거림/호흡곤란/야간 발한(- /ᅳ/ - / - )\n얼굴 압통(ᅳ)，두통(+，심할 때 동반)，나머지(一). 얼굴 주위 감각 이상(니\n기침/가래( - / - ) , 최근 감기(± ，1주일 전에 걸렸음)",
+      "factors": "악화 (+) ：\n아침. 먼지, 찬 바람, 담배 필 때\n계절/운동/애완동물( - / - / 一)，뜨거운 음식(-)",
+      "events": "건강 검진 이상 없었음, 독감/폐렴 예방접종(- / - )",
+      "trauma_history": "흉부 외상/수술( - / - ) , 코 안 이물질(-)",
+      "past_history": "아토피(+，어렸을 때, 지금은 괜찮음)\nHTN/DM/고지혈증/결핵 ( - / - / - / 一)",
+      "medications": "콧물약 약국에서 구입해 복용했지만 효과 없었음\n人^\n흡연(5PY，0.5갑, 10년), 음주(2〜3병/ 1주), 먼지 있는 환경은 아님\n직업 : 대학생，스트레스 : 고시 공부 중인데 콧물 나와서 공부 방해",
+      "family_history": "여동생 ：\n아토피(+，어렸을 때, 지금은 괜찮음)\nGeneral\nV/S ：\nstable"
+    },
+    "physical_exam_results": "HEENT\n결막/공막(一/一>, 구강 진찰/림프절/피부 긴장도(一/ᅳ/一)\n갑상샘(- ), 비경검사 결과(정상), 부비동 압통(-)\nChest\n흉부 진찰 심음 포함 모두 정상\nExtermity\nPitting edema(-), 곤봉지/청색증(- / - )",
+    "patient_question_or_concern": "I이 사항\n독감/폐렴 예방접종 안 맞았다고 해서 오늘 맞겠냐고 물으니까 좋아하면서 맞고 가겠\n다고 안내 부탁함",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 30세\n“콧물이 심하게 나와요”\n0\n2주전\nL\n양쪽 : 한 쪽만 나올 때도 있고 심할 땐 양쪽 번갈아 가면서 나옴\nD\n매일 하루 종일\nCo\n심해짐\nEx\n3~4년 전에도 가끔 있었으나 자연 호전됨\nC\n투명하고 물같은 콧물, 피(一), 냄새(一), 심할 때는 휴지 20장\nA\n[전신] 발열/오한( - / - ) , 체중 변화(-)\n[호흡] 헛기침/재채기(+/+), 눈，코 가려움/코 뒤로 넘어감/코막힘(+/+/+)\n인후통/쌕쌕거림/호흡곤란/야간 발한(- /ᅳ/ - / - )\n얼굴 압통(ᅳ)，두통(+，심할 때 동반)，나머지(一). 얼굴 주위 감각 이상(니\n기침/가래( - / - ) , 최근 감기(± ，1주일 전에 걸렸음)\nF\n악화 (+) ：\n아침. 먼지, 찬 바람, 담배 필 때\n계절/운동/애완동물( - / - / 一)，뜨거운 음식(-)\nE\n건강 검진 이상 없었음, 독감/폐렴 예방접종(- / - )\n외\n흉부 외상/수술( - / - ) , 코 안 이물질(-)\n과\n아토피(+，어렸을 때, 지금은 괜찮음)\nHTN/DM/고지혈증/결핵 ( - / - / - / 一)\n약\n콧물약 약국에서 구입해 복용했지만 효과 없었음\n人^\n흡연(5PY，0.5갑, 10년), 음주(2〜3병/ 1주), 먼지 있는 환경은 아님\n직업 : 대학생，스트레스 : 고시 공부 중인데 콧물 나와서 공부 방해\n가\n여동생 ：\n아토피(+，어렸을 때, 지금은 괜찮음)\nGeneral\nV/S ：\nstable\nP/E\nHEENT\n결막/공막(一/一>, 구강 진찰/림프절/피부 긴장도(一/ᅳ/一)\n갑상샘(- ), 비경검사 결과(정상), 부비동 압통(-)\nChest\n흉부 진찰 심음 포함 모두 정상\nExtermity\nPitting edema(-), 곤봉지/청색증(- / - )\n질문\nI이 사항\n독감/폐렴 예방접종 안 맞았다고 해서 오늘 맞겠냐고 물으니까 좋아하면서 맞고 가겠\n다고 안내 부탁함"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육\n. 가능성이 높은 진단 2개\n1. 알레르기비염\n2. 후비루증후군",
+    "likely_diagnoses": [
+      "알레르기비염",
+      "후비루증후군"
+    ],
+    "planned_tests": [
+      "피부따끔검사",
+      "혈청 IgE"
+    ],
+    "planned_treatments_or_education": [
+      "회피요법",
+      "항히스타민제",
+      "금연 및 실내외 환경 개선"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "隊 실전 모의 증례 S\n^■황\n지침\n• 30세 남자 안건씨가 콧물이 심하게 나와 내원하였다.\n[활력 징후] 혈압 : 125/80mmHg\n맥박 ：\n81회/분\n호흡 : 18호|/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육\n. 가능성이 높은 진단 2개\n1. 알레르기비염\n2. 후비루증후군\n• 필요한 검사 계획 2가지\n1. 피부따끔검사\n2. 혈청 IgE\n• 필요한 치료 계획 3가지\n1. 회피요법\n2. 항히스타민제\n3. 금연 및 실내외 환경 개선\n콧물/코막힘 증상으로 내원한 경우 알레르기성 인지 비알레르기성 인\n지 구분하는 것이 중요합니다.\n비알레르기성 콧물/코막힘의 경우 감염(e.& 상기도 감염，부비동염)，비감염(e.& 혈관운동성 비\n염, 이물, 외상, CSH rhinorrhea, 약물 유발 비염) 등을 감별해야 합니다. 콧물/코막힘 증례에서\n문진 시 필수적으로 악화 및 완화 요인을 물어봐야 합니다.\n본 증례의 환자는 헛기침, 재채기, 눈코 가려움, 코 뒤로 넘어감，코막힘 증상을 호소하고 있으\n며, 아침，먼지, 찬 바람, 담배 등에 의해 콧물/코막힘 증상이 악화됨을 알수 있습니다. 또한, 아\n토피 과거력과 가족력은 환자의 콧물/코막힘이 알레르기에 의해 발생했음을 알 수 있습니다.\n이런 알레르기 비염의 경우유발인자회피에 대한교육이 중요합니다.신체 검진의 경우눈밑과\n콧등을 확인할 필요가 있고，비경 역시 시용할수 있으니 사용법을 숙지하는 것이 중요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "cough-001",
+  "case_number_in_pdf": 84,
+  "topic": {
+    "topic_start_page": 195,
+    "topic_id": "cough",
+    "topic_label": "기침",
+    "system": "호흡기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 195,
+      "end": 196
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김진배",
+      "age": 55,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "기침이 계속 나요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "35.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 55세\n“기침이 계속 나요”",
+    "history_blocks": {
+      "onset": "1년전",
+      "duration": "하루종일. 한번 할 때 5~6회",
+      "course": "비슷함",
+      "experience": "이전에도 기침 3개월 정도 한 적 있음\n병원가서 약 먹으면 잠깐 괜찮아지고 다시 안 좋아짐\n목감기약. 진해제, 항히스타민제 처방 받아 먹었는데 효과 없었음",
+      "character": "가래(+, 하얀색, 기침할 때 같이)，피(-)",
+      "associated_symptoms": "[전신]\n발열/오한( - / - ) , 체중 변화(-)\n[소화]\n속쓰림/신물 ( - / - )\n[호홉]\n콧물(+, 흰색)，후비루(+), 인후통/쌕쌕거림/호흡곤란/야간 발한(ᅳ/一/ᅳ\n/ - ) . 목 간질간질한 느낌(+, 목 간질간질하면서 뭐 걸린 것처럼 이물감\n있다고 하심), 코 가려움/재채기( - / _ ) . 얼굴 압통/두통( - / - )",
+      "factors": "악화(+, 미세먼지 많을 때’ 말 많이 할 때, 전화 통화 오래 할 때)\n담배 연기/찬 바람/자세/계절/운동( - / - / - / - / 一), 같이 기침하는 사람(-)",
+      "past_history": "HTN/DM/고지혈증(―/ - / - ) , 알레르기(-), 호흡기 질환(一)",
+      "medications": "혈압약 (->",
+      "social_history": "흡연(+, 0.5갑X 10년, 지금은 끊음(20년 전) ), 먼지(一), 직업\n회사원",
+      "family_history": "호흡기 질환(一), 알레르기(ᅳ)\nGeneral\nV/S ：\nstable"
+    },
+    "physical_exam_results": "HEENT\n결막/공막( - / - ) , 구강 진찰/림프절/피부 긴장도( - / - / - )\n갑상샘(一), 비경검사 결과(정상), 코곁굴 압통(一)\nChest\n흉부 진찰 심음 포함 모두 정상\nExtermity\nPitting edema( - ), 곤봉지/청색증( - / ᅳ)\n|0||\nmoi>\nVJ",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 55세\n“기침이 계속 나요”\n0\n1년전\nL\n-\nD\n하루종일. 한번 할 때 5~6회\nCo\n비슷함\nEx\n이전에도 기침 3개월 정도 한 적 있음\n병원가서 약 먹으면 잠깐 괜찮아지고 다시 안 좋아짐\n목감기약. 진해제, 항히스타민제 처방 받아 먹었는데 효과 없었음\nC\n가래(+, 하얀색, 기침할 때 같이)，피(-)\nA\n[전신]\n발열/오한( - / - ) , 체중 변화(-)\n[소화]\n속쓰림/신물 ( - / - )\n[호홉]\n콧물(+, 흰색)，후비루(+), 인후통/쌕쌕거림/호흡곤란/야간 발한(ᅳ/一/ᅳ\n/ - ) . 목 간질간질한 느낌(+, 목 간질간질하면서 뭐 걸린 것처럼 이물감\n있다고 하심), 코 가려움/재채기( - / _ ) . 얼굴 압통/두통( - / - )\nF\n악화(+, 미세먼지 많을 때’ 말 많이 할 때, 전화 통화 오래 할 때)\n담배 연기/찬 바람/자세/계절/운동( - / - / - / - / 一), 같이 기침하는 사람(-)\nE\n-\n외\n-\n과\nHTN/DM/고지혈증(―/ - / - ) , 알레르기(-), 호흡기 질환(一)\n약\n혈압약 (->\n사\n흡연(+, 0.5갑X 10년, 지금은 끊음(20년 전) ), 먼지(一), 직업\n회사원\n가\n호흡기 질환(一), 알레르기(ᅳ)\nGeneral\nV/S ：\nstable\nP/E\nHEENT\n결막/공막( - / - ) , 구강 진찰/림프절/피부 긴장도( - / - / - )\n갑상샘(一), 비경검사 결과(정상), 코곁굴 압통(一)\nChest\n흉부 진찰 심음 포함 모두 정상\nExtermity\nPitting edema( - ), 곤봉지/청색증( - / ᅳ)\n|0||\nmoi>\nVJ\n질문"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n가능성이 높은 진단 2개\n1.COPD\n2. PND\n환자",
+    "likely_diagnoses": [
+      "COPD",
+      "PND"
+    ],
+    "planned_tests": [
+      "폐기능검사",
+      "영상검人K두부, 흉부)",
+      "기관지확장제",
+      "진해거담제 3.",
+      "주 이상의 만성 기침의 경우 가능한 원인은 다양하지만, 우선적으로 고려할 질환은 천식, 상기"
+    ],
+    "planned_treatments_or_education": [
+      "기관지확장제",
+      "진해거담제 3.",
+      "주 이상의 만성 기침의 경우 가능한 원인은 다양하지만, 우선적으로 고려할 질환은 천식, 상기"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례 i\n____________________________________________________________\n■\n55세 남자 김진배씨가 기침을 계속해서 내원하였다.\n[활력 징휘 혈압 : 126/80mmHg\n맥박 : 80회/분\n상황\n호흡 : 17회/분\n지침\n체온 ：\n35.5°C\n[응시자는 이 환지에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n가능성이 높은 진단 2개\n1.COPD\n2. PND\n환자\n• 필요한 검사계획2가지\n교육\n1. 폐기능검사\n2. 영상검人K두부, 흉부)\n' 필요한 치료 계획 3가지\n1. 기관지확장제\n2. 진해거담제 3.\n항히스타민제\n기침은 흔하게 접하는 증상이지만 경우에 따라 원인을 파악하기 쉽지\n않을 수 있습니다. 기침을 호소하는 환자 내원 시 급성/만성 기침 중\n어디에 해당하는지 확인할 필요가 있으며, 급성 기침의 경우 URI，폐렴 등에 의한감염이 원인\n인지 아니면 유해 증기 등의 자극에 의한 기침인지 감별해야 합니다.\n8주 이상의 만성 기침의 경우 가능한 원인은 다양하지만, 우선적으로 고려할 질환은 천식, 상기\n도 기침증후군(후비루증후군), GERD가 있습니다. 그러나 본 증례의 환자처럼 홉연력과 함께\n기침, 가래 등의 증상이 있는 경우 COPD，폐암 역시 고려할 필요가 있습니다. 담배를 오래 피는\n사람의 경우흡연 그 자체로 기침의 유발 요인이 될 수 있으므로 가급적 금연을 권하는 것이 좋\n습니다. 만약 환자가 금연의 어 려옴을 호소할 경우 NP consult 등을 통해 금연보조제를 처방해\n줄수 있음을 알려주면 PPI 항목에서 좋은 점수를 받을 수 있습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

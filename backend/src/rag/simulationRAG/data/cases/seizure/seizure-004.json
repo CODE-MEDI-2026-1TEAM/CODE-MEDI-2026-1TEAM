@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "seizure-004",
+  "case_number_in_pdf": 210,
+  "topic": {
+    "topic_start_page": 533,
+    "topic_id": "seizure",
+    "topic_label": "경련",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 539,
+      "end": 540
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "홍진호",
+      "age": 35,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/90mmHg",
+      "pulse": "72회/분",
+      "respiratory_rate": "18회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/35세\n“제가 경련을 했대요”",
+    "history_blocks": {
+      "onset": "1시간 전(현재 오전 11시)",
+      "location": "팔/다리",
+      "duration": "1 분",
+      "experience": "처음",
+      "character": "전구 증상(+) ：\n눈 왼쪽에 반짝이는 여러 색의 구체가 보이는 느낌\n경련 전 상황 : 아내와함께 TV 시청\n경련할 당시 의식 및 기억 : 없음\n경련 중 : 팔다리를 부르르 떨다가 경직，양팔/양다리 모두\n안구 편위(一), 머리 편위(- ), 침 홀림 (一), 대소변 지림(~)\n경련 후 : 의식 돌oh옴 경련에 대한 기억 없음/경련 이후 몸에 힘 빠지는 느낌\n아내가 병원 가보라고 해서 내원함",
+      "associated_symptoms": "열(一), 말 어눌(ᅳ)\n외상(+) ：\n10년 전에 축구하다가 머리 맞아서 엄청 부어올랐는데 3~4일 정도 지나니\n까 괜찮아져서 병원 안 감",
+      "factors": "경련 전 TV보던 상황/2주 동안 잠을 잘 못 잠/수면제 사용(-)",
+      "past_history": "DM/TB/HTN/간염(一/ - / - / - ) . 열성 경련(一)",
+      "social_history": "술/담배/커피(social/-/ᅳ). 운동/스트레스 : 바빠서 운동 못 함/스트레스 많음",
+      "family_history": "DM/TB/HTN/간염( - / - / - / —), 기타 질환(-)"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n두부 시진/촉진(ᅵ/一), 외상 부위 없음\nChest\n\nAbdomen\n\nExtremity\n\n기타\nLight reflex/이마 주름짓기/표정짓기 모두 정상\nKernig/ Brudzinski( - / - ) , DTR/병적 반사 모두 정상\n팔다리 Motor/sensory 정상",
+    "patient_question_or_concern": "특이 m",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/35세\n“제가 경련을 했대요”\n0\n1시간 전(현재 오전 11시)\nL\n팔/다리\nD\n1 분\nCo\n-\nEx\n처음\nC\n전구 증상(+) ：\n눈 왼쪽에 반짝이는 여러 색의 구체가 보이는 느낌\n경련 전 상황 : 아내와함께 TV 시청\n경련할 당시 의식 및 기억 : 없음\n경련 중 : 팔다리를 부르르 떨다가 경직，양팔/양다리 모두\n안구 편위(一), 머리 편위(- ), 침 홀림 (一), 대소변 지림(~)\n경련 후 : 의식 돌oh옴 경련에 대한 기억 없음/경련 이후 몸에 힘 빠지는 느낌\n아내가 병원 가보라고 해서 내원함\nA\n열(一), 말 어눌(ᅳ)\n외상(+) ：\n10년 전에 축구하다가 머리 맞아서 엄청 부어올랐는데 3~4일 정도 지나니\n까 괜찮아져서 병원 안 감\nF\n경련 전 TV보던 상황/2주 동안 잠을 잘 못 잠/수면제 사용(-)\nE\n외\n과\nDM/TB/HTN/간염(一/ - / - / - ) . 열성 경련(一)\n약\n사\n술/담배/커피(social/-/ᅳ). 운동/스트레스 : 바빠서 운동 못 함/스트레스 많음\n가\nDM/TB/HTN/간염( - / - / - / —), 기타 질환(-)\nP/E\nGeneral\nV/S 확인\nHEENT\n두부 시진/촉진(ᅵ/一), 외상 부위 없음\nChest\n-\nAbdomen\n-\nExtremity\n-\n기타\nLight reflex/이마 주름짓기/표정짓기 모두 정상\nKernig/ Brudzinski( - / - ) , DTR/병적 반사 모두 정상\n팔다리 Motor/sensory 정상\n질문\n-\n특이 m\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "■측두엽 뇌전증",
+      "외상성 뇌전증"
+    ],
+    "planned_tests": [
+      "뇌파검사",
+      "뇌 CT/MRI"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 경련 유발 질환들을 감별 진단하기 위한 뇌파검사. 뇌 CT/MRI\n시행 전 설명동의서를 받습니다.\n/키V 설를\n경련의 경우 단순 경련인지 복합 경련인지, 부분 경련인지 전신 경련\n인지 파악한 후 이에 따른 적절한 감별 진단과 신경학적 검사가중요\n한 항목입니다.\n생각보다해야할신체 진찰이 많기 때문에 시간분배를 잘해야합니다. 또한 경련의 전, 중, 후\n로 나누어 질문을 체계적으로 한다면 시간을 효율적으로 사용할 수 있습니다.\n본 환자의 경우 temporal epilepsy가 가장 의심되는 환자로 전조 증상이 있기 때문에 다음에 전\n조 증상이 있을 때 어떻게 해야하는지에 대한 생활교육도 함께하면 좋을 것으로 생각됩니다.",
+    "author_commentary_tail": "설명동의서 받기 : 경련 유발 질환들을 감별 진단하기 위한 뇌파검사. 뇌 CT/MRI\n시행 전 설명동의서를 받습니다.\n/키V 설를\n경련의 경우 단순 경련인지 복합 경련인지, 부분 경련인지 전신 경련\n인지 파악한 후 이에 따른 적절한 감별 진단과 신경학적 검사가중요\n한 항목입니다.\n생각보다해야할신체 진찰이 많기 때문에 시간분배를 잘해야합니다. 또한 경련의 전, 중, 후\n로 나누어 질문을 체계적으로 한다면 시간을 효율적으로 사용할 수 있습니다.\n본 환자의 경우 temporal epilepsy가 가장 의심되는 환자로 전조 증상이 있기 때문에 다음에 전\n조 증상이 있을 때 어떻게 해야하는지에 대한 생활교육도 함께하면 좋을 것으로 생각됩니다.",
+    "scenario_card_raw": "1 ^ 실전 모의 증례\n• 35세 남자 홍진호씨가 경련을 주소로 내원하였다.\n^■황\n지침\n[활력 징후] 혈압 : 140/90mmHg\n맥박 : 72회/분\n호흡 : 18회/분\n체온 ：\n36.5°C\nt 讀參:-':.&業馨\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 2개\n^•자\n1 ■측두엽 뇌전증\n2. 외상성 뇌전증\n• 필요한 검사 계획 2가지\n1. 뇌파검사\n2. 뇌 CT/MRI\n예상\n술기\n설명동의서 받기 : 경련 유발 질환들을 감별 진단하기 위한 뇌파검사. 뇌 CT/MRI\n시행 전 설명동의서를 받습니다.\n/키V 설를\n경련의 경우 단순 경련인지 복합 경련인지, 부분 경련인지 전신 경련\n인지 파악한 후 이에 따른 적절한 감별 진단과 신경학적 검사가중요\n한 항목입니다.\n생각보다해야할신체 진찰이 많기 때문에 시간분배를 잘해야합니다. 또한 경련의 전, 중, 후\n로 나누어 질문을 체계적으로 한다면 시간을 효율적으로 사용할 수 있습니다.\n본 환자의 경우 temporal epilepsy가 가장 의심되는 환자로 전조 증상이 있기 때문에 다음에 전\n조 증상이 있을 때 어떻게 해야하는지에 대한 생활교육도 함께하면 좋을 것으로 생각됩니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

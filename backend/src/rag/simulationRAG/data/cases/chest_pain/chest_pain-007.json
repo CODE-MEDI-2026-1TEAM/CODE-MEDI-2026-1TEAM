@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "chest_pain-007",
+  "case_number_in_pdf": 59,
+  "topic": {
+    "topic_start_page": 127,
+    "topic_id": "chest_pain",
+    "topic_label": "가슴통증",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 139,
+      "end": 140
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김선혁",
+      "age": 56,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "가슴이 아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "190/110mmHg",
+      "pulse": "98회/분",
+      "respiratory_rate": null,
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 56세\n“가슴이 아파요”",
+    "history_blocks": {
+      "onset": "2시간 전(현재 오후 1시)",
+      "location": "명치",
+      "duration": "2시간 동안 계속",
+      "course": "갑자기 시작，지금은 조금 괜찮아졌지만 계속 아픔",
+      "experience": "처음",
+      "character": "찢어질듯한 통증\nNRS 8점\n방사통(+) ：\n등쪽으로 뻗침",
+      "associated_symptoms": "[전신] 체중 감소/발열/오한/식은땀/피로/어지럼(- / - / + / + / - / - )\n[소화기] 복통/구토/설사/속쓰림( - / - / - / - )\n[순환기] 가슴통증/두근거림 (+/+)\n[호흡기] 기침/가래/호흡곤란(ᅳ/-/+ )",
+      "factors": "운동, 자세, 호흡, 식사, 기침에 따른 변화(-)\n지속적으로 오래 누워있던 적(ᅳ), 스트레스(一), 전날 고I음(ᅳ)",
+      "events": "건강 검진(+, 최근 고혈압 진단 받음)，수술(+, 충수돌기염/ 10YA)",
+      "past_history": "DM/HTN/dyslipidemia/TB/^S(+/+/+/-/-)\n소화기 질환/부인과 질환( - / - )",
+      "medications": "당뇨약(10년), 고지혈증약，고혈압약(최근 약 다 먹어서 3일 간 못 먹음)",
+      "social_history": "술 : 소주 2병 /주, 담배 : 40갑년, 직업 : 공무원 퇴직",
+      "family_history": "아버지 : 심근경색, 어머니, 형 : 고혈압\nGeneral\nBP 190/110mmHg\nHEENT\n경동맥 청진(양쪽) 정상, JVE(-)"
+    },
+    "physical_exam_results": "Chest\n심음 정상, 호흡음 정상\nAbdomen\n복부 시진 정상, 촉진 정상\nExtermity\n피부 탄력 정상, 곤봉지(-), 오목 부종(-)",
+    "patient_question_or_concern": "“혹시 심각한 병은 아닌가요? ”",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 56세\n“가슴이 아파요”\n0\n2시간 전(현재 오후 1시)\nL\n명치\nD\n2시간 동안 계속\nCo\n갑자기 시작，지금은 조금 괜찮아졌지만 계속 아픔\nEx\n처음\nC\n찢어질듯한 통증\nNRS 8점\n방사통(+) ：\n등쪽으로 뻗침\nA\n[전신] 체중 감소/발열/오한/식은땀/피로/어지럼(- / - / + / + / - / - )\n[소화기] 복통/구토/설사/속쓰림( - / - / - / - )\n[순환기] 가슴통증/두근거림 (+/+)\n[호흡기] 기침/가래/호흡곤란(ᅳ/-/+ )\nF\n운동, 자세, 호흡, 식사, 기침에 따른 변화(-)\n지속적으로 오래 누워있던 적(ᅳ), 스트레스(一), 전날 고I음(ᅳ)\nE\n건강 검진(+, 최근 고혈압 진단 받음)，수술(+, 충수돌기염/ 10YA)\n외\n-\n과\nDM/HTN/dyslipidemia/TB/^S(+/+/+/-/-)\n소화기 질환/부인과 질환( - / - )\n약\n당뇨약(10년), 고지혈증약，고혈압약(최근 약 다 먹어서 3일 간 못 먹음)\n사\n술 : 소주 2병 /주, 담배 : 40갑년, 직업 : 공무원 퇴직\n가\n아버지 : 심근경색, 어머니, 형 : 고혈압\nGeneral\nBP 190/110mmHg\nHEENT\n경동맥 청진(양쪽) 정상, JVE(-)\nP/E\nChest\n심음 정상, 호흡음 정상\nAbdomen\n복부 시진 정상, 촉진 정상\nExtermity\n피부 탄력 정상, 곤봉지(-), 오목 부종(-)\n질문\n“혹시 심각한 병은 아닌가요? ”\n특이 사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "대동맥박리",
+      "심근경색",
+      "협심증",
+      "췌장염"
+    ],
+    "planned_tests": [
+      "EKG",
+      "Chest CT",
+      "심근효소검사",
+      "췌장효소검AKamylase, lipase)",
+      "설명동의서 받기 : 대동맥 박리 감별을 위한 Chest 다를 시행하기 위해 설명동의"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "2. 혈압 측정 : 현재 혈압이 높고 고혈압력이 있01=■ 무 진료실에서 다시 측정해야 합\n니다.\n3. 안저검사 : 당뇨병의 합병증으로 인한 증상은 아닌지 확인하기 위해 안저검人*",
+    "author_commentary_tail": "2. 혈압 측정 : 현재 혈압이 높고 고혈압력이 있01=■ 무 진료실에서 다시 측정해야 합\n니다.\n3. 안저검사 : 당뇨병의 합병증으로 인한 증상은 아닌지 확인하기 위해 안저검人*\n시행해 봅니다.\n환자 vital이 unstable하므로 진료 시작 때 혹시 진료 보기에 통증이 심\n하진 않은 지, 배려 차원에서 물어보는 것도 나里진 않습니다.\nBP가 높은 것과통증의 양상, 강도, 지속 시간을 통해 aortic dissection을 쉽게 의심할 수 있습니\n다. 쉬운 impression이라고 방심하지 말고，다른 질환들을 꼭 감별하도록 해야 합니다.\n우선 소화기/순환기/호흡기 등 원인이 될 수 있는 계통부터 감별한 뒤 그 계통 내 질병들을 감\n별하는 질문들을 하면 좋습니다. 개방형 질문에 비협조적이더라도 개방형 질문을 적절히 사용\n하는지에 대한 평가 항목이 있으므로 모f 것을 폐쇄형으로 물어보지 않도록 합니다.",
+    "scenario_card_raw": "a\n[ 실전 모의 증례\n歡舞쇼i\n• 56세 남자 김선혁씨가 가슴 통증으로 내원하였다.\n^■황\n지침\n[활력 징후] 혈압 : 190/110mmHg\n맥박 : 98회/분\n호홉 • 20회/분\n체온 ：\n36.7°C\n[응人1자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n• 가능성이 높은 진단 4개\n1. 대동맥박리\n2. 심근경색\n3. 협심증\n4. 췌장염\n교육\n• 필요한 검사 계획 4가지\n1.EKG\n2. Chest CT\n3. 심근효소검사\n4. 췌장효소검AKamylase, lipase)\n1. 설명동의서 받기 : 대동맥 박리 감별을 위한 Chest 다를 시행하기 위해 설명동의\n서를 받습니다.\n예상\n술기\n2. 혈압 측정 : 현재 혈압이 높고 고혈압력이 있01=■ 무 진료실에서 다시 측정해야 합\n니다.\n3. 안저검사 : 당뇨병의 합병증으로 인한 증상은 아닌지 확인하기 위해 안저검人*\n\n시행해 봅니다.\n환자 vital이 unstable하므로 진료 시작 때 혹시 진료 보기에 통증이 심\n하진 않은 지, 배려 차원에서 물어보는 것도 나里진 않습니다.\nBP가 높은 것과통증의 양상, 강도, 지속 시간을 통해 aortic dissection을 쉽게 의심할 수 있습니\n다. 쉬운 impression이라고 방심하지 말고，다른 질환들을 꼭 감별하도록 해야 합니다.\n우선 소화기/순환기/호흡기 등 원인이 될 수 있는 계통부터 감별한 뒤 그 계통 내 질병들을 감\n별하는 질문들을 하면 좋습니다. 개방형 질문에 비협조적이더라도 개방형 질문을 적절히 사용\n하는지에 대한 평가 항목이 있으므로 모f 것을 폐쇄형으로 물어보지 않도록 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

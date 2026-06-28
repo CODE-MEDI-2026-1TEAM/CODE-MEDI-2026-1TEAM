@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "rhinorrhea_nasal_congestion-003",
+  "case_number_in_pdf": 92,
+  "topic": {
+    "topic_start_page": 209,
+    "topic_id": "rhinorrhea_nasal_congestion",
+    "topic_label": "콧물/코막힘",
+    "system": "호흡기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 213,
+      "end": 214
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김영식",
+      "age": 42,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "콧물이 나요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "130/74mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "16회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 42세\n\"콧물이 나요”",
+    "history_blocks": {
+      "onset": "3주전",
+      "location": "쪽코",
+      "course": "+. 양이 많아짐",
+      "experience": "감기 걸릴 때마다 1 주일 정도 콧물이 나옴, 계절과 상관 없음",
+      "character": "맑고 투명했으나 1 주 전부터 끈끈하고 노란색 콧물\n卜2번 정도 피가 같이 나옴",
+      "associated_symptoms": "[전신] 발열/식은땀/체중 감소/오한/피로감(+, 2주 전, 지금은 없음/ - / - / - / - )\n최근 감기 (+)\n[알레르기] 코막힘/재채기/눈가려움(+/ᅳ/-)\n[호홉기] 호흡곤란/쌕쌕거림/기침/가래(ᅳ/+/마른기침/\n두통/안면부 압통/콧물 뒤로 넘어감(+/+/+). 후각 저하(원래부터 안 좋음)",
+      "factors": "악화 : 먼지/계절 변화/온도 변화/찬 바람/운동( - / - / _ / - / - )\n뜨거운/매운 음식( - / ᅳ)",
+      "trauma_history": "두부 외상/코 수술/코 이물( - / - / - )",
+      "past_history": "최근 감기(+), 천식/아토피 피부염/알러지 비염 ：\n라거력(一/ - / - )",
+      "medications": "감기약(+, 타이레놀，1주일 전 중단)\n人^\n술(一)，담배(+), 직업 ：\n군인, 먼지 많은 환경(一)",
+      "family_history": "알레르기/아토피 ( - / - )\nGeneral\nV/S 확인"
+    },
+    "physical_exam_results": "HEENT\n눈 밑, 콧등 시진(- ), 결막/공막( - / - ) , 입/피부 탈수 소견( - / - )\n부비동 압통(+), 비경검人卜/림프절(ᅳ/ᅳ)\nChest\n흉부 시/촉/ 타/청( - / - / - / - )\nExtermity\n피부 긴장도, 오목 부종 정상",
+    "patient_question_or_concern": "\"군대에서 일하는 데 지장 받지 않을까 걱정돼요: ’",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 42세\n\"콧물이 나요”\n0\n3주전\nL\n쪽코\nD\n-\nCo\n+. 양이 많아짐\nEx\n감기 걸릴 때마다 1 주일 정도 콧물이 나옴, 계절과 상관 없음\nC\n맑고 투명했으나 1 주 전부터 끈끈하고 노란색 콧물\n卜2번 정도 피가 같이 나옴\nA\n[전신] 발열/식은땀/체중 감소/오한/피로감(+, 2주 전, 지금은 없음/ - / - / - / - )\n최근 감기 (+)\n[알레르기] 코막힘/재채기/눈가려움(+/ᅳ/-)\n[호홉기] 호흡곤란/쌕쌕거림/기침/가래(ᅳ/+/마른기침/\n두통/안면부 압통/콧물 뒤로 넘어감(+/+/+). 후각 저하(원래부터 안 좋음)\nF\n악화 : 먼지/계절 변화/온도 변화/찬 바람/운동( - / - / _ / - / - )\n뜨거운/매운 음식( - / ᅳ)\nE\n-\n외\n두부 외상/코 수술/코 이물( - / - / - )\n과\n최근 감기(+), 천식/아토피 피부염/알러지 비염 ：\n라거력(一/ - / - )\n약\n감기약(+, 타이레놀，1주일 전 중단)\n人^\n술(一)，담배(+), 직업 ：\n군인, 먼지 많은 환경(一)\n가\n알레르기/아토피 ( - / - )\nGeneral\nV/S 확인\nP/E\nHEENT\n눈 밑, 콧등 시진(- ), 결막/공막( - / - ) , 입/피부 탈수 소견( - / - )\n부비동 압통(+), 비경검人卜/림프절(ᅳ/ᅳ)\nChest\n흉부 시/촉/ 타/청( - / - / - / - )\nExtermity\n피부 긴장도, 오목 부종 정상\n질문\n\"군대에서 일하는 데 지장 받지 않을까 걱정돼요: ’"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "급성부비동염",
+      "급성비인두염"
+    ],
+    "planned_tests": [
+      "부비동 X-ray",
+      "비인두내시경",
+      "두경부 CT"
+    ],
+    "planned_treatments_or_education": [
+      "항생제",
+      "배농 치료"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "■ 실전 모의 증례\n상황\n지침\n• 42세 남자 김영식씨가 콧물이 나서 내원하였다.\n[활력 징휘 혈압 : 130/74mmHg\n맥박 : 80회/분\n호흡 : 16회/분\n체온 ：\n37.11\n[응人1지는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n^■자\n교육\n• 가능성이 높은 진단 2개\n1. 급성부비동염\n2. 급성비인두염\n• 필요한 검사 계획 3가지\n1. 부비동 X-ray\n2. 비인두내시경\n3. 두경부 CT\n• 필요한 치료 계획 2가지\n1. 항생제\n2. 배농 치료\n콧물/코막힘의 경우 원인 질환이 많아，빠르게 질환을 추례 나가고 필\n요한 질문만 하는 것이 시간 관리에 중요합니다.\n크게 알레르기, 감염, 비감염으로 구분하여 감별해 나가면 되겠습니다.\n부비등 압통과 비경검사는 다른주제에는 없는 항목이기에 잊어버리는 경우가 많으므로 잘 기\n억해두세요.\n교육에서는 환자에게 너무 무리해서 코를 풀지 않도록 당부해 주시고，악화 인자가 있는 경우\n회피하도록 얘기해 주면 되겠습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

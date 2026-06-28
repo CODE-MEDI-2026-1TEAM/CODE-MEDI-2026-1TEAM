@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "suicide_risk-001",
+  "case_number_in_pdf": 298,
+  "topic": {
+    "topic_start_page": 777,
+    "topic_id": "suicide_risk",
+    "topic_label": "자살",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 777,
+      "end": 778
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "배자수",
+      "age": 18,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "잠이 안 오고 하루 종일 죽고 싶은 생각이 들어요(어머님이 데리고 옴)",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "124/83mmHg",
+      "pulse": "84회/분",
+      "respiratory_rate": "18회/분",
+      "temperature": "36.2°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 18세\n“잠이 안 오고 하루 종일 죽고 싶은 생각이 들어요(어머님이 데리고 옴)”\n자살^ᅡ고및\n행동평가",
+    "history_blocks": {
+      "onset": "3~4 개월 전",
+      "location": "집",
+      "character": "매일, 하루 종일 죽고 싶다는 생각이 듦\n계기\n성적 떨어지고 교우 관계도 나빠짐\n人卜고 빈도\n^卜루 종일\n자살 계획\n\n자살시도 유무\n손목을 샤프로 긋긴 했으나 죽을 의도로 그런 건 아니었음\n병전 성격\n중학교 때 공부S\n면서 본인에거\n= 잘하고 춤과 노래를 좋아했음, 고등학교 진학 후 친구들이 공부만 하\n“관종이다，나댄다”라고 함, 이후 성적도 떨어지고 교우 관계 나빠짐\n주변 관계\n가족^계\n“그냥 그래요 엄마는 지방 공무원, 아빠는 직장인이고 바쁘고 가족에\n무란심함, 동생은 15살, 예전에는 잘 따랐으나 요즘은 절 무시해요”\n관계\n마음 터놓고 말할 사람 및 친한 친구 없음\n^울 증상 평가\n우울/흥미 감소/식욕 감소/수면 변화/피로감(+/+/+/+/+)\n자살/ 집중력/기억력 감소/무가치감/죄책감(+/+/+/+/+)\n불면 ：\n하루에 2~3시간 자며，자다가 잘 깨고, 한 번 깨면 다시 잘 못 잠\n기타정신과적 장애\n환시(+, 2일 전, 자려고 누울 때 뭔가 ‘휙’ 하고 지나가서 무서움)\n환청/ 조증/충동성 ( - / - / - )\n과거력 평가",
+      "past_history": "익:",
+      "social_history": "흡연(- ), 음주(+, 2~3달 전까지 마셨으나 현재는 안 口벼)\n직업 : ^•생"
+    },
+    "physical_exam_results": "General\nV/S ：\nstable\nHEENT\n눈(ᅳ), 구강(ᅳ). 갑상샘/림프절(~/ᅳ)，피부 긴장도(ᅳ)\nChest\n심음/호흡음 ( - / - )\nAbdomen\n복부 시/촉/ 타/청 ( - / - / - / - )\nExtremity\n손목에 빨간 자국, Pitting edema(-)",
+    "patient_question_or_concern": "j | “입원하려면 엄마랑 상의해야 해요;\nS O U ®\n처음에 자해했다고는말 안해 줌\n자살 시도 했냐고 물어봐도 안했다고 하고, 자해했냐고 물어봐야 그렇다고 함",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 18세\n“잠이 안 오고 하루 종일 죽고 싶은 생각이 들어요(어머님이 데리고 옴)”\n자살^ᅡ고및\n행동평가\n0\n3~4 개월 전\nL\n집\nC\n매일, 하루 종일 죽고 싶다는 생각이 듦\n계기\n성적 떨어지고 교우 관계도 나빠짐\n人卜고 빈도\n^卜루 종일\n자살 계획\n-\n자살시도 유무\n손목을 샤프로 긋긴 했으나 죽을 의도로 그런 건 아니었음\n병전 성격\n중학교 때 공부S\n면서 본인에거\n= 잘하고 춤과 노래를 좋아했음, 고등학교 진학 후 친구들이 공부만 하\n“관종이다，나댄다”라고 함, 이후 성적도 떨어지고 교우 관계 나빠짐\n주변 관계\n가족^계\n“그냥 그래요 엄마는 지방 공무원, 아빠는 직장인이고 바쁘고 가족에\n무란심함, 동생은 15살, 예전에는 잘 따랐으나 요즘은 절 무시해요”\n관계\n마음 터놓고 말할 사람 및 친한 친구 없음\n^울 증상 평가\n우울/흥미 감소/식욕 감소/수면 변화/피로감(+/+/+/+/+)\n자살/ 집중력/기억력 감소/무가치감/죄책감(+/+/+/+/+)\n불면 ：\n하루에 2~3시간 자며，자다가 잘 깨고, 한 번 깨면 다시 잘 못 잠\n기타정신과적 장애\n환시(+, 2일 전, 자려고 누울 때 뭔가 ‘휙’ 하고 지나가서 무서움)\n환청/ 조증/충동성 ( - / - / - )\n과거력 평가\n외\n-\n과\n-\n익:\n-\n사\n흡연(- ), 음주(+, 2~3달 전까지 마셨으나 현재는 안 口벼)\n직업 : ^•생\n가\n-\nP/E\nGeneral\nV/S ：\nstable\nHEENT\n눈(ᅳ), 구강(ᅳ). 갑상샘/림프절(~/ᅳ)，피부 긴장도(ᅳ)\nChest\n심음/호흡음 ( - / - )\nAbdomen\n복부 시/촉/ 타/청 ( - / - / - / - )\nExtremity\n손목에 빨간 자국, Pitting edema(-)\n질문 j | “입원하려면 엄마랑 상의해야 해요;\nS O U ®\n처음에 자해했다고는말 안해 줌\n자살 시도 했냐고 물어봐도 안했다고 하고, 자해했냐고 물어봐야 그렇다고 함"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.",
+    "likely_diagnoses": [
+      "주요 우울장애",
+      "조현정동장애"
+    ],
+    "planned_tests": [
+      "우울척도검人卜",
+      "갑상샘기능검사"
+    ],
+    "planned_treatments_or_education": [
+      "입원 치료",
+      "울제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "m\n{ 실전 모의 증례 £\n• 18세 여자 배자수씨가 잠이 안 오고 죽고 싶다는 생각이 들어 내원하였다(자살을 염두에\n두고 논의하시오).\n지침\n[활력 징휘 혈압 : 124/83mmHg\n맥박 : 84회/분\n호흡: 18회/분\n체온 ：\n36.2°C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n• 가능성이 높은 진단 2개\n1. 주요 우울장애\n2. 조현정동장애\n교육\n• 필요한 검사 계획 2가지\n1. 우울척도검人卜\n2. 갑상샘기능검사\n• 필요한 치료 계획 2가지\n1. 입원 치료\n2.\n울제\n기존에는 신체 진찰이 필요 없었으나 신체 진찰까지 같이 시행하도\n록 출제가 되었습니다. 따라서 신체 진찰을 위한 시간을 할애해야 하\n지만，너무 많은 시간을 투자해 기본적 인 문진과 ppi 형성을 소홀히 하면 안되므로 시간 조절을\n더 신경 써서 연습해야하겠습니다.\n환자가 미성년자이고, 어머니가 데리고 내원한 케이스이다 보니 자살 시도에 대해서 쉽게 얘기\n해 주지 않습니다. 주 호소인 불면에 대해 어느 정도 이야기 한 후 조심스럽게 자살 시도 및 자\n살사고에 대해 물어보아야 자연스럽게 진료를 이끌어 나갈수 있을 것입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

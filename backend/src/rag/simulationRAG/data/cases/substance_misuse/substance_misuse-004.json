@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "substance_misuse-004",
+  "case_number_in_pdf": 283,
+  "topic": {
+    "topic_start_page": 723,
+    "topic_id": "substance_misuse",
+    "topic_label": "물질 오남용",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 729,
+      "end": 730
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김서영",
+      "age": 45,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "약을 끊고 싶어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/90mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 45세\n“약을 끊고 싶어요”\n약물\n복용^■황\n감기약, 매일 4병 정도 먹음\n10년 전 머리가 아파서 약국에서 구매하여 복용한 게 시작\n평소 약국에서 구매해서 복용\n다른 약물 섭취(一)\n의존 평가\n처음에는 1~2병 정도 마시다가 점점 용량이 증가\n보통 4병, 많게는 5병까지 마시고 있음\n약을 줄이면 피곤하고 두통이 심해져서 끊지 못함\n평가\n직업 문제(+，익을 안 먹으면 일에 집중하기 어려움)\n법적 문제(-)\n대인 관계 문제 (+, 남편이 끊으라고 함)\n위험 행동(ᅳ)\n參'激料설\nRelevance",
+    "history_blocks": {
+      "associated_symptoms": "두통(+，NRS 4점)\n두근거림 (+)\n불면 (ᅳ)\n불안 (+)\n근육통(ᅳ), 식은땀(ᅳ)",
+      "past_history": "D M (-), HTN(—)，심장질환(一)",
+      "social_history": "술 (+. 맥주 2잔，주 2회 )\n흡연 (ᅳ)\n커피 (+，하루 3잔)\n스트레스 (+, 회사일)"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": "“약을 줄이면 두통이 심해질까봐 걱정이예요.”",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 45세\n“약을 끊고 싶어요”\n약물\n복용^■황\n감기약, 매일 4병 정도 먹음\n10년 전 머리가 아파서 약국에서 구매하여 복용한 게 시작\n평소 약국에서 구매해서 복용\n다른 약물 섭취(一)\n의존 평가\n처음에는 1~2병 정도 마시다가 점점 용량이 증가\n보통 4병, 많게는 5병까지 마시고 있음\n약을 줄이면 피곤하고 두통이 심해져서 끊지 못함\n평가\n직업 문제(+，익을 안 먹으면 일에 집중하기 어려움)\n법적 문제(-)\n대인 관계 문제 (+, 남편이 끊으라고 함)\n위험 행동(ᅳ)\n參'激料설\nRelevance\nA\n두통(+，NRS 4점)\n두근거림 (+)\n불면 (ᅳ)\n불안 (+)\n근육통(ᅳ), 식은땀(ᅳ)\n과\nD M (-), HTN(—)，심장질환(一)\n사\n술 (+. 맥주 2잔，주 2회 )\n흡연 (ᅳ)\n커피 (+，하루 3잔)\n스트레스 (+, 회사일)\n가\n-\n약\n-\n질문\n“약을 줄이면 두통이 심해질까봐 걱정이예요.”"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "약물 ^용",
+      "약물 의존",
+      "이^요법",
+      "근육0ᅵ완제",
+      "NSAID",
+      "항불안제"
+    ],
+    "planned_tests": [],
+    "planned_treatments_or_education": [
+      "이^요법",
+      "근육0ᅵ완제",
+      "NSAID",
+      "항불안제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "D\n[ 실전모의 증례\n• 45세 여자 김서영씨가 약을 끊고 싶어서 내원하였다.\n■약물정보\n부종, 발열,\n중추신경자극제와 항불안제가 혼합된 물약 형태의 약물로 간 독성, 불안,\n두근거림 등의 부작용이 생길 수 있음\n상황\n지침\n[활력 징후]\n혈압 ：\n120/90mmHg\n맥박 ：\n70회/분\n호톱 • 22회/분\n체온 : 36.5°C\n[응人1자는 이 환자에게] 증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 2개\n1. 약물 ^용\n2. 약물 의존\nᅵ\n■교육\n• 필요한 치료 계획 4가지\n1. 이^요법\n2. 근육0ᅵ완제\n3. NSAID\n4. 항불안제\n약물 오남용에서 물질 오남용으로 명칭이 바뀌었습니다.\n스스로 약물을 끊고 싶은 의지가 있는 환자라면 제시문에 제시된 부작\n용을 설명하면서 큰 무리 없이 설득하여 약물 중단을 권유할 수 있습니다.\n하지만 경우에 따라 끊을 의지가 없고 문제가 되는 약물을 계속 처방 받기 원하여 내원한 환자\n일 수도 있습니다. 이런 경우에는 약물로 인한부작용과 여러 피해 요소를조언해가며 설득하는\n과정이 필요하므로 연습에 대비하는 것이 좋습니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

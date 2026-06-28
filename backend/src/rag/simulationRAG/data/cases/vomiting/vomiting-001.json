@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vomiting-001",
+  "case_number_in_pdf": 28,
+  "topic": {
+    "topic_start_page": 73,
+    "topic_id": "vomiting",
+    "topic_label": "구토",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 73,
+      "end": 74
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "채규민",
+      "age": 48,
+      "sex": "남자"
+    },
+    "setting": "응급실",
+    "opening_statement": "토를 심하게 해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "100/70mmHg",
+      "pulse": "87회/분",
+      "respiratory_rate": "18회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 48세\n^ 주소\n\"토를 심하게 해요”",
+    "history_blocks": {
+      "onset": "2일 전",
+      "duration": "이틀 동안 총 10회, 도저히 안되겠다 싶어서 응급실 방문",
+      "course": "점점 심해짐 (하루 3회 ᅳ 5회로 증가)",
+      "character": "양 : 세숫대야 반을 채울 만큼\n내용물(쌀뜨물 색 ᅳ “자꾸 토하니 나중에는 음식물이 없어요”)\n첫 구토는 분출성 ᅳ 이후로는 분출성 아님, 일상 생활 지장(+)",
+      "associated_symptoms": "[전신] 발열/오한/체중변화( - / - / - )\n[소화] 구역감 (+. 신물 올라오냐 질문하면 구역감 있다고 답변)\n구토/ 변비/설사/혈변/흑색변/지방변 (+ / - / - / - / - / - ), 기타 소화기 증상H\n[순환] 흉통(+, 명치 부위 속쓰림, NRS 4-5)\n[정신] 의도적구토(ᅳ)\n[신경] 감기 걸린 적(- ), 두통/경부 뻐근함( - / - )\n[기타] [탈수] 어지러움/목마름/소변량 감소(+/+/+)",
+      "factors": "어제 김치찌개 먹고 속쓰림(+). 날 것(一)",
+      "past_history": "고혈압/ 당뇨/고지혈증 ( - / - / - )\n십이지장궤양(+, 10년 전, 치료 안 받음 ; 익물 치료 시작했으나 4일만에 자의 중단)",
+      "social_history": "흡연/음주(一/ - ) , 직업 : 문구점 人®\n스트레스(+, 요즘 코로나로 장사가 안되면서 스트레스 생김 )"
+    },
+    "physical_exam_results": "General\nV /S ：\nstable\nHEENT\n눈/구강/피부 긴장도( - / - / - ) , 갑상샘/ 림프절( - / - )\nAbdomen\n명치 통증(+), 명치 반발 압통(- ), M urphy(-). D R E(-)\nKernig / Brudzinski ( - / - )\nExterm ity",
+    "patient_question_or_concern": "“수술해야 하나요? ”",
+    "actor_notes_or_special_behavior": "힘 없으시고 약간 신경질적이심, 벽에 머리 대고 눈 감고 대답，말 느리고 말이 매우 많음，\n복부 보러 침대 갈 때 휘청거리며 걸어가고 누웠다가 안 일어나려 함",
+    "raw_profile_text": "성별/나이\n남성/ 48세\n^ 주소\n\"토를 심하게 해요”\n0\n2일 전\nL\n-\nD\n이틀 동안 총 10회, 도저히 안되겠다 싶어서 응급실 방문\nCo\n점점 심해짐 (하루 3회 ᅳ 5회로 증가)\nEx\n-\nC\n양 : 세숫대야 반을 채울 만큼\n내용물(쌀뜨물 색 ᅳ “자꾸 토하니 나중에는 음식물이 없어요”)\n첫 구토는 분출성 ᅳ 이후로는 분출성 아님, 일상 생활 지장(+)\nA\n[전신] 발열/오한/체중변화( - / - / - )\n[소화] 구역감 (+. 신물 올라오냐 질문하면 구역감 있다고 답변)\n구토/ 변비/설사/혈변/흑색변/지방변 (+ / - / - / - / - / - ), 기타 소화기 증상H\n[순환] 흉통(+, 명치 부위 속쓰림, NRS 4-5)\n[정신] 의도적구토(ᅳ)\n[신경] 감기 걸린 적(- ), 두통/경부 뻐근함( - / - )\n[기타] [탈수] 어지러움/목마름/소변량 감소(+/+/+)\nF\n어제 김치찌개 먹고 속쓰림(+). 날 것(一)\nE\n-\n외\n-\n과\n고혈압/ 당뇨/고지혈증 ( - / - / - )\n십이지장궤양(+, 10년 전, 치료 안 받음 ; 익물 치료 시작했으나 4일만에 자의 중단)\n약\n-\n사\n흡연/음주(一/ - ) , 직업 : 문구점 人®\n스트레스(+, 요즘 코로나로 장사가 안되면서 스트레스 생김 )\n가\n-\nP/E\nGeneral\nV /S ：\nstable\nHEENT\n눈/구강/피부 긴장도( - / - / - ) , 갑상샘/ 림프절( - / - )\nAbdomen\n명치 통증(+), 명치 반발 압통(- ), M urphy(-). D R E(-)\nKernig / Brudzinski ( - / - )\nExterm ity\n-\n질문\n“수술해야 하나요? ”\n특이 사항\n힘 없으시고 약간 신경질적이심, 벽에 머리 대고 눈 감고 대답，말 느리고 말이 매우 많음，\n\n복부 보러 침대 갈 때 휘청거리며 걸어가고 누웠다가 안 일어나려 함"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n義^^흙释霸",
+    "likely_diagnoses": [
+      "십이지장궤양, 위궤양",
+      "역류성 식도염",
+      "위염"
+    ],
+    "planned_tests": [
+      "• 위내시경",
+      "복부 CT",
+      "혈액검사"
+    ],
+    "planned_treatments_or_education": [
+      "• 생활 습관 교정",
+      "제산제",
+      "수액 치료 및 응급 상황 교육"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "| 5\n구토 (Vomiting)\n소화기\n國\ni 실전모의 증례 s\n^ ■황\n지침\n• 48세 남자 채규민씨가 구토를 심하게 해서 응급실로 내원하였다(현재 시각 : 오전 5\n시).\n[활력 징후] 혈압 : 100/70mmHg\n맥박 : 87회/분\n호흡 : 18회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오*\n義^^흙释霸\n• 가능성이 높은 진단 3개\n1. 십이지장궤양, 위궤양\n2. 역류성 식도염\n3. 위염\n• 필요한 검사 계획 3가지\n교육\n1• 위내시경\n2. 복부 CT\n3. 혈액검사\n• 필요한 치료 계획 3가지\n1 • 생활 습관 교정\n2. 제산제\n3. 수액 치료 및 응급 상황 교육\n구토는 소화기 계통 주제 중 유일하게 신경계 질환을 감별할 필요가\n있는 모듈입니다. 따라서 신경계 문진 및 신체 진찰을 같이 진행해야\n하므로 시간이 부족할 수 있습니다. 평소에 소화기 계통과 신경계 계통에서 필요한 질문 및 신\n체 진찰을 간추리는 연습을 통해 시간 관리를 효율적으로 하는 것이 중요합니다.\n본 증례에서는 구역감과 속쓰림을 특징적으로 호소하고 있으므로 위/십이지장 궤양이나 위염\n혹은 식도염을 의심해 볼 수 있습니다. 또한 환자가 탈수 증상을 호소하고 있으므로 수액 치료\n에 대한 언급과 앞으로도 탈수 증상이 있을 경우 빠르게 병원에 내원해야 한다고 교육하는 것이\n환자-의사 관계에 있어서 중요하겠습니다.\n二-二-"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "sleep_disturbance-001",
+  "case_number_in_pdf": 189,
+  "topic": {
+    "topic_start_page": 483,
+    "topic_id": "sleep_disturbance",
+    "topic_label": "수면장애",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 483,
+      "end": 484
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "백지웅",
+      "age": 45,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "낮에 졸려요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "152/94mmHg",
+      "pulse": "88회/분",
+      "respiratory_rate": "19회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 45세\n“낮에 졸려요\"",
+    "history_blocks": {
+      "onset": "2년 전",
+      "course": "최근 몇 달 사이 악화",
+      "experience": "처음",
+      "character": "잠은 8〜9시간(23人K 7 시) 정도로 잘 잠. 잠이 안오거나 깨지 않음, 낮잠을 많이\n잠(특히 밥 먹고 20분 뒤)，자기 전 야식(+), 운동(一), 자는 환경이 시끄럽거나\n밝지 않음, 자고 나서도 개운하지 않음, 키 178cm. 몸무게 90kg, 허리둘레 38인치",
+      "associated_symptoms": "[전신] 체중 증가(+, 86kg에서 1 개월 만에 90kg)\n[OSA] 코골이 (+)\n[소화] 속쓰림(ᅳ)\n[순환] 두근거림(一)\n[호흡] 쌕쌕거림(- )\n[신장/ 비뇨] 야뇨(-)\n[정신] 우울/불안/낮에 웃다가 힘 빠짐/공황( - / - / - / - )\n범불안/광장/사회 불안/하지 불안( - / - / - / - )\n[갑상샘] 더위불내성(ᅳ)",
+      "past_history": "HTN/DM/Dyslipidemia/Tb/Hepatitis(-l-/ - / —/—/-)",
+      "medications": "고혈압약",
+      "social_history": "소프트웨어 개발, 人E 레시一), 술(+), 커피(+, W 잔 오전에 마심)",
+      "family_history": "_"
+    },
+    "physical_exam_results": "General\nV/S ：\nHTN\nHEENT\n결막/구강/피부 긴장도( - / 一/-)，갑상샘(-)\nChest\n심음/호흡음 ( - / - )\nExtremity\nPitting edema (—)",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "대답이느린편임",
+    "raw_profile_text": "성별/나이\n남성/ 45세\n“낮에 졸려요\"\n0\n2년 전\nL\n-\nD\n-\nCo\n최근 몇 달 사이 악화\nEx\n처음\nC\n잠은 8〜9시간(23人K 7 시) 정도로 잘 잠. 잠이 안오거나 깨지 않음, 낮잠을 많이\n잠(특히 밥 먹고 20분 뒤)，자기 전 야식(+), 운동(一), 자는 환경이 시끄럽거나\n밝지 않음, 자고 나서도 개운하지 않음, 키 178cm. 몸무게 90kg, 허리둘레 38인치\nA\n[전신] 체중 증가(+, 86kg에서 1 개월 만에 90kg)\n[OSA] 코골이 (+)\n[소화] 속쓰림(ᅳ)\n[순환] 두근거림(一)\n[호흡] 쌕쌕거림(- )\n[신장/ 비뇨] 야뇨(-)\n[정신] 우울/불안/낮에 웃다가 힘 빠짐/공황( - / - / - / - )\n범불안/광장/사회 불안/하지 불안( - / - / - / - )\n[갑상샘] 더위불내성(ᅳ)\nF\n-\nE\n-\n외\n-\n과\nHTN/DM/Dyslipidemia/Tb/Hepatitis(-l-/ - / —/—/-)\n약\n고혈압약\n사\n소프트웨어 개발, 人E 레시一), 술(+), 커피(+, W 잔 오전에 마심)\n가\n_\nP/E\nGeneral\nV/S ：\nHTN\nHEENT\n결막/구강/피부 긴장도( - / 一/-)，갑상샘(-)\nChest\n심음/호흡음 ( - / - )\nExtremity\nPitting edema (—)\n질문\n-\n특이사항\n대답이느린편임"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교■\n육.\n성이 높은 진단 2개\n1. 수면무호흡\n2. 일차 불면증",
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "수면다원검사",
+      "수면일기"
+    ],
+    "planned_treatments_or_education": [
+      "CPAP",
+      "자극 조절",
+      "혈액검사",
+      "체중 감량"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "30\n면장애 (Sleep disorder)\n실전 모의 증례 S\n• 45세 남자 백지웅씨가 낮에 졸리다며 내원하였다.\n[활력 징후] 혈압 : 152/94mmHg\n맥박 : 88회/분\n상황\n호흡 : 19회/분\n지침\n처온 ：\n36.8°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교■\n육.\n성이 높은 진단 2개\n1. 수면무호흡\n2. 일차 불면증\n• 필요한 검사 계획 3가지\n1. 수면다원검사\n2. 수면일기\n• 필요한 치료 계획 3가지\n1.CPAP\n2. 자극 조절\n3. 혈액검사\n3. 체중 감량\n수면장애의 경우수면 패턴과수면 위생어i 대해서 자세히 문진하는 것\n이 핵심입니다. 그 외에 기질적인 원인이 있는 것은 아닌지 물어보고\n신체 진찰할 필요가 있습니다. 수면 위생에 문제가 있다면 기억해 두었다가 교육 시간에 활용\n하면 좋은환자•의사관계에 도움이 될 것입니다.\n본 증례는 특징적으로 낮에만 졸림올 호소하고, 수면 위생에는 큰 문제가 없는 환자입 니다. 코\n를 많이 골고, 체중이 많이 나가므로 어렵지 않게 수면무호흡증을 떠올릴 수 있으며, 다소 생소\n할 수 있는 양압기 치료에 대해 환자가 알<가들올 수 있게 설명 후 앓고 있는 고혈압도 호전시킬\n수 있는 방안을 강조하면 좋은 반응을 이끌어 낼 수 있을 것입 니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

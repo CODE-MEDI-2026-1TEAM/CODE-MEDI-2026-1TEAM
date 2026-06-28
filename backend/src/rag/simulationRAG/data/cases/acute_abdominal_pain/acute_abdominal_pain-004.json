@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "acute_abdominal_pain-004",
+  "case_number_in_pdf": 4,
+  "topic": {
+    "topic_start_page": 15,
+    "topic_id": "acute_abdominal_pain",
+    "topic_label": "급성 복통",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 21,
+      "end": 22
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "신자연",
+      "age": 40,
+      "sex": "여자"
+    },
+    "setting": "응급실",
+    "opening_statement": "배가아파요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "125/75mmHg",
+      "pulse": "72회/분",
+      "respiratory_rate": "25회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n여성/40세\n“배가아파요”",
+    "history_blocks": {
+      "onset": "이틀 전",
+      "location": "^른쪽 아랫배",
+      "duration": "종일",
+      "course": "심해짐",
+      "experience": "처음",
+      "character": "쥐어짜는 느낌, NRS 7〜8점, 방사통(-)",
+      "associated_symptoms": "[전신]\n발열/오한/감기 기운/야간 발한/근육통/피로/부종\n[소화기]\nA/N/V/D/C/속쓰림/가슴 통증 ( + / + / - / _ / - / - / - )\n[비뇨기] F/U /N /D /H /I/S /C V A K + /-/-/-/-/-/-/-)",
+      "trauma_history": "맹장수술(ᅳ)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "social_history": "술/담배/커피( - / - / + , 3잔/day)\n직업 : 공무원. 스트레스 약간 받는 편",
+      "gynecologic_history": "[산과력]\n2 -0 -0 -2\nLMP2주전\n마지막 성관계 1주 전, 피임 (+, 콘돔)\nGeneral\n37.9°C의 고열\nHEENT\n결막/공막( - / - ) , 입/피부 탈수 소견( - / - ) , 갑상샘(ᅳ)"
+    },
+    "physical_exam_results": "Chest",
+    "patient_question_or_concern": "특이 ^卜항",
+    "actor_notes_or_special_behavior": "없음\nAbdomen\nRLQTd/rTd(+/+), Obturator(+), 간비 비대(-)\n골반 내진(ᅳ), DRE(-)\nExtermity\n피부 긴장도，오목 부종 정상\n질문\n특이 ^卜항",
+    "raw_profile_text": "성별/나이\n여성/40세\n“배가아파요”\n0\n이틀 전\nL\n^른쪽 아랫배\nD\n종일\nCo\n심해짐\nEx\n처음\nC\n쥐어짜는 느낌, NRS 7〜8점, 방사통(-)\nA\n[전신]\n발열/오한/감기 기운/야간 발한/근육통/피로/부종\n[소화기]\nA/N/V/D/C/속쓰림/가슴 통증 ( + / + / - / _ / - / - / - )\n[비뇨기] F/U /N /D /H /I/S /C V A K + /-/-/-/-/-/-/-)\nF\n-\nE\n-\n약\n-\n외\n맹장수술(ᅳ)\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n사\n술/담배/커피( - / - / + , 3잔/day)\n직업 : 공무원. 스트레스 약간 받는 편\n가\n-\n여\n[산과력]\n2 -0 -0 -2\nLMP2주전\n마지막 성관계 1주 전, 피임 (+, 콘돔)\nGeneral\n37.9°C의 고열\nHEENT\n결막/공막( - / - ) , 입/피부 탈수 소견( - / - ) , 갑상샘(ᅳ)\nP/E\nChest\n특이사항 없음\nAbdomen\nRLQTd/rTd(+/+), Obturator(+), 간비 비대(-)\n골반 내진(ᅳ), DRE(-)\nExtermity\n피부 긴장도，오목 부종 정상\n질문\n특이 ^卜항"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "충수돌기염",
+      "난소 염전",
+      "게실 천공"
+    ],
+    "planned_tests": [
+      "복부초음파",
+      "복부 CT"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문 직장 진찰 : 종양으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을\n시행해 봅니다.\n2. 설명동의서 받기 : 급성 췌장염, 췌장 농양 등을 감별하기 위해 복부 CT를 할 때\n조영제를 쓰므로 설명동의서를 받습니다.\n;\n갑자기 시작된 오른쪽 하복부 통증으로 응급실을 찾은 환자입니다.\ni\nt H\ni 뿌\n급성 복통 환자에서는 복통의 위치가 가장 중요하며, 통증이 옮겨가지\n；\n는 않았는지, 양상은 어떤지, 방사통은 있는지 둥을 자세히 물어 봅니다.\ni\n환자가 많이 아파하면 비협조적일 수도 있으니 진료 전에 진료 동의를 구하고，신체 검진 시에\ni\n도 환자가 아프지 않게 조심히 하는 시도를 보여야 하겠습니다. 여성 환자의 경우는 임신 가능\n!\n성을 토대로 자궁 외 임신 또한 급성 복통으로 내원할 수 있음을 꼭 염두에 두고, 위 환자의 경\nI 우충수돌기염이 가장의심되며, 고열과복막자극 징후를 보이므로 응급수술이 필요함을 설명\n!\n해야합니다.\n......... ............-.............-…\n............................... ..........",
+    "author_commentary_tail": "는 않았는지, 양상은 어떤지, 방사통은 있는지 둥을 자세히 물어 봅니다.\ni\n환자가 많이 아파하면 비협조적일 수도 있으니 진료 전에 진료 동의를 구하고，신체 검진 시에\ni\n도 환자가 아프지 않게 조심히 하는 시도를 보여야 하겠습니다. 여성 환자의 경우는 임신 가능\n!\n성을 토대로 자궁 외 임신 또한 급성 복통으로 내원할 수 있음을 꼭 염두에 두고, 위 환자의 경\nI 우충수돌기염이 가장의심되며, 고열과복막자극 징후를 보이므로 응급수술이 필요함을 설명\n!\n해야합니다.\n......... ............-.............-…\n............................... ..........",
+    "scenario_card_raw": "■\n실전 모의 증례\n纖\n지침\n• 40세 여자신자연씨가 배가 아파 응급실로 내원하였다.\n[활력 징휘 혈압 : 125/75mmHg\n맥박 : 72회/분\n호흡 : 25회/분\n체온 ：\n37.9t；\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n^빨척猶e\n. 가능성이 높은 진단 3개\n1. 충수돌기염\n2. 난소 염전\n3. 게실 천공\n• 필요한 검사 계획 2가지\n1. 복부초음파\n2. 복부 CT\n예상\n술기\n1. 항문 직장 진찰 : 종양으로 인한 복통이 아닌지 감별하기 위해 항문 직장 진찰을\n시행해 봅니다.\n2. 설명동의서 받기 : 급성 췌장염, 췌장 농양 등을 감별하기 위해 복부 CT를 할 때\n조영제를 쓰므로 설명동의서를 받습니다.\n;\n갑자기 시작된 오른쪽 하복부 통증으로 응급실을 찾은 환자입니다.\ni\nt H\ni 뿌\n급성 복통 환자에서는 복통의 위치가 가장 중요하며, 통증이 옮겨가지\n；\n는 않았는지, 양상은 어떤지, 방사통은 있는지 둥을 자세히 물어 봅니다.\ni\n환자가 많이 아파하면 비협조적일 수도 있으니 진료 전에 진료 동의를 구하고，신체 검진 시에\ni\n도 환자가 아프지 않게 조심히 하는 시도를 보여야 하겠습니다. 여성 환자의 경우는 임신 가능\n!\n성을 토대로 자궁 외 임신 또한 급성 복통으로 내원할 수 있음을 꼭 염두에 두고, 위 환자의 경\nI 우충수돌기염이 가장의심되며, 고열과복막자극 징후를 보이므로 응급수술이 필요함을 설명\n!\n해야합니다.\n-......... ............-.............-…\n............................... .........."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

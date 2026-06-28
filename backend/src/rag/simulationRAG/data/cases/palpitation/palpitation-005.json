@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "palpitation-005",
+  "case_number_in_pdf": 70,
+  "topic": {
+    "topic_start_page": 155,
+    "topic_id": "palpitation",
+    "topic_label": "두근거림",
+    "system": "순환기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 163,
+      "end": 164
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "서민석",
+      "age": 28,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "가슴이 두근거려요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/88mmHg",
+      "pulse": "75회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "성별/나이\n.\n_____\n남성/ 28세\n“가슴이 두근거려요”",
+    "history_blocks": {
+      "onset": "어제 밤 갑자기 시작된 후 갑자기 종료",
+      "duration": "1 분",
+      "course": "심해짐",
+      "experience": "2번(2년 전, 2주 전)",
+      "character": "규칙적인 두근거림，갑자기 시작되고 갑자기 끝나는 양상",
+      "associated_symptoms": "[전신] 발열/식은땀/체중 감소/두통/의식 소실( - / - / ᅳ/ - / - )\n[호흡기/순환기] 호흡곤란/흉통/어지럼/두근거림 (+ /-/ -/ -). 가슴 답답함\n[내분비] 더위불내성(一)\n[정신] 죽을것 같은 공포감(-)",
+      "factors": "완화(+，휴식 )",
+      "events": "2년 전 현미경적 혈뇨, 치료받지 않음",
+      "past_history": "DM/TB/HTN/간염 (一/ - / - / - )",
+      "medications": "종합 비타민, 오메가3",
+      "social_history": "술(+, 2병/ 2〜3회 )，담배 H , 커피 (+, 9잔), 식사 잘 함, 직업 : 변호사, 스트레스(+)",
+      "family_history": "어머니 : 뇌출혈，형 : 고혈압\nGeneral\nV/S 확인\nHEENT\n^•상샘 (-)"
+    },
+    "physical_exam_results": "Chest\n심음(- )\nAbdomen\n\nExtremity\n피부 긴장도/오목 부종( - / ᅳ)",
+    "patient_question_or_concern": "I 없음\n특이 人!항 j 비협조적임",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n.\n_____\n남성/ 28세\n“가슴이 두근거려요”\n0\n어제 밤 갑자기 시작된 후 갑자기 종료\nL\nD\n1 분\nCo\n심해짐\nEx\n2번(2년 전, 2주 전)\nC\n규칙적인 두근거림，갑자기 시작되고 갑자기 끝나는 양상\nA\n[전신] 발열/식은땀/체중 감소/두통/의식 소실( - / - / ᅳ/ - / - )\n[호흡기/순환기] 호흡곤란/흉통/어지럼/두근거림 (+ /-/ -/ -). 가슴 답답함\n[내분비] 더위불내성(一)\n[정신] 죽을것 같은 공포감(-)\nF\n완화(+，휴식 )\nE\n2년 전 현미경적 혈뇨, 치료받지 않음\n외\n과\nDM/TB/HTN/간염 (一/ - / - / - )\n약\n종합 비타민, 오메가3\n사\n술(+, 2병/ 2〜3회 )，담배 H , 커피 (+, 9잔), 식사 잘 함, 직업 : 변호사, 스트레스(+)\n가\n어머니 : 뇌출혈，형 : 고혈압\nGeneral\nV/S 확인\nHEENT\n^•상샘 (-)\nP/E\nChest\n심음(- )\nAbdomen\n-\nExtremity\n피부 긴장도/오목 부종( - / ᅳ)\n질문 I 없음\n특이 人!항 j 비협조적임"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n기^ 이 높은 진단 3개\n1. PSVT\n2. 카페인 유발 빈맥\n3. 갑상샘항진증\n교육",
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "24시간 심전도",
+      "갑상샘7 ᅵ능검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "혈압 측정 ：\n현재 혈압이 높은 편이므로 진료실에서 혈압을 다시 측정해 봅니다.\n두근거림의 경우는 심장, 혈액, 내분비，정신 등으로 나누어 생각하는\n것이 좋습니다. 그 중 위의 케이스는 심장의 전기생리적 인 원인으로\n유발된 케이스로 두근거림이 얼마나 지속되었는지, 갑자기 시작하였는지 등을 물어 보는 것이\n좋습니다.\n기질적인 원인 뿐만 아니라 스트레스, 과로 등으로 인해 조기 수축되는 경우도 있다는 것을 설\n명하여 환자를 안심시키는 것도 좋습니다. 그리고 의심되는 질환에 대해서 대처할수 있는 방법\n을 설명해 주면 의사•환자 관계에서 좀 더 점수를 얻을 수 있으므로 잘 정리해 두도록 합니다.",
+    "author_commentary_tail": "혈압 측정 ：\n현재 혈압이 높은 편이므로 진료실에서 혈압을 다시 측정해 봅니다.\n두근거림의 경우는 심장, 혈액, 내분비，정신 등으로 나누어 생각하는\n것이 좋습니다. 그 중 위의 케이스는 심장의 전기생리적 인 원인으로\n유발된 케이스로 두근거림이 얼마나 지속되었는지, 갑자기 시작하였는지 등을 물어 보는 것이\n좋습니다.\n기질적인 원인 뿐만 아니라 스트레스, 과로 등으로 인해 조기 수축되는 경우도 있다는 것을 설\n명하여 환자를 안심시키는 것도 좋습니다. 그리고 의심되는 질환에 대해서 대처할수 있는 방법\n을 설명해 주면 의사•환자 관계에서 좀 더 점수를 얻을 수 있으므로 잘 정리해 두도록 합니다.",
+    "scenario_card_raw": "B\ni 실전모의 증례\n；\n；\n\n:\n• 28세 남자 서민석씨가 가슴이 두근거려 내원하였다.\n했우\n^ ■황\n지침\n[활력 징후] 혈압 : 140/88mmHg\n맥박 : 75회/분\n호音 : 20회/분\n체온 ：\n36.7°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n• 기^ 이 높은 진단 3개\n1. PSVT\n2. 카페인 유발 빈맥\n3. 갑상샘항진증\n교육\n• 필요한 검사 계획 2가지\n1. 24시간 심전도\n2. 갑상샘7 ᅵ능검사\n예상\n술기\n혈압 측정 ：\n현재 혈압이 높은 편이므로 진료실에서 혈압을 다시 측정해 봅니다.\n두근거림의 경우는 심장, 혈액, 내분비，정신 등으로 나누어 생각하는\n것이 좋습니다. 그 중 위의 케이스는 심장의 전기생리적 인 원인으로\n유발된 케이스로 두근거림이 얼마나 지속되었는지, 갑자기 시작하였는지 등을 물어 보는 것이\n좋습니다.\n기질적인 원인 뿐만 아니라 스트레스, 과로 등으로 인해 조기 수축되는 경우도 있다는 것을 설\n명하여 환자를 안심시키는 것도 좋습니다. 그리고 의심되는 질환에 대해서 대처할수 있는 방법\n을 설명해 주면 의사•환자 관계에서 좀 더 점수를 얻을 수 있으므로 잘 정리해 두도록 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

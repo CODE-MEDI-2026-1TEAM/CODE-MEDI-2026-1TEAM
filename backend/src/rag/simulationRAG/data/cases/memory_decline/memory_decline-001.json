@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "memory_decline-001",
+  "case_number_in_pdf": 196,
+  "topic": {
+    "topic_start_page": 497,
+    "topic_id": "memory_decline",
+    "topic_label": "기억력 저하",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 501,
+      "end": 502
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "장민철",
+      "age": 60,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "기억력이 떨어졌어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "130/80mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": null,
+      "temperature": "36.2°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 60세\n“기억력이 떨어졌어요”",
+    "history_blocks": {
+      "onset": "1년전",
+      "course": "점점 심해지는 것 같음",
+      "experience": "처음",
+      "character": "초I근 기억 저하, 약속을 잘 깜박함\n入卜람 이름이 기억이 안 날 때가 있음, 돈 계산은 잘 함",
+      "associated_symptoms": "[전신] 발열/오한/체중 변화/근육통/피로/부종( - / - / - / - / + / - )\n[신경] 두통/시야장애/어지럼/구역감/구토/말 어눌함/사지 근력 저하\n(_ /_ /ᅳ/一/一/_ /ᅳ)\n[정신] 우울/불안/환시/환청/수면장애/배뇨장애( - / - / - / - / - / - )\n성격 변호ᅡ(+，예민해진 것 같음)",
+      "events": "이상",
+      "past_history": "이VI/TB/HTN/고지혈증/간염 ( - / - / + / - / - )",
+      "medications": "고혈압약 (+)",
+      "social_history": "술(一)，담배(+，15갑년)，커피 (一)",
+      "family_history": "어머니(+, 돌아가시기 전 치매 있었음)\nGeneral\nV/S 정상\nHEENT\n갑상샘(-), 입/피부 탈수 소견(一/一)\nExtremity\n피부 긴장도，오목 부종 정상"
+    },
+    "physical_exam_results": "뇌신경\nMMSE 26〜27점\n동공 반사 정상，시야장애/얼굴 감각/운동 이상( - / - / - )\n팔다리 감각/운동 이상(一/ᅳ)\n경부강직/보행장애 (- / - )",
+    "patient_question_or_concern": "특이^유항\n“알츠하이머 치매일까봐 무서워요/",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 60세\n“기억력이 떨어졌어요”\n0\n1년전\nL\n-\nD\n-\nCo\n점점 심해지는 것 같음\nEx\n처음\nC\n초I근 기억 저하, 약속을 잘 깜박함\n入卜람 이름이 기억이 안 날 때가 있음, 돈 계산은 잘 함\nA\n[전신] 발열/오한/체중 변화/근육통/피로/부종( - / - / - / - / + / - )\n[신경] 두통/시야장애/어지럼/구역감/구토/말 어눌함/사지 근력 저하\n(_ /_ /ᅳ/一/一/_ /ᅳ)\n[정신] 우울/불안/환시/환청/수면장애/배뇨장애( - / - / - / - / - / - )\n성격 변호ᅡ(+，예민해진 것 같음)\nF\nE\n이상\n외\n-\n과\n이VI/TB/HTN/고지혈증/간염 ( - / - / + / - / - )\n약\n고혈압약 (+)\n사\n술(一)，담배(+，15갑년)，커피 (一)\n가\n어머니(+, 돌아가시기 전 치매 있었음)\nGeneral\nV/S 정상\nHEENT\n갑상샘(-), 입/피부 탈수 소견(一/一)\nExtremity\n피부 긴장도，오목 부종 정상\nP/E\n뇌신경\nMMSE 26〜27점\n동공 반사 정상，시야장애/얼굴 감각/운동 이상( - / - / - )\n팔다리 감각/운동 이상(一/ᅳ)\n경부강직/보행장애 (- / - )\n질문\n특이^유항\n“알츠하이머 치매일까봐 무서워요/"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n. 가능성이 높은 진단 3개\n1. 경도인지장애\n2. 알츠하이머 치매\n3. 가성 치매",
+    "likely_diagnoses": [
+      "경도인지장애",
+      "알츠하이머 치매",
+      "가성 치매"
+    ],
+    "planned_tests": [
+      "정신상태검人t",
+      "뇌 MRI"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 설명동의서 받기 : 알츠하이머 치매 등 감별을 위한 뇌 MRI/CT를 시행하기 위해\n설명동의서를 받습니다.\n2. 혈압 측정 : 고혈압력과 약물 복용 중이므로 진료실에서 혈압을 측정해 봅니다.\n기억력장애는 기억력장애의 양상이 어떤지 character를꼭 짚고 넘어\n가야 하고, 기억력장애가 갑자기 생겼는지 서서히 나빠졌는지도 감별\n에 도움을 줄 수 있습니다.\n병력 청취가끝나고 간이 MMSE를 해야하는데 적어도 2분은 걸릴 것을 예상해야하며, 환자가\n대답이 느릴 경우 어느 정도 빠르게 치고 나가야 할수도 있습니다.\n신체 검진을 꼼꼼히 하는 것을 포기하고 간략하게 꼭 필요한 것들만 하는 것도 좋습니다.\n경도인지장애 환자일 경우 지금부터 생활습관을 교정하는 것이 알츠하이머로 이행하는 것을\n늦출 수 있음을 교육하고«환자에게 알맞은 취미 생활을 추천해 줍니다.",
+    "author_commentary_tail": "1. 설명동의서 받기 : 알츠하이머 치매 등 감별을 위한 뇌 MRI/CT를 시행하기 위해\n설명동의서를 받습니다.\n2. 혈압 측정 : 고혈압력과 약물 복용 중이므로 진료실에서 혈압을 측정해 봅니다.\n기억력장애는 기억력장애의 양상이 어떤지 character를꼭 짚고 넘어\n가야 하고, 기억력장애가 갑자기 생겼는지 서서히 나빠졌는지도 감별\n에 도움을 줄 수 있습니다.\n병력 청취가끝나고 간이 MMSE를 해야하는데 적어도 2분은 걸릴 것을 예상해야하며, 환자가\n대답이 느릴 경우 어느 정도 빠르게 치고 나가야 할수도 있습니다.\n신체 검진을 꼼꼼히 하는 것을 포기하고 간략하게 꼭 필요한 것들만 하는 것도 좋습니다.\n경도인지장애 환자일 경우 지금부터 생활습관을 교정하는 것이 알츠하이머로 이행하는 것을\n늦출 수 있음을 교육하고«환자에게 알맞은 취미 생활을 추천해 줍니다.",
+    "scenario_card_raw": "^\n실전 모의 증례\n지침\n• 60세 남자 장민철씨가 기억력이 떨어져 내원하였다.\n[활력 징후] 혈압 : 130/80mmHg\n맥박 : 70회/분\n■오흡 ■\n25회/분\n체온 ：\n36.2°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오•\n. 가능성이 높은 진단 3개\n1. 경도인지장애\n2. 알츠하이머 치매\n3. 가성 치매\n• 필요한 검사 계획 2가지\n1. 정신상태검人t\n2. 뇌 MRI\n예상\n술기\n1. 설명동의서 받기 : 알츠하이머 치매 등 감별을 위한 뇌 MRI/CT를 시행하기 위해\n설명동의서를 받습니다.\n2. 혈압 측정 : 고혈압력과 약물 복용 중이므로 진료실에서 혈압을 측정해 봅니다.\n기억력장애는 기억력장애의 양상이 어떤지 character를꼭 짚고 넘어\n가야 하고, 기억력장애가 갑자기 생겼는지 서서히 나빠졌는지도 감별\n에 도움을 줄 수 있습니다.\n병력 청취가끝나고 간이 MMSE를 해야하는데 적어도 2분은 걸릴 것을 예상해야하며, 환자가\n대답이 느릴 경우 어느 정도 빠르게 치고 나가야 할수도 있습니다.\n신체 검진을 꼼꼼히 하는 것을 포기하고 간략하게 꼭 필요한 것들만 하는 것도 좋습니다.\n경도인지장애 환자일 경우 지금부터 생활습관을 교정하는 것이 알츠하이머로 이행하는 것을\n늦출 수 있음을 교육하고«환자에게 알맞은 취미 생활을 추천해 줍니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

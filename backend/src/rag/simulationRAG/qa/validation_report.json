@@ -1,0 +1,53 @@
+{
+  "source_document": "CPX 증례.pdf",
+  "source_document_pages": 793,
+  "detected_case_count": 302,
+  "detected_topics": 56,
+  "patient_visible_rag_chunk_count": 4053,
+  "case_page_span_distribution": {
+    "2": 248,
+    "4": 36,
+    "6": 10,
+    "22": 1,
+    "8": 5,
+    "12": 1,
+    "5": 1
+  },
+  "quality_flag_counts": {
+    "chief_complaint_not_confidently_parsed": 5,
+    "patient_name_not_confidently_parsed": 9,
+    "structured_history_labels_not_detected": 18
+  },
+  "manual_review_case_ids": [
+    "acute_abdominal_pain-003",
+    "diarrhea-006",
+    "easy_bruising-002",
+    "seizure-006",
+    "growth_development_delay-001",
+    "growth_development_delay-002",
+    "growth_development_delay-003",
+    "growth_development_delay-004",
+    "growth_development_delay-006",
+    "growth_development_delay-007",
+    "vaccination-001",
+    "vaccination-002",
+    "vaccination-003",
+    "vaccination-004",
+    "alcohol_counseling-004",
+    "alcohol_counseling-005",
+    "breaking_bad_news-001",
+    "breaking_bad_news-002",
+    "breaking_bad_news-003",
+    "breaking_bad_news-004",
+    "sexual_violence-001",
+    "sexual_violence-002",
+    "sexual_violence-003",
+    "sexual_violence-004"
+  ],
+  "validation_notes": [
+    "302 '실전 모의 증례' blocks were detected from the embedded text layer.",
+    "Patient-visible data and examiner-only data are separated to prevent target diagnosis leakage.",
+    "Embedded text/OCR is not fully clean in some pages; records flagged for review should be visually checked before use in a public or high-stakes product.",
+    "The generated chunks contain only patient_visible fields; examiner_only fields are intentionally excluded."
+  ]
+}

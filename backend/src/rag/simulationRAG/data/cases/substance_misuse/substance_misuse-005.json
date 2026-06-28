@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "substance_misuse-005",
+  "case_number_in_pdf": 284,
+  "topic": {
+    "topic_start_page": 723,
+    "topic_id": "substance_misuse",
+    "topic_label": "물질 오남용",
+    "system": "상담"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 731,
+      "end": 732
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박지민",
+      "age": 36,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "커피를 끊고 싶어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "140/90mmHg",
+      "pulse": "95회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 36세\n“커피를 끊고 싶어요”\nk\n\n:\n.\n,\n약물\n복용^황\nr\n; ；；■\n'；、\n' '：i\n,\n『 ' .\n■\n:\n커피\n대학생 때부터 한 두잔씩 口!심\n2년 전 영업부서로 옮기면서 4~5잔 □)심\n1 달 전부터 7~8잔까지 마시며, 점차 마시는 양이 늘어남\n다른 카페인 섭취(一)\n의존 평가\n1~2잔에서 시작해서 7~8잔까지 마시는 양의 증가\n습관적으로 마심, 직업 때문에 마심\n측\nV 、爲1편단놓f\n^•용 평가\ni\nV\n. ^\n직업문제(ᅳ)\n법적 문제(一)\n대인 관계 문제(- )\n위험 행동(ᅳ)\n룰''\"! V 養 \" <' 寒\n:\"!：\n^ vV-；^ ' 세\n.스\nRelevance",
+    "history_blocks": {
+      "associated_symptoms": "손 떨림/다뇨/ 소호^불량( +\n/ +\n/ +\n)\n수면장애 (-)",
+      "past_history": "고혈압/ 당뇨/고지혈증/심장 질환 (\n\n/\n\n/\n\n/\n\n)",
+      "medications": "人^\n보험회사 직원\n술/담배 (\n\n/\n)",
+      "family_history": "중독력 ( - )\n정신 질환력(ᅳ)\n.\nRelevance\n'\n—\nV\n/ S\n혈압 1 4 0 / 9 0 m\nm\nH\ng o\n?\n높은 편임\n입\n치아, 구강( - )\n^ ■상샘\n\n흉부\n청진 (一)"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 36세\n“커피를 끊고 싶어요”\nk\n\n•\n:\n.\n,\n\n약물\n복용^황\nr\n; ；；■\n'；、\n' '：i-\n,\n『 ' .\n■\n:\n커피\n대학생 때부터 한 두잔씩 口!심\n2년 전 영업부서로 옮기면서 4~5잔 □)심\n1 달 전부터 7~8잔까지 마시며, 점차 마시는 양이 늘어남\n다른 카페인 섭취(一)\n의존 평가\n1~2잔에서 시작해서 7~8잔까지 마시는 양의 증가\n습관적으로 마심, 직업 때문에 마심\n측\nV 、爲1편단놓f\n^•용 평가\ni\nV -\n• . ^\n직업문제(ᅳ)\n법적 문제(一)\n대인 관계 문제(- )\n위험 행동(ᅳ)\n룰''\"! V 養 \" <' 寒\n:\"!：\n^ vV-；^ ' 세\n.스\nRelevance\nA\n손 떨림/다뇨/ 소호^불량( +\n/ +\n/ +\n)\n수면장애 (-)\n과\n고혈압/ 당뇨/고지혈증/심장 질환 (\n-\n/\n-\n/\n-\n/\n-\n)\n약\n-\n人^\n보험회사 직원\n술/담배 (\n-\n/ -\n)\n가\n중독력 ( - )\n정신 질환력(ᅳ)\n.\nRelevance\n'\n•—\nV\n/ S\n혈압 1 4 0 / 9 0 m\nm\nH\ng o\n?\n높은 편임\n입\n치아, 구강( - )\n^ ■상샘\n-\n흉부\n청진 (一)"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육",
+    "likely_diagnoses": [
+      "카페인 중독",
+      "카페인 의존"
+    ],
+    "planned_tests": [],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문 직장 진찰 : 비뇨기 증상(다뇨)과 소화불량이 있어 항문 직장 진찰을 시행합\n니다.\n2. 혈압 측정 : 현재 혈압이 140/90mmHg이므로 진료실에서 혈압을 다시 측정해\n봅니다.\n일상에서 흔히 접할수 있는 커피가 관련된 증례입니다.\n커피도 다른물질과 마찬가지로 우선 의존, 남용 평가를 하는 방식으\n로 평가를 합니다.\n보통 커피를 마시는 것이 큰문제라고 생각하지 않지만, 습관적으로 커피를 마시는 것 또한 정\n신적 중독에 해당 한다는 것을 주지시킵니다. 또한 하루 safe level인 40Qmg/day 이상 카페인을\n섭취하는 경우손 떨림, 부정맥, 초조 등의 중독증상이 나타나고> 심장, 뼈, 소화기계 등 다양한\n신체 부위에도 이상을 초래할 수 있다는 것을 설명하는 것이 필요하겠습니다.\n스스로 커피에 대한 문제점을 가지고 내원한 환자로 충분히 격려하며 상담합니다.\n카페인 의존의 경우 갑자기 줄이게 되면 두통 등의 부작용이 올 수 있기 때문에 2주에 걸쳐\ngradual reduction 계획을 잡고 치료를 진행합니다.",
+    "author_commentary_tail": "2. 혈압 측정 : 현재 혈압이 140/90mmHg이므로 진료실에서 혈압을 다시 측정해\n봅니다.\n일상에서 흔히 접할수 있는 커피가 관련된 증례입니다.\n커피도 다른물질과 마찬가지로 우선 의존, 남용 평가를 하는 방식으\n로 평가를 합니다.\n보통 커피를 마시는 것이 큰문제라고 생각하지 않지만, 습관적으로 커피를 마시는 것 또한 정\n신적 중독에 해당 한다는 것을 주지시킵니다. 또한 하루 safe level인 40Qmg/day 이상 카페인을\n섭취하는 경우손 떨림, 부정맥, 초조 등의 중독증상이 나타나고> 심장, 뼈, 소화기계 등 다양한\n신체 부위에도 이상을 초래할 수 있다는 것을 설명하는 것이 필요하겠습니다.\n스스로 커피에 대한 문제점을 가지고 내원한 환자로 충분히 격려하며 상담합니다.\n카페인 의존의 경우 갑자기 줄이게 되면 두통 등의 부작용이 올 수 있기 때문에 2주에 걸쳐\ngradual reduction 계획을 잡고 치료를 진행합니다.",
+    "scenario_card_raw": "1 ^ 실전 모의 증례\n지침\n• 36세 여자 박지민씨가 커피를 끊고 싶다고 내원하였다.\n[활력 징후] 혈압 : 140/90mmHg\n맥박 : 95회/분\n호흡 : 20회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 2개\n1. 카페인 중독\n2. 카페인 의존\n예상\n술기\n1. 항문 직장 진찰 : 비뇨기 증상(다뇨)과 소화불량이 있어 항문 직장 진찰을 시행합\n니다.\n2. 혈압 측정 : 현재 혈압이 140/90mmHg이므로 진료실에서 혈압을 다시 측정해\n봅니다.\n일상에서 흔히 접할수 있는 커피가 관련된 증례입니다.\n커피도 다른물질과 마찬가지로 우선 의존, 남용 평가를 하는 방식으\n로 평가를 합니다.\n보통 커피를 마시는 것이 큰문제라고 생각하지 않지만, 습관적으로 커피를 마시는 것 또한 정\n신적 중독에 해당 한다는 것을 주지시킵니다. 또한 하루 safe level인 40Qmg/day 이상 카페인을\n섭취하는 경우손 떨림, 부정맥, 초조 등의 중독증상이 나타나고> 심장, 뼈, 소화기계 등 다양한\n신체 부위에도 이상을 초래할 수 있다는 것을 설명하는 것이 필요하겠습니다.\n스스로 커피에 대한 문제점을 가지고 내원한 환자로 충분히 격려하며 상담합니다.\n카페인 의존의 경우 갑자기 줄이게 되면 두통 등의 부작용이 올 수 있기 때문에 2주에 걸쳐\ngradual reduction 계획을 잡고 치료를 진행합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

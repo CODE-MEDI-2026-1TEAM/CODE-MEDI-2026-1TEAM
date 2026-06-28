@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0.0",
+  "module_id": "cpx-24-weight_gain_obesity",
+  "clinical_expression_number": 24,
+  "title_ko": "체중증가/비만",
+  "domain_ko": "전신",
+  "source_document": "CPX 총론.pdf",
+  "source_pdf_pages": {
+    "start": 246,
+    "end": 253
+  },
+  "source_markdown": "docs/modules/24_weight_gain_obesity.md",
+  "retrieval_tags": [
+    "체중증가/비만",
+    "전신",
+    "CPX",
+    "병력청취",
+    "신체진찰",
+    "환자교육"
+  ],
+  "evaluation_use": {
+    "required_common_rubric_ids": [
+      "history_taking",
+      "patient_education",
+      "ppi_listening",
+      "ppi_patient_context",
+      "ppi_understandable_explanation",
+      "ppi_rapport",
+      "ppi_structure",
+      "physical_exam_attitude",
+      "common_safety"
+    ],
+    "module_specific_evaluation_blocks": [
+      {
+        "id": "history_taking",
+        "label": "증례 특이 병력 청취",
+        "source_hint": "기본진찰사항 > 병력청취"
+      },
+      {
+        "id": "physical_exam",
+        "label": "증례 특이 신체 진찰 및 임상술기",
+        "source_hint": "P/E, 신체 진찰, 임상술기"
+      },
+      {
+        "id": "patient_education",
+        "label": "증례 특이 환자 교육",
+        "source_hint": "STEP, 교육, 환자 안내/생활 습관 교육"
+      },
+      {
+        "id": "diagnostic_reasoning",
+        "label": "감별 진단·검사·치료 설명",
+        "source_hint": "질병별 진단/치료 계획, 증례별 알고리즘, 기본적 진단 계획"
+      }
+    ],
+    "implementation_note": "이 JSON은 모듈 라우팅·검색용이다. 항목별 정답 판정은 케이스 데이터의 required_questions, red_flags, required_exam, patient_education_points를 우선한다."
+  },
+  "extracted_hints": {
+    "history_taking_text": "0\n언제부터 체중이 늘기 시작했나요?\nL\n살이 주로 어디에 찌나요?(눈 주위와 얼굴 부종/팔다리 부종) or 전체적으로?\nD\n얼마 사이에 살이 쪘나요?\nCo\n몇 kg 에서 몇 kg으로 살이 찌셨나요?\nEx\n이전에도 이렇게 살이 많이 찐 적이 있나요?\nC\n현재의 키/몸무게/허리둘레가 어떻게 되나요? (BMI 구하기)\n최근 운동량/식사량 변화가 있었나요?\nA\nft鐵靜^\n[전신] 발열/오한/피로\n[쿠싱] 얼굴이나복부 비만/자색선조/멍\n[갑상샘저하] 추위불내성/머리 푸석푸석/변비\n[PCOS] 여드름/다모증\n[울혈심부전] 호흡곤란/부종/기슴통증\n[간경변] A /N /V /D /C/황달/복수\n[신증후군, 신부전] 소변량 감소/거품뇨\n[정신] 우울/의욕저하가있나요?\n[수면무호흡증] 코골이/수면장애가있나요?\nF\n최근에 스트레스 받는 일이 있나요?/물 많이 드시나요?\nE\n이전에 건강 검진 받은 적 있나요?\n오1\n[외상] 최근 다친곳이있나요?\n과\n고혈압/당뇨/간질환/과거 정신건강의학과 진료를 받은 적이 있나요?\n약\n현재 복용하시는 약물이 있나요? (스테로이드, 피임약. 정신과약)\n최근에 힌약 먹은 적 있나요?\n사\n술은 드시나요?/흡연은 하시나요?/직업이 무엇인가요?\n[식습관] 식人!'는규칙적으로하시나요?/식人1량은어느정도되나요?\n외식은 많이 하시나요?/야식은 많이 드시나요?\n육류와 기름진 음식을 좋아하시나요?\n[운동] 평소운동은규칙적으로하세요?\n가\n가족 중에 당뇨나 고지혈증을 앓고 계신 분이 있나요?\n가족 중에 비만이 있나요? (가족 중에 체중이 많이 나가는 분이 있나요?)\n여\n[월경력]\n생리 주기 규칙적, 생리량, 월경통/임신 가능성이 있는지 묻기!",
+    "physical_exam_text": "이제 신체 진찰을 하도록 할텐데요, 괜찮으신가요?\n가장 먼저 키/체중/허리둘레 확인 or 측정*\n[앉아세\n1• 눈 : 결막(빈혈),공막(황달)\n2. 입 : 구강 점막\n3. 목* : 갑상샘 촉진. buffalo hump\n4. 흉부 진찰 : 호흡음,심음 청진\n[누워세 5. 복부 진찰* : 시- 청- 타- 촉(간, 비 종대 및 복수 유무 확인)\n6. 사지* ：\n 하지 오목 부종(pitting edema)\nᅳ 협조해 주셔서 감사합니다. 불편한 점은 없으신가요?"
+  },
+  "quality_note": "도표·알고리즘·표는 PDF 텍스트 레이어의 읽기 순서가 흐트러질 수 있다. 원본 PDF 쪽수와 함께 사용한다."
+}
