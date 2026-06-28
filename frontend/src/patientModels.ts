@@ -328,6 +328,14 @@ export function resolveCaseModel(cm: CaseModel): ModelPlacement {
   return { ...PATIENT_MODELS[cm.model], ...cm.placement };
 }
 
+export function patientAvatarPathForCase(caseKey: CaseKey) {
+  const patientModel = (PATIENT_CASES[caseKey].models as CaseModel[]).find(
+    (model) => model.role !== "guardian",
+  );
+
+  return `/avatars/patients/${patientModel?.model ?? "Schoolboy"}.png`;
+}
+
 // 지금 화면에 띄울 케이스. 이 한 줄만 바꾸면 교체됨.
 export const ACTIVE_CASE: CaseKey = "adolescent_m";
 

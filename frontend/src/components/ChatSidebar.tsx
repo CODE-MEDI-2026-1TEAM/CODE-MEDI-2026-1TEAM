@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useVoiceConversation } from '../hooks/useVoiceConversation';
-import { choosePatientCaseKey, PATIENT_CASES } from '../patientModels';
+import { choosePatientCaseKey, PATIENT_CASES, patientAvatarPathForCase } from '../patientModels';
 import type { CpxCase, Session } from '../types';
 
 const vitalSigns = [
@@ -51,16 +51,14 @@ export default function ChatSidebar({
       : null,
   );
   const avatarCase = PATIENT_CASES[avatarCaseKey];
-  const avatarGender = /female|여성|여자|여아/i.test(profile?.sex ?? '')
-    ? 'female'
-    : 'male';
+  const avatarPath = patientAvatarPathForCase(avatarCaseKey);
 
   return (
     <aside className="chat-sidebar" aria-label="환자 대화 기록">
       <header className="patient-summary">
         <PatientAvatar
+          avatarPath={avatarPath}
           category={avatarCase.category}
-          gender={avatarGender}
           hasGuardian={Boolean(profile?.respondent)}
           name={profile?.name ?? activeCase?.title}
         />
@@ -115,30 +113,24 @@ export default function ChatSidebar({
 }
 
 function PatientAvatar({
+  avatarPath,
   category,
-  gender,
   hasGuardian,
   name,
 }: {
+  avatarPath: string;
   category: 'child' | 'adolescent' | 'adult';
-  gender?: 'male' | 'female';
   hasGuardian: boolean;
   name?: string;
 }) {
   const avatarClassName = [
     'profile-avatar',
     `profile-avatar-${category}`,
-    `profile-avatar-${gender ?? 'male'}`,
   ].join(' ');
 
   return (
     <div className={avatarClassName} aria-label={`${name ?? '환자'} 아바타`}>
-      <span className="avatar-hair" />
-      <span className="avatar-face">
-        <span className="avatar-eye left" />
-        <span className="avatar-eye right" />
-        <span className="avatar-mouth" />
-      </span>
+      <img alt="" src={avatarPath} />
       {hasGuardian ? <span className="avatar-guardian">보</span> : null}
     </div>
   );
