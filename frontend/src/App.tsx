@@ -207,6 +207,11 @@ export default function App() {
         `/sessions/${session.id}/evaluate`,
         { method: 'POST' },
       );
+      console.log('[evaluate] original API response:', data);
+      console.log(
+        '[evaluate] original API response (JSON):',
+        JSON.stringify(data, null, 2),
+      );
       setSession((current) =>
         current?.id === session.id
           ? {
@@ -474,10 +479,6 @@ function EvaluationResultModal({
   const readiness = getEvaluationReadiness(score);
   const categorySummaries = buildEvaluationCategorySummaries(evaluation, score);
   const formattedDate = formatEvaluationDate(evaluation.createdAt);
-  const primaryFocus =
-    evaluation.missedItems[0] ??
-    evaluation.suggestions[0] ??
-    '현재 채점 결과에서 즉시 보완할 핵심 항목은 표시되지 않았습니다.';
 
   return (
     <section
@@ -506,7 +507,11 @@ function EvaluationResultModal({
         </header>
 
         <div className="evaluation-dashboard">
-          <section className="evaluation-score-panel">
+          <section className="evaluation-overview">
+            <h3 className="evaluation-overview-title">종합 평가</h3>
+            <span className="evaluation-overview-date">
+              연습 일자 {formattedDate}
+            </span>
             <div
               className="evaluation-score-ring"
               style={{ '--score-percent': `${score}%` } as CSSProperties}
@@ -515,11 +520,7 @@ function EvaluationResultModal({
               <strong>{score}</strong>
               <em>/100</em>
             </div>
-            <div className="evaluation-score-copy">
-              <h3>{readiness.title}</h3>
-              <p>{readiness.description}</p>
-              <span>채점 시간 {formattedDate}</span>
-            </div>
+            <p className="evaluation-overview-risk">{evaluation.riskAssessment}</p>
           </section>
 
           <section className="evaluation-summary-card">
@@ -553,6 +554,8 @@ function EvaluationResultModal({
               value={evaluation.handHygieneCount}
             />
           </div>
+
+          <EvaluationWorkupTable missedItems={evaluation.missedItems} />
 
           <section className="evaluation-hygiene-card">
             <span>손소독 타이밍</span>
@@ -598,11 +601,6 @@ function EvaluationResultModal({
             </div>
           </section>
 
-          <section className="evaluation-priority-card">
-            <span>우선 보완</span>
-            <p>{primaryFocus}</p>
-          </section>
-
           <div className="evaluation-modal-grid">
             <EvaluationResultSection
               items={evaluation.strengths}
@@ -643,6 +641,71 @@ function debugConversation(event: string, payload: Record<string, unknown>) {
 
   console.info(`[conversation-debug] ${event}`, payload);
 }
+
+// ─── feature/evaluation: EvaluationWorkupTable ───────────────────────────────
+
+const EVALUATION_WORKUP_ROWS = [
+  { code: 'O', meaning: '증상의 발생 시점' },
+  { code: 'L', meaning: '증상의 발생 위치' },
+  { code: 'D', meaning: '증상의 지속 시간' },
+  { code: 'Co', meaning: '증상의 경과 과정' },
+  { code: 'Ex', meaning: '이전 증상 발생 여부' },
+  { code: 'C', meaning: '증상의 특성' },
+  { code: 'A_F', meaning: '동반 증상 / 유발 인자' },
+] as const;
+
+function extractWorkupCodes(missedItems: string[]) {
+  const codes = new Set<string>();
+  for (const item of missedItems) {
+    const match = item.match(/^문진:\s*([^\s(]+)/);
+    if (match) {
+      codes.add(match[1]);
+    }
+  }
+  return codes;
+}
+
+function EvaluationWorkupTable({ missedItems }: { missedItems: string[] }) {
+  const missedCodes = extractWorkupCodes(missedItems);
+
+  return (
+    <section className="evaluation-workup-card">
+      <div className="evaluation-workup-heading">
+        <span>History Taking</span>
+        <h3>문진 항목 완료 현황</h3>
+      </div>
+      <table className="evaluation-workup-table">
+        <thead>
+          <tr>
+            <th>문진</th>
+            <th>의미</th>
+            <th>완료</th>
+          </tr>
+        </thead>
+        <tbody>
+          {EVALUATION_WORKUP_ROWS.map((row) => {
+            const completed = !missedCodes.has(row.code);
+            return (
+              <tr key={row.code}>
+                <td className="evaluation-workup-code">{row.code}</td>
+                <td>{row.meaning}</td>
+                <td
+                  className={`evaluation-workup-status ${
+                    completed ? 'done' : 'missed'
+                  }`}
+                >
+                  {completed ? 'O' : 'X'}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </section>
+  );
+}
+
+// ─── main: Hand hygiene & Physical exam helpers ───────────────────────────────
 
 function determineHandHygienePhase(
   session: Session,
