@@ -77,8 +77,9 @@ export class SpeechService {
         model: this.model,
         language: 'ko',
         prompt:
-          'Korean medical CPX interview. The speaker is a clinician asking a simulated seizure patient short questions. Preserve Korean medical terms naturally.',
+          'Korean medical conversation. Transcribe only words actually spoken in the audio. Do not infer symptoms, questions, or missing context.',
         response_format: 'json',
+        temperature: 0,
       });
 
       const text = transcription.text?.trim();

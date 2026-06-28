@@ -10,9 +10,17 @@ export type SpeechVoiceProfile = {
 
 export function useSpeechSynthesis() {
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+  const [isSpeaking, setIsSpeaking] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const audioUrlRef = useRef<string | null>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
+
+  const cleanupAudio = useCallback((audio: HTMLAudioElement, audioUrl: string) => {
+    URL.revokeObjectURL(audioUrl);
+    if (audioUrlRef.current === audioUrl) audioUrlRef.current = null;
+    if (audioRef.current === audio) audioRef.current = null;
+    setIsSpeaking(false);
+  }, []);
 
   useEffect(() => {
     if (!("speechSynthesis" in window)) return;
@@ -40,6 +48,7 @@ export function useSpeechSynthesis() {
     }
 
     if ("speechSynthesis" in window) window.speechSynthesis.cancel();
+    setIsSpeaking(false);
   }, []);
 
   const speakWithBrowser = useCallback(
@@ -54,7 +63,10 @@ export function useSpeechSynthesis() {
       utterance.rate = voicePreset.rate;
       utterance.pitch = voicePreset.pitch;
       utterance.voice = selectKoreanVoice(voices, voicePreset.voicePreference);
+      utterance.onend = () => setIsSpeaking(false);
+      utterance.onerror = () => setIsSpeaking(false);
 
+      setIsSpeaking(true);
       window.speechSynthesis.speak(utterance);
     },
     [voices],
@@ -88,14 +100,13 @@ export function useSpeechSynthesis() {
 
         audioRef.current = audio;
         audioUrlRef.current = audioUrl;
-        audio.onended = () => {
-          URL.revokeObjectURL(audioUrl);
-          if (audioUrlRef.current === audioUrl) audioUrlRef.current = null;
-          if (audioRef.current === audio) audioRef.current = null;
-        };
+        audio.onended = () => cleanupAudio(audio, audioUrl);
+        audio.onerror = () => cleanupAudio(audio, audioUrl);
 
+        setIsSpeaking(true);
         await audio.play();
       } catch (error) {
+        setIsSpeaking(false);
         if (abortController.signal.aborted) return;
         speakWithBrowser(trimmed, profile);
       } finally {
@@ -104,12 +115,12 @@ export function useSpeechSynthesis() {
         }
       }
     },
-    [cancel, speakWithBrowser],
+    [cancel, cleanupAudio, speakWithBrowser],
   );
 
   useEffect(() => cancel, [cancel]);
 
-  return useMemo(() => ({ cancel, speak }), [cancel, speak]);
+  return useMemo(() => ({ cancel, isSpeaking, speak }), [cancel, isSpeaking, speak]);
 }
 
 type VoicePreset = {
