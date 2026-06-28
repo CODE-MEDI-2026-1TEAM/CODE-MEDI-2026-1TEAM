@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum SessionStatus {
+  active
+  completed
+}
+
+enum MessageRole {
+  user
+  assistant
+}
+
+model Case {
+  id              String     @id @default(uuid())
+  slug            String     @unique
+  title           String
+  chiefComplaint  String
+  difficulty      String
+  simulationCaseId String?   @unique
+  simulationTopicId String?
+  evaluationModuleId String?
+  patientProfile  Json
+  openingStatement String
+  hiddenDiagnosis String
+  checklist       Json
+  redFlags        Json
+  patientPrompt   String
+  createdAt       DateTime   @default(now())
+  sessions        Session[]
+  caseFacts       CaseFact[]
+  simulationChunks SimulationChunk[]
+
+  @@index([simulationTopicId])
+  @@index([evaluationModuleId])
+}
+
+model CaseFact {
+  id               String   @id @default(uuid())
+  caseId           String
+  category         String
+  label            String
+  answer           String
+  questionExamples Json
+  triggerKeywords  Json
+  searchText       String
+  contentHash      String?
+  priority         Int      @default(0)
+  isCritical       Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  case             Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId, category])
+}
+
+model SimulationChunk {
+  id               String   @id
+  caseId           String
+  simulationCaseId String
+  topicId          String
+  topicLabel       String?
+  section          String
+  text             String
+  metadata         Json
+  contentHash      String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  case             Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@index([caseId, section])
+  @@index([simulationCaseId])
+  @@index([topicId])
+}
+
+model Session {
+  id          String         @id @default(uuid())
+  caseId      String
+  status      SessionStatus  @default(active)
+  startedAt   DateTime       @default(now())
+  endedAt     DateTime?
+  case        Case           @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  messages    Message[]
+  evaluation  Evaluation?
+
+  @@index([caseId])
+}
+
+model Message {
+  id        String      @id @default(uuid())
+  sessionId String
+  role      MessageRole
+  content   String
+  createdAt DateTime    @default(now())
+  session   Session     @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId, createdAt])
+}
+
+model Evaluation {
+  id             String   @id @default(uuid())
+  sessionId      String   @unique
+  score          Int
+  strengths      Json
+  missedItems    Json
+  riskAssessment Json
+  suggestions    Json
+  createdAt      DateTime @default(now())
+  session        Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+}
