@@ -30,6 +30,18 @@ export function useVoiceConversation({
     () => session?.messages.filter((message) => message.role === 'assistant').at(-1),
     [session],
   );
+  const voiceProfile = useMemo(() => {
+    const profile = session?.case.patientProfile;
+
+    if (!profile) return null;
+
+    return {
+      age: profile.age,
+      ageRaw: profile.ageRaw,
+      respondent: profile.respondent,
+      sex: profile.sex,
+    };
+  }, [session?.case.patientProfile]);
 
   // 파이널 transcript 처리: 전송문을 표시하고, 성공 시에만 비운다(실패 시 유지).
   const handleFinalTranscript = useCallback(
@@ -74,8 +86,8 @@ export function useVoiceConversation({
     if (!latestAssistantMessage || !isVoiceReplyEnabled) return;
     if (latestAssistantMessage.id === lastSpokenMessageIdRef.current) return;
     lastSpokenMessageIdRef.current = latestAssistantMessage.id;
-    speechSynthesis.speak(latestAssistantMessage.content);
-  }, [isVoiceReplyEnabled, latestAssistantMessage, speechSynthesis]);
+    speechSynthesis.speak(latestAssistantMessage.content, voiceProfile);
+  }, [isVoiceReplyEnabled, latestAssistantMessage, speechSynthesis, voiceProfile]);
 
   return {
     transcript,
