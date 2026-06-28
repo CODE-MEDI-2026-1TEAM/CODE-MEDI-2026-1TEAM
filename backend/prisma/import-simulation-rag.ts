@@ -223,7 +223,7 @@ function buildChunksForCase(cpxCase: NewSimulationCase): PatientVisibleChunk[] {
 
 async function upsertCase(cpxCase: NewSimulationCase): Promise<string> {
   const simulationCaseId = cpxCase.case_id;
-  const openingStatement = cpxCase.patient_visible.chief_complaint;
+  const openingStatement = '안녕하세요.';
   const likelyDiagnoses = cpxCase.examiner_only?.likely_diagnoses ?? [];
   const evaluationModuleId = evaluationModuleForSimulationTopic(TOPIC_ID);
   const patientPrompt = JSON.stringify(cpxCase.patient_visible);
