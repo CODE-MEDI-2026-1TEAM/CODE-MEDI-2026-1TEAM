@@ -116,7 +116,7 @@
           "age": "47세",
           "name": "송창희"
         },
-        "chief_complaint": "경련을 했대요.",
+        "chief_complaint": "경련 증상으로 왔습니다.",
         "vital_signs_after_arrival": {
           "blood_pressure": "152/92mmHg",
           "pulse": "92회/분",
@@ -281,7 +281,7 @@
           "age": "35세",
           "name": "홍진호"
         },
-        "chief_complaint": "제가 경련을 했대요.",
+        "chief_complaint": "경련 증상으로 왔습니다.",
         "vital_signs_after_arrival": {
           "blood_pressure": "140/90mmHg",
           "pulse": "72회/분",
@@ -553,7 +553,7 @@
       "case_id": "seizure_case_02",
       "scope": "patient_dialogue",
       "section": "초기 정보",
-      "content": "47세 남자 송창희씨가 경련을 하여 응급실을 통해 내원하였다.\n주호소: 경련을 했대요.\n활력징후: blood_pressure 152/92mmHg, pulse 92회/분, respiratory_rate 22회/분, temperature 37.8℃"
+      "content": "47세 남자 송창희씨가 경련을 하여 응급실을 통해 내원하였다.\n주호소: 경련 증상으로 왔습니다.\n활력징후: blood_pressure 152/92mmHg, pulse 92회/분, respiratory_rate 22회/분, temperature 37.8℃"
     },
     {
       "chunk_id": "seizure_case_02_history",
@@ -609,7 +609,7 @@
       "case_id": "seizure_case_04",
       "scope": "patient_dialogue",
       "section": "초기 정보",
-      "content": "35세 남자 홍진호씨가 경련을 주소로 내원하였다.\n주호소: 제가 경련을 했대요.\n활력징후: blood_pressure 140/90mmHg, pulse 72회/분, respiratory_rate 18회/분, temperature 36.5℃"
+      "content": "35세 남자 홍진호씨가 경련을 주소로 내원하였다.\n주호소: 경련 증상으로 왔습니다.\n활력징후: blood_pressure 140/90mmHg, pulse 72회/분, respiratory_rate 18회/분, temperature 36.5℃"
     },
     {
       "chunk_id": "seizure_case_04_history",
