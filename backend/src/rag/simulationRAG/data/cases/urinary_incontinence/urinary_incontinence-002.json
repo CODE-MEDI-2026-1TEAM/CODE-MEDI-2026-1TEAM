@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "urinary_incontinence-002",
+  "case_number_in_pdf": 127,
+  "topic": {
+    "topic_start_page": 313,
+    "topic_id": "urinary_incontinence",
+    "topic_label": "소변찔끔증",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 319,
+      "end": 320
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박현곤",
+      "age": 57,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "소변이 새요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": null,
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n남성/ 57세\n“ 소변이 새요”",
+    "history_blocks": {
+      "onset": "2달 전",
+      "duration": "C o\n점점 심해짐\nE x\n처음",
+      "character": "소변량 평소보다 약간 감소 색 정상, 냄새, 거품, 피 없음",
+      "associated_symptoms": "[ 전신]\n발열/ 오한/ 식은땀/체중 감소(\n\n/\n/\n/\n)\n, 부종( - ) , 어지럼( - >\n[ 비뇨기]\n빈뇨/ 절박뇨/ 야간뇨/배뇨통 ( +\n/ +\n/ +\n/ - )\n주저뇨/ 요끊김/복압 배뇨/ 잔뇨감(\n\n/\n\n/\n\n/ +\n)\n옆구리 통증(ᅵ) , 아랫배 통증( ᅳ)\n[ 생식기]\n외성기 통증/ 가려움증/분비물(\n\n/ 一/ 一)",
+      "factors": "[ 복압성]\n기침/ 운동/크게웃을때새는지(\n\n/\n/\n)\n[ 절박성]\n요의를 느끼고 호ᅡ장실에 가는 도중에 소변이 새는지( + )\n[ 범람성]\n소변이 나오기 전에 방광이 차고 넘치는 느낌이 드는지( ᅳ〉",
+      "trauma_history": "복부 외상(ᅳ) , 비뇨기계 외상( - )",
+      "past_history": "DM/TB/HTN/간염 (\n+\n/\n\n/\n\n/\n)",
+      "medications": "인슐린(혈당 조절 잘 안 되고 있음)",
+      "social_history": "술( + , social), 담배( 一) , 커피 : 1\n잔 마셨으나, 최근 요실금으로 줄여야 되나 싶음\n물 하루에 한 두잔 口\n^\n가"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n입/피부 탈수 소견(\n/ - ) , 결막/ 공막(\n\n/\n)\nChest",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "없음\nAbdomen\n복부 시/ 촉/ 타/청 정상, CVA tenderness(-). DRE(-)\nExtermity\n피부 긴장도, 오목 부종 정상. 하지 근력 정상\n기타\n\n— 질문_\n특이사항",
+    "raw_profile_text": "성별/나이\n남성/ 57세\n“ 소변이 새요”\n0\n2달 전\nL\n-\nD\n-\nC o\n점점 심해짐\nE x\n처음\nC\n소변량 평소보다 약간 감소 색 정상, 냄새, 거품, 피 없음\nA\n[ 전신]\n발열/ 오한/ 식은땀/체중 감소(\n-\n/ -\n/ -\n/ -\n)\n, 부종( - ) , 어지럼( - >\n[ 비뇨기]\n빈뇨/ 절박뇨/ 야간뇨/배뇨통 ( +\n/ +\n/ +\n/ - )\n주저뇨/ 요끊김/복압 배뇨/ 잔뇨감(\n-\n/\n-\n/\n-\n/ +\n)\n옆구리 통증(ᅵ) , 아랫배 통증( ᅳ)\n[ 생식기]\n외성기 통증/ 가려움증/분비물(\n-\n/ 一/ 一)\nF\n[ 복압성]\n기침/ 운동/크게웃을때새는지(\n-\n/ -\n/ -\n)\n[ 절박성]\n요의를 느끼고 호ᅡ장실에 가는 도중에 소변이 새는지( + )\n[ 범람성]\n소변이 나오기 전에 방광이 차고 넘치는 느낌이 드는지( ᅳ〉\nE\n-\n외\n복부 외상(ᅳ) , 비뇨기계 외상( - )\n과\nDM/TB/HTN/간염 (\n+\n/\n-\n/\n-\n/\n- )\n약\n인슐린(혈당 조절 잘 안 되고 있음)\n사\n술( + , social), 담배( 一) , 커피 : 1\n잔 마셨으나, 최근 요실금으로 줄여야 되나 싶음\n물 하루에 한 두잔 口\n^\n가\nP / E\nGeneral\nV/S 확인\nHEENT\n입/피부 탈수 소견(\n- / - ) , 결막/ 공막(\n-\n/ -\n)\nChest\n특이 사항 없음\nAbdomen\n복부 시/ 촉/ 타/청 정상, CVA tenderness(-). DRE(-)\nExtermity\n피부 긴장도, 오목 부종 정상. 하지 근력 정상\n기타\n-\n— 질문_\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "절박성 요실금",
+      "당뇨병성 신경병증",
+      "방광염"
+    ],
+    "planned_tests": [
+      "요역동학검사",
+      "요분석검사",
+      "소변검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문직장검사 : 배뇨 이상으로 보아 전립선이나 항문쪽 문제로 생긴 증싱인지 감별\n하기 위해 항문직장검人*\n시행해 봅니다.\n2. 안저검사 : 당뇨 3 년 과거력이 있으므로 주기적으로 안저검人»\n시행해 봅니다.\nI\ns\n1\n소변찔끔증은 어떤 상황에서 소변이 새는 지를 파익하는 것이 가장 기\n|\n본입니다. 일상 생활에 지장이 있다고 호소한다면 불편함을공감해 줌\n;\n으로써 환자와의 관계를 다질 수 있습니다.\n;\n증례의 경우 절박성 요실금임을 알아 차리기는 어렵지 않습니다. 하지만 단순 절박성 요실금인\nI\n지, 아니면 당뇨병성 신경병증에 의해 증상이 유발되었는지, 아니면 가능성이 그보다낮지만 방\n:\n광염에 의해 유발되었는지를 모두 생각해 봐야 하는 증례입니다.\nI\n.\n；",
+    "author_commentary_tail": "혈당조절, 카페인 섭취 줄이기, double-voiding등을 교육할수 있고, 환자의 경우수분섭취량\nI\n이 적은데 의도적으로 줄인건지, 만약 그렇다면 그럴 필요 없이 수분을 정상적으로 섭취하라고\nI\ni\n교육하는 것도 필요해 보입니다. 증례의 경우와 달리 환자가 여성이라면 부인과수술력, 산과\nI\nI\n력, 분만 방법 등도 요실금을 일으키는요인이 될 수 있어 물어봐<야합니다.\nI\n노느…",
+    "scenario_card_raw": "o\n{ 실전 모의 증례\n상황\n지침\n,\n1 *\n- 1\n• 5 7 세 남자 박현곤씨가 소변이 샌다고 내원하였다.\n[활력 징휘\n혈압 :\n1 2\n5 / 8 5\nm\nm\nH\ng\n맥박 :\n7 3 회/분\n호흡 ' 2 1 회/분\n체온 ：\n3 6 . 7 - C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n교육\n\\ 7\n. 가능성이 높은 진단 3 개\n1 . 절박성 요실금\n2 . 당뇨병성 신경병증\n3 . 방광염\n• 필요한 검사 계획 3 가지\n1 . 요역동학검사\n2 . 요분석검사\n3 . 소변검사\n예상\n술기\n1. 항문직장검사 : 배뇨 이상으로 보아 전립선이나 항문쪽 문제로 생긴 증싱인지 감별\n하기 위해 항문직장검人*\n시행해 봅니다.\n2. 안저검사 : 당뇨 3 년 과거력이 있으므로 주기적으로 안저검人»\n시행해 봅니다.\nI\ns\n1\n소변찔끔증은 어떤 상황에서 소변이 새는 지를 파익하는 것이 가장 기\n|\n본입니다. 일상 생활에 지장이 있다고 호소한다면 불편함을공감해 줌\n;\n으로써 환자와의 관계를 다질 수 있습니다.\n;\n증례의 경우 절박성 요실금임을 알아 차리기는 어렵지 않습니다. 하지만 단순 절박성 요실금인\nI\n지, 아니면 당뇨병성 신경병증에 의해 증상이 유발되었는지, 아니면 가능성이 그보다낮지만 방\n:\n광염에 의해 유발되었는지를 모두 생각해 봐야 하는 증례입니다.\nI\n.\n；\n\n혈당조절, 카페인 섭취 줄이기, double-voiding등을 교육할수 있고, 환자의 경우수분섭취량\nI\n이 적은데 의도적으로 줄인건지, 만약 그렇다면 그럴 필요 없이 수분을 정상적으로 섭취하라고\nI\ni\n교육하는 것도 필요해 보입니다. 증례의 경우와 달리 환자가 여성이라면 부인과수술력, 산과\nI\nI\n력, 분만 방법 등도 요실금을 일으키는요인이 될 수 있어 물어봐<야합니다.\nI\n노느…\n----------------------------------------------------------------------------------------------------------"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

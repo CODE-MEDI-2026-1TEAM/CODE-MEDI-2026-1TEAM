@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vaginal_bleeding-002",
+  "case_number_in_pdf": 239,
+  "topic": {
+    "topic_start_page": 615,
+    "topic_id": "vaginal_bleeding",
+    "topic_label": "질출혈",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 621,
+      "end": 622
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이루리",
+      "age": 42,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "122/66",
+      "pulse": "83회/분",
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n여성/ 42세\n주소\n“질출혈이 있어요”",
+    "history_blocks": {
+      "onset": "3개월 전",
+      "course": "“점점 많아져요”",
+      "experience": "“예전부터 조금씩 질출혈이 있었고, 최근에 많아졌어요”",
+      "character": "생리색 : 선흥색. 양은 많음，월경 기간 길음\n생리 내내 묵직한 통증 동반, NRS 6점, 일상 생활에 지장",
+      "associated_symptoms": "[양성 종양]\n하복부 통증/만져지는 덩어리(ᅳ/ᅳ)\n[악성종양]\n체중감소 (-)\n[난관난소농양]\n발열/오한/질분비물/월경 외 출혈\n[출혈성 질환]\n멍이 잘들거나/코피가 잘 나거나(- /ᅳ)\n[갑상샘저하증]\n피로/추위불내성/변비/체중 증가( - / ᅳ/ᅳ/ - )\n[산부인과] 월경통(ᅳ), 월경과다/월경통/월경 기간 길어짐/ 성교통(+/+/+/+)",
+      "factors": "월경과 상관 없이 질출혈이 있음",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / 一)",
+      "medications": "타이레놀(+, 효과 없음)",
+      "social_history": "술/담배( - / - ) . 직업 : 회사원, 스트레스(+)",
+      "gynecologic_history": "결혼 (+)\n[산과력]\n2 -0 -3 -2\n[월경력] 12세, 폐경( - ), 생리 주기 ：\n32일, 생리통H , 생리량 ：\n매일 패드 4~5개\n임신 가능성/성생활 : 성경험/산부인과적 질환(一/ - / - )"
+    },
+    "physical_exam_results": "General\n\nHEENT\n갑상샘 진찰(-)\nChest\n\nAbdomen\n복부 시/청/타/촉( - / ᅳ/ - / ᅳ), 골반 진찰(- )\nExtremity",
+    "patient_question_or_concern": "—\n“임신 계획은 더 이상 없는데, ᅮ술이 필요할까요^\nm m\nsi음",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 42세\n주소\n“질출혈이 있어요”\n0\n3개월 전\nL\n-\nD\n-\nCo\n“점점 많아져요”\nEx\n“예전부터 조금씩 질출혈이 있었고, 최근에 많아졌어요”\nC\n생리색 : 선흥색. 양은 많음，월경 기간 길음\n생리 내내 묵직한 통증 동반, NRS 6점, 일상 생활에 지장\nA\n[양성 종양]\n하복부 통증/만져지는 덩어리(ᅳ/ᅳ)\n[악성종양]\n체중감소 (-)\n[난관난소농양]\n발열/오한/질분비물/월경 외 출혈\n[출혈성 질환]\n멍이 잘들거나/코피가 잘 나거나(- /ᅳ)\n[갑상샘저하증]\n피로/추위불내성/변비/체중 증가( - / ᅳ/ᅳ/ - )\n[산부인과] 월경통(ᅳ), 월경과다/월경통/월경 기간 길어짐/ 성교통(+/+/+/+)\nF\n월경과 상관 없이 질출혈이 있음\nE\n-\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / 一)\n약\n타이레놀(+, 효과 없음)\n사\n술/담배( - / - ) . 직업 : 회사원, 스트레스(+)\n가\n-\n여\n결혼 (+)\n[산과력]\n2 -0 -3 -2\n[월경력] 12세, 폐경( - ), 생리 주기 ：\n32일, 생리통H , 생리량 ：\n매일 패드 4~5개\n임신 가능성/성생활 : 성경험/산부인과적 질환(一/ - / - )\nP/E\nGeneral\n-\nHEENT\n갑상샘 진찰(-)\nChest\n-\nAbdomen\n복부 시/청/타/촉( - / ᅳ/ - / ᅳ), 골반 진찰(- )\nExtremity\n-\n질문 —\n“임신 계획은 더 이상 없는데, ᅮ술이 필요할까요^\nm m\n\nsi음"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n：\n：\n■■■■.^\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오",
+    "likely_diagnoses": [
+      "자궁선근증",
+      "자궁근종",
+      "자궁내막증식증"
+    ],
+    "planned_tests": [
+      "골반초음파",
+      "골반 MRI",
+      "자궁경검사"
+    ],
+    "planned_treatments_or_education": [
+      "NSAIDs(소염진통제)",
+      "Oral contraceptive(경구피임약)"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "a\n{ 실전 모의 증례\n• 4 2세 여자 이루리씨가 질출혈을 주소로 내원하였다.\n[활력 징후] 혈압 : 122/66m m H g\n맥박 : 83회/분\n호吾 : 15회 /분\n지침\n-\n체온 ：\n36.613\n戀\n酵\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n：\n：\n■■■■.^\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n• 가능성이 높은 진단 3개\n1. 자궁선근증\n2. 자궁근종\n3. 자궁내막증식증\n• 필요한 검사 계획 3가지\n교육\n1. 골반초음파\n2. 골반 MRI\n3. 자궁경검사\n• 필요한 치료 계획 2가지\n1. NSAIDs(소염진통제)\n2. Oral contraceptive(경구피임약)\n시\nᄉ\n질출혈의 경우 자궁근종, 자궁선근증, 자궁내막증, 자궁내막증식증, 약\n물(타목시펜 등), 다남성 난소증후군, 연령별 비정상 자궁출혈 (사춘기\n이전-질 이물질/사춘기-무배란/가임기-호르몬 제제, 임신/폐경기 후-호르몬 제제, 위축성 자\n궁내막염, 자궁내막 병변) 둥 다양한 원인이 있을수 있으므로 각 질병의 특징을 자세하게 감별\n진단 해야 원인 병변을 유추할 수 있습니다.\n자궁내막증/자궁선근증/자궁근종은 월경통을 동반하는 등 증상과 치료 방법이 비슷하면서도\n조금씩 다르기에 가장특징적인 것을 기억해 두어야합니다. 자궁내막증은 불임과, 월경/성교/\n골반통이 동반되고< 자궁선근증은 월경통，월경과다가 동반되고, 보통 나이가40세입니다. 자궁\n근종은 월경과다가특징적이며, 보통 30~45세입니다. 약물은 약물력을 물어봐야 하며，대표적\n으로 타목시펜이 있고, PCOS는 여드름, 남자같은 털이 있습니다.\n위의 질병들이 배제 진단되 면 비정상 자궁출혈을 생각해야 하며, 연령에 따른 가장 많은 원인을\n외워둬야 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

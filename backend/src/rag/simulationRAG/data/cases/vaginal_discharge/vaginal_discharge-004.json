@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vaginal_discharge-004",
+  "case_number_in_pdf": 236,
+  "topic": {
+    "topic_start_page": 603,
+    "topic_id": "vaginal_discharge",
+    "topic_label": "질분비물",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 611,
+      "end": 612
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김현주",
+      "age": 30,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 30세\n주소\n“질분비물이 많아졌어요”",
+    "history_blocks": {
+      "onset": "2 주",
+      "course": "점점 심해짐",
+      "experience": "처음",
+      "character": "양 ：\n하루에 팬티 라이너 5 ~ 6 장, 색 ：\n노란색, 피(-)\n냄새 : 평소와 다른 악취. 생선 냄새는 아님, 거품(-)",
+      "associated_symptoms": "[칸디다/ 위축] 가려움/ 따가움/성교통(+/+/ᅳ)\n[PID] 아랫배 통증/발열/오심/구토( - / - / - / - )\n[방광염] 배뇨통/ 빈뇨/야간뇨/잔뇨감/ 배뇨곤란(+/+/+/+/+)\n[위축성 질염] 식은땀/안면 흥조/야간 발한/질건조증(ᅳ/ᅳ/一/一)",
+      "factors": "질세척 : 질세정제 하루에 5회 이상, 피임 : 콘동 사용\n성 파트너 : 남편 이외 다른 사람 없음",
+      "events": "PID 과거력 (+ .5 년 전)",
+      "trauma_history": "부인과 시술 (一)",
+      "past_history": "D M /T B /H T N /간염(+, 치료받지 않음/ - / - / - )",
+      "social_history": "주부. 술(+, 1주일에 1 번, 소주 2잔). 담배(-)",
+      "gynecologic_history": "[월경력] 규칙적，월경통 없음\n[산과력]\n0ᅳ0ᅳ0-0, 성관계 빈도 : 1주일에 2~3회 ( 마지막 성관계 : 3일 전)"
+    },
+    "physical_exam_results": "General\nI V/S 확인\nHEENT\n\nChest\n\nAbdomen\n복^ 시/청/타/촉(一/-/■/-), CVATd(-)\n골반 내진 : 노란색 질분비물, Strawberry cervix/DRE(-/-)\nExtremity",
+    "patient_question_or_concern": "I",
+    "actor_notes_or_special_behavior": "남편도 함께 치료받을 것을 권유",
+    "raw_profile_text": "성별/나이\n여성/ 30세\n주소\n“질분비물이 많아졌어요”\n0\n2 주\nL\nD\n-\nCo\n점점 심해짐\nEx\n처음\nC\n양 ：\n하루에 팬티 라이너 5 ~ 6 장, 색 ：\n노란색, 피(-)\n냄새 : 평소와 다른 악취. 생선 냄새는 아님, 거품(-)\nA\n[칸디다/ 위축] 가려움/ 따가움/성교통(+/+/ᅳ)\n[PID] 아랫배 통증/발열/오심/구토( - / - / - / - )\n[방광염] 배뇨통/ 빈뇨/야간뇨/잔뇨감/ 배뇨곤란(+/+/+/+/+)\n[위축성 질염] 식은땀/안면 흥조/야간 발한/질건조증(ᅳ/ᅳ/一/一)\nF\n질세척 : 질세정제 하루에 5회 이상, 피임 : 콘동 사용\n성 파트너 : 남편 이외 다른 사람 없음\nE\nPID 과거력 (+ .5 년 전)\n외\n부인과 시술 (一)\n과\nD M /T B /H T N /간염(+, 치료받지 않음/ - / - / - )\n약\n-\n사\n주부. 술(+, 1주일에 1 번, 소주 2잔). 담배(-)\n가\n-\n여\n[월경력] 규칙적，월경통 없음\n[산과력]\n0ᅳ0ᅳ0-0, 성관계 빈도 : 1주일에 2~3회 ( 마지막 성관계 : 3일 전)\nP/E\nGeneral\nI V/S 확인\nHEENT\n-\nChest\n-\nAbdomen\n복^ 시/청/타/촉(一/-/■/-), CVATd(-)\n골반 내진 : 노란색 질분비물, Strawberry cervix/DRE(-/-)\nExtremity\n-\n질문\nI -\n특이 사항\n남편도 함께 치료받을 것을 권유"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n환자\n가fe성이 높은 진단 3개\n1. 트리코모나스 질염\n2. 질 칸디다증\n3. 요로 감염",
+    "likely_diagnoses": [],
+    "planned_tests": [
+      "질분비물 배양",
+      "Wet smear",
+      "Whiff test(K0H smear)"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "질분비물검사 : 질분비물을 주소로 내원한 환자에서 진단을 위해 반드시 질분비물\n검人*\n시행해야 합니다.\n뒈\n^ ^\n질분비물 이상을 주소로 내원한 환자는 분비물의 양상에 대한 자세한\n到이필요합니다.\n분비물의 양은 속옷 갈아 입는 횟수나 패드 개수로 물어 볼 수 있고, 색과 냄새, 거품이나 피\n섞임 여부, 따가움이나 통증이 동반되는지 여부와 추가적으로 요로 감염을 r/o 하기 위한 배뇨\n이상 여부를 함께 확인해야 합니다.\n추가적으로 질염이 의심되는환자라면 칸디다 질염이 호발하기 위한 기저 질환(면역 약화상\n황)을 함께 확인합니다.",
+    "author_commentary_tail": "질분비물검사 : 질분비물을 주소로 내원한 환자에서 진단을 위해 반드시 질분비물\n검人*\n시행해야 합니다.\n뒈\n^ ^\n질분비물 이상을 주소로 내원한 환자는 분비물의 양상에 대한 자세한\n到이필요합니다.\n분비물의 양은 속옷 갈아 입는 횟수나 패드 개수로 물어 볼 수 있고, 색과 냄새, 거품이나 피\n섞임 여부, 따가움이나 통증이 동반되는지 여부와 추가적으로 요로 감염을 r/o 하기 위한 배뇨\n이상 여부를 함께 확인해야 합니다.\n추가적으로 질염이 의심되는환자라면 칸디다 질염이 호발하기 위한 기저 질환(면역 약화상\n황)을 함께 확인합니다.",
+    "scenario_card_raw": "실전 모의 증례\n1\n\n^ ■황\n지침\n• 30세 여자 김현주씨가 질분비물 냄새를 주소로 내원하였다.\n[활력 징후] 혈압 : 120/80mmHg\n맥박 : 80회/분\n•音 : 20회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오-\n환자\n• 가fe성이 높은 진단 3개\n1. 트리코모나스 질염\n2. 질 칸디다증\n3. 요로 감염\n• 필요한 검사 계획 3가지\n1. 질분비물 배양\n2. Wet smear\n3. Whiff test(K0H smear)\n예상\n술기\n질분비물검사 : 질분비물을 주소로 내원한 환자에서 진단을 위해 반드시 질분비물\n검人*\n시행해야 합니다.\n뒈\n^ ^\n질분비물 이상을 주소로 내원한 환자는 분비물의 양상에 대한 자세한\n到이필요합니다.\n분비물의 양은 속옷 갈아 입는 횟수나 패드 개수로 물어 볼 수 있고, 색과 냄새, 거품이나 피\n섞임 여부, 따가움이나 통증이 동반되는지 여부와 추가적으로 요로 감염을 r/o 하기 위한 배뇨\n이상 여부를 함께 확인해야 합니다.\n추가적으로 질염이 의심되는환자라면 칸디다 질염이 호발하기 위한 기저 질환(면역 약화상\n황)을 함께 확인합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

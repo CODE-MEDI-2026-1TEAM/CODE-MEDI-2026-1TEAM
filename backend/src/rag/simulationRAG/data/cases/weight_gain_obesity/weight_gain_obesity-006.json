@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "weight_gain_obesity-006",
+  "case_number_in_pdf": 153,
+  "topic": {
+    "topic_start_page": 381,
+    "topic_id": "weight_gain_obesity",
+    "topic_label": "체중 증가/비만",
+    "system": "전신"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 393,
+      "end": 396
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "신혜연",
+      "age": 48,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "체중이 늘어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "135/85mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "“체중이 늘어요”",
+    "history_blocks": {
+      "onset": "2개월 전\n전체적\n2개월 만에 5kg 증가",
+      "course": "60kg ᅳ 65kg으로 갑자기 증가",
+      "experience": "3년 전 폐경 했을 때 3kg 정도 체중 증가\n키 158cm, 허리둘레 87cm, BMI 26",
+      "associated_symptoms": "[순환기] 부종(+), 호흡곤란/흉통/두근거림( - / - / _ )\n[소화기] 황달/복수/구역/구토/ 변비/설사( - / - / - / - / - / - )\n[수면무호흡증] 코골이/수면장애( - / - )\n[비뇨기] 소변량 감소/ 거품뇨( - / - )\n[내분비] 피곤/추위불내성/무월경/ 여드름/ 다모증( - / - / - / - / - )\n[정신과] 우울/의욕 저하/ 피로/스트레스( - / - / - / - )\n[여성] 폐경\n최근 스트레스(ᅵ)\n평소 식사 습관 ：\n규칙적，가정삭 고[식하지 않고 자극적인 음식 싫어함, 물 많이 마심\n평소 운동량 : 간단한 산책, 한 달에 2~3번\n3년 전 건강 검진 받음，이상(-)",
+      "past_history": "진단받은 병( - ) , 고혈압/당뇨/고지혈증/간질환( - / - / - / - )",
+      "medications": "복용하는 약(一), 호르몬 치료(一)\n스테로이드 복용(+, 오십견으로 프레드니솔론 복용 중)",
+      "social_history": "술/담배( - / 一), 주부",
+      "family_history": "아버지 당뇨병 (+)\n눈\n샘\n3 : 工..\n삼음 청진\n.....IX. . . :-I 二：\n. ᅳᄀ二 ᅳr ᅳ. 7.\n복부 시청타촉+ 간/비종대+복수 확인\n7\n.1ᅳ\nDRE+^W 부종\n\n\n\n\n\n질문一\n특이\n항\n[상황 제시]\n158cm. 65kg, 허리 87inch, BMI 26\n얼굴이 동글동글함, 베개 밑에서 DRE 용지 꺼내 줌\nCPX 주제별 내용 정리\n관절/ 근골격/피부\n관절 통증/부기\n목 통증/허리 통증\n피부 발진"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "“체중이 늘어요”\n0\n2개월 전\n전체적\n2개월 만에 5kg 증가\nCo\n60kg ᅳ 65kg으로 갑자기 증가\nEx\n3년 전 폐경 했을 때 3kg 정도 체중 증가\n키 158cm, 허리둘레 87cm, BMI 26\nA\n[순환기] 부종(+), 호흡곤란/흉통/두근거림( - / - / _ )\n[소화기] 황달/복수/구역/구토/ 변비/설사( - / - / - / - / - / - )\n[수면무호흡증] 코골이/수면장애( - / - )\n[비뇨기] 소변량 감소/ 거품뇨( - / - )\n[내분비] 피곤/추위불내성/무월경/ 여드름/ 다모증( - / - / - / - / - )\n[정신과] 우울/의욕 저하/ 피로/스트레스( - / - / - / - )\n[여성] 폐경\n최근 스트레스(ᅵ)\n평소 식사 습관 ：\n규칙적，가정삭 고[식하지 않고 자극적인 음식 싫어함, 물 많이 마심\n평소 운동량 : 간단한 산책, 한 달에 2~3번\n3년 전 건강 검진 받음，이상(-)\n외\n과\n진단받은 병( - ) , 고혈압/당뇨/고지혈증/간질환( - / - / - / - )\n약\n복용하는 약(一), 호르몬 치료(一)\n스테로이드 복용(+, 오십견으로 프레드니솔론 복용 중)\n사\n술/담배( - / 一), 주부\n가\n아버지 당뇨병 (+)\n눈\n샘\n3 : 工..\n삼음 청진\n.....IX. . . :-I 二：\n. ᅳᄀ二 ᅳr ᅳ. 7.\n복부 시청타촉+ 간/비종대+복수 확인\n7\n.1ᅳ\nDRE+^W 부종\n-\n-\n-\n-\n-\n질문一\n특이\n항\n[상황 제시]\n158cm. 65kg, 허리 87inch, BMI 26\n얼굴이 동글동글함, 베개 밑에서 DRE 용지 꺼내 줌\n\nCPX 주제별 내용 정리\n관절/ 근골격/피부\n관절 통증/부기\n목 통증/허리 통증\n피부 발진"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육",
+    "likely_diagnoses": [
+      "의인성 쿠싱증후군",
+      "일차성 체중 증가",
+      "갑상샘저하증"
+    ],
+    "planned_tests": [
+      "24시간 소변 콜티솔 검사",
+      "1 mg 덱人N 타손 억제검사",
+      "혈당검사",
+      "혈청 콜레스테롤 검사",
+      "갑상샘기능검사",
+      "개월 간 갑작스런 체중 증가를 호소한 환자입니다."
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "B\n1 며 사\n^■황\n지침\n[ 실전모의 증례\n• 48세 여자 신혜연씨가 체중 § 7 » 호소하며 내원하였다.\n[활력 징후] 혈압 : 135/85mmHg\n맥박 : 80회/분\n호톱 : 20호]/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 3개\n1. 의인성 쿠싱증후군\n2. 일차성 체중 증가\n3. 갑상샘저하증\n• 필요한 검사 계획 5가지\n1. 24시간 소변 콜티솔 검사\n2. 1 mg 덱人N 타손 억제검사\n3. 혈당검사\n4. 혈청 콜레스테롤 검사\n5. 갑상샘기능검사\n시\n도\n2개월 간 갑작스런 체중 증가를 호소한 환자입니다.\n약물 복용력의 경우 구체적으로 약을 물어 보지 않으면 대답을 해주지\n않는 경우가 있으므로 주의합니다.\n이 환자의 경우에도 먹는 약은 없다고 하지만 스테로이드를물어 보면 슬그머니 약봉지를 꺼내\n서 보여 줍니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

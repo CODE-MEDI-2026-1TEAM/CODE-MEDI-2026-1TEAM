@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "weight_gain_obesity-003",
+  "case_number_in_pdf": 150,
+  "topic": {
+    "topic_start_page": 381,
+    "topic_id": "weight_gain_obesity",
+    "topic_label": "체중 증가/비만",
+    "system": "전신"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 387,
+      "end": 388
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김수영",
+      "age": 29,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "체중이 늘면서 몸도 부어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "129/85mmHg",
+      "pulse": "72회/분",
+      "respiratory_rate": "14회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "1성별/나이\n여성/ 29세\n1\n주소\n“체중이 늘면서 몸도 부어요”",
+    "history_blocks": {
+      "onset": "4개월 전",
+      "location": "전체적, 양쪽 다리가 유난히 더 붓는다.",
+      "duration": "계속",
+      "course": "서서히",
+      "experience": "처음",
+      "character": "4개월 동안 4kg 증가, \"아침과 저녁에 체중이 달라요”\n허리둘레 77cm. 키 160cm, 체중 65kg, BMI 24.8",
+      "associated_symptoms": "[전신]\n발열/오한/피로( - / - / - )\n[순환기]\n흉통/두근거림 (- / - )\n[간부전]\n황달/복수 (- / - )\n[내분비]\n추위불내성/변비/피부 건조( - / - / - ) ，자색선조/멍(- / - )\n[수면무호흡증]\n코골이(ᅳ)\n[PCOS]\n여드름/다모증(一/-)\n[정신]\n우울/불안(ᅳ/一)\n[신장]\n거품뇨/소변량 감소/부종(-/-/+ )",
+      "events": "매년 건강 검진 받음",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "medications": "스테로이드( - ) , 호르몬제제(-)",
+      "social_history": "술/담배/ 커피(+, 하루 맥주 2캔/ - / - ), 스트레스H\n운동 ：\n1 주일에 한 번 산책, 식습관 ：\n맵고 자극적인 음식 선흐 야식 즐김, 식사 불규칙\n직업 : 백화점 의류 판매업, 서서 근무",
+      "family_history": "부모님 모두 비만, 아버지 고혈압",
+      "gynecologic_history": "이상 없음, 임신 가능성 없음\nGeneral\nV/S 확인"
+    },
+    "physical_exam_results": "HEENT\n결막/공막( - / ᅳ), 입/피부 탈수소견( - / - ) , 갑상샘 촉진(- )\nChest\n흉부 청진 (- )\nAbdomen\n복부 시/청/타/촉( - / - / - / 一)\nExtermity\n피부 긴장도, 오목 부종 정상",
+    "patient_question_or_concern": "\"다리 붓는게 살이 될까봐 걱정”\n특이 人®\n허리둘레, BMI, 키, 체중은 모두 문제에 제시됨",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "1성별/나이\n여성/ 29세\n1\n주소\n“체중이 늘면서 몸도 부어요”\n0\n4개월 전\nL\n전체적, 양쪽 다리가 유난히 더 붓는다.\nD\n계속\nCo\n서서히\nEx\n처음\nC\n4개월 동안 4kg 증가, \"아침과 저녁에 체중이 달라요”\n허리둘레 77cm. 키 160cm, 체중 65kg, BMI 24.8\nA\n[전신]\n발열/오한/피로( - / - / - )\n[순환기]\n흉통/두근거림 (- / - )\n[간부전]\n황달/복수 (- / - )\n[내분비]\n추위불내성/변비/피부 건조( - / - / - ) ，자색선조/멍(- / - )\n[수면무호흡증]\n코골이(ᅳ)\n[PCOS]\n여드름/다모증(一/-)\n[정신]\n우울/불안(ᅳ/一)\n[신장]\n거품뇨/소변량 감소/부종(-/-/+ )\nF\n-\nE\n매년 건강 검진 받음\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n스테로이드( - ) , 호르몬제제(-)\n사\n술/담배/ 커피(+, 하루 맥주 2캔/ - / - ), 스트레스H\n운동 ：\n1 주일에 한 번 산책, 식습관 ：\n맵고 자극적인 음식 선흐 야식 즐김, 식사 불규칙\n직업 : 백화점 의류 판매업, 서서 근무\n가\n부모님 모두 비만, 아버지 고혈압\n여\n이상 없음, 임신 가능성 없음\nGeneral\nV/S 확인\nP/E\nHEENT\n결막/공막( - / ᅳ), 입/피부 탈수소견( - / - ) , 갑상샘 촉진(- )\nChest\n흉부 청진 (- )\nAbdomen\n복부 시/청/타/촉( - / - / - / 一)\nExtermity\n피부 긴장도, 오목 부종 정상\n질문\n\"다리 붓는게 살이 될까봐 걱정”\n특이 人®\n허리둘레, BMI, 키, 체중은 모두 문제에 제시됨"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "일차성 체중 증가",
+      "특발성 부종",
+      "갑상샘7 1능저히증"
+    ],
+    "planned_tests": [
+      "신7 1능검사",
+      "갑상샘기능검사",
+      "간7 1능검사"
+    ],
+    "planned_treatments_or_education": [
+      "생활 습관 개선(저염식 포함)",
+      "압박 스타킹 착용"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "실전 모의 증례\n懸:-^헬\n• 29세 여자 김수영씨가 살이 찐다며 내원하였다.\n[신체 계측] 허리둘레 77cm, 키 160cm, 체중 65kg. BMI 24.8\n지침\n[활력 징후] 혈압 : 129/85mmHg\n맥박 : 72회/분\n호흡 : 14회/분\n체온 ：\n36.5°C\n[응人I자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n• 가능성이 높은 진단 3개\n1. 일차성 체중 증가\n2. 특발성 부종\n3. 갑상샘7 1능저히증\n• 필요한 검사 계획 3가지\n교육\n1. 신7 1능검사\n2. 갑상샘기능검사\n3. 간7 1능검사\n• 필요한 치료 계획 2가지\n1. 생활 습관 개선(저염식 포함)\n2. 압박 스타킹 착용\n일차성 체중증가가 의심되지만직업 상의 이유로 하지 특발성 부종이\n동반된 증례입니다.\n체중증가 환자에서는 우선 부종을 감별해야합니다. 특히나아침 저녁으로 체중의 차이가 있다\n는단서를듣는다면 재발리 부종에 초점을 맞추셔야 합니다.\n부종을 일으킬 수 있는 기질적 원인(신장과 간)이 없는지 감별하고，부종을 악화시키는 생활습\n관들을 교정하도록 교육해야 합니다,\n직업 상 서있는 시간이 많은 환자에게는 압박 스타킹의 처방이 도움이 될 것입니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

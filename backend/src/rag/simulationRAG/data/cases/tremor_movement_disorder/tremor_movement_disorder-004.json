@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "tremor_movement_disorder-004",
+  "case_number_in_pdf": 225,
+  "topic": {
+    "topic_start_page": 571,
+    "topic_id": "tremor_movement_disorder",
+    "topic_label": "떨림/운동이상",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 581,
+      "end": 582
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박지윤",
+      "age": 30,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "손이 떨려요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": null,
+      "pulse": null,
+      "respiratory_rate": null,
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/30세\n“손이 떨려요”",
+    "history_blocks": {
+      "onset": "5년 전",
+      "location": "양손",
+      "duration": "“잘 모르겠어요”(세밀한 작업을 하려고 하면 생김)",
+      "course": "1년 전부터 심해지는 것 같음",
+      "experience": "처음",
+      "character": "가만 있으면 괜찮음，불규칙하게 움찔거리는 것은 아니고 규칙적으로 떨림\n손을 이용한 세밀한 작업을 할 때 떨림 (글씨 쓸 때, 젓가락질 할 때)\n자세를 취등te 것은 괜찮음/일상 생활에 지장 있음",
+      "associated_symptoms": "더위불내성/두근거림/설사(一/ᅳ/■), 자세 불안/보행장애(ᅳ/ -)\n팔다리 위약/감각 이상/손발 저림 ( - / - / - ), 두통/어지럼/시야장애( - / - / 一)\n시력 저하/구음장애( - / - ) , 행동이 느려짐/목 뻣뼛/발열( - / - / - )",
+      "factors": "외상(一), 스트레스 (一), 술 (+, 술 마시면 호전됨)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / 一)",
+      "medications": "人^\n술(+，한 달에 한 번 맥주 1 병), 담배(-), 커피(+, 하루 3잔)\n운동/스트레스 : 바빠서 운동 못 함/스트레스 보통",
+      "family_history": "DM/TB/HTN/간염 ( - / - / - / - )\n뇌혈관 질환(+, 아버지가 젊었을 때 손 떨림，뇌졸중으로 사망)\nGeneral\nV/S 확인\nHEENT\n두부 시진/촉진(- / - )，외상 부위 없음，갑상샘 촉진(一)\nChest\n심음이상(- )\nAbdomen"
+    },
+    "physical_exam_results": "Extremity\n\n기타\nResting(- ), Postural/intention(+/+)\n손 앞으로 뻗기/글쓰기/나선 그리기(+/+/+, 모두 떨림 있음)\nCN exam 정상/소뇌(Finger to nose/롬버그) 정상\n팔다리 sensory/motor 정상, Kernig/Brudzinski( - / - )\nDTR/보행 정상",
+    "patient_question_or_concern": "“아버지처럼 손떠는 증상 생기고 나서 Lf중에 뇌졸중일까봐 걱정돼요:\nS 0 | A ® *",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/30세\n“손이 떨려요”\n0\n5년 전\nL\n양손\nD\n“잘 모르겠어요”(세밀한 작업을 하려고 하면 생김)\nCo\n1년 전부터 심해지는 것 같음\nEx\n처음\nC\n가만 있으면 괜찮음，불규칙하게 움찔거리는 것은 아니고 규칙적으로 떨림\n손을 이용한 세밀한 작업을 할 때 떨림 (글씨 쓸 때, 젓가락질 할 때)\n자세를 취등te 것은 괜찮음/일상 생활에 지장 있음\nA\n더위불내성/두근거림/설사(一/ᅳ/■), 자세 불안/보행장애(ᅳ/ -)\n팔다리 위약/감각 이상/손발 저림 ( - / - / - ), 두통/어지럼/시야장애( - / - / 一)\n시력 저하/구음장애( - / - ) , 행동이 느려짐/목 뻣뼛/발열( - / - / - )\nF\n외상(一), 스트레스 (一), 술 (+, 술 마시면 호전됨)\nE\n외\n과\nDM/TB/HTN/간염 ( - / - / - / 一)\n약\n人^\n술(+，한 달에 한 번 맥주 1 병), 담배(-), 커피(+, 하루 3잔)\n운동/스트레스 : 바빠서 운동 못 함/스트레스 보통\n가\nDM/TB/HTN/간염 ( - / - / - / - )\n뇌혈관 질환(+, 아버지가 젊었을 때 손 떨림，뇌졸중으로 사망)\nGeneral\nV/S 확인\nHEENT\n두부 시진/촉진(- / - )，외상 부위 없음，갑상샘 촉진(一)\nChest\n심음이상(- )\nAbdomen\n-\nP/E\nExtremity\n-\n기타\nResting(- ), Postural/intention(+/+)\n손 앞으로 뻗기/글쓰기/나선 그리기(+/+/+, 모두 떨림 있음)\nCN exam 정상/소뇌(Finger to nose/롬버그) 정상\n팔다리 sensory/motor 정상, Kernig/Brudzinski( - / - )\nDTR/보행 정상\n질문\n“아버지처럼 손떠는 증상 생기고 나서 Lf중에 뇌졸중일까봐 걱정돼요:\nS 0 | A ® *\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n교육\n■'세니",
+    "likely_diagnoses": [
+      "본태성 떨림",
+      "갑상샘항진증",
+      "? ᅡ페인에 의한 생리적 떨림"
+    ],
+    "planned_tests": [
+      "갑상생기능검人!'",
+      "Brain CT"
+    ],
+    "planned_treatments_or_education": [
+      "Beta blocker",
+      "스트레스/카페인 조절"
+    ],
+    "expected_skills_raw": "설명동의서 받기 : 본태성 떨림 등을 배제 진단하기 위한 뇌 C T / M R ᅵ를 시행하기 위해\n설명동의서를 받습니다.\n손 떨림증의 경우 신체 진찰이 오래 걸리는 항목입니다.\n문진을4분 30초 안으로 마치고 신체 진찰을 시작하는 것이 필요할 것\n으로 생각됩니다.\n처음 시작할 때는 소뇌, 본태성 떨림, 파킨슨, 갑상샘항진증, 카페인 과다 정도를 잡으시고 시작\n하시면 편합니다.\n본 증례의 경우 환자가 뇌졸중을 가장 걱정하고 있기 때문에 환자가 안심할 수 있도록 하고,\n카페인을 줄이는 생활 습관 교육 및 기질적 병인에 대한 감별검사도 추가적으로 시행할 것임을\n논의하면 좋을 것 같습니 다.",
+    "author_commentary_tail": "설명동의서 받기 : 본태성 떨림 등을 배제 진단하기 위한 뇌 C T / M R ᅵ를 시행하기 위해\n설명동의서를 받습니다.\n손 떨림증의 경우 신체 진찰이 오래 걸리는 항목입니다.\n문진을4분 30초 안으로 마치고 신체 진찰을 시작하는 것이 필요할 것\n으로 생각됩니다.\n처음 시작할 때는 소뇌, 본태성 떨림, 파킨슨, 갑상샘항진증, 카페인 과다 정도를 잡으시고 시작\n하시면 편합니다.\n본 증례의 경우 환자가 뇌졸중을 가장 걱정하고 있기 때문에 환자가 안심할 수 있도록 하고,\n카페인을 줄이는 생활 습관 교육 및 기질적 병인에 대한 감별검사도 추가적으로 시행할 것임을\n논의하면 좋을 것 같습니 다.",
+    "scenario_card_raw": "^\n실전 모의 증례\n歡鑛電\n^ ■황\n지침\n• 30세 여자 박지윤씨가 손이 떨려서 내원하였다.\n[활력 징후] 혈압 : 1 3 0 / 8 0 m m H g\n맥박 : 7 2 회/분\n•2-S • 15회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n교육\n■'세니\n• 가능성이 높은 진단 3개\n1. 본태성 떨림\n2. 갑상샘항진증\n3. ? ᅡ페인에 의한 생리적 떨림\n• 필요한 검사 계획 2가지\n1. 갑상생기능검人!'\n2. Brain CT\n• 필요한 치료 계획 2가지\n1. Beta blocker\n2. 스트레스/카페인 조절\n예상\n술기\n설명동의서 받기 : 본태성 떨림 등을 배제 진단하기 위한 뇌 C T / M R ᅵ를 시행하기 위해\n설명동의서를 받습니다.\n손 떨림증의 경우 신체 진찰이 오래 걸리는 항목입니다.\n문진을4분 30초 안으로 마치고 신체 진찰을 시작하는 것이 필요할 것\n으로 생각됩니다.\n처음 시작할 때는 소뇌, 본태성 떨림, 파킨슨, 갑상샘항진증, 카페인 과다 정도를 잡으시고 시작\n하시면 편합니다.\n본 증례의 경우 환자가 뇌졸중을 가장 걱정하고 있기 때문에 환자가 안심할 수 있도록 하고,\n카페인을 줄이는 생활 습관 교육 및 기질적 병인에 대한 감별검사도 추가적으로 시행할 것임을\n논의하면 좋을 것 같습니 다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "tremor_movement_disorder-006",
+  "case_number_in_pdf": 227,
+  "topic": {
+    "topic_start_page": 571,
+    "topic_id": "tremor_movement_disorder",
+    "topic_label": "떨림/운동이상",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 585,
+      "end": 588
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "안영숙",
+      "age": 53,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였으며, 안정 시 떨림",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "122/76mmHg",
+      "pulse": null,
+      "respiratory_rate": "21회/분",
+      "temperature": "36.2°C"
+    },
+    "opening_profile_text": "“양 손이 자꾸 떨려요”\n1개월 전/서서히\n양쪽 손(처음부터 )\n손 외 다른 부위는 떨림 없음\n1개월 전부터",
+    "history_blocks": {
+      "course": "점점 심해지는 양상",
+      "experience": "처음\n규칙적으로 떨림 (+), 손 꼬임(ᅳ), 춤추는 듯(-)\n글씨 쓸 때, 숟가락질 할 때, 손으로 물건 들 때 심하게 떨림 (+)\n가만히 있을 때는 떨림 없음\n[파킨슨] 보행장애/걸음이 느려짐/몸이 굳어짐/중심을 잡지 못함( - / - / - / - )\n[뇌졸중] 말이 어눌해짐/팔다리 힘 빠짐/극심한두통/호흡곤란( - / - / - / _ )\n[갑상샘] 발열/식은땀/ 더위불내성/체중 감소(ᅳ/ᅳ/ᅳ/ᅳ)\n스트레스/ 피곤/긴장으로 증상 악화( - / - / - )\n음주 후 증상호전(ᅵ)\n수면 부족(+) ：\n불면증으로 정신과 약물 처방받음",
+      "trauma_history": "두부 외상 (-)",
+      "medications": "DM/TB/HTN/간염( - / - / - / 一)，뇌졸중(一)\n수면제, 신경안정제 (3개월 전부터 )",
+      "social_history": "술/커피/담배 (一/ - / - )\n남편과 마트 운영 중 ᅳ 최근 스트레스 많이 받음",
+      "family_history": "가족중손떨림(一)\nᅳ..Z I：.….r\n......I\ni\nJ.—. J ᅳ.x r 기\nTremor\ni .\nr\n소뇌 기능검사\nI\n, I ᅵᅳ\n팔다리 근력/운동\ni\nGait\nResting/Postural/Intentional (-/+ /+ )\n(양 팔을 앞으로 들 때, 글씨 쓸 때 떨림)\nFinger to nose(+)\nRapid alternating(-)"
+    },
+    "physical_exam_results": null,
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": "“뇌졸중이 아닐까 걱정이 돼요;\nCPX 주제별 내용 정리\n.빠\n卜>\n산부/여성/소아\ni\n.v.\n' J-,\n■\n.\n. 시.\n1 '：\n1\n\"\n' /\n시'세거\n'\n세 , ,\n* ' *\n.\n' ,\n.\n“\n,\n\\\n유방통/유방덩이(멍울)\n질분비물/질출혈\n월경 이상/월경통\n산전 진찰\n성장/발달 지연\n예방접종",
+    "raw_profile_text": "“양 손이 자꾸 떨려요”\n1개월 전/서서히\n양쪽 손(처음부터 )\n손 외 다른 부위는 떨림 없음\n1개월 전부터\nCo\n점점 심해지는 양상\nEx\n처음\n규칙적으로 떨림 (+), 손 꼬임(ᅳ), 춤추는 듯(-)\n글씨 쓸 때, 숟가락질 할 때, 손으로 물건 들 때 심하게 떨림 (+)\n가만히 있을 때는 떨림 없음\n[파킨슨] 보행장애/걸음이 느려짐/몸이 굳어짐/중심을 잡지 못함( - / - / - / - )\n[뇌졸중] 말이 어눌해짐/팔다리 힘 빠짐/극심한두통/호흡곤란( - / - / - / _ )\n[갑상샘] 발열/식은땀/ 더위불내성/체중 감소(ᅳ/ᅳ/ᅳ/ᅳ)\n스트레스/ 피곤/긴장으로 증상 악화( - / - / - )\n음주 후 증상호전(ᅵ)\n수면 부족(+) ：\n불면증으로 정신과 약물 처방받음\n외\n두부 외상 (-)\n과\n약\nDM/TB/HTN/간염( - / - / - / 一)，뇌졸중(一)\n수면제, 신경안정제 (3개월 전부터 )\n사\n술/커피/담배 (一/ - / - )\n남편과 마트 운영 중 ᅳ 최근 스트레스 많이 받음\n가\n가족중손떨림(一)\nᅳ..Z I：.….r\n......I\ni\nJ.—. J ᅳ.x r 기\nTremor\ni .\nr -\n소뇌 기능검사\nI\n, I ᅵᅳ\n팔다리 근력/운동\ni\nGait\nResting/Postural/Intentional (-/+ /+ )\n(양 팔을 앞으로 들 때, 글씨 쓸 때 떨림)\nFinger to nose(+)\nRapid alternating(-)\n-\n-\n특이 사항\n“뇌졸중이 아닐까 걱정이 돼요;\n\nCPX 주제별 내용 정리\n.빠\n卜>\n산부/여성/소아\ni\n- -.v.\n' J-,\n■\n\n• .\n. 시.\n1 '：\n\n1\n•\"\n' /\n시'세거\n'\n세 , ,\n* ' *\n.\n' ,\n.\n“\n,\n\\\n유방통/유방덩이(멍울)\n질분비물/질출혈\n월경 이상/월경통\n산전 진찰\n성장/발달 지연\n예방접종"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육",
+    "likely_diagnoses": [
+      "소뇌 경색",
+      "약제 유발성 진전",
+      "본태성 진전"
+    ],
+    "planned_tests": [
+      "Brain MRI",
+      "약제 유발검사",
+      "갑상샘기능검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 본태성 떨림 등을 배제 진단하기 위한 뇌 CT/MRI를 시행하기 위해\n설명동의서를 받습니다.\n본 증례의 환자는 양손의 떨림을 주소로 내원하였으며, 안정 시 떨림\n과 같은 파킨슨 증후군의 증상이 없었기 때문에 우선적으로 본태성 진\n전을 떠올리기 쉽습니다. 그러나 본태성 떨림은 기본적으로 떨림을 유발하는 다른 기질적 원인\n이 없을 때에 진단이 가능하며, 본증례는손 떨림의 가족력이 없고, 음주후증상호전이 없는\n등 본태성 진전의 전형적 임상 양상과는 다른 점을 보입 니다.\nIntentional tremor가 있으며, finger to nose test에서 양성 소견을 보인 점은 소뇌 경색을\n의심하게 하며, 환자가복용한신경안정제(항불안제)와수면제는 약제 유발성 진전을 일으킬 수\n있기 때문에 환자에게 이와 같은 유발 원인에 대하여 설명하고 원인 감별에 필요한 검사에 대해\n서 알려야합니다.",
+    "author_commentary_tail": "설명동의서 받기 : 본태성 떨림 등을 배제 진단하기 위한 뇌 CT/MRI를 시행하기 위해\n설명동의서를 받습니다.\n본 증례의 환자는 양손의 떨림을 주소로 내원하였으며, 안정 시 떨림\n과 같은 파킨슨 증후군의 증상이 없었기 때문에 우선적으로 본태성 진\n전을 떠올리기 쉽습니다. 그러나 본태성 떨림은 기본적으로 떨림을 유발하는 다른 기질적 원인\n이 없을 때에 진단이 가능하며, 본증례는손 떨림의 가족력이 없고, 음주후증상호전이 없는\n등 본태성 진전의 전형적 임상 양상과는 다른 점을 보입 니다.\nIntentional tremor가 있으며, finger to nose test에서 양성 소견을 보인 점은 소뇌 경색을\n의심하게 하며, 환자가복용한신경안정제(항불안제)와수면제는 약제 유발성 진전을 일으킬 수\n있기 때문에 환자에게 이와 같은 유발 원인에 대하여 설명하고 원인 감별에 필요한 검사에 대해\n서 알려야합니다.",
+    "scenario_card_raw": "\\\n실전 모의 증례\n於‘; 〔 서\n^ ■황\n지침\n- .\n義\n'즈, 뀌\n• 53세 여자 안영숙씨가 손이 자꾸 떨린다며 내원하였다.\n[활력 징휘 혈압 : 122/76mmHg\n맥박 : 기회/분\n호흡 ：\n21회/분\n체온 ：\n36.2°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 3개\n1. 소뇌 경색\n2. 약제 유발성 진전\n3. 본태성 진전\n• 필요한 검사 계획 3가지\n1. Brain MRI\n2. 약제 유발검사\n3. 갑상샘기능검사\n예상\n술기\n설명동의서 받기 : 본태성 떨림 등을 배제 진단하기 위한 뇌 CT/MRI를 시행하기 위해\n설명동의서를 받습니다.\n본 증례의 환자는 양손의 떨림을 주소로 내원하였으며, 안정 시 떨림\n과 같은 파킨슨 증후군의 증상이 없었기 때문에 우선적으로 본태성 진\n전을 떠올리기 쉽습니다. 그러나 본태성 떨림은 기본적으로 떨림을 유발하는 다른 기질적 원인\n이 없을 때에 진단이 가능하며, 본증례는손 떨림의 가족력이 없고, 음주후증상호전이 없는\n등 본태성 진전의 전형적 임상 양상과는 다른 점을 보입 니다.\nIntentional tremor가 있으며, finger to nose test에서 양성 소견을 보인 점은 소뇌 경색을\n의심하게 하며, 환자가복용한신경안정제(항불안제)와수면제는 약제 유발성 진전을 일으킬 수\n있기 때문에 환자에게 이와 같은 유발 원인에 대하여 설명하고 원인 감별에 필요한 검사에 대해\n서 알려야합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

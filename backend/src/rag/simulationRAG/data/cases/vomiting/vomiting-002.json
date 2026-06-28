@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vomiting-002",
+  "case_number_in_pdf": 29,
+  "topic": {
+    "topic_start_page": 73,
+    "topic_id": "vomiting",
+    "topic_label": "구토",
+    "system": "소화기"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 75,
+      "end": 76
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "박경철",
+      "age": 38,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "구토를 해요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "116/88mmHg",
+      "pulse": "83회/분",
+      "respiratory_rate": "14회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "............\n성별/나이\n남성/ 38세\n“구토를 해요”",
+    "history_blocks": {
+      "onset": "3시간 전",
+      "duration": "3시간 전부터 10회 토함",
+      "course": "비슷",
+      "experience": "처음",
+      "character": "[횟쉬\n10회\n[양상] 3회는 음식물과 함께 나오다가 7회는 노란색 물만 나옴, 피/ 거품( - / - )",
+      "associated_symptoms": "[탈쉬 어지럼/목마름/두근거림/호흡곤란(+ /+ /-/-)\n[소화기] A/N /V(-/+/+)\nC/D( - / +)\n복통(+) ：\n“명치쪽이 아프다가 구토를 하면 조금 나아져요”\n속쓰림 (+)\n[신경계] 이명/청력 저하/신경 증상/두통/시야장애/팔 다리 힘 빠짐/경부경직",
+      "factors": "어제 저녁 술은 안 마셨고, 야식으로 에그마요 샌드위치 먹음",
+      "events": "위내시경(+) ：\n1년 전 만성 위염 진단",
+      "trauma_history": "15년 전 맹장 수술",
+      "past_history": "1년 전위염",
+      "social_history": "커피 (+) ：\n아침에 공복에 커피 마심\n운동 ：\n많이 함, 식사 : 야식을 자주 먹음",
+      "family_history": "아버지 간암\nGeneral\nV /S 정상\nHEENT\n구강 탈수(ᅳ), 결막/공막 정상"
+    },
+    "physical_exam_results": "Abdomen\n복부 시진/청진 정상, Epigastric Td(+), rTd(-)\nDRE 정상\nExtermity\n피부 긴장도 정상. PTPE(-)",
+    "patient_question_or_concern": "“간암과는 관련이 없나요? ”",
+    "actor_notes_or_special_behavior": "없음\nI\nᅳ",
+    "raw_profile_text": "............\n성별/나이\n남성/ 38세\n“구토를 해요”\n0\n3시간 전\nL\n-\nD\n3시간 전부터 10회 토함\nCo\n비슷\nEx\n처음\nC\n[횟쉬\n10회\n[양상] 3회는 음식물과 함께 나오다가 7회는 노란색 물만 나옴, 피/ 거품( - / - )\nA\n[탈쉬 어지럼/목마름/두근거림/호흡곤란(+ /+ /-/-)\n[소화기] A/N /V(-/+/+)\nC/D( - / +)\n복통(+) ：\n“명치쪽이 아프다가 구토를 하면 조금 나아져요”\n속쓰림 (+)\n[신경계] 이명/청력 저하/신경 증상/두통/시야장애/팔 다리 힘 빠짐/경부경직\nF\n어제 저녁 술은 안 마셨고, 야식으로 에그마요 샌드위치 먹음\nE\n위내시경(+) ：\n1년 전 만성 위염 진단\n외\n15년 전 맹장 수술\n과\n1년 전위염\n약\n-\n사\n커피 (+) ：\n아침에 공복에 커피 마심\n운동 ：\n많이 함, 식사 : 야식을 자주 먹음\n가\n아버지 간암\nGeneral\nV /S 정상\nHEENT\n구강 탈수(ᅳ), 결막/공막 정상\nP/E\nAbdomen\n복부 시진/청진 정상, Epigastric Td(+), rTd(-)\nDRE 정상\nExtermity\n피부 긴장도 정상. PTPE(-)\n질문\n“간암과는 관련이 없나요? ”\n특이사항\n없음\nI\n\nᅳ"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육",
+    "likely_diagnoses": [
+      "식중독",
+      "급성 장폐색"
+    ],
+    "planned_tests": [
+      "대변검사",
+      "혈액검人卜",
+      "복부 X-ray"
+    ],
+    "planned_treatments_or_education": [
+      "수액 치료",
+      "항생제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "1^ 실전 모의 증례\n찧^-f\nᄊ\n*' \"\n^ >' 4； 4\n상황\n지침\n1\n• 38세 남자 박경철씨가 구토를 해서 내원하였다.\n[활력 징휘 혈압 : 116/88mmHg\n맥박 : 83회/분\n호흡 : 14회/분\n체온 ：\n36.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 2개\n1. 식중독\n2. 급성 장폐색\n• 필요한 검사 계획 3가지\n1. 대변검사\n2. 혈액검人卜\n3. 복부 X-ray\n• 필요한 치료 계획 2가지\n1. 수액 치료\n2. 항생제\n구토의 경우 소화기 계통뿐만 아니라 신경계 계통 역시 생각해 주어야\n( 3\n^\n유주제입니다.\n본증례에서는 전 날 먹은옴식이 제시되어 있기 때문에 식중독 및 급성 위장관염을 의심할수\n있습니다. 또한 맹장수술 과거력으로 급성 장폐색도 감별해 주어야 합니다.\n신체 검진 시 소화기 계통과함께 수막 자극 징후 등 신경계 계통을 잊지 않도록 합니다. 환자\n교육시 금식이 필요할수 있음을• 미리 설명해 주고 여름철 날 것을 먹지 않도록교육합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

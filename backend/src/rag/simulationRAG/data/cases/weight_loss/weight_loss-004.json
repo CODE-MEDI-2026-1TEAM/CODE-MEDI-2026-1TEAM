@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "weight_loss-004",
+  "case_number_in_pdf": 145,
+  "topic": {
+    "topic_start_page": 365,
+    "topic_id": "weight_loss",
+    "topic_label": "체중 감소",
+    "system": "전신"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 371,
+      "end": 372
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "황순호",
+      "age": 25,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "살이 빠져요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "122/82mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "21회/분",
+      "temperature": "36.8°C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 25세\n주소\n“살이 빠져요”",
+    "history_blocks": {
+      "onset": "3개월 전",
+      "course": "키 170cm. 몸무게 63kg ᅳ 57kg으로 서서히 6kg 감소",
+      "experience": "처음",
+      "character": "일부러 살 빼려고 노력하지 않았음",
+      "associated_symptoms": "[전신] 발열/오한/야간 발한/피로감(- / - / - / + )\n[내분비] 다음/ 다갈/다뇨( - / - / - ) , 더위불내성/두근거림/두통( - / - / - )\n[소화기] 식욕 저하/구역/구토/속쓰림/소화불량/연히곤란/씹는데 장애/설사\n(+ /-/-/+ /+ /-/-/+ , 점액성)\n[호흡기] 호흡곤란/기침/가래/인후통( - / - / - / - )\n[탈쉬 어지럼/두근거림(-/->\n[정신과] 우울/불안/수면장애/체중에 대한 생각/살 찌는 데 두려움( - / - / - / - / - )",
+      "factors": "식후 배 아프고 설사가 있어서 적게 먹음",
+      "past_history": "DM/TB/HTN/간염( - / - / - / - ) , 고지혈증(-)",
+      "medications": "지사제 (가끔)",
+      "social_history": "술(+, social). 담배(一). 커피(-)\n아침은 주로 생략, 점심은 한식, 저녁은 인스턴트 음식. 운동량 적음, 스트레스 보통",
+      "family_history": "아버지 : 당뇨병\nGeneral\n키 170cm, 몸무게 57kg\nHEENT\n입/피부 탈수 소견( - / - ) , 결막/공막(一/ - ). 갑상샘 정상\nChest"
+    },
+    "physical_exam_results": "Abdomen\n복통 촉진(RLQ T/rT+ /-). (LLQ T/rT+ /-)\nCVA tenderness(- )，간비 비대( - ), DRE : 묽은변\nExtermity\n피부 긴장도，오목 부종 정상\n기타",
+    "patient_question_or_concern": "특이 사항",
+    "actor_notes_or_special_behavior": "없음\nP/E\nAbdomen\n복통 촉진(RLQ T/rT+ /-). (LLQ T/rT+ /-)\nCVA tenderness(- )，간비 비대( - ), DRE : 묽은변\nExtermity\n피부 긴장도，오목 부종 정상\n기타\n\n질문\n특이 사항",
+    "raw_profile_text": "성별/나이\n남성/ 25세\n주소\n“살이 빠져요”\n0\n3개월 전\nL\n-\nD\n-\nCo\n키 170cm. 몸무게 63kg ᅳ 57kg으로 서서히 6kg 감소\nEx\n처음\nC\n일부러 살 빼려고 노력하지 않았음\nA\n[전신] 발열/오한/야간 발한/피로감(- / - / - / + )\n[내분비] 다음/ 다갈/다뇨( - / - / - ) , 더위불내성/두근거림/두통( - / - / - )\n[소화기] 식욕 저하/구역/구토/속쓰림/소화불량/연히곤란/씹는데 장애/설사\n(+ /-/-/+ /+ /-/-/+ , 점액성)\n[호흡기] 호흡곤란/기침/가래/인후통( - / - / - / - )\n[탈쉬 어지럼/두근거림(-/->\n[정신과] 우울/불안/수면장애/체중에 대한 생각/살 찌는 데 두려움( - / - / - / - / - )\nF\n식후 배 아프고 설사가 있어서 적게 먹음\nE\n-\n외\n-\n과\nDM/TB/HTN/간염( - / - / - / - ) , 고지혈증(-)\n약\n지사제 (가끔)\n사\n술(+, social). 담배(一). 커피(-)\n아침은 주로 생략, 점심은 한식, 저녁은 인스턴트 음식. 운동량 적음, 스트레스 보통\n가\n아버지 : 당뇨병\nGeneral\n키 170cm, 몸무게 57kg\nHEENT\n입/피부 탈수 소견( - / - ) , 결막/공막(一/ - ). 갑상샘 정상\nChest\n특이사항 없음\nP/E\nAbdomen\n복통 촉진(RLQ T/rT+ /-). (LLQ T/rT+ /-)\nCVA tenderness(- )，간비 비대( - ), DRE : 묽은변\nExtermity\n피부 긴장도，오목 부종 정상\n기타\n-\n질문\n특이 사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n교육\n. 가능성이 높은 진단 3개\n1. 크론병\n2. 궤양성 대장염\n3. 장결핵",
+    "likely_diagnoses": [
+      "크론병",
+      "궤양성 대장염",
+      "장결핵"
+    ],
+    "planned_tests": [
+      "대장내시경",
+      "복부 X-ray"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문 직장 진찰 : 염증성 장질환이 의심되는 환자이므로 항문 직장 진찰을 통해\n혈변. 점액성 설사가 있는지 확인합니다.\n2. 설명동의서 받기 : 대장내시경검人h가 필요한 환자이므로 검人I에 대해 설명하고\n동의서를 받습니다.\n젊은 남성이 체중 감소를 보여 내원하였습니다. 기본적으로 먼저 BMI\n를 확인하고, 체중 감소의 정도가 의미 있는 감소인지 확인합니다.\n모든 계통의 질환에서 체중 감소를 유발할 수 있기 때문에 계통별로 대표적 인 증상을 물어봐서\n감별해 나가이^ 합니다.\n증례의 경우 소화불량, 설사, 복통 등의 증상을 호소하는 것으로 보아소화기계 질환으로 범위\n가 좁혀집니다. 젊은 나이이므로 악성 종양보다는 염증성 장질환이 더욱 의심됩니다.\n기질적 인 질환 외에 혹시 환자가 의도적으로 체중을 감량하진 않았는지, 이뇨제，하제，항우울\n제 등 체중 감소를 일으키는 약을 복용하진 않았는지 확인해야 하며, 식사량, 운동량, 스트레스\n등 생활습관 측면에서 체중에 영향을 미치는 요인을 파악하는것도 필요합니다.",
+    "author_commentary_tail": "혈변. 점액성 설사가 있는지 확인합니다.\n2. 설명동의서 받기 : 대장내시경검人h가 필요한 환자이므로 검人I에 대해 설명하고\n동의서를 받습니다.\n젊은 남성이 체중 감소를 보여 내원하였습니다. 기본적으로 먼저 BMI\n를 확인하고, 체중 감소의 정도가 의미 있는 감소인지 확인합니다.\n모든 계통의 질환에서 체중 감소를 유발할 수 있기 때문에 계통별로 대표적 인 증상을 물어봐서\n감별해 나가이^ 합니다.\n증례의 경우 소화불량, 설사, 복통 등의 증상을 호소하는 것으로 보아소화기계 질환으로 범위\n가 좁혀집니다. 젊은 나이이므로 악성 종양보다는 염증성 장질환이 더욱 의심됩니다.\n기질적 인 질환 외에 혹시 환자가 의도적으로 체중을 감량하진 않았는지, 이뇨제，하제，항우울\n제 등 체중 감소를 일으키는 약을 복용하진 않았는지 확인해야 하며, 식사량, 운동량, 스트레스\n등 생활습관 측면에서 체중에 영향을 미치는 요인을 파악하는것도 필요합니다.",
+    "scenario_card_raw": "\\ 실전 모의 증례\n^■황\n지침\n• 25세 남자 황순호씨가 체중 감소를 호소하며 내원하였다.\n[활력 징후] 혈압 : 122/82mmHg\n맥박 : 70회/분\n호흡 : 21회/분\n체온 ：\n36.8°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n교육\n. 가능성이 높은 진단 3개\n1. 크론병\n2. 궤양성 대장염\n3. 장결핵\n• 필요한 검사 계획 2가지\n1. 대장내시경\n2. 복부 X-ray\n예상\n술기\n1. 항문 직장 진찰 : 염증성 장질환이 의심되는 환자이므로 항문 직장 진찰을 통해\n혈변. 점액성 설사가 있는지 확인합니다.\n2. 설명동의서 받기 : 대장내시경검人h가 필요한 환자이므로 검人I에 대해 설명하고\n동의서를 받습니다.\n젊은 남성이 체중 감소를 보여 내원하였습니다. 기본적으로 먼저 BMI\n를 확인하고, 체중 감소의 정도가 의미 있는 감소인지 확인합니다.\n모든 계통의 질환에서 체중 감소를 유발할 수 있기 때문에 계통별로 대표적 인 증상을 물어봐서\n감별해 나가이^ 합니다.\n증례의 경우 소화불량, 설사, 복통 등의 증상을 호소하는 것으로 보아소화기계 질환으로 범위\n가 좁혀집니다. 젊은 나이이므로 악성 종양보다는 염증성 장질환이 더욱 의심됩니다.\n기질적 인 질환 외에 혹시 환자가 의도적으로 체중을 감량하진 않았는지, 이뇨제，하제，항우울\n제 등 체중 감소를 일으키는 약을 복용하진 않았는지 확인해야 하며, 식사량, 운동량, 스트레스\n등 생활습관 측면에서 체중에 영향을 미치는 요인을 파악하는것도 필요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

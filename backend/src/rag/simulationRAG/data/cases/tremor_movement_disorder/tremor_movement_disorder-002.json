@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "tremor_movement_disorder-002",
+  "case_number_in_pdf": 223,
+  "topic": {
+    "topic_start_page": 571,
+    "topic_id": "tremor_movement_disorder",
+    "topic_label": "떨림/운동이상",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 577,
+      "end": 578
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "손지연",
+      "age": 55,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "손이 떨려요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "125/80mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "28회/분",
+      "temperature": "36.4°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 55세\n“손이 떨려요”",
+    "history_blocks": {
+      "onset": "1 년",
+      "location": "양쪽 모두 떨림",
+      "duration": "잘 모르겠음",
+      "course": "점점 심해지는 것 같음",
+      "experience": "1년 이전에는 안 그랬음",
+      "character": "싸인하거나 글씨 쓸 때，밥 먹을 때 주로 떨림\n가만히 있을 때는 안 떨림",
+      "associated_symptoms": "[전신] 발열/오한/체중 변화/근육통/피로/부종(- / 一/ - / 一/一/ - )\n[신경] 두통/시야장애/어지럼/구역감/구토(- / - / - / - / - >\n[파킨슨] 보행장애/안정 시떨림/말어눌함( _ / ᅳ/ᅳ)\n[내분비] 더위불내성/두근거림/설人^ᅳ/ᅳ/ _ )\n[정신] 우울/불안/수면장애( - / - / - )",
+      "events": "이상^ ^",
+      "trauma_history": "(+, 1 년 전 길 걷다가 빙판에 미끄러 넘어짐, 뇌영상검사 결과 이상 없었음)",
+      "past_history": "DM/TB/HTN/고지혈증/간염 ( - / 一/ᅳ/+ /-)",
+      "medications": "고지혈증약 (+)",
+      "social_history": "술/ 담배( - / - ) , 커피(+. 1잔/day), 대치동 학원강사",
+      "family_history": "아버지 손 떨림 (+)",
+      "gynecologic_history": "4년 전 폐경"
+    },
+    "physical_exam_results": "General\nV/S 정상\n손 떨림 양상 : 글씨 쓰기 어려움, 손 앞으로 뻗고 2〜3초 후 손 떨림\nHEENT\n갑상샘(ᅳ)，입/피부 탈수 소견(一/-)\nExtremity\n피부 긴장도• 오목 부종 정상\n뇌신경\n외상(一), 동공 반사 정상，시야장애(-), 얼굴 감각/운동 이상(ᅳ/一)\n팔다리 감각/운동 이상/ 경부강직(- / 一/ - )\nRAM / FTN / Romberg /Tandem g a it(-/-/—/ - )",
+    "patient_question_or_concern": "“상태가 나아질까요? ”",
+    "actor_notes_or_special_behavior": "어으\nUA.C3",
+    "raw_profile_text": "--------------\n성별/나이\n여성/ 55세\n“손이 떨려요”\n0\n1 년\nL\n양쪽 모두 떨림\nD\n잘 모르겠음\nCo\n점점 심해지는 것 같음\nEx\n1년 이전에는 안 그랬음\nC\n싸인하거나 글씨 쓸 때，밥 먹을 때 주로 떨림\n가만히 있을 때는 안 떨림\nA\n[전신] 발열/오한/체중 변화/근육통/피로/부종(- / 一/ - / 一/一/ - )\n[신경] 두통/시야장애/어지럼/구역감/구토(- / - / - / - / - >\n[파킨슨] 보행장애/안정 시떨림/말어눌함( _ / ᅳ/ᅳ)\n[내분비] 더위불내성/두근거림/설人^ᅳ/ᅳ/ _ )\n[정신] 우울/불안/수면장애( - / - / - )\nF\n-\nE\n이상^ ^\n외\n(+, 1 년 전 길 걷다가 빙판에 미끄러 넘어짐, 뇌영상검사 결과 이상 없었음)\n과\nDM/TB/HTN/고지혈증/간염 ( - / 一/ᅳ/+ /-)\n약\n고지혈증약 (+)\n사\n술/ 담배( - / - ) , 커피(+. 1잔/day), 대치동 학원강사\n가\n아버지 손 떨림 (+)\n여\n4년 전 폐경\nP/E\nGeneral\nV/S 정상\n손 떨림 양상 : 글씨 쓰기 어려움, 손 앞으로 뻗고 2〜3초 후 손 떨림\nHEENT\n갑상샘(ᅳ)，입/피부 탈수 소견(一/-)\nExtremity\n피부 긴장도• 오목 부종 정상\n뇌신경\n외상(一), 동공 반사 정상，시야장애(-), 얼굴 감각/운동 이상(ᅳ/一)\n팔다리 감각/운동 이상/ 경부강직(- / 一/ - )\nRAM / FTN / Romberg /Tandem g a it(-/-/—/ - )\n질문\n“상태가 나아질까요? ”\n특이 사항\n어으\nUA.C3"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육",
+    "likely_diagnoses": [
+      "본태성 떨림",
+      "생리적 떨림",
+      "소뇌경색"
+    ],
+    "planned_tests": [
+      "뇌 CT",
+      "뇌 MRI",
+      "신경전도검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 : 본태성 떨림. 소뇌경색 등을 감별하기 위한 뇌 CT/MRᅵ를 시행하\n기 위해 설명동의서를 받습니다.\nI도\n손 떨림은 본태성, 생리적 떨림과 함께 파킨슨 증후군, 갑상샘항진증\nq\nO",
+    "author_commentary_tail": "I도\n손 떨림은 본태성, 생리적 떨림과 함께 파킨슨 증후군, 갑상샘항진증\nq\nO\n등 여러 가지 원인에 의해 생길 수 있습니다. 이때 유념해야 할 것은\n약물이나 카페인 섭취에 따른 손 떨림은 아닌지 물어봐야 한다는 것입니다. 또한 신체 진찰에\n서 다른 항목에서와는 다른 특이적인 신체 검진 항목들이 있으므로 이런 점을 생각해 시간 분배\n에도 주의해야 합니다.\n문진 초반에 손 떨림에 대한character를 잘 정리한다면 어렵지 않게 감별할수 있습니다.\n손 떨림은 고령에서 혼히 나타나는 증상이므로 부끄럽게 생각하거나 너무 우울해하지 않아도\n된다고 격려해 주는 것도 잊지 말아이: 합니다.",
+    "scenario_card_raw": "A\n실전 모의 증례\n^■황\n지침\n• 55세 여자 손지연씨가 손이 떨려서 내원하였다.\n[활력 징후] 혈압 : 125/80mmHg\n맥박 : 70회/분\n호흡 ：\n28회/분\n체온 ：\n36.4°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 3개\n1. 본태성 떨림\n2. 생리적 떨림\n3. 소뇌경색\n• 필요한 검사 계획 3가지\n1. 뇌 CT\n2. 뇌 MRI\n3. 신경전도검사\n예상\n술기\n설명동의서 받기 : 본태성 떨림. 소뇌경색 등을 감별하기 위한 뇌 CT/MRᅵ를 시행하\n기 위해 설명동의서를 받습니다.\nI도\n손 떨림은 본태성, 생리적 떨림과 함께 파킨슨 증후군, 갑상샘항진증\nq\nO\n\n등 여러 가지 원인에 의해 생길 수 있습니다. 이때 유념해야 할 것은\n약물이나 카페인 섭취에 따른 손 떨림은 아닌지 물어봐야 한다는 것입니다. 또한 신체 진찰에\n서 다른 항목에서와는 다른 특이적인 신체 검진 항목들이 있으므로 이런 점을 생각해 시간 분배\n에도 주의해야 합니다.\n문진 초반에 손 떨림에 대한character를 잘 정리한다면 어렵지 않게 감별할수 있습니다.\n손 떨림은 고령에서 혼히 나타나는 증상이므로 부끄럽게 생각하거나 너무 우울해하지 않아도\n된다고 격려해 주는 것도 잊지 말아이: 합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

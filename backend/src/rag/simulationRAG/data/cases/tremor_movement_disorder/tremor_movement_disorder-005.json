@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "tremor_movement_disorder-005",
+  "case_number_in_pdf": 226,
+  "topic": {
+    "topic_start_page": 571,
+    "topic_id": "tremor_movement_disorder",
+    "topic_label": "떨림/운동이상",
+    "system": "정신/신경"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 583,
+      "end": 584
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이영순",
+      "age": 45,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "손이 떨려요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "70회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/45세\n^소\n“손이 떨려요”",
+    "history_blocks": {
+      "onset": "3개월 전",
+      "location": "양 손 모두 떨림/다른 곳은 정상",
+      "duration": "잘 모르겠다.",
+      "course": "1달 전부터 심해짐",
+      "experience": "처음",
+      "character": "서서히 발생함, 일상 생활이 불편, 글씨를 쓰거나 컵을 들거나 할 때 떨림\n가만히 있으면 괜찮다.",
+      "associated_symptoms": "[파킨슨병] 안정 떨림/보행장애/걸음 느려짐/말 느려짐/무표정/몸 굳음\n(ᅳ/ᅳ/ᅳ/一/一/ᅳ)\n[뇌졸중]\n말이 어눌해짐/팔다리 힘 빠짐/두통/시야장애(ᅳ/ᅳ/一/ᅳ)\n[갑상샘항진증] 더위불내성/체중 감소/피로/발한/설사(+ /-/+ /-/+ )\n[헌팅턴무도증] 춤추는 듯한떨림 (ᅳ)\n[소뇌 이상] 구음장애/균형 이상/의도 떨림 (-/-/+ )",
+      "factors": "피곤할 때, 긴장할 때 더 떨림，술을 마시면 떨림이 괜찮아진다.\n최근 커피 하루에 3〜4잔 정도 口침",
+      "medications": "종합 비타민",
+      "social_history": "술(social), 담배(一), 커피(하루에 > 4 잔)",
+      "family_history": "아버지 뇌졸중",
+      "gynecologic_history": "원래부터 불규칙함\nGeneral\n떨림 확인, ① 손을 무릎 위에 올려놓고 관찰(一)，② 팔을 앞으로 뻗은\n상태로 관찰(+ )，③ 이름 쓰게 하기. 원 그리게 하기(+)\nHEENT\n갑상샘 시진 및 촉진 ᅳ 이상 소견 없음"
+    },
+    "physical_exam_results": "소뇌검사\nRapid alternating movemen —► 정상, Heel to shin — 정상\nTandem gait/Romberg -* 정상/, nger to nose — 정상\nAbdomen\n팔다리 감각/운동검사 ᅳ 정상, DTR 및 병적 반사 확인 ᅳ 정상\n기타\n보행검사ᅳ 정상",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/45세\n^소\n“손이 떨려요”\n0\n3개월 전\nL\n양 손 모두 떨림/다른 곳은 정상\nD\n잘 모르겠다.\nCo\n1달 전부터 심해짐\nEx\n처음\nC\n서서히 발생함, 일상 생활이 불편, 글씨를 쓰거나 컵을 들거나 할 때 떨림\n가만히 있으면 괜찮다.\nA\n[파킨슨병] 안정 떨림/보행장애/걸음 느려짐/말 느려짐/무표정/몸 굳음\n(ᅳ/ᅳ/ᅳ/一/一/ᅳ)\n[뇌졸중]\n말이 어눌해짐/팔다리 힘 빠짐/두통/시야장애(ᅳ/ᅳ/一/ᅳ)\n[갑상샘항진증] 더위불내성/체중 감소/피로/발한/설사(+ /-/+ /-/+ )\n[헌팅턴무도증] 춤추는 듯한떨림 (ᅳ)\n[소뇌 이상] 구음장애/균형 이상/의도 떨림 (-/-/+ )\nF\n피곤할 때, 긴장할 때 더 떨림，술을 마시면 떨림이 괜찮아진다.\n최근 커피 하루에 3〜4잔 정도 口침\nE\n외\n과\n약\n종합 비타민\n사\n술(social), 담배(一), 커피(하루에 > 4 잔)\n가\n아버지 뇌졸중\n여\n원래부터 불규칙함\nGeneral\n떨림 확인, ① 손을 무릎 위에 올려놓고 관찰(一)，② 팔을 앞으로 뻗은\n상태로 관찰(+ )，③ 이름 쓰게 하기. 원 그리게 하기(+)\nHEENT\n갑상샘 시진 및 촉진 ᅳ 이상 소견 없음\nP/E\n소뇌검사\nRapid alternating movemen —► 정상, Heel to shin — 정상\nTandem gait/Romberg -* 정상/, nger to nose — 정상\nAbdomen\n팔다리 감각/운동검사 ᅳ 정상, DTR 및 병적 반사 확인 ᅳ 정상\n기타\n보행검사ᅳ 정상\n질문\n-\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "카페인에 의한 생리적 떨림",
+      "갑상샘항진증",
+      "본태성 떨림"
+    ],
+    "planned_tests": [
+      "갑상생기능검사",
+      "Brain MRI"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "설명동의서 받기 ：\n본태성 떨림 등을 배제 진단하기 위한 뇌 CT/MRI를 시행하기 위해\n설명동의서를 받습니다.\n손이 떨리는환자는우선 생리적인 떨림인지 병리적인 떨림인지 먼저\n감별해야합니다.\n과도한 신체 활동, 커피, 담배, 스트레스, 긴장상황에서 떨리는 것은 생리적인 현상으로 원인올\n교정해 주면 호전됩니다. 반면 병리적인 떨림은 다양한증상들이 동반될 수 있습니다.\n본증례의 환자는 커피를 많이 먹고 있으므로우선 카페인에 의한 생리적 떨림을 염두에 두어야\n합니다. 하지만 더위를 많이 타고 설사가 나는 등 갑상샘기능과다를 의심할 만한 소견이 있고,\n또 술을 미셨을 때 완화되는 것으로 보아 본태성 떨림의 가능성도 배제할수 없습니다. 신경학\n적 증상이 없는 것으로 보아 중추신경 계통의 문제는 아닌 것 같다고 환자를 안심시 키며, 필요\n한 검사를 설명하고 우선 커피를 끊어 보고 검사 결과어] 따라 치료를 진행하도록 교육합니다.",
+    "author_commentary_tail": "설명동의서 받기 ：\n본태성 떨림 등을 배제 진단하기 위한 뇌 CT/MRI를 시행하기 위해\n설명동의서를 받습니다.\n손이 떨리는환자는우선 생리적인 떨림인지 병리적인 떨림인지 먼저\n감별해야합니다.\n과도한 신체 활동, 커피, 담배, 스트레스, 긴장상황에서 떨리는 것은 생리적인 현상으로 원인올\n교정해 주면 호전됩니다. 반면 병리적인 떨림은 다양한증상들이 동반될 수 있습니다.\n본증례의 환자는 커피를 많이 먹고 있으므로우선 카페인에 의한 생리적 떨림을 염두에 두어야\n합니다. 하지만 더위를 많이 타고 설사가 나는 등 갑상샘기능과다를 의심할 만한 소견이 있고,\n또 술을 미셨을 때 완화되는 것으로 보아 본태성 떨림의 가능성도 배제할수 없습니다. 신경학\n적 증상이 없는 것으로 보아 중추신경 계통의 문제는 아닌 것 같다고 환자를 안심시 키며, 필요\n한 검사를 설명하고 우선 커피를 끊어 보고 검사 결과어] 따라 치료를 진행하도록 교육합니다.",
+    "scenario_card_raw": "D{ 실전 모의 증례\n•45세 여자 이영순씨가 손이 떨린다며 내원하였다.\ns 圓\n■\n상황\n지침\n[활력 징후] 혈압 : 120/80mmHg\n맥박 : 70회/분\n호흡 : 20회/분\n체온 ：\n36.5°C\n[응人I자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n• 가능성이 높은 진단 3개\n환자\n1. 카페인에 의한 생리적 떨림\n2. 갑상샘항진증\n3. 본태성 떨림\n교육\n• 필요한 검사 계획 2가지\n1. 갑상생기능검사\n2. Brain MRI\n예상\n술기\n설명동의서 받기 ：\n본태성 떨림 등을 배제 진단하기 위한 뇌 CT/MRI를 시행하기 위해\n설명동의서를 받습니다.\n손이 떨리는환자는우선 생리적인 떨림인지 병리적인 떨림인지 먼저\n감별해야합니다.\n과도한 신체 활동, 커피, 담배, 스트레스, 긴장상황에서 떨리는 것은 생리적인 현상으로 원인올\n교정해 주면 호전됩니다. 반면 병리적인 떨림은 다양한증상들이 동반될 수 있습니다.\n본증례의 환자는 커피를 많이 먹고 있으므로우선 카페인에 의한 생리적 떨림을 염두에 두어야\n합니다. 하지만 더위를 많이 타고 설사가 나는 등 갑상샘기능과다를 의심할 만한 소견이 있고,\n또 술을 미셨을 때 완화되는 것으로 보아 본태성 떨림의 가능성도 배제할수 없습니다. 신경학\n적 증상이 없는 것으로 보아 중추신경 계통의 문제는 아닌 것 같다고 환자를 안심시 키며, 필요\n한 검사를 설명하고 우선 커피를 끊어 보고 검사 결과어] 따라 치료를 진행하도록 교육합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

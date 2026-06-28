@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "vaccination-004",
+  "case_number_in_pdf": 269,
+  "topic": {
+    "topic_start_page": 679,
+    "topic_id": "vaccination",
+    "topic_label": "예방접종",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 693,
+      "end": 698
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": null,
+      "age": null,
+      "sex": null
+    },
+    "setting": "외래/미상",
+    "opening_statement": "인플루엔자 예방접종 하러 왔어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "36.6°C"
+    },
+    "opening_profile_text": "성별/나이\n남아/ 18개월(생년월일로 정확한 개월 수 확인)\n“인플루엔자 예방접종 하러 왔어요”\n예방접종력\n획인\n예방접종 수첩\nBCG 1 회, B형 간염 3회, DTaP 3회，폴리오 3회，Hib 4회, PCV 4회\nRotavirus 3회, MMR 1회, 수두 1 회, 일본뇌염(사백신) 2회\n성장/발달\n[성장]\n크 I 83cm. 몸무게 12kg, 성장 속도 정상\n[발달]\n운동, 적응，언어,사회적행동 모두 정상발달\n식생활 : 밥 잘 먹음\n출산력\n임신 40주, 질식분만. 출생 체중 3.5kg\n임신과 분만 과정에서 문제 없었음\n과거 병력\n소아 질환력 : 출생 후 잃았던 적 없음\n최근 1 개월 내 홍역/볼거리/수두( - / ᅳ/ - )\n최근 입원한 적(ᅳ)\n현재 앓고 있는 질환(ᅳ)\n금기사항\n확인\n① 면역결핍 질환/ 백혈병/ 암(一/ - / - )\n② 최근 경련/신경계 질환(- / 一)\n③ 최근 스테로이드/ 수혈/ 면역억제제/면역 글로불린 투여 ( - / - / - / - )\n④ 알레르기 : 젤라틴/ 네오마이신/ 달걀(- / - / - )\n⑤ 이전 예방접종 후 이상 반응(ᅳ)",
+    "history_blocks": {},
+    "physical_exam_results": "...\n;—\n.—\n\nGeneral\nV/S ：\nstable\nHEENT\n눈(ᅳ), 구강(一)，갑상샘/림프절(ᅳ/一), 피부 긴장도(一)\nAbdomen\n복부 시/촉/타/청 ( - / - / - / - )\nExtremity\nPitting edema (-)\n질문",
+    "patient_question_or_concern": "“오늘 예방접종은 하나만 하고 싶어요.”\nCPX 주제별 내용 정리\n:\n¥ 费鲁變属\ntw ：\nijlii\nML\n/K ^ A /V \\\n|\n5 pETi1 \"\nr\np\n\\\n:g\nT\nT- 1 (+$ iklrr\nf r ^\nL\ni\n상담\n음주/금연 상담\n물질 오남용\n나쁜 소식 전하기\n가정 폭력/성 폭력\n자살\nD{ 실전\n모의\n증례 S\n35세 남자 김민기씨가 금주 상담을 위해 내원하였다.\n^황\n지침\n[활력 징후] 혈압 : 124/83mmHg\n맥박 : 83회/분\n호흡 : 14회/분\n체온 ：\n36.6°C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오_\n후\n^ ^ ^ ^ 행\n가능성이 높은 진단 1개\n1. 알코올 人('용장애\n환자\n필요한 검사 계획 2가지\n1. 간기능검사\n2. 복^ 초음파\n필요한치료 계획 2가지\n1 .^ 주보조약물\n2. 상담 치료\n금주 상담 시 음주 습관에 관한 질문 분만 아니라 진단 및 치료에 대\n해서 간략히 언급하：a 신체 진찰이 있을 수 있다는 점을 항상 염두해\n두어야 합니다.\n환자가 주변 권유로 오긴 했으나 스스로 내원했기 때문에 이 점을 칭찬하고 성공할 것 같은\n좋은 예감이 든다고 확신을 심어주면 환자의 반응도 좋아질 수 있습니다.\n금주 전략과 금단증상 대처법을 다양하게 준비하여 구체적 이고 꼼꼼하게 환자에게 알려줄.수\n있도록 충분히 연습하는 것이 좋겠습니 다.\n성별/나이\n남성/ 35 세\n.\n.\n.\n二\n주소\n“술을 끊으러 왔어요”\n음주량\n1주일에 5~6번，소주 3~4병, 고등학생 때부터 음주\n^ 주의도/\n^^경험\n친구가 간경화 진단 받아 걱정되고 불안하며 아내도 지속적으로 권유함\n축농증 수술로 10일 정도 금주 경험 있으나, 사람들 만나면서 자연스럽게 다시 술\n자리를 갖게 됨\n음주이유\n일 끝나고 습관적으로 마심\nCAGE\nC : 시도한 적 있음\nA : 아내 제외하고는 문제 없음\nG ：\n비난 받은 적 없음\nE ：\n해장술 마신 적 없음\n[법적]\n[의위 음주다음 날 가게를개시하지못한적 가끔있음\n[관계] 아내제외하고는 문제 없음\n[신체]\n의존\n[금단 증상] 손떨림/불안/불면/ 메스꺼움( - / - / - / - )\n술 마시는 양이 처음보다 늘었으나 시간이 길어지지는 않음\n필름이 끊기지는 않음, 피곤하고 숙취가 심함\nRisk\n건강 악화，금전적 부담\nReward\n건강 호전, 절약\nRelevance\nA\n체중 감소/속쓰림/소화 불량/황달( - / - / - / - ) , 피로(+)\n약\n\n人 누\n흡연(+), 직업 : 건어물 가게, 스트레스(+)\n가\n\n과\n\nP/E\n...\n;—\n.—\n\nGeneral\nV/S ：\nstable\nHEENT\n눈(ᅳ), 구강(一)，갑상샘/림프절(ᅳ/一), 피부 긴장도(一)\nAbdomen\n복부 시/촉/타/청 ( - / - / - / - )\nExtremity\nPitting edema (-)\n질문",
+    "actor_notes_or_special_behavior": "반응이시큰둥함",
+    "raw_profile_text": "성별/나이\n남아/ 18개월(생년월일로 정확한 개월 수 확인)\n“인플루엔자 예방접종 하러 왔어요”\n예방접종력\n획인\n예방접종 수첩\nBCG 1 회, B형 간염 3회, DTaP 3회，폴리오 3회，Hib 4회, PCV 4회\nRotavirus 3회, MMR 1회, 수두 1 회, 일본뇌염(사백신) 2회\n성장/발달\n[성장]\n크 I 83cm. 몸무게 12kg, 성장 속도 정상\n[발달]\n운동, 적응，언어,사회적행동 모두 정상발달\n식생활 : 밥 잘 먹음\n출산력\n임신 40주, 질식분만. 출생 체중 3.5kg\n임신과 분만 과정에서 문제 없었음\n과거 병력\n소아 질환력 : 출생 후 잃았던 적 없음\n최근 1 개월 내 홍역/볼거리/수두( - / ᅳ/ - )\n최근 입원한 적(ᅳ)\n현재 앓고 있는 질환(ᅳ)\n금기사항\n확인\n① 면역결핍 질환/ 백혈병/ 암(一/ - / - )\n② 최근 경련/신경계 질환(- / 一)\n③ 최근 스테로이드/ 수혈/ 면역억제제/면역 글로불린 투여 ( - / - / - / - )\n④ 알레르기 : 젤라틴/ 네오마이신/ 달걀(- / - / - )\n⑤ 이전 예방접종 후 이상 반응(ᅳ)\n질문\n“오늘 예방접종은 하나만 하고 싶어요.”\n\nCPX 주제별 내용 정리\n:\n¥ 费鲁變属\ntw ：\nijlii\nML\n/K ^ A /V \\\n|\n5 pETi1 \"\nr\np\n\\\n:g\nT\nT- 1 (+$ iklrr\nf r ^\n\nL\ni\n상담\n음주/금연 상담\n물질 오남용\n나쁜 소식 전하기\n가정 폭력/성 폭력\n자살\n\nD{ 실전\n모의\n증례 S\n• 35세 남자 김민기씨가 금주 상담을 위해 내원하였다.\n^황\n지침\n[활력 징후] 혈압 : 124/83mmHg\n맥박 : 83회/분\n호흡 : 14회/분\n체온 ：\n36.6°C\n[응시자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오_\n후\n^ ^ ^ ^ 행\n• 가능성이 높은 진단 1개\n1. 알코올 人('용장애\n환자\n• 필요한 검사 계획 2가지\n1. 간기능검사\n2. 복^ 초음파\n• 필요한치료 계획 2가지\n1 .^ 주보조약물\n2. 상담 치료\n금주 상담 시 음주 습관에 관한 질문 분만 아니라 진단 및 치료에 대\n해서 간략히 언급하：a 신체 진찰이 있을 수 있다는 점을 항상 염두해\n두어야 합니다.\n환자가 주변 권유로 오긴 했으나 스스로 내원했기 때문에 이 점을 칭찬하고 성공할 것 같은\n좋은 예감이 든다고 확신을 심어주면 환자의 반응도 좋아질 수 있습니다.\n금주 전략과 금단증상 대처법을 다양하게 준비하여 구체적 이고 꼼꼼하게 환자에게 알려줄.수\n있도록 충분히 연습하는 것이 좋겠습니 다.\n\n성별/나이\n남성/ 35 세\n.\n.\n.\n二\n주소\n“술을 끊으러 왔어요”\n음주량\n1주일에 5~6번，소주 3~4병, 고등학생 때부터 음주\n^ 주의도/\n^^경험\n친구가 간경화 진단 받아 걱정되고 불안하며 아내도 지속적으로 권유함\n축농증 수술로 10일 정도 금주 경험 있으나, 사람들 만나면서 자연스럽게 다시 술\n자리를 갖게 됨\n음주이유\n일 끝나고 습관적으로 마심\nCAGE\nC : 시도한 적 있음\nA : 아내 제외하고는 문제 없음\nG ：\n비난 받은 적 없음\nE ：\n해장술 마신 적 없음\n[법적] -\n[의위 음주다음 날 가게를개시하지못한적 가끔있음\n[관계] 아내제외하고는 문제 없음\n[신체] -\n의존\n[금단 증상] 손떨림/불안/불면/ 메스꺼움( - / - / - / - )\n술 마시는 양이 처음보다 늘었으나 시간이 길어지지는 않음\n필름이 끊기지는 않음, 피곤하고 숙취가 심함\nRisk\n건강 악화，금전적 부담\nReward\n건강 호전, 절약\nRelevance\nA\n체중 감소/속쓰림/소화 불량/황달( - / - / - / - ) , 피로(+)\n약\n-\n人 누\n흡연(+), 직업 : 건어물 가게, 스트레스(+)\n가\n-\n과\n-\nP/E\n...\n;—\n.—\n----------\nGeneral\nV/S ：\nstable\nHEENT\n눈(ᅳ), 구강(一)，갑상샘/림프절(ᅳ/一), 피부 긴장도(一)\nAbdomen\n복부 시/촉/타/청 ( - / - / - / - )\nExtremity\nPitting edema (-)\n질문\n-\n특이사항\n반응이시큰둥함"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n예방접종 계획에 대해 횐아 보호자와 논의하시오*\n'■> ■ '싸' . . 4 베으\n교육\n오늘 맞을 수 있는 예방접종 2가지\n1. 인플루엔자\n2. DTaP\n예방접종 후이상반응 4가지\n1. 통증\n2. 발적\n3. 발열\n4. 과민성\n필요한 교육사항 3가지\n1. 접종 후 무리한 운동，여행 피하고 안정\n2. 접종 후 30분간 병원에서 주의깊게 관찰\n3. 예방접종 당일에는 주사 부위 피부 감염 주의\n18개월 건강한 남아로 정기적으로 예방접종을 해 왔습니다. 따라서\n6개월 이후 접종 가능한 인플루엔자와 15~18개월에 접종해야 하는\nDTaP를 접종할 수 있습니다.\n둘 다 사백신이므로 동시 접종이 가능하며, 접종 후 주의사항과 특수 상황에서의 예방접종 계획\n에 대해 환아 보호자에게 교육이 필요합니다.",
+    "likely_diagnoses": [],
+    "planned_tests": [],
+    "planned_treatments_or_education": [
+      "접종 후 무리한 운동，여행 피하고 안정",
+      "접종 후 30분간 병원에서 주의깊게 관찰",
+      "예방접종 당일에는 주사 부위 피부 감염 주의",
+      "개월 건강한 남아로 정기적으로 예방접종을 해 왔습니다. 따라서",
+      "개월 이후 접종 가능한 인플루엔자와 15~18개월에 접종해야 하는"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "^\n실전 모의 증례\n지침\n• 18개월 남아가 예방접종을 위해 내원하였다.\n[활력 징후] 혈압 : 120/80mmHg\n맥박 : 80회/분\n호흡 : 20회/분\n체온 ：\n36.6°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n예방접종 계획에 대해 횐아 보호자와 논의하시오*\n'■> ■ '싸' . . 4 베으\n교육\n• 오늘 맞을 수 있는 예방접종 2가지\n1. 인플루엔자\n2. DTaP\n•예방접종 후이상반응 4가지\n1. 통증\n2. 발적\n3. 발열\n4. 과민성\n•필요한 교육사항 3가지\n1. 접종 후 무리한 운동，여행 피하고 안정\n2. 접종 후 30분간 병원에서 주의깊게 관찰\n3. 예방접종 당일에는 주사 부위 피부 감염 주의\n18개월 건강한 남아로 정기적으로 예방접종을 해 왔습니다. 따라서\n6개월 이후 접종 가능한 인플루엔자와 15~18개월에 접종해야 하는\nDTaP를 접종할 수 있습니다.\n둘 다 사백신이므로 동시 접종이 가능하며, 접종 후 주의사항과 특수 상황에서의 예방접종 계획\n에 대해 환아 보호자에게 교육이 필요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [
+      "patient_name_not_confidently_parsed",
+      "structured_history_labels_not_detected"
+    ],
+    "requires_manual_review": true
+  }
+}

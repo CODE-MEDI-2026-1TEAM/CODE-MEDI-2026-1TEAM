@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "voiding_dysfunction-001",
+  "case_number_in_pdf": 121,
+  "topic": {
+    "topic_start_page": 301,
+    "topic_id": "voiding_dysfunction",
+    "topic_label": "배뇨 이상",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 301,
+      "end": 302
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이준호",
+      "age": 34,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였으므",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "126/80mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "17회/분",
+      "temperature": "35.50C"
+    },
+    "opening_profile_text": "성별/나이\n남성/ 34세\n:\n“소변 볼 때 통증이 있어요”",
+    "history_blocks": {
+      "onset": "2~3일 전",
+      "location": "소변 볼 때 요도 끝이 타는 것 같은 느낌",
+      "duration": "하루에 5~6번 소변 보는데 매번 통증 있고, 평소에도 항상 0!픔",
+      "course": "비슷",
+      "experience": "처음",
+      "character": "양/색/피/거품( - / - / - / - ) , 일상 생활 불편(+)\nNRS 아침 첫 소변 6~7，그 뒤로는 5~6, 타는 것 같은 통증",
+      "associated_symptoms": "[전신]\n복통/옆구리 통증( - / - )\n[신장/ 비뇨]\nF/U/N/D( - / —/—/+), H/l/R/S(-/- / —/•ᅳ)\n[기타]\n외성기 : 분비물(+，육안으론 안 보이지만 팬티에 묻어 있음)\n소변 볼 때 분비물이 나오진 않음, 외음부 끝 약간 간질간질한 느낌 (+)",
+      "factors": "물 적당히 먹음(2L), 소변 자주 참지 않음, 사우나/과음/심한 운동(ᅳ/ - / - )",
+      "past_history": "5일 전 소개팅 앱에서 처음 만난 낯선 여자와 콘돔 없이 성관계 했음\n성관계 상대와 현재 연락되지 않고 당시에 상대가 호소하는 증상은 없음\n현재 상대 상태는 잘 모르는데, 연락은 해 볼 예정",
+      "medications": "리륨/조영제/이뇨제 ( - / - / - )\n人^\n흡연H , 음주(주 2〜3회, 소주 1 병 ), 커피 (+), 스트레스(+)\n직업 : 전자제품 영업직. 운동(3회/주)",
+      "family_history": "아버지 : HTN, BPH 약물 복용 중"
+    },
+    "physical_exam_results": "General\nV/S : stable\nHEENT\n눈(-), 구강H , 갑상샘/ 림프절(-/-). 피부 긴장도/부종(- / - )\nAbdomen\nSuprapubic Td/rTd(-/-), CVAT(—), DRE 정상\n복부 시/청/타/촉( - / - / - / 一)，신동맥 잡음(一)\nExtermity\n외성기 진찰 : 카드 제공(분비물은 흰색 고름, 서혜부 림프절에서 만져\n지는 덩이는 없으며，궤양도 관찰되지 않음), Pitting edema(-)\nrh\n9?tx\nF :",
+    "patient_question_or_concern": "I 이사^\n“혹시 AIDS는 아닌가요? ”",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n남성/ 34세\n:\n“소변 볼 때 통증이 있어요”\n0\n2~3일 전\nL\n소변 볼 때 요도 끝이 타는 것 같은 느낌\nD\n하루에 5~6번 소변 보는데 매번 통증 있고, 평소에도 항상 0!픔\nCo\n비슷\nEx\n처음\nC\n양/색/피/거품( - / - / - / - ) , 일상 생활 불편(+)\nNRS 아침 첫 소변 6~7，그 뒤로는 5~6, 타는 것 같은 통증\nA\n[전신]\n복통/옆구리 통증( - / - )\n[신장/ 비뇨]\nF/U/N/D( - / —/—/+), H/l/R/S(-/- / —/•ᅳ)\n[기타]\n외성기 : 분비물(+，육안으론 안 보이지만 팬티에 묻어 있음)\n소변 볼 때 분비물이 나오진 않음, 외음부 끝 약간 간질간질한 느낌 (+)\nF\n물 적당히 먹음(2L), 소변 자주 참지 않음, 사우나/과음/심한 운동(ᅳ/ - / - )\nE\n-\n외\n-\n과\n5일 전 소개팅 앱에서 처음 만난 낯선 여자와 콘돔 없이 성관계 했음\n성관계 상대와 현재 연락되지 않고 당시에 상대가 호소하는 증상은 없음\n현재 상대 상태는 잘 모르는데, 연락은 해 볼 예정\n약\n리륨/조영제/이뇨제 ( - / - / - )\n人^\n흡연H , 음주(주 2〜3회, 소주 1 병 ), 커피 (+), 스트레스(+)\n직업 : 전자제품 영업직. 운동(3회/주)\n가\n아버지 : HTN, BPH 약물 복용 중\nP/E\nGeneral\nV/S : stable\nHEENT\n눈(-), 구강H , 갑상샘/ 림프절(-/-). 피부 긴장도/부종(- / - )\nAbdomen\nSuprapubic Td/rTd(-/-), CVAT(—), DRE 정상\n복부 시/청/타/촉( - / - / - / 一)，신동맥 잡음(一)\nExtermity\n외성기 진찰 : 카드 제공(분비물은 흰색 고름, 서혜부 림프절에서 만져\n지는 덩이는 없으며，궤양도 관찰되지 않음), Pitting edema(-)\nrh\n9?tx\nF :\n질문\nI 이사^\n“혹시 AIDS는 아닌가요? ”"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "클라미디아 요도염",
+      "임균성 요도염"
+    ],
+    "planned_tests": [
+      "분u ᅵ물검사",
+      "소변검사 및 배양검사"
+    ],
+    "planned_treatments_or_education": [
+      "안심시키7 ᅵ",
+      "항생제 등 약물 치료",
+      "치료가 끝나기 전까지 당분간 성관계 자제"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "19\n배뇨 이상(Paruria)\n隊 실전 모의 증례 £\n^•황\n지침\n• 34세 남자 이준호씨가 소변 볼 때 통증이 있어 내원하였다.\n[활력 징휘 혈압 : 126/80mmHg\n맥박 : 80회/분\n호흡 : 17회/분\n체온 : 35.50C\n[응시:다는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후，\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오\n교육\n• 가능성이 높은 진단 2개\n1. 클라미디아 요도염\n2. 임균성 요도염\n• 필요한 검사 계획 2가지\n1. 분u ᅵ물검사\n2. 소변검사 및 배양검사\n• 필요한 치료 계획 3가지\n1. 안심시키7 ᅵ\n및 생활 습관 교육눈요 콘돔 人I용, 파트너에게 연락하71 등)\n2. 항생제 등 약물 치료\n3. 치료가 끝나기 전까지 당분간 성관계 자제\n배뇨 이상이라는증상이 다소 주관적이기 때문에 배뇨통이 있는 것인\n지, 빈뇨가 있는 것인지 명확하게 물어 보아야 추정 진단을 생각하는\n데 유리합니다. 배뇨통이 있다면 감염에 의한 경우와 요로 폐쇄에 의한 경우로 다시 나눠서 생\n각해 볼수 있겠습니다.\n본 증례는 젊은 남성이 위험한 성관계 후 발생한 배뇨통과 흰색 분비물을 주소로 내원하였으므\n로 어렵지 않게 진단을 내릴 수 있습니다. 따라서 요도 시진이 필수적인 신체 진찰이 되겠습니\n다. 환자에게는 성매개 질환을 예방할 수 있는 방안과 피임에 대해 교육하는 것이 중요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
