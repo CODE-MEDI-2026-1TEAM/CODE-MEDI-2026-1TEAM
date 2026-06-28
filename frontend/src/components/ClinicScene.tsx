@@ -3,13 +3,14 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useEffect, useMemo, useRef } from 'react';
 import { CanvasTexture } from 'three';
 import type { Group, Mesh, Object3D } from 'three';
-import { ACTIVE_CASE, PATIENT_CASES, resolveCaseModel } from '../patientModels';
-import type { CaseModel, ModelPlacement } from '../patientModels';
+import { ACTIVE_CASE, PATIENT_CASES, PATIENT_MODELS, resolveCaseModel } from '../patientModels';
+import type { CaseKey, CaseModel, ModelPlacement } from '../patientModels';
 import { FURNITURE_MODELS } from '../furnitureModels';
 
 type ClinicSceneProps = {
   isPatientSpeaking: boolean;
   patientReply: string;
+  patientCaseKey?: CaseKey;
   showPatientBubble?: boolean;
 };
 
@@ -17,14 +18,12 @@ type ClinicSceneProps = {
 // Move the desk → the vital screen follows automatically.
 const DESK_POSITION = FURNITURE_MODELS.Desk.position;
 const DESK_SCALE = FURNITURE_MODELS.Desk.scale;
-const ACTIVE_CASE_MODELS = PATIENT_CASES[ACTIVE_CASE].models as CaseModel[];
 
 // Preload all models
 useGLTF.preload(FURNITURE_MODELS.Desk.path);
 useGLTF.preload(FURNITURE_MODELS.Chair.path);
 useGLTF.preload(FURNITURE_MODELS.Door.path);
-// 활성 케이스의 모든 모델(소아면 보호자+소아 둘 다) 미리 로드.
-ACTIVE_CASE_MODELS.forEach((cm) => useGLTF.preload(resolveCaseModel(cm).path));
+Object.values(PATIENT_MODELS).forEach((model) => useGLTF.preload(model.path));
 
 function enableShadows(scene: Object3D) {
   scene.traverse((child) => {
@@ -38,6 +37,7 @@ function enableShadows(scene: Object3D) {
 export default function ClinicScene({
   isPatientSpeaking,
   patientReply,
+  patientCaseKey = ACTIVE_CASE,
   showPatientBubble = true,
 }: ClinicSceneProps) {
   return (
@@ -61,6 +61,7 @@ export default function ClinicScene({
         <ClinicRoom
           isPatientSpeaking={isPatientSpeaking}
           patientReply={patientReply}
+          patientCaseKey={patientCaseKey}
           showPatientBubble={showPatientBubble}
         />
         <Environment files="/hdri/lebombo_1k.hdr" />
@@ -79,6 +80,7 @@ export default function ClinicScene({
 function ClinicRoom({
   isPatientSpeaking,
   patientReply,
+  patientCaseKey = ACTIVE_CASE,
   showPatientBubble = true,
 }: ClinicSceneProps) {
   // Shared ref: the chair acts as an occluder mask for the monitor screen.
@@ -91,6 +93,7 @@ function ClinicRoom({
       <PatientSeat
         isPatientSpeaking={isPatientSpeaking}
         patientReply={patientReply}
+        patientCaseKey={patientCaseKey}
         showPatientBubble={showPatientBubble}
         chairRef={chairRef}
       />
@@ -199,10 +202,12 @@ function ModelDoor() {
 function PatientSeat({
   isPatientSpeaking,
   patientReply,
+  patientCaseKey = ACTIVE_CASE,
   showPatientBubble = true,
   chairRef,
 }: ClinicSceneProps & { chairRef: React.RefObject<Group | null> }) {
   const patientRef = useRef<Group>(null);
+  const patientCaseModels = PATIENT_CASES[patientCaseKey].models as CaseModel[];
 
   useFrame(({ clock }) => {
     if (!patientRef.current) return;
@@ -226,7 +231,7 @@ function PatientSeat({
         <meshStandardMaterial color="#8a6858" roughness={0.88} />
       </mesh>
       <ModelChair chairRef={chairRef} />
-      {ACTIVE_CASE_MODELS.map((cm, i) => {
+      {patientCaseModels.map((cm, i) => {
         const placement = resolveCaseModel(cm);
         // 보호자(guardian)는 가만히 앉아 있고, 환자 본인(patient)만 말하기 애니메이션 + 말풍선.
         if (cm.role === 'guardian') {
