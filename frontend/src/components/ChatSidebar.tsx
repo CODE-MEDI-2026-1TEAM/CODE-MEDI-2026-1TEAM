@@ -53,6 +53,7 @@ export default function ChatSidebar({
   }, [session?.messages, isLoading]);
 
   const profile = activeCase?.patientProfile;
+  const chatPatientLabel = profile?.age == null ? '보호자' : '환자';
   const displayAge = profile?.age
     ? `${profile.age}세`
     : (profile?.ageRaw ?? '-');

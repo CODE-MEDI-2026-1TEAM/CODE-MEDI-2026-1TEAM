@@ -655,6 +655,7 @@ h1 {
 .evaluation-summary-card,
 .evaluation-domain-card,
 .evaluation-hygiene-card,
+.evaluation-physical-card,
 .evaluation-priority-card {
   min-width: 0;
   padding: 18px;
@@ -670,6 +671,7 @@ h1 {
 .evaluation-summary-card span,
 .evaluation-domain-heading span,
 .evaluation-hygiene-card span,
+.evaluation-physical-card > div:first-child span,
 .evaluation-priority-card span,
 .evaluation-metric-card span {
   @apply text-label-05;
@@ -724,6 +726,79 @@ h1 {
 }
 .evaluation-hygiene-card {
   grid-column: 1 / -1;
+}
+.evaluation-physical-card {
+  grid-column: 1 / -1;
+}
+.evaluation-physical-card h3 {
+  @apply text-subtitle-04;
+
+  margin: 4px 0 0;
+  color: #17242a;
+}
+.evaluation-physical-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.evaluation-physical-group {
+  min-width: 0;
+  padding: 12px;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-radius: 8px;
+}
+.evaluation-physical-group > strong {
+  @apply text-label-03;
+
+  display: block;
+  margin-bottom: 10px;
+  color: #23695a;
+}
+.evaluation-physical-group ul {
+  display: grid;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.evaluation-physical-group li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: center;
+}
+.evaluation-physical-group li span,
+.evaluation-physical-group li em {
+  @apply text-label-05;
+}
+.evaluation-physical-group li span {
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  color: #0f5b4e;
+  background: #e2f4ed;
+  border-radius: 999px;
+}
+.evaluation-physical-group li.missing span {
+  color: #7a8790;
+  background: #e1e8eb;
+}
+.evaluation-physical-group li.abnormal span {
+  color: #9a3412;
+  background: #fed7aa;
+}
+.evaluation-physical-group li p {
+  @apply text-body-03;
+
+  margin: 0;
+  color: #43545b;
+}
+.evaluation-physical-group li em {
+  font-style: normal;
+  color: #617178;
 }
 .evaluation-hygiene-card ul {
   display: flex;
@@ -1233,6 +1308,76 @@ h1 {
   border: 1px solid #d6e0e5;
   border-radius: 6px;
 }
+.physical-exam-card {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  padding: 12px;
+  background: #f7fafb;
+  border: 1px solid #dce5e7;
+  border-left: 4px solid #23695a;
+  border-radius: 8px;
+}
+.physical-exam-card.abnormal {
+  border-left-color: #c2410c;
+  background: #fff7ed;
+}
+.physical-exam-card.unavailable {
+  border-left-color: #7a8790;
+  background: #f3f6f7;
+}
+.physical-exam-card > div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+.physical-exam-card > div span {
+  @apply text-label-05;
+
+  color: #617178;
+}
+.physical-exam-card strong {
+  @apply text-subtitle-04;
+
+  color: #17242a;
+}
+.physical-exam-card p {
+  @apply text-body-02;
+
+  margin: 0;
+  color: #43545b;
+}
+.physical-exam-card footer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+.physical-exam-card footer em {
+  @apply text-label-05;
+
+  min-width: 52px;
+  padding: 4px 8px;
+  font-style: normal;
+  color: #0f5b4e;
+  text-align: center;
+  background: #e2f4ed;
+  border-radius: 999px;
+}
+.physical-exam-card.abnormal footer em {
+  color: #9a3412;
+  background: #fed7aa;
+}
+.physical-exam-card.unavailable footer em {
+  color: #46545c;
+  background: #e1e8eb;
+}
+.physical-exam-card footer span {
+  @apply text-label-05;
+
+  color: #617178;
+}
 .pending p {
   @apply text-neutral-200;
 
@@ -1405,6 +1550,9 @@ h1 {
     height: 118px;
   }
   .evaluation-metric-grid {
+    grid-template-columns: 1fr;
+  }
+  .evaluation-physical-groups {
     grid-template-columns: 1fr;
   }
   .evaluation-domain-heading {

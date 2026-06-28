@@ -255,7 +255,6 @@ export default function App() {
               ? crypto.randomUUID()
               : `hand-hygiene-${Date.now()}`,
           content: `${data.handHygieneEvent.label}을 하였습니다. 총 ${data.handHygieneCount}회`,
-          content: `${data.handHygieneEvent.label}을 하였습니다. 총 ${data.handHygieneCount}회`,
           createdAt: new Date().toISOString(),
         },
       ]);
