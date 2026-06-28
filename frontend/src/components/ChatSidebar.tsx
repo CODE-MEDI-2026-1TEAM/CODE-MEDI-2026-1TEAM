@@ -51,7 +51,6 @@ export default function ChatSidebar({
           <div><dt>성별</dt><dd>{profile?.sex ?? '-'}</dd></div>
           <div><dt>직업</dt><dd>{profile?.occupation ?? '-'}</dd></div>
           {profile?.respondent ? <div><dt>응답자</dt><dd>{profile.respondent}</dd></div> : null}
-          <div className="full-width"><dt>내원 이유</dt><dd>{activeCase?.chiefComplaint ?? '-'}</dd></div>
         </dl>
       </header>
 
