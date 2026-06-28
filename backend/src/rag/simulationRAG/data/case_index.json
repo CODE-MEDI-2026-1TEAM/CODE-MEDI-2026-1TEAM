@@ -19,7 +19,7 @@
     "patient_name": "송창희",
     "age": 47,
     "sex": "남성",
-    "opening_statement": "경련을 했대요.",
+    "opening_statement": "경련 증상으로 왔습니다.",
     "setting": "응급실",
     "requires_manual_review": false
   },
@@ -43,7 +43,7 @@
     "patient_name": "홍진호",
     "age": 35,
     "sex": "남성",
-    "opening_statement": "제가 경련을 했대요.",
+    "opening_statement": "경련 증상으로 왔습니다.",
     "setting": "외래",
     "requires_manual_review": false
   },
