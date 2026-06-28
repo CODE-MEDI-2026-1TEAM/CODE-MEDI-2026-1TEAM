@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "prenatal_care-007",
+  "case_number_in_pdf": 258,
+  "topic": {
+    "topic_start_page": 649,
+    "topic_id": "prenatal_care",
+    "topic_label": "산전 진찰",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 661,
+      "end": 664
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이경아",
+      "age": 34,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "산전 진찰을 받으러 왔어요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "170/100mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": "20회/분",
+      "temperature": "38.5°C"
+    },
+    "opening_profile_text": "성별/나이\n여성/ 34세\n“산전 진찰을 받으러 왔어요”",
+    "history_blocks": {
+      "duration": "~",
+      "character": "LMP ：\n34주 전, 평소 생리 규칙적, 이전까지 산전 진찰 정기적으로 받아 왔음\n2주 전 진찰에서 아이가 잘 안 크고 있다는 이야기를 들어 걱정됨\n[출산력] 0ᅳ0ᅳ0ᅳ0• 계획된 임신",
+      "associated_symptoms": "[소화기]\nN /V (-/-). 복통(一>, 임신 초기 입덧(+)\n[비뇨기]\nF /U /N /D (-/-/-/-), 혈뇨(一), 소변량 변화(-)\n[신경계] 두통(+，2주 전) , 시야장애(一)\n[부인과] 질출혈/질분비물/양수 흐름(一/一/ - ), 태동 감소(+)",
+      "events": "유전질환(ᅳ). 선천 기형(一)",
+      "trauma_history": "부인과 시술(- )",
+      "past_history": "DM/TB/HTN/간염 (一/ - / - / - )",
+      "medications": "철분제 (+)",
+      "social_history": "술/담배/커피 (一/一/ - )",
+      "family_history": "어머니 고혈압(+)",
+      "gynecologic_history": "임신 전 예방접종(+). 성생활(-)\nGeneral\nV/S 확인\nHEENT\n안저검사(-), 시야검사(-), 갑상샘검사(-)\nChest"
+    },
+    "physical_exam_results": "Abdomen\n복부 시/청/타/촉(- / - / - / - >\nCVATd(-)\n골반 내진 : 경부개대(一), 소실(30%), 양수(一)，출혈(ᅳ). DRE(-)\nExtremity\n부종 (+)",
+    "patient_question_or_concern": "“아기는괜찮을까요? ”\n특이시항\n\no\n[ 실전모의증례\n32세 여자 임미현씨가 산전 진찰을 위해 내원하였다.\n지침\nk : i ^ s\n[활력 징휘 혈압 : 120/80m m H g\n맥박 : 80회/분\n호音 : 20호1/분\n체온 : 36. r c\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n가능성이 높은 진단 3개\n1. 정상 임신\n2. 절박유산\n3. 자궁 외 임신\n필요한 검사 계획 2가지\n1■\n질초음파\n2. 소변 hCG 검사\n필요한 치료 계획 2가지\n1. 안정 및 경과관찰\n2. 엽산제제 복용\n필요한 교육 사항 2가지\n1. 절대 안정하며 경과 관찰할 것을 설명\n2. 다음 산전 진찰 계획에 대해 교육\n예상\n술기\n1. 산부인과 진찰(자궁경부펴바름검人F) ：\n질출혈이 있기 때문에 자궁경부펴바름검사\n를 시행해 봅니다.\n2. 항문직장검사 : 질줄혈이 있기 때문에 항문직장검사를 시행해 봅니다.\n상담 파트와 유사하게 환자와의 rapport가 중요한 항목으로 환자의 정\n( 3 ᄅ^\n^\n^\n^\n상 임신 가능성과 더불어 발생할 수 있는 유산 가능성에 대해 명확히\n설명해야 하나 환자가 놀라지 않도록 부드럽게 표현해야 합니다.\n산전 진찰 항목에서는 정상 임신과유산 외에도 임신 중 발생할수 있는 여러 질환들에 대해 출\n제가 가능하기 때문에 임신 중 산모에게 발생할 수 있는 특이적 질환들과 위험 사항에 대해서도\n숙지하고있어야 합니다.\n,\n성별/나이\n여성/ 32세\n“산전 진찰이 있어 왔어요”\n0\n소변검사 키트(+), 6주 전\nL\n\nD\nᅳ\nCo\n\nEx\n\nC\n[예방접종력]\n예방접종 다 받았는지 (+)\n산모의 혈액형 : Rh+ A형\nA\n질분비물/질출혈(통증, 양, 색깔) (-/+. 통증 없음, 오늘 아침 휴지 묻는 정도 선홍색)\n메스꺼움/구토/속쓰림 ( - / - / - )\n[전자간증]\n어지럼증/두통/호흡곤란/거품뇨/시야장애(- / - / - / - / - >\n[임신성 당뇨]\n갈증/ 다음/다뇨/부종( - / - / - / - )\n상복부 통증(점점 더 심해지는지. 주기적으로 아픈자 어디가 아픈지) (-)\nF\n\nE\n\n외\n\n과\n기형아 분만한 적/선천성 기형이 있는지(ᅳ/ - )\n이전 산전 진찰 받은 적(얼마나 자주, 빠뜨렸다면 이유) H , 자궁경부검사(+. 전 출산 시)\n피임 여부(경구피임약, 자궁 내 장치 >(-)\n약\n철분 (一). 엽산 제제 (+). 현재 복용 중인 약 (一>\n사\n가정주부, 외국여행/애완동물/어린 아이를 돌보는 지 (一/-/+, 첫째). 술 (->, 담배 (-)\n가\n유3 ^\n7 축력 (-)\n여\n[월경력]\n평소 월경 규칙적/주기 : 28~30일/기간 ：\n7일/월경량 : 보통/생리통H\n[산과력]\n결혼 여부(+). 원하는 임신 (+>, 1-0-0-1\n[주산기력]\n이전 임신 시 산모 질환(ᅳ>, 이전 출산과 관련된 문제 여부(ᅳ)\nP/E\n신장과 체중을 측정 158cm. 42kg, 갑상샘검사(-). 유방 멍울, 젖꼭지(-)\n복부 시/ 청/타/촉( - / - / - / - ) . 레오폴드 수기(->. 골반 내진검사(-)\n질경검사(ᅳ), DRE(-). 하지 부종(一)\n질문",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 34세\n“산전 진찰을 받으러 왔어요”\n0\n-\nL\n-\nD\n~\nCo\n-\nEx\n-\nC\nLMP ：\n34주 전, 평소 생리 규칙적, 이전까지 산전 진찰 정기적으로 받아 왔음\n2주 전 진찰에서 아이가 잘 안 크고 있다는 이야기를 들어 걱정됨\n[출산력] 0ᅳ0ᅳ0ᅳ0• 계획된 임신\nA\n[소화기]\nN /V (-/-). 복통(一>, 임신 초기 입덧(+)\n[비뇨기]\nF /U /N /D (-/-/-/-), 혈뇨(一), 소변량 변화(-)\n[신경계] 두통(+，2주 전) , 시야장애(一)\n[부인과] 질출혈/질분비물/양수 흐름(一/一/ - ), 태동 감소(+)\nF\n-\nE\n유전질환(ᅳ). 선천 기형(一)\n외\n부인과 시술(- )\n과\nDM/TB/HTN/간염 (一/ - / - / - )\n약\n철분제 (+)\n사\n술/담배/커피 (一/一/ - )\n가\n어머니 고혈압(+)\n여\n임신 전 예방접종(+). 성생활(-)\nGeneral\nV/S 확인\nHEENT\n안저검사(-), 시야검사(-), 갑상샘검사(-)\nChest\n-\nP/E\nAbdomen\n복부 시/청/타/촉(- / - / - / - >\nCVATd(-)\n골반 내진 : 경부개대(一), 소실(30%), 양수(一)，출혈(ᅳ). DRE(-)\nExtremity\n부종 (+)\n질문\n“아기는괜찮을까요? ”\n특이시항\n-\n\no\n[ 실전모의증례\n• 32세 여자 임미현씨가 산전 진찰을 위해 내원하였다.\n지침\nk : i ^ s\n[활력 징휘 혈압 : 120/80m m H g\n맥박 : 80회/분\n호音 : 20호1/분\n체온 : 36. r c\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n• 가능성이 높은 진단 3개\n1. 정상 임신\n2. 절박유산\n3. 자궁 외 임신\n• 필요한 검사 계획 2가지\n1■\n질초음파\n2. 소변 hCG 검사\n• 필요한 치료 계획 2가지\n1. 안정 및 경과관찰\n2. 엽산제제 복용\n• 필요한 교육 사항 2가지\n1. 절대 안정하며 경과 관찰할 것을 설명\n2. 다음 산전 진찰 계획에 대해 교육\n예상\n술기\n1. 산부인과 진찰(자궁경부펴바름검人F) ：\n질출혈이 있기 때문에 자궁경부펴바름검사\n를 시행해 봅니다.\n2. 항문직장검사 : 질줄혈이 있기 때문에 항문직장검사를 시행해 봅니다.\n상담 파트와 유사하게 환자와의 rapport가 중요한 항목으로 환자의 정\n( 3 ᄅ^\n^\n^\n^\n상 임신 가능성과 더불어 발생할 수 있는 유산 가능성에 대해 명확히\n설명해야 하나 환자가 놀라지 않도록 부드럽게 표현해야 합니다.\n산전 진찰 항목에서는 정상 임신과유산 외에도 임신 중 발생할수 있는 여러 질환들에 대해 출\n제가 가능하기 때문에 임신 중 산모에게 발생할 수 있는 특이적 질환들과 위험 사항에 대해서도\n숙지하고있어야 합니다.\n,\n\n성별/나이\n여성/ 32세\n“산전 진찰이 있어 왔어요”\n0\n소변검사 키트(+), 6주 전\nL\n-\nD\nᅳ\nCo\n-\nEx\n-\nC\n[예방접종력]\n예방접종 다 받았는지 (+)\n산모의 혈액형 : Rh+ A형\nA\n질분비물/질출혈(통증, 양, 색깔) (-/+. 통증 없음, 오늘 아침 휴지 묻는 정도 선홍색)\n메스꺼움/구토/속쓰림 ( - / - / - )\n[전자간증]\n어지럼증/두통/호흡곤란/거품뇨/시야장애(- / - / - / - / - >\n[임신성 당뇨]\n갈증/ 다음/다뇨/부종( - / - / - / - )\n상복부 통증(점점 더 심해지는지. 주기적으로 아픈자 어디가 아픈지) (-)\nF\n-\nE\n-\n외\n-\n과\n기형아 분만한 적/선천성 기형이 있는지(ᅳ/ - )\n이전 산전 진찰 받은 적(얼마나 자주, 빠뜨렸다면 이유) H , 자궁경부검사(+. 전 출산 시)\n피임 여부(경구피임약, 자궁 내 장치 >(-)\n약\n철분 (一). 엽산 제제 (+). 현재 복용 중인 약 (一>\n사\n가정주부, 외국여행/애완동물/어린 아이를 돌보는 지 (一/-/+, 첫째). 술 (->, 담배 (-)\n가\n유3 ^\n7 축력 (-)\n여\n[월경력]\n평소 월경 규칙적/주기 : 28~30일/기간 ：\n7일/월경량 : 보통/생리통H\n[산과력]\n결혼 여부(+). 원하는 임신 (+>, 1-0-0-1\n[주산기력]\n이전 임신 시 산모 질환(ᅳ>, 이전 출산과 관련된 문제 여부(ᅳ)\nP/E\n신장과 체중을 측정 158cm. 42kg, 갑상샘검사(-). 유방 멍울, 젖꼭지(-)\n복부 시/ 청/타/촉( - / - / - / - ) . 레오폴드 수기(->. 골반 내진검사(-)\n질경검사(ᅳ), DRE(-). 하지 부종(一)\n질문\n-\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자",
+    "likely_diagnoses": [
+      "전자간증",
+      "임신성 고혈압"
+    ],
+    "planned_tests": [
+      "소변단백질검사",
+      "질초음파",
+      "혈액검사(pit Hct)"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": null,
+    "author_commentary_tail": "2. 산부인과 진찰(자궁경부펴바름검人卜) ：\n산전 진찰로 자궁경부펴바름검사를 시행해\n봅니다.\n상기 환자는 혈압이 매우 높은 상태로 제시문을 읽고 전자간증을 첫번\n째 impression으로 잡을 수 있습니다.\n임신 초기의 산모일 경우에는 레오폴드 모형을 착용하지 않고 있을 수 있지만, 후기 산모라면\n모형을 착용하고 있을 가능성이 높으므로 모형 위에 복부 진찰을 시행하면 됩 니다.",
+    "scenario_card_raw": "a\n{ 실전 모의 증례\n• 34세 여자 이경아씨가 산전 진찰을 받으러 내원하였다.\n^■황\n지침\n[활력 징후] 혈압 : 170/100mmHg\n맥박 : 80회/분\n호흡 : 20회/분\n체온 ：\n38.5°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n환자\n• 가능성이 높은 진단 2개\n1. 전자간증\n2. 임신성 고혈압\n교육\n• 필요한 검사 계획 3가지\n1. 소변단백질검사\n2. 질초음파\n3. 혈액검사(pit Hct)\n예상\n1. 혈압 측정 : 현재 혈압이 170/100mmHg로 높고> 고혈압 가족력도 있기 때문에\n혈압을 측정해 봅니다.\n술기\n2. 산부인과 진찰(자궁경부펴바름검人卜) ：\n산전 진찰로 자궁경부펴바름검사를 시행해\n봅니다.\n상기 환자는 혈압이 매우 높은 상태로 제시문을 읽고 전자간증을 첫번\n째 impression으로 잡을 수 있습니다.\n임신 초기의 산모일 경우에는 레오폴드 모형을 착용하지 않고 있을 수 있지만, 후기 산모라면\n모형을 착용하고 있을 가능성이 높으므로 모형 위에 복부 진찰을 시행하면 됩 니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

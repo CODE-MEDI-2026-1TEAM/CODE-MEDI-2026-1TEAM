@@ -1,0 +1,86 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "red_urine-003",
+  "case_number_in_pdf": 116,
+  "topic": {
+    "topic_start_page": 285,
+    "topic_id": "red_urine",
+    "topic_label": "붉은색 소변",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 291,
+      "end": 292
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "이익환",
+      "age": 55,
+      "sex": "남자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "소변이 붉게 나와요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "132/80mmHg",
+      "pulse": null,
+      "respiratory_rate": "16회/분",
+      "temperature": null
+    },
+    "opening_profile_text": "画성별/나이\n남성/ 55세\n“소변이 붉게 나와요”",
+    "history_blocks": {
+      "onset": "3일 전",
+      "duration": "계속 지속",
+      "course": "비슷",
+      "character": "처음부터 끝까지 다 붉음\n[색] 선홍색\n[핏덩이]\n(+, 자고 일어나서 소변봤을 때 동전만한 피딱지)\n[양] 종이컵한 잔\n[냄새] (一)\n[거품] (一)",
+      "associated_symptoms": "[전신]\n발열/오한/체중감소/피로/부종( - / - / - / - / - )\n[탈쉬\n어지러움/두근거림/호흡곤란( - / - / - )\n[출혈 경향]\n멍 쉽게 듦/잇몸 출혈( - / 一)\n[비뇨기]\nF/U/N/D( - / - / - / - ) , H /l/S/R(-/- / - / 一)\n외음부 통증/분비물/가려움증(-/-/시",
+      "factors": "운동/사우나/최근 감기 ( - / - / - )",
+      "past_history": "DM/TB/HTN/간염 ( - / - / - / - )",
+      "medications": "1 년 전 허리 디스크 때문에 진통제 복용하다 끊음，조영제/항응고제(ᅳ/_ )",
+      "social_history": "술/담배(+，social/+, 30갑년)’ 커피(- ), 스트레스(+)\n식습관 ：\n물은 잘 안 □ᅡ심，직업 : 마트 운영",
+      "family_history": "아버지 : 고혈압, 어머니 : 당뇨"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n결막/공막(- / - )，입/피부 탈수 소견( - / - )\nChest\n\nAbdomen\n복부 시/청/ 타/촉( - / - / 一/ - )\nDRE 소견 : 전립선 약간 커져 있음，CVAT(-)\nExtermity\n피부 긴장도, 오목 부종 정상",
+    "patient_question_or_concern": "“암이 아닐까요? ”",
+    "actor_notes_or_special_behavior": "~",
+    "raw_profile_text": "画성별/나이\n남성/ 55세\n“소변이 붉게 나와요”\n0\n3일 전\nL\n-\nD\n계속 지속\nCo\n비슷\nEx\n-\nC\n처음부터 끝까지 다 붉음\n[색] 선홍색\n[핏덩이]\n(+, 자고 일어나서 소변봤을 때 동전만한 피딱지)\n[양] 종이컵한 잔\n[냄새] (一)\n[거품] (一)\nA\n[전신]\n발열/오한/체중감소/피로/부종( - / - / - / - / - )\n[탈쉬\n어지러움/두근거림/호흡곤란( - / - / - )\n[출혈 경향]\n멍 쉽게 듦/잇몸 출혈( - / 一)\n[비뇨기]\nF/U/N/D( - / - / - / - ) , H /l/S/R(-/- / - / 一)\n외음부 통증/분비물/가려움증(-/-/시\nF\n운동/사우나/최근 감기 ( - / - / - )\nE\n-\n외\n-\n과\nDM/TB/HTN/간염 ( - / - / - / - )\n약\n1 년 전 허리 디스크 때문에 진통제 복용하다 끊음，조영제/항응고제(ᅳ/_ )\n사\n술/담배(+，social/+, 30갑년)’ 커피(- ), 스트레스(+)\n식습관 ：\n물은 잘 안 □ᅡ심，직업 : 마트 운영\n가\n아버지 : 고혈압, 어머니 : 당뇨\nP/E\nGeneral\nV/S 확인\nHEENT\n결막/공막(- / - )，입/피부 탈수 소견( - / - )\nChest\n-\nAbdomen\n복부 시/청/ 타/촉( - / - / 一/ - )\nDRE 소견 : 전립선 약간 커져 있음，CVAT(-)\nExtermity\n피부 긴장도, 오목 부종 정상\n질문\n“암이 아닐까요? ”\n특이사항\n~"
+  },
+  "examiner_only": {
+    "scenario_task": null,
+    "likely_diagnoses": [
+      "양성 전립선비대증",
+      "전립선암",
+      "방광암"
+    ],
+    "planned_tests": [
+      "경직장초음파검사",
+      "소변세포검사",
+      "방광경검사"
+    ],
+    "planned_treatments_or_education": [
+      "수술적치료 고려"
+    ],
+    "expected_skills_raw": null,
+    "author_commentary_tail": null,
+    "scenario_card_raw": "M M [ 실전 모의 증례\n• 55세 남자 이익환씨가 소변이 붉게 나온다며 내원하였다.\n[활력 징휘 혈압 : 132/80mmHg\n맥박 : 70희/분\n호흡 : 16회/분\n지침\n체온 ：\n36.6\"C\n[응人I자는 이 환자에게]\n증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시모\n• 가능성이 높은 진단 3개\n1. 양성 전립선비대증\n2. 전립선암\n3. 방광암\n• 필요한 검사 계획 3가지\n교육\ni£ 讀義B\n1. 경직장초음파검사\n2. 소변세포검사\n3. 방광경검사\n■\n1\n• 필요한 치료 계획 2가지\nP ■霸1. 익물 치료\n2. 수술적치료 고려\n붉은색 소변의 경우 진성 혈뇨와 가성 혈뇨로 구분할 수 있습니다.\n진성 혈뇨가 의심된다면 우선 출혈 경향성과 탈수 증상을 확인하는 과\n정이 필요합니다.\n본 증례와 같이 50대 이상의 홉연력 있는 남성에게서 핏덩 어리를 동반한 혈뇨가 나타난다면 방\n광암을 반드시 고려해야 합니다. 그러나 암에 대한 이야기를 먼저 꺼내기보다는, 양성 질환의\n가능성을 먼저 제시하고 조심스럽게 암에 대한 설명으로 넘어가는 것이 좋습니다.\n------------ --------------------------------------------------------------------------- -------------"
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

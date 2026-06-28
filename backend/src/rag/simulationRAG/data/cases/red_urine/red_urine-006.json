@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "red_urine-006",
+  "case_number_in_pdf": 119,
+  "topic": {
+    "topic_start_page": 285,
+    "topic_id": "red_urine",
+    "topic_label": "붉은색 소변",
+    "system": "신장/비뇨"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 297,
+      "end": 298
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "김지현",
+      "age": 33,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "소변에서 피가 나와요",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "115/80mmHg",
+      "pulse": "88회/분",
+      "respiratory_rate": null,
+      "temperature": "36.7°C"
+    },
+    "opening_profile_text": "“소변에서 피가 나와요”",
+    "history_blocks": {
+      "onset": "어제 아침",
+      "duration": "소변 볼 때마다(어제부터 5~6회 정도 소변 봄)",
+      "course": "처음과 비슷",
+      "character": "검붉은색/처음부터 끝까지 피가 나옴/냄새(->, 거품(-)",
+      "associated_symptoms": "[소화기]\n식욕 저하/오심/구토/설사/변비( - / - / —/ - / - ) , 복통(-)\n[전신]\n발열/오한/식은땀/체중 감소(一/ - / - / - ) , 부종(一), 어지럼(一)\n[비뇨기]\n배뇨통/소변색 변호ᅡ/혈뇨/ 빈뇨(一/一/+/ᅳ)\n야간뇨 / 절박뇨 / 잔뇨 ( - / - / - )",
+      "factors": "1 주일 전 감기 (+), 해열제 복용(+. 지금은 복용 중지)\nCT 촬영 (一)\n심한 운동, 사우나(- )",
+      "events": "건강 검진 정상",
+      "trauma_history": "복부 외상(一), 비뇨기계 외상(一)",
+      "past_history": "DM/TB/HTN/간염(—/ - / - / - ) , 비뇨기계 질환/신장 질환(- / - 〉",
+      "medications": "1주일 전 해열제(+), 그 외 한약 등 기타(一)\n人^\n술(- ), 담배/ 커피(ᅳ/ - )",
+      "gynecologic_history": "[월경력]\n른-이사항없음\n[임신가능성]\n없음\nGeneral\nv/s 확인\nHEENT\n입/피부 탈수소견 ( - / - ), 결막/공막 ( - / - )"
+    },
+    "physical_exam_results": "Chest\n흉부 청진 정상\nAbdomen\n복부 人1/촉/ 타/청 정상, CVA tenderness(-)\nDRE 정상/골반검사 정상\nExtermity\n피부 긴장도, 오목 부종 정상",
+    "patient_question_or_concern": "없음\n특이 人!항\n“현재 오전 9시”\n........................................................................................................................\n.",
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "“소변에서 피가 나와요”\n0\n어제 아침\nL\n-\nD\n소변 볼 때마다(어제부터 5~6회 정도 소변 봄)\nCo\n처음과 비슷\nEx\nC\n검붉은색/처음부터 끝까지 피가 나옴/냄새(->, 거품(-)\nA\n[소화기]\n식욕 저하/오심/구토/설사/변비( - / - / —/ - / - ) , 복통(-)\n[전신]\n발열/오한/식은땀/체중 감소(一/ - / - / - ) , 부종(一), 어지럼(一)\n[비뇨기]\n배뇨통/소변색 변호ᅡ/혈뇨/ 빈뇨(一/一/+/ᅳ)\n야간뇨 / 절박뇨 / 잔뇨 ( - / - / - )\nF\n1 주일 전 감기 (+), 해열제 복용(+. 지금은 복용 중지)\nCT 촬영 (一)\n심한 운동, 사우나(- )\nE\n건강 검진 정상\n외\n복부 외상(一), 비뇨기계 외상(一)\n과\nDM/TB/HTN/간염(—/ - / - / - ) , 비뇨기계 질환/신장 질환(- / - 〉\n약\n1주일 전 해열제(+), 그 외 한약 등 기타(一)\n人^\n술(- ), 담배/ 커피(ᅳ/ - )\n가\n-\n여\n[월경력]\n른-이사항없음\n[임신가능성]\n없음\nGeneral\nv/s 확인\nHEENT\n입/피부 탈수소견 ( - / - ), 결막/공막 ( - / - )\nP/E\nChest\n흉부 청진 정상\nAbdomen\n복부 人1/촉/ 타/청 정상, CVA tenderness(-)\nDRE 정상/골반검사 정상\nExtermity\n피부 긴장도, 오목 부종 정상\n질문\n없음\n특이 人!항\n“현재 오전 9시”\n........................................................................................................................\n."
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육",
+    "likely_diagnoses": [
+      "PSGN",
+      "IgA nephropathy",
+      "일과성 혈뇨"
+    ],
+    "planned_tests": [
+      "소변검사",
+      "혈액검사 - C3, C4. ASᄋ titer",
+      "신장초음파"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "항문직장검사 : 혈뇨 등으로 보아 항문 부위 종양, 궤양. 전립선 문제(전립선 비대증 등)\n등을 감별하기 위해 항문직장검사를 시행해 봅니다.\n혈뇨의 경우는혈뇨의 색깔,혈뇨가소변 내내 나오는지,끝에 나오는\n^1 둥의 정보도 감별에 도음이 되기 때문에 소변의 특징에 대해 질문\n이 필요합니다.\n위 케이스처럼 PSGN이 의심되는 경우나, IgA 콩팥병증의 경우 감기 증상이 있었는지에 대한\n정보를 얻는 것이 매우 중요합니다.\n그 외에도 결석이나 방광암에 의한 혈뇨 증상이 있을 수 있으므로 옆구리 통증, 체중 감소와 같\n은 감별 포인트가 될 수 있는 질문을 생각해 보도록 합니다. 또한 횡문근융해증의 경우 미오글\n로빈에 의한 붉은색 소변이 보일 수 있으므로 최근에 심한 운동 혹은 사우나를 한적 있는지 원\n인이 될 수 있는 정보를 얻는 것이 중요합니다.",
+    "author_commentary_tail": "항문직장검사 : 혈뇨 등으로 보아 항문 부위 종양, 궤양. 전립선 문제(전립선 비대증 등)\n등을 감별하기 위해 항문직장검사를 시행해 봅니다.\n혈뇨의 경우는혈뇨의 색깔,혈뇨가소변 내내 나오는지,끝에 나오는\n^1 둥의 정보도 감별에 도음이 되기 때문에 소변의 특징에 대해 질문\n이 필요합니다.\n위 케이스처럼 PSGN이 의심되는 경우나, IgA 콩팥병증의 경우 감기 증상이 있었는지에 대한\n정보를 얻는 것이 매우 중요합니다.\n그 외에도 결석이나 방광암에 의한 혈뇨 증상이 있을 수 있으므로 옆구리 통증, 체중 감소와 같\n은 감별 포인트가 될 수 있는 질문을 생각해 보도록 합니다. 또한 횡문근융해증의 경우 미오글\n로빈에 의한 붉은색 소변이 보일 수 있으므로 최근에 심한 운동 혹은 사우나를 한적 있는지 원\n인이 될 수 있는 정보를 얻는 것이 중요합니다.",
+    "scenario_card_raw": "■\n실전 모의 증례\n. JI- 나-'- <\n지침\n• 33세 여자 김지현씨가 소변에서 피가 나와서 내원하였다.\n[활력 징후] 혈압 : 115/80mmHg\n맥박 : 88회/분\n호吾 ■\n2 0 i|/분\n체온 ：\n36.7°C\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후,\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오.\n교육\n• 가능성이 높은 진단 3개\n1. PSGN\n2. IgA nephropathy\n3. 일과성 혈뇨\n• 필요한 검사 계획 3가지\n1. 소변검사\n2. 혈액검사 - C3, C4. ASᄋ titer\n3. 신장초음파\n예상\n술기\n항문직장검사 : 혈뇨 등으로 보아 항문 부위 종양, 궤양. 전립선 문제(전립선 비대증 등)\n등을 감별하기 위해 항문직장검사를 시행해 봅니다.\n혈뇨의 경우는혈뇨의 색깔,혈뇨가소변 내내 나오는지,끝에 나오는\n^1 둥의 정보도 감별에 도음이 되기 때문에 소변의 특징에 대해 질문\n이 필요합니다.\n위 케이스처럼 PSGN이 의심되는 경우나, IgA 콩팥병증의 경우 감기 증상이 있었는지에 대한\n정보를 얻는 것이 매우 중요합니다.\n그 외에도 결석이나 방광암에 의한 혈뇨 증상이 있을 수 있으므로 옆구리 통증, 체중 감소와 같\n은 감별 포인트가 될 수 있는 질문을 생각해 보도록 합니다. 또한 횡문근융해증의 경우 미오글\n로빈에 의한 붉은색 소변이 보일 수 있으므로 최근에 심한 운동 혹은 사우나를 한적 있는지 원\n인이 될 수 있는 정보를 얻는 것이 중요합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}

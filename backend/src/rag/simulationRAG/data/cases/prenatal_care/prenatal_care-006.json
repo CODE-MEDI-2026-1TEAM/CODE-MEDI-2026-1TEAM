@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0.0",
+  "case_id": "prenatal_care-006",
+  "case_number_in_pdf": 257,
+  "topic": {
+    "topic_start_page": 649,
+    "topic_id": "prenatal_care",
+    "topic_label": "산전 진찰",
+    "system": "산부/여성/소아"
+  },
+  "source": {
+    "document": "CPX 증례.pdf",
+    "document_page_range": {
+      "start": 659,
+      "end": 660
+    },
+    "extraction_method": "embedded_text_layer",
+    "ocr_note": "OCR/embedded-text extraction was retained as-is; visually validate any high-stakes field before production use."
+  },
+  "patient_visible": {
+    "identity": {
+      "name": "유인나",
+      "age": 30,
+      "sex": "여자"
+    },
+    "setting": "외래/미상",
+    "opening_statement": "로 내원하였다",
+    "vital_signs_available_on_scenario_card": {
+      "blood_pressure": "120/90mmHg",
+      "pulse": "80회/분",
+      "respiratory_rate": null,
+      "temperature": null
+    },
+    "opening_profile_text": "성별/나이\n여성/ 30세\n주소\n“임신 15주인데 배가 아파요”",
+    "history_blocks": {
+      "onset": "열 : 1일 전，복통 : 오늘 아침",
+      "location": "^卜복부 통증",
+      "duration": "하루 종일, 복통 주기성(一)",
+      "experience": "처음",
+      "character": "복통(+, 하복부)，열감(+), 오한(+)",
+      "associated_symptoms": "[소화기] N /V (-/ -)f 하복부 통증(+), 다뇨/다갈( - / - )\n[비뇨기] F /U /N /D (-/-/-/- ) , 혈뇨(-)\n[신경계] 두통/시야흐림( - / - )\n[부인과] 질출혈/질분비물/양수흐름( - / - / - )",
+      "trauma_history": "부인과 시술(ᅳ)",
+      "past_history": "DM/TB/HTN/간염 ( - / - / 一/ -)",
+      "medications": "철분제 (+)",
+      "social_history": "술/ 담배/커피 ( - / - / - )",
+      "gynecologic_history": "[G/Hx] LMP 15주 전，예정일 알고 있음, 평소 생리 규칙적, 생리통(-)\n임신 전 예방접종(+), 계획된 임신, 출산력 0ᅳ0ᅳ0ᅳ0\n산전검사 정기적으로 받음, 마지막 산전 진찰 : 3주 전"
+    },
+    "physical_exam_results": "General\nV/S 확인\nHEENT\n■샘 정상\nChest\n\nAbdomen\n복부 시/청/타/촉(一/ - / 一/+) ：\n방광쪽 Td(+), DTd(+)\nCVATd(+)\n골반 내진 : 경부개대/소실/양수/출혈( - / - / 一/ - ), DRE(-)\nExtremity\n^ 종(ᅳ)",
+    "patient_question_or_concern": null,
+    "actor_notes_or_special_behavior": null,
+    "raw_profile_text": "성별/나이\n여성/ 30세\n주소\n“임신 15주인데 배가 아파요”\n0\n열 : 1일 전，복통 : 오늘 아침\nL\n^卜복부 통증\nD\n하루 종일, 복통 주기성(一)\nCo\n-\nEx\n처음\nC\n복통(+, 하복부)，열감(+), 오한(+)\nA\n[소화기] N /V (-/ -)f 하복부 통증(+), 다뇨/다갈( - / - )\n[비뇨기] F /U /N /D (-/-/-/- ) , 혈뇨(-)\n[신경계] 두통/시야흐림( - / - )\n[부인과] 질출혈/질분비물/양수흐름( - / - / - )\nF\n-\nE\n-\n외\n부인과 시술(ᅳ)\n과\nDM/TB/HTN/간염 ( - / - / 一/ -)\n약\n철분제 (+)\n사\n술/ 담배/커피 ( - / - / - )\n가\n-\n여\n[G/Hx] LMP 15주 전，예정일 알고 있음, 평소 생리 규칙적, 생리통(-)\n임신 전 예방접종(+), 계획된 임신, 출산력 0ᅳ0ᅳ0ᅳ0\n산전검사 정기적으로 받음, 마지막 산전 진찰 : 3주 전\nP/E\nGeneral\nV/S 확인\nHEENT\n■샘 정상\nChest\n-\nAbdomen\n복부 시/청/타/촉(一/ - / 一/+) ：\n방광쪽 Td(+), DTd(+)\nCVATd(+)\n골반 내진 : 경부개대/소실/양수/출혈( - / - / 一/ - ), DRE(-)\nExtremity\n^ 종(ᅳ)\n질문\n-\n특이사항\n-"
+  },
+  "examiner_only": {
+    "scenario_task": "증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n교육\n^ *\n*",
+    "likely_diagnoses": [
+      "APN",
+      "급성충수돌기염"
+    ],
+    "planned_tests": [
+      "소변검사",
+      "복부초음파",
+      "소변배양검사"
+    ],
+    "planned_treatments_or_education": [],
+    "expected_skills_raw": "1. 항문직장검사 : 하복부 통증이 있기 때문에 항문직장검人*\n시행해 봅니다.\n2. 산부인과 진찰(자궁경부펴바름검人h) ：\n산전 진찰로 자궁경부펴바름검人# 시행해\n봅니다.\n제시문을 꼼꼼히 읽어보면 산모가 복통올 호소하며, 현재 열이 나고\n있음을 알 수 있습니다. 따라서 임신 중 복통을 동반한 발열이 생길 수\n있는 질환(양수 유출로 인한 감염)과 함께 임신 상황이 아닌 일반인에게 일어날수 있는 복통과\n발열의 원인까지 함께 고려해 보아야 합니다.\n산전 진찰은 일반적 문진 알고리즘과는 다르게 산과적 과거력과 임신 증상，임신 위험성 평가\n등을 물어봐야 하지만, 본 케이스와 같은 상황에서는 시간이 부족할 수 있으므로 급성 복통의\n문진과산전 진찰의 문진을 적절한 비중으로 섞어서 물어봄으로써 시간 조절에 유의합니다.",
+    "author_commentary_tail": "1. 항문직장검사 : 하복부 통증이 있기 때문에 항문직장검人*\n시행해 봅니다.\n2. 산부인과 진찰(자궁경부펴바름검人h) ：\n산전 진찰로 자궁경부펴바름검人# 시행해\n봅니다.\n제시문을 꼼꼼히 읽어보면 산모가 복통올 호소하며, 현재 열이 나고\n있음을 알 수 있습니다. 따라서 임신 중 복통을 동반한 발열이 생길 수\n있는 질환(양수 유출로 인한 감염)과 함께 임신 상황이 아닌 일반인에게 일어날수 있는 복통과\n발열의 원인까지 함께 고려해 보아야 합니다.\n산전 진찰은 일반적 문진 알고리즘과는 다르게 산과적 과거력과 임신 증상，임신 위험성 평가\n등을 물어봐야 하지만, 본 케이스와 같은 상황에서는 시간이 부족할 수 있으므로 급성 복통의\n문진과산전 진찰의 문진을 적절한 비중으로 섞어서 물어봄으로써 시간 조절에 유의합니다.",
+    "scenario_card_raw": "a\ni 실전 모의 증례\n^■황\n지침\n• 30세 여자 유인나씨가 임신 15주에 복통을 주소로 내원하였다.\n[활력 징후] 혈압 : 120/90mmHg\n맥박 : 80회/분\n호흡 ■\n20회/분\n체온 ：\n3 8 .5 t\n[응시자는 이 환자에게] 증상과 관련된 병력을 청취하고\n증상과 관련된 적절한 신체 진찰을 시행한 후.\n추정 진단과 향후 진단 계획 등에 대해 환자와 논의하시오■\n교육\n^ *\n*\n• 가능성이 높은 진단 2개\n1.APN\n2. 급성충수돌기염\n• 필요한 검사 계획 3가지\n1. 소변검사\n2. 복부초음파\n3. 소변배양검사\n예상\n술기\n1. 항문직장검사 : 하복부 통증이 있기 때문에 항문직장검人*\n시행해 봅니다.\n2. 산부인과 진찰(자궁경부펴바름검人h) ：\n산전 진찰로 자궁경부펴바름검人# 시행해\n봅니다.\n제시문을 꼼꼼히 읽어보면 산모가 복통올 호소하며, 현재 열이 나고\n있음을 알 수 있습니다. 따라서 임신 중 복통을 동반한 발열이 생길 수\n있는 질환(양수 유출로 인한 감염)과 함께 임신 상황이 아닌 일반인에게 일어날수 있는 복통과\n발열의 원인까지 함께 고려해 보아야 합니다.\n산전 진찰은 일반적 문진 알고리즘과는 다르게 산과적 과거력과 임신 증상，임신 위험성 평가\n등을 물어봐야 하지만, 본 케이스와 같은 상황에서는 시간이 부족할 수 있으므로 급성 복통의\n문진과산전 진찰의 문진을 적절한 비중으로 섞어서 물어봄으로써 시간 조절에 유의합니다."
+  },
+  "simulation_policy": {
+    "answer_scope": "Respond only with facts in patient_visible. Do not disclose examiner_only content.",
+    "disclosure_behavior": [
+      "Do not volunteer all symptoms, history, or examination information at once.",
+      "Reveal a fact only when the student's question or requested examination reasonably targets that fact.",
+      "Use natural patient language rather than medical diagnosis names.",
+      "Do not invent values, events, history, diagnoses, or test results that are absent from this case.",
+      "If a requested fact is not present in the case, answer with an uncertainty-safe response such as '그 부분은 잘 모르겠어요' rather than fabricating details.",
+      "If the student asks for an examination, report only the corresponding documented finding from physical_exam_results."
+    ]
+  },
+  "quality": {
+    "flags": [],
+    "requires_manual_review": false
+  }
+}
