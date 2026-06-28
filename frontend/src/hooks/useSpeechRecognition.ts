@@ -6,6 +6,11 @@ interface UseSpeechRecognitionProps {
   onFinalTranscript: (transcript: string) => void;
 }
 
+const maxRecordingMs = 15_000;
+const minRecordingMs = 900;
+const silenceStopMs = 1_300;
+const silenceVolumeThreshold = 0.018;
+
 export function useSpeechRecognition({
   onInterimTranscript,
   onFinalTranscript,
@@ -13,6 +18,11 @@ export function useSpeechRecognition({
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const audioContextRef = useRef<AudioContext | null>(null);
+  const animationFrameRef = useRef<number | null>(null);
+  const maxRecordingTimeoutRef = useRef<number | null>(null);
+  const recordingStartedAtRef = useRef(0);
+  const silenceStartedAtRef = useRef<number | null>(null);
   const [isListening, setIsListening] = useState(false);
   const [isSupported, setIsSupported] = useState(false);
 
@@ -24,6 +34,7 @@ export function useSpeechRecognition({
 
     return () => {
       mediaRecorderRef.current?.stop();
+      stopAudioAnalysis();
       streamRef.current?.getTracks().forEach((track) => track.stop());
     };
   }, []);
@@ -31,6 +42,13 @@ export function useSpeechRecognition({
   const stopStream = useCallback(() => {
     streamRef.current?.getTracks().forEach((track) => track.stop());
     streamRef.current = null;
+  }, []);
+
+  const stopRecording = useCallback(() => {
+    const recorder = mediaRecorderRef.current;
+    if (!recorder || recorder.state === 'inactive') return;
+    recorder.stop();
+    setIsListening(false);
   }, []);
 
   const transcribe = useCallback(
@@ -79,7 +97,7 @@ export function useSpeechRecognition({
 
     try {
       chunksRef.current = [];
-      onInterimTranscript('녹음 중입니다. 질문을 말한 뒤 중지를 누르세요.');
+      onInterimTranscript('녹음 중입니다. 말을 마치면 자동으로 전송됩니다.');
 
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
@@ -95,6 +113,7 @@ export function useSpeechRecognition({
         stream,
         mimeType ? { mimeType } : undefined,
       );
+      const stopWhenSilent = () => stopRecording();
 
       mediaRecorder.ondataavailable = (event) => {
         if (event.data.size > 0) {
@@ -103,32 +122,113 @@ export function useSpeechRecognition({
       };
 
       mediaRecorder.onstop = () => {
+        stopAudioAnalysis();
         const audioBlob = new Blob(chunksRef.current, {
           type: mediaRecorder.mimeType || mimeType || 'audio/webm',
         });
         chunksRef.current = [];
+        mediaRecorderRef.current = null;
         stopStream();
         void transcribe(audioBlob);
       };
 
       mediaRecorder.onerror = () => {
         chunksRef.current = [];
+        stopAudioAnalysis();
+        mediaRecorderRef.current = null;
         stopStream();
         setIsListening(false);
         onInterimTranscript('녹음 중 오류가 발생했습니다. 다시 시도해 주세요.');
       };
 
       mediaRecorderRef.current = mediaRecorder;
+      startAudioAnalysis(stream, stopWhenSilent);
       mediaRecorder.start();
       setIsListening(true);
     } catch {
+      stopAudioAnalysis();
       stopStream();
       setIsListening(false);
       onInterimTranscript('마이크 권한을 확인해 주세요.');
     }
-  }, [isListening, isSupported, onInterimTranscript, stopStream, transcribe]);
+  }, [
+    isListening,
+    isSupported,
+    onInterimTranscript,
+    stopRecording,
+    stopStream,
+    transcribe,
+  ]);
 
   return { isListening, isSupported, toggle };
+
+  function startAudioAnalysis(stream: MediaStream, onSilence: () => void) {
+    stopAudioAnalysis();
+
+    const audioContext = new AudioContext();
+    const source = audioContext.createMediaStreamSource(stream);
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 1024;
+    source.connect(analyser);
+
+    audioContextRef.current = audioContext;
+    recordingStartedAtRef.current = performance.now();
+    silenceStartedAtRef.current = null;
+
+    const samples = new Uint8Array(analyser.fftSize);
+
+    const tick = () => {
+      analyser.getByteTimeDomainData(samples);
+      const volume = rootMeanSquare(samples);
+      const now = performance.now();
+      const elapsed = now - recordingStartedAtRef.current;
+
+      if (volume < silenceVolumeThreshold && elapsed > minRecordingMs) {
+        silenceStartedAtRef.current ??= now;
+        if (now - silenceStartedAtRef.current >= silenceStopMs) {
+          onSilence();
+          return;
+        }
+      } else {
+        silenceStartedAtRef.current = null;
+      }
+
+      animationFrameRef.current = window.requestAnimationFrame(tick);
+    };
+
+    animationFrameRef.current = window.requestAnimationFrame(tick);
+    maxRecordingTimeoutRef.current = window.setTimeout(
+      onSilence,
+      maxRecordingMs,
+    );
+  }
+
+  function stopAudioAnalysis() {
+    if (animationFrameRef.current !== null) {
+      window.cancelAnimationFrame(animationFrameRef.current);
+      animationFrameRef.current = null;
+    }
+
+    if (maxRecordingTimeoutRef.current !== null) {
+      window.clearTimeout(maxRecordingTimeoutRef.current);
+      maxRecordingTimeoutRef.current = null;
+    }
+
+    void audioContextRef.current?.close();
+    audioContextRef.current = null;
+    silenceStartedAtRef.current = null;
+  }
+}
+
+function rootMeanSquare(samples: Uint8Array) {
+  let sum = 0;
+
+  for (const sample of samples) {
+    const normalized = (sample - 128) / 128;
+    sum += normalized * normalized;
+  }
+
+  return Math.sqrt(sum / samples.length);
 }
 
 function preferredMimeType() {
