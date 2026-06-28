@@ -6,12 +6,16 @@ import type { Group, Mesh, Object3D } from 'three';
 import { ACTIVE_CASE, PATIENT_CASES, PATIENT_MODELS, resolveCaseModel } from '../patientModels';
 import type { CaseKey, CaseModel, ModelPlacement } from '../patientModels';
 import { FURNITURE_MODELS } from '../furnitureModels';
+import { DEFAULT_VITALS } from '../vitals';
+import type { VitalSigns } from '../vitals';
+import { PATIENT_BUBBLE_CLASS, PATIENT_BUBBLE_SPEAKING_CLASS } from '../patientBubbleStyles';
 
 type ClinicSceneProps = {
   isPatientSpeaking: boolean;
   patientReply: string;
   patientCaseKey?: CaseKey;
   showPatientBubble?: boolean;
+  vitals?: VitalSigns;
 };
 
 // Single source of truth for desk placement (값은 furnitureModels.ts에서 가져옴).
@@ -24,6 +28,7 @@ useGLTF.preload(FURNITURE_MODELS.Desk.path);
 useGLTF.preload(FURNITURE_MODELS.Chair.path);
 useGLTF.preload(FURNITURE_MODELS.Door.path);
 useGLTF.preload(FURNITURE_MODELS.Bed.path);
+useGLTF.preload(FURNITURE_MODELS.HandWash.path);
 Object.values(PATIENT_MODELS).forEach((model) => useGLTF.preload(model.path));
 
 function enableShadows(scene: Object3D) {
@@ -40,6 +45,7 @@ export default function ClinicScene({
   patientReply,
   patientCaseKey = ACTIVE_CASE,
   showPatientBubble = true,
+  vitals = DEFAULT_VITALS,
 }: ClinicSceneProps) {
   return (
     <div className="clinic-scene" aria-label="3D CPX clinic room">
@@ -64,6 +70,7 @@ export default function ClinicScene({
           patientReply={patientReply}
           patientCaseKey={patientCaseKey}
           showPatientBubble={showPatientBubble}
+          vitals={vitals}
         />
         <Environment files="/hdri/lebombo_1k.hdr" />
         <OrbitControls
@@ -83,6 +90,7 @@ function ClinicRoom({
   patientReply,
   patientCaseKey = ACTIVE_CASE,
   showPatientBubble = true,
+  vitals = DEFAULT_VITALS,
 }: ClinicSceneProps) {
   // Shared ref: the chair acts as an occluder mask for the monitor screen.
   const chairRef = useRef<Group>(null);
@@ -90,7 +98,7 @@ function ClinicRoom({
     <group>
       <RoomShell />
       <ModelDesk />
-      <MonitorScreen occluderRef={chairRef} />
+      <MonitorScreen occluderRef={chairRef} vitals={vitals} />
       <PatientSeat
         isPatientSpeaking={isPatientSpeaking}
         patientReply={patientReply}
@@ -102,6 +110,7 @@ function ClinicRoom({
       <Printer />
       <ModelDoor />
       <ModelBed />
+      <ModelHandWash />
       <IndoorPlant />
     </group>
   );
@@ -201,6 +210,20 @@ function ModelDoor() {
   );
 }
 
+function ModelHandWash() {
+  const cfg = FURNITURE_MODELS.HandWash;
+  const { scene } = useGLTF(cfg.path);
+  useEffect(() => { enableShadows(scene); }, [scene]);
+  return (
+    <primitive
+      object={scene}
+      position={cfg.position}
+      rotation={cfg.rotation ?? [0, 0, 0]}
+      scale={cfg.scale}
+    />
+  );
+}
+
 function ModelBed() {
   const cfg = FURNITURE_MODELS.Bed;
   const { scene } = useGLTF(cfg.path);
@@ -257,8 +280,8 @@ function PatientSeat({
           <group key={i} ref={patientRef}>
             <ModelCharacter placement={placement} isPatientSpeaking={isPatientSpeaking} />
             {showPatientBubble ? (
-              <Html center position={[0.95, 1.7, 0.04]} distanceFactor={3.4}>
-                <div className={isPatientSpeaking ? 'patient-bubble speaking' : 'patient-bubble'}>
+              <Html center position={[0.6, 1.7, 0.04]} distanceFactor={3.4}>
+                <div className={isPatientSpeaking ? PATIENT_BUBBLE_SPEAKING_CLASS : PATIENT_BUBBLE_CLASS}>
                   {patientReply}
                 </div>
               </Html>
@@ -318,18 +341,17 @@ const SCREEN_POSITION: [number, number, number] = [0.0054, 1.433, 0.55];
 // 책상이 움직여도 화면은 안 따라감(고정).
 const DESK_ANCHOR: [number, number, number] = [...DESK_POSITION];
 
-// Vitals to render on the screen.
-const VITALS: [string, string, string][] = [
-  ['HR', '80', 'bpm'],
-  ['BP', '120/82', 'mmHg'],
-  ['RR', '18', '/min'],
-  ['TEMP', '36.5', 'degC'],
-];
-
 // Draw the CPX monitor UI onto a canvas → use as a texture on a real mesh.
 // A real mesh is depth-tested by the GPU, so the chair occludes it correctly.
-function useMonitorTexture() {
+function useMonitorTexture(vitals: VitalSigns) {
   return useMemo(() => {
+    // 화면에 그릴 활력징후(라벨/값/단위). 값은 prop 으로 받은 vitals 에서 가져온다.
+    const rows: [string, string, string][] = [
+      ['HR', vitals.hr, 'bpm'],
+      ['BP', vitals.bp, 'mmHg'],
+      ['RR', vitals.rr, '/min'],
+      ['TEMP', vitals.temp, 'degC'],
+    ];
     const w = 476;
     const h = 268;
     const canvas = document.createElement('canvas');
@@ -367,7 +389,7 @@ function useMonitorTexture() {
     ctx.lineTo(w - 24, 56);
     ctx.stroke();
     // Rows
-    VITALS.forEach(([label, value, unit], i) => {
+    rows.forEach(([label, value, unit], i) => {
       const y = 108 + i * 44;
       ctx.fillStyle = '#8ba7b1';
       ctx.font = 'bold 18px Arial';
@@ -382,11 +404,17 @@ function useMonitorTexture() {
     const tex = new CanvasTexture(canvas);
     tex.anisotropy = 8;
     return tex;
-  }, []);
+  }, [vitals]);
 }
 
-function MonitorScreen({ occluderRef: _occluderRef }: { occluderRef: React.RefObject<Group | null> }) {
-  const texture = useMonitorTexture();
+function MonitorScreen({
+  occluderRef: _occluderRef,
+  vitals,
+}: {
+  occluderRef: React.RefObject<Group | null>;
+  vitals: VitalSigns;
+}) {
+  const texture = useMonitorTexture(vitals);
   const pos: [number, number, number] = [
     SCREEN_POSITION[0] + (DESK_POSITION[0] - DESK_ANCHOR[0]),
     SCREEN_POSITION[1] + (DESK_POSITION[1] - DESK_ANCHOR[1]),

@@ -5,6 +5,7 @@ import ChatSidebar from './components/ChatSidebar';
 import BedsideScene from './components/BedsideScene';
 import ClinicScene from './components/ClinicScene';
 import { choosePatientCaseKey } from './patientModels';
+import { resolveVitalSigns } from './vitals';
 import type { CpxCase, Evaluation, Message, Session } from './types';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'desk' | 'bed'>('desk');
+  const [isHandWashed, setIsHandWashed] = useState(false);
 
   const activeCase = useMemo(
     () =>
@@ -40,13 +42,13 @@ export default function App() {
       choosePatientCaseKey(
         activeCase
           ? {
-              age: activeCase.patientProfile.age,
-              ageRaw: activeCase.patientProfile.ageRaw,
-              name: activeCase.patientProfile.name,
-              seed: activeCase.slug,
-              sex: activeCase.patientProfile.sex,
-              title: activeCase.title,
-            }
+            age: activeCase.patientProfile.age,
+            ageRaw: activeCase.patientProfile.ageRaw,
+            name: activeCase.patientProfile.name,
+            seed: activeCase.slug,
+            sex: activeCase.patientProfile.sex,
+            title: activeCase.title,
+          }
           : null,
       ),
     [activeCase],
@@ -57,6 +59,10 @@ export default function App() {
     (activeCase ? '안녕하세요.' : null) ??
     '진료를 시작하면 환자 응답이 여기에 표시됩니다.';
   const isPatientSpeaking = Boolean(latestAssistantMessage) && !isLoading;
+  const vitals = useMemo(
+    () => resolveVitalSigns(activeCase?.patientProfile.vitalSigns),
+    [activeCase?.patientProfile.vitalSigns],
+  );
 
   const clearError = useCallback(() => setError(null), []);
 
@@ -169,11 +175,11 @@ export default function App() {
       setSession((current) =>
         current?.id === session.id
           ? {
-              ...current,
-              status: 'completed',
-              endedAt: new Date().toISOString(),
-              evaluation: data.evaluation,
-            }
+            ...current,
+            status: 'completed',
+            endedAt: new Date().toISOString(),
+            evaluation: data.evaluation,
+          }
           : current,
       );
       setIsEvaluationModalOpen(true);
@@ -211,6 +217,7 @@ export default function App() {
           isPatientSpeaking={isPatientSpeaking}
           patientCaseKey={patientCaseKey}
           patientReply={patientReply}
+          vitals={vitals}
           showPatientBubble={
             !isCaseModalOpen &&
             !isEvaluationModalOpen &&
@@ -227,6 +234,17 @@ export default function App() {
           type="button"
         >
           {viewMode === 'desk' ? '침대에 눕히기' : '책상으로 돌아가기'}
+        </button>
+        <button
+          className={isHandWashed ? 'view-toggle-button is-active' : 'view-toggle-button'}
+          disabled={isHandWashed}
+          onClick={() => {
+            setIsHandWashed(true);
+            window.setTimeout(() => setIsHandWashed(false), 1000);
+          }}
+          type="button"
+        >
+          {isHandWashed ? '소독 완료' : '손 소독하기'}
         </button>
       </div>
 
@@ -249,6 +267,7 @@ export default function App() {
         onOpenEvaluation={() => setIsEvaluationModalOpen(true)}
         onSendMessage={sendMessage}
         session={session}
+        vitals={vitals}
       />
 
       {session?.evaluation && isEvaluationModalOpen ? (
