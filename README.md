@@ -152,3 +152,22 @@ VITE_API_BASE_URL=https://your-render-service.onrender.com
 - `GET /sessions/:sessionId`
 - `POST /sessions/:sessionId/messages`
 - `POST /sessions/:sessionId/evaluate`
+
+## 3D 모델 출처
+- Desk by dook [CC-BY] via Poly Pizza
+- Chair by J-Toastie [CC-BY] via Poly Pizza
+- Door by Quaternius
+- Character Animated by Quaternius
+- Bed Single by Quaternius
+
+- Animated Woman by Quaternius
+- Animated Woman by Quaternius
+- Animated Woman by Quaternius
+- Suit by Quaternius [CC-BY] via Poly Pizza
+
+- Man by Quaternius
+- Business Man by Quaternius
+- Hoodie Character by Quaternius
+- Casual Character by Quaternius
+- Beach Character by Quaternius
+
