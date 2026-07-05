@@ -142,14 +142,24 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 <table>
   <tr align="center">
-    <td><strong>수막자극징후 검사 (Brudzinski / Kernig)</strong></td>
-    <td><strong>침상 자세 진찰 화면</strong></td>
+    <td width="50%"><strong>수막자극징후 검사 (Brudzinski / Kernig)</strong></td>
+    <td width="50%"><strong>침상 자세 진찰 화면</strong></td>
   </tr>
   <tr align="center">
-    <td><img width="637" height="545" alt="image" src="https://github.com/user-attachments/assets/39a70dc0-d819-4797-9b28-18f22c9f5a42" />
-</td>
     <td>
-</td>
+      <img
+        width="520"
+        alt="수막자극징후 검사"
+        src="https://github.com/user-attachments/assets/39a70dc0-d819-4797-9b28-18f22c9f5a42"
+      />
+    </td>
+    <td>
+      <img
+        width="520"
+        alt="침상 자세 진찰 화면"
+        src="https://github.com/user-attachments/assets/5980702f-1439-4571-9856-cb268c6e7aa7"
+      />
+    </td>
   </tr>
 </table>
 
@@ -301,7 +311,7 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 ## 🏗 시스템 아키텍처 (Architecture)
 
 <p align="center">
-  <img src="./docs/architecture.png" alt="System Architecture" width="900" />
+  <img width="1920" height="1080" alt="KakaoTalk_20260705_172802775" src="https://github.com/user-attachments/assets/49d2bf44-7b6d-47d8-81c2-326c05e6df49" />
 </p>
 
 | 레이어 | 구성 | 역할 |
