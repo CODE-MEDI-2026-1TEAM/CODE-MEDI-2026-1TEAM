@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="200" alt="Seizure CPX Logo" src="./docs/logo.png" />
+  <img width="1152" height="648" alt="Cover picture" src="https://github.com/user-attachments/assets/403e8939-caf4-4674-96ce-7b84b50cbaa3" />
 </p>
 
 <h1 align="center">Seizure CPX</h1>
@@ -9,18 +9,11 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/🏆_CODE:MEDI_2026-대상_(1st_Place)-FFD700?style=for-the-badge&labelColor=1a1a2e" alt="CODE:MEDI 2026 대상" />
-</p>
-
-<p align="center">
   <strong>🏆 2026 CODE:MEDI 해커톤 대상 (7팀 중 1위)</strong><br/>
   <sub>동아대학교 의과대학 주최</sub>
 </p>
 
 <p align="center">
-  <!-- TODO: 배포 주소가 확정되면 Live Demo 배지 링크를 교체해 주세요 -->
-  <a href="#"><img src="https://img.shields.io/badge/Live_Demo-준비중-111111?style=flat&logo=vercel&logoColor=white" alt="Live Demo" /></a>
-  &nbsp;
   <img src="https://img.shields.io/badge/Medical_Education-CPX-4A80F0?style=flat" alt="Medical Education" />
   &nbsp;
   <img src="https://img.shields.io/badge/3D-three.js-000000?style=flat&logo=threedotjs&logoColor=white" alt="three.js" />
@@ -28,20 +21,6 @@
   <img src="https://img.shields.io/badge/Retrieval-Dual_RAG-A78BFA?style=flat" alt="Dual RAG" />
 </p>
 
-<p align="center">
-  🎬 <a href="https://www.youtube.com/watch?v=vS0mFh-VEVU">시연 영상</a> &nbsp;|&nbsp;
-  📊 <a href="#">최종 발표 자료</a> &nbsp;|&nbsp;
-  📝 <a href="#">팀 노션</a> &nbsp;|&nbsp;
-  🎨 <a href="#">Figma</a>
-  <br/>
-  💻 <a href="#">Frontend Repo</a> &nbsp;|&nbsp;
-  🗄 <a href="#">Backend Repo</a> &nbsp;|&nbsp;
-  🤖 <a href="#">AI / RAG Repo</a>
-</p>
-
-> 🔧 위 링크(배포 주소 · 발표 자료 · 노션 · Figma · 각 Repo)는 확정되는 대로 채워 주세요. 발표 PDF는 `docs/`에 넣고 링크를 연결하면 됩니다.
-
----
 
 ## 📖 프로젝트 소개 (Introduction)
 
@@ -54,14 +33,12 @@
 > \* **CPX (Clinical Performance Examination, 임상수행평가)** — 표준화 환자를 대상으로 문진·신체진찰·환자 교육 등 임상 수행 능력을 평가하는 실기 시험.
 
 - **팀:** Team 1 · **아프지마 닥터 잠보** 🐘
-- **개발 기간:** `YYYY.MM.DD ~ YYYY.MM.DD` <!-- TODO: 개발 기간 입력 -->
-- **배포 주소:** `준비중` <!-- TODO: 배포 URL 입력 -->
+- **개발 기간:** `2026.06.28 ~ 2026.06.29` 
+- **배포 주소:** [https://code-medi-2026-1-team-frontend.vercel.app/](https://code-medi-2026-1-team-frontend.vercel.app/)
 
 <br/>
 
 ### 🩺 우리가 만드는 것 — "채점받는 CPX 연습장"
-
-Seizure CPX는 범용 의료 챗봇이 **아닙니다.** 차별점은 *무엇을 대화하느냐*가 아니라 **어떻게 채점하고, 어떻게 체감하게 하느냐**에서 나옵니다.
 
 | 기존 의료 챗봇이 하는 것 | Seizure CPX가 하는 것 |
 | :--- | :--- |
@@ -77,8 +54,8 @@ Seizure CPX는 범용 의료 챗봇이 **아닙니다.** 차별점은 *무엇을
 
 - [프로젝트 소개](#-프로젝트-소개-introduction)
 - [핵심 기능](#-핵심-기능-key-features)
-- [🧊 3D 모델링 & three.js](#-3d-모델링--threejs)  ⭐
-- [🔍 이중 RAG 구조](#-이중-rag-구조-dual-rag-architecture)  ⭐
+- [🧊 3D 모델링 & three.js](#-3d-모델링--threejs)  
+- [🔍 이중 RAG 구조](#-이중-rag-구조-dual-rag-architecture)  
 - [동작 원리](#-동작-원리-how-it-works)
 - [시스템 아키텍처](#-시스템-아키텍처-architecture)
 - [기술 스택](#-기술-스택-tech-stack)
@@ -107,17 +84,53 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 <table>
   <tr align="center">
-    <td><strong>소아 (7개월)</strong></td>
-    <td><strong>소아 (9세)</strong></td>
-    <td><strong>청소년 (15세)</strong></td>
-    <td><strong>성인 (42세)</strong></td>
+    <td width="50%">
+      <strong>소아 (7개월)</strong>
+    </td>
+    <td width="50%">
+      <strong>소아 (9세)</strong>
+    </td>
   </tr>
   <tr align="center">
-    <!-- TODO: 시연 화면 캡처를 docs/에 넣고 경로를 연결해 주세요 -->
-    <td><img src="./docs/screen-infant.png" alt="소아 7개월" width="200" /></td>
-    <td><img src="./docs/screen-child.png" alt="소아 9세" width="200" /></td>
-    <td><img src="./docs/screen-teen.png" alt="청소년 15세" width="200" /></td>
-    <td><img src="./docs/screen-adult.png" alt="성인 42세" width="200" /></td>
+    <td>
+      <img
+        width="450"
+        alt="소아 7개월"
+        src="https://github.com/user-attachments/assets/0c3a2a42-0805-40e7-a35e-84401b95e7b1"
+      />
+    </td>
+    <td>
+      <img
+        width="450"
+        alt="소아 9세"
+        src="https://github.com/user-attachments/assets/06ff3729-5470-4619-a06b-6989f0909d08"
+      />
+    </td>
+  </tr>
+
+  <tr align="center">
+    <td>
+      <strong>청소년 (15세)</strong>
+    </td>
+    <td>
+      <strong>성인 (42세)</strong>
+    </td>
+  </tr>
+  <tr align="center">
+    <td>
+      <img
+        width="450"
+        alt="청소년 15세"
+        src="https://github.com/user-attachments/assets/786b3618-31ff-40da-89d5-bb17fc8bffe4"
+      />
+    </td>
+    <td>
+      <img
+        width="450"
+        alt="성인 42세"
+        src="https://github.com/user-attachments/assets/5280f1be-70b7-488e-8390-a3c87a85c493"
+      />
+    </td>
   </tr>
 </table>
 
@@ -133,8 +146,10 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
     <td><strong>침상 자세 진찰 화면</strong></td>
   </tr>
   <tr align="center">
-    <td><img src="./docs/screen-exam-1.png" alt="신체진찰 1" width="360" /></td>
-    <td><img src="./docs/screen-exam-2.png" alt="신체진찰 2" width="360" /></td>
+    <td><img width="637" height="545" alt="image" src="https://github.com/user-attachments/assets/39a70dc0-d819-4797-9b28-18f22c9f5a42" />
+</td>
+    <td>
+</td>
   </tr>
 </table>
 
@@ -179,8 +194,8 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 | 구성 | 내용 |
 | :--- | :--- |
-| **진료실 3D 룸** | 책상 · 모니터(활력징후) · CPX 타이머가 놓인 진료실 공간 |
-| **연령대별 아바타** | 소아(7개월) · 소아(9세) · 청소년(15세) · 성인(42세) — 증례별 별도 모델 |
+| **진료실 3D 룸** | 책상 · 모니터(활력징후) · 침대가 놓인 진료실 공간 |
+| **연령대별 아바타** | 소아(0~24개월) · 소아(2~12세) · 청소년(12~19세) · 성인(20세~) — 증례별 별도 모델 |
 | **자세 전환** | 앉은 자세(문진) ↔ 누운 자세(신체진찰) 전환 |
 | **장면 전환** | 진료실 → 침상/침실 장면 이동으로 진찰 맥락 재현 |
 | **진찰 인터랙션** | Brudzinski · Kernig 등 신체진찰 동작과 결과 표시 연동 |
@@ -193,11 +208,10 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 <table>
   <tr align="center">
-    <td><img src="./docs/screen-3d.png" alt="3D 모델링 화면" width="640" /></td>
+    <td><img width="1463" height="823" alt="스크린샷 2026-06-29 083702" src="https://github.com/user-attachments/assets/efad7e7a-6275-4833-b058-f26d9c95ce08" />
+</td>
   </tr>
 </table>
-
-> 📌 자세한 씬 구조/컴포넌트 설명은 추후 이 섹션에 보강 예정입니다. <!-- TODO: 3D 아키텍처 상세 -->
 
 <br/>
 
@@ -365,6 +379,8 @@ STT로 변환된 학생 질문을 **문진 항목에 매칭**해, 환자 응답�
 ## 💰 토큰 최적화 (Cost Optimization)
 
 > 반복 실습이 핵심인 CPX 특성상, **저렴하고 확장 가능한 SaaS 모델**을 목표로 토큰 사용을 최적화했습니다.
+<img width="1808" height="870" alt="KakaoTalk_20260629_084926528" src="https://github.com/user-attachments/assets/504b32e4-d730-4831-9bf6-afdc99572a42" />
+
 
 | 지표 | 최적화 전 | 최적화 후 | 절감 |
 | :--- | ---: | ---: | ---: |
@@ -526,7 +542,7 @@ Output Directory:  dist
 
 ## 🎨 3D 에셋 출처 (Asset Credits)
 
-> 3D 진료실·환자 모델에 사용된 에셋의 라이선스와 출처입니다. **CC-BY** 에셋은 저작자 표기가 필요합니다.
+> 3D 진료실·환자 모델에 사용된 에셋의 라이선스 및 출처입니다. **CC-BY** 에셋은 저작자 표기가 필요합니다.
 
 | 에셋 | 저작자 | 라이선스 · 출처 |
 | :--- | :--- | :--- |
