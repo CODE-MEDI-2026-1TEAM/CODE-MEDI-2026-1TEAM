@@ -588,9 +588,9 @@ Output Directory:  dist
     <td><strong>김다혜</strong></td>
     <td><strong>김지우</strong></td>
     <td><strong>유승주</strong></td>
-    <td><strong><a href="https://github.com/GITHUB_ID_김지훈">김지훈</a></strong></td>
-    <td><strong><a href="https://github.com/GITHUB_ID_이준섭">이준섭</a></strong></td>
-    <td><strong><a href="https://github.com/GITHUB_ID_한나영">한나영</a></strong></td>
+    <td><strong><a href="https://github.com/hoon-ground">김지훈</a></strong></td>
+    <td><strong><a href="https://github.com/SubJeeLee">이준섭</a></strong></td>
+    <td><strong><a href="https://github.com/nyoeng">한나영</a></strong></td>
   </tr>
 
 <tr align="center">
