@@ -178,7 +178,8 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 <table>
   <tr align="center">
-    <td><img src="./docs/screen-evaluation.png" alt="채점 결과 화면" width="420" /></td>
+    <td>
+</td>
   </tr>
 </table>
 
@@ -205,7 +206,7 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 | 구성 | 내용 |
 | :--- | :--- |
 | **진료실 3D 룸** | 책상 · 모니터(활력징후) · 침대가 놓인 진료실 공간 |
-| **연령대별 아바타** | 소아(0~24개월) · 소아(2~12세) · 청소년(12~19세) · 성인(20세~) — 증례별 별도 모델 |
+| **연령대별 아바타** | 소아(0 ~ 24개월) · 소아(2 ~ 12세) · 청소년(12 ~ 19세) · 성인(20세 ~) — 증례별 별도 모델 |
 | **자세 전환** | 앉은 자세(문진) ↔ 누운 자세(신체진찰) 전환 |
 | **장면 전환** | 진료실 → 침상/침실 장면 이동으로 진찰 맥락 재현 |
 | **진찰 인터랙션** | Brudzinski · Kernig 등 신체진찰 동작과 결과 표시 연동 |
@@ -223,6 +224,8 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
   </tr>
 </table>
 
+> 무료 에셋을 적극 활용하되, 증례 구현에 필요한 환자 모델과 주요 오브젝트는 직접 제작하여 사용하였습니다.
+
 <br/>
 
 ---
@@ -233,18 +236,24 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 하나의 LLM에 모든 것을 맡기지 않고, **역할이 다른 두 개의 지식 팩(RAG Knowledge Packs)** 으로 나눴습니다.
 
-```
-                ┌─────────────────────────┐
- 학생 음성 문진 ─┤  Simulation RAG          │─▶ 환자(보호자) 응답 생성
-                │  · patient_dialogue      │
-                │  · physical_exam scope   │
-                └─────────────────────────┘
-                ┌─────────────────────────┐
- 문진 수행 로그 ─┤  Evaluation RAG          │─▶ 영역별 채점 · 안전 기준 판정
-                │  · evaluation_rubric     │
-                │  · safety_critical_checks│
-                └─────────────────────────┘
-```
+<table>
+  <tr align="center">
+    <td><strong>DB Schema: Simulation / Evaluation RAG 저장 구조</strong></td>
+    <td><strong>Simulation RAG: 환자 답변용 청크 분리</strong></td>
+    <td><strong>Evaluation RAG: 경련 문진 체크리스트와 안전 기준</strong></td>
+  </tr>
+  <tr align="center">
+    <td>
+      <img src="이미지_URL_1" width="300" alt="DB Schema: Simulation / Evaluation RAG 저장 구조" />
+    </td>
+    <td>
+      <img src="이미지_URL_2" width="300" alt="Simulation RAG: 환자 답변용 청크 분리" />
+    </td>
+    <td>
+      <img src="이미지_URL_3" width="300" alt="Evaluation RAG: 경련 문진 체크리스트와 안전 기준" />
+    </td>
+  </tr>
+</table>
 
 ### 🗣 Simulation RAG — 환자 응답 생성용
 
@@ -276,12 +285,6 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 - **추적 가능성** — 채점 결과를 rubric 항목과 1:1로 매칭해, *왜 이 점수인지* 역추적할 수 있습니다.
 - **확장성** — 새 증례를 추가할 때 두 RAG를 독립적으로 확장할 수 있습니다.
 
-<table>
-  <tr align="center">
-    <td><img src="./docs/screen-rag.png" alt="이중 RAG 구조" width="720" /></td>
-  </tr>
-</table>
-
 <br/>
 
 ## 🧠 동작 원리 (How It Works)
@@ -310,9 +313,13 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 ## 🏗 시스템 아키텍처 (Architecture)
 
-<p align="center">
-  <img width="1920" height="1080" alt="KakaoTalk_20260705_172802775" src="https://github.com/user-attachments/assets/49d2bf44-7b6d-47d8-81c2-326c05e6df49" />
-</p>
+<table>
+  <tr align="center">
+    <td><img width="1920" height="1080" alt="KakaoTalk_20260705_172802775" src="https://github.com/user-attachments/assets/49d2bf44-7b6d-47d8-81c2-326c05e6df49" />
+</p></td>
+  </tr>
+</table>
+  
 
 | 레이어 | 구성 | 역할 |
 | :--- | :--- | :--- |
@@ -389,7 +396,12 @@ STT로 변환된 학생 질문을 **문진 항목에 매칭**해, 환자 응답�
 ## 💰 토큰 최적화 (Cost Optimization)
 
 > 반복 실습이 핵심인 CPX 특성상, **저렴하고 확장 가능한 SaaS 모델**을 목표로 토큰 사용을 최적화했습니다.
-<img width="1808" height="870" alt="KakaoTalk_20260629_084926528" src="https://github.com/user-attachments/assets/504b32e4-d730-4831-9bf6-afdc99572a42" />
+<table>
+  <tr align="center">
+    <td><img width="1808" height="870" alt="KakaoTalk_20260629_084926528" src="https://github.com/user-attachments/assets/504b32e4-d730-4831-9bf6-afdc99572a42" />
+</p></td>
+  </tr>
+</table>
 
 
 | 지표 | 최적화 전 | 최적화 후 | 절감 |
@@ -576,27 +588,33 @@ Output Directory:  dist
   <tr align="center">
     <td><strong>김다혜</strong></td>
     <td><strong>김지우</strong></td>
-    <td><strong>김지훈</strong></td>
     <td><strong>유승주</strong></td>
-    <td><strong>이준섭</strong></td>
-    <td><strong>한나영</strong></td>
+    <td><strong><a href="https://github.com/GITHUB_ID_김지훈">김지훈</a></strong></td>
+    <td><strong><a href="https://github.com/GITHUB_ID_이준섭">이준섭</a></strong></td>
+    <td><strong><a href="https://github.com/GITHUB_ID_한나영">한나영</a></strong></td>
   </tr>
+
+<tr align="center">
+  <td><a href="#"><img src="https://github.com/github.png" width="110" alt="김다혜" /></a></td>
+  <td><a href="#"><img src="https://github.com/github.png" width="110" alt="김지우" /></a></td>
+  <td><a href="#"><img src="https://github.com/github.png" width="110" alt="유승주" /></a></td>
+  <td><a href="https://github.com/hoon-groundd"><img src="https://github.com/hoon-ground.png" width="110" alt="김지훈" /></a></td>
+  <td><a href="https://github.com/SubJeeLee"><img src="https://github.com/SubJeeLee.png" width="110" alt="이준섭" /></a></td>
+  <td><a href="https://github.com/nyoeng"><img src="https://github.com/nyoeng.png" width="110" alt="한나영" /></a></td>
+</tr>
+
   <tr align="center">
-    <!-- TODO: 각자 GitHub 프로필 이미지/링크를 연결해 주세요 -->
-    <td><a href="#"><img src="https://github.com/github.png" width="110" alt="김다혜" /></a></td>
-    <td><a href="#"><img src="https://github.com/github.png" width="110" alt="김지우" /></a></td>
-    <td><a href="#"><img src="https://github.com/github.png" width="110" alt="김지훈" /></a></td>
-    <td><a href="#"><img src="https://github.com/github.png" width="110" alt="유승주" /></a></td>
-    <td><a href="#"><img src="https://github.com/github.png" width="110" alt="이준섭" /></a></td>
-    <td><a href="#"><img src="https://github.com/github.png" width="110" alt="한나영" /></a></td>
+    <td rowspan="2">동아대학교 의학과</td>
+    <td rowspan="2">동아대학교 의학과</td>
+    <td rowspan="2">동아대학교 의학과</td>
+    <td>경북대학교 컴퓨터학부</td>
+    <td>경북대학교 컴퓨터학부</td>
+    <td>경북대학교 컴퓨터학부</td>
   </tr>
+
   <tr align="center">
-    <!-- TODO: 역할 입력 (예: Frontend / Backend / AI·RAG / 3D / Design 등) -->
-    <td>역할</td>
-    <td>역할</td>
-    <td>역할</td>
     <td>RAG</td>
-    <td>FE·BE </td>
+    <td>FE·BE</td>
     <td>FE</td>
   </tr>
 </table>
@@ -610,5 +628,5 @@ Seizure CPX는 **의료 진단·치료 도구가 아니며**, 실제 진료나 �
 <br/>
 
 <p align="center">
-  <sub>Seizure CPX · AI로 CPX 연습을 실제처럼, 피드백은 즉시 🐘</sub>
+  <sub>Seizure CPX · AI로 경련 CPX 연습을 실제처럼, 피드백은 즉시 🐘</sub>
 </p>
