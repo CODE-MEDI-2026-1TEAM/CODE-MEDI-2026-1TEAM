@@ -154,11 +154,7 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
       />
     </td>
     <td>
-      <img
-        width="520"
-        alt="침상 자세 진찰 화면"
-        src="https://github.com/user-attachments/assets/5980702f-1439-4571-9856-cb268c6e7aa7"
-      />
+     <img width="690" height="431" alt="ezgif-6d838b30753a04e4" src="https://github.com/user-attachments/assets/6bcf7904-8948-40ae-be2f-a46a3fcc9465" />
     </td>
   </tr>
 </table>
@@ -178,7 +174,7 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
 
 <table>
   <tr align="center">
-    <td>
+    <td><img width="660" height="412" alt="ezgif-663f2d8766bf3fa0" src="https://github.com/user-attachments/assets/6d245f99-ffa2-4392-902d-77318c243a5d" />
 </td>
   </tr>
 </table>
