@@ -148,17 +148,20 @@ Seizure CPX의 한 세션은 **입장 → 음성 문진 → 3D 신체진찰 → 
   <tr align="center">
     <td>
       <img
-        width="520"
+        width="480"
         alt="수막자극징후 검사"
         src="https://github.com/user-attachments/assets/39a70dc0-d819-4797-9b28-18f22c9f5a42"
       />
     </td>
     <td>
-     <img width="690" height="431" alt="ezgif-6d838b30753a04e4" src="https://github.com/user-attachments/assets/6bcf7904-8948-40ae-be2f-a46a3fcc9465" />
+      <img
+        width="480"
+        alt="침상 자세 진찰 화면"
+        src="https://github.com/user-attachments/assets/6bcf7904-8948-40ae-be2f-a46a3fcc9465"
+      />
     </td>
   </tr>
 </table>
-
 <br/>
 
 ### 📋 직관적인 채점 UI
