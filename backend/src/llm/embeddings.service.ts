@@ -1,6 +1,7 @@
-import { BadGatewayException, Injectable, Logger } from '@nestjs/common';
+import { BadGatewayException, Injectable, Logger, Optional } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import OpenAI from 'openai';
+import { ApiCostService } from './api-cost.service';
 
 @Injectable()
 export class EmbeddingsService {
@@ -8,7 +9,7 @@ export class EmbeddingsService {
   private readonly model: string;
   private readonly dimensions?: number;
 
-  constructor(private readonly configService: ConfigService) {
+  constructor(private readonly configService: ConfigService, @Optional() private readonly costs: ApiCostService = new ApiCostService(configService)) {
     this.model =
       this.configService.get<string>('OPENAI_EMBEDDING_MODEL') ??
       'text-embedding-3-large';
@@ -19,11 +20,13 @@ export class EmbeddingsService {
 
   async embed(text: string): Promise<number[]> {
     try {
-      const response = await this.getClient().embeddings.create({
+      const client = this.getClient();
+      const request = {
         model: this.model,
         input: text,
         ...(this.dimensions ? { dimensions: this.dimensions } : {}),
-      });
+      };
+      const response = await this.costs.execute('embedding', this.model, request, 0, () => client.embeddings.create(request));
 
       const embedding = response.data[0]?.embedding;
       if (!embedding || embedding.length === 0) {
@@ -32,12 +35,10 @@ export class EmbeddingsService {
 
       return embedding;
     } catch (error) {
-      this.logger.error(
-        `Embedding generation failed for text (${text.slice(0, 50)}...): ${error instanceof Error ? error.message : 'Unknown error'}`,
-      );
+      this.logger.warn('Embedding unavailable');
       throw new BadGatewayException({
         message: 'Failed to generate embedding',
-        detail: error instanceof Error ? error.message : 'Unknown error',
+        detail: 'embedding_unavailable',
       });
     }
   }
@@ -53,19 +54,64 @@ export class EmbeddingsService {
       error?: string;
     }> = [];
 
-    for (const item of texts) {
+    for (let offset = 0; offset < texts.length; offset += 64) {
+      const batch = texts.slice(offset, offset + 64);
       try {
-        const embedding = await this.embed(item.text);
-        results.push({ id: item.id, embedding });
-      } catch (error) {
-        this.logger.error(
-          `Failed to embed fact ${item.id}: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        if (batch.some((item) => !item.text.trim()))
+          throw new Error('Empty embedding input');
+        const client = this.getClient();
+        const request = {
+          model: this.model,
+          input: batch.map((item) => item.text),
+          ...(this.dimensions ? { dimensions: this.dimensions } : {}),
+        };
+        const response = await this.costs.execute('embedding', this.model, request, 0, () => client.embeddings.create(request));
+        const embeddings = new Map(
+          response.data.map((row) => [row.index, row.embedding]),
         );
-        results.push({
-          id: item.id,
-          embedding: null,
-          error: error instanceof Error ? error.message : 'Unknown error',
-        });
+        const lengths = new Set(
+          response.data.map((row) => row.embedding.length),
+        );
+        if (
+          embeddings.size !== batch.length ||
+          batch.some((_, i) => !embeddings.has(i)) ||
+          lengths.size !== 1 ||
+          response.data.some(
+            (row) =>
+              !row.embedding.length ||
+              row.embedding.some((n) => !Number.isFinite(n)) ||
+              !row.embedding.some((n) => n !== 0) ||
+              (this.dimensions && row.embedding.length !== this.dimensions),
+          )
+        )
+          throw new Error('Invalid embedding batch');
+        for (const [i, item] of batch.entries()) {
+          const embedding = embeddings.get(i);
+          if (!embedding) throw new Error('Missing embedding');
+          results.push({ id: item.id, embedding });
+        }
+        this.logger.log(
+          JSON.stringify({
+            event: 'embedding.batch.completed',
+            model: this.model,
+            dimensions: [...lengths][0],
+            count: batch.length,
+            usage: response.usage,
+          }),
+        );
+      } catch {
+        this.logger.warn(
+          JSON.stringify({
+            event: 'embedding.batch.failed',
+            count: batch.length,
+          }),
+        );
+        for (const item of batch)
+          results.push({
+            id: item.id,
+            embedding: null,
+            error: 'embedding_unavailable',
+          });
       }
     }
 
@@ -88,6 +134,8 @@ export class EmbeddingsService {
   }
 
   private getClient(): OpenAI {
+    if (this.configService.get<string>('PATIENT_AI_ENABLED') !== 'true')
+      throw new BadGatewayException('Embedding generation is disabled');
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
 
     if (!apiKey || apiKey === 'sk-your-api-key') {
@@ -96,6 +144,6 @@ export class EmbeddingsService {
       });
     }
 
-    return new OpenAI({ apiKey });
+    return new OpenAI({ apiKey, timeout: 20000, maxRetries: 0 });
   }
 }

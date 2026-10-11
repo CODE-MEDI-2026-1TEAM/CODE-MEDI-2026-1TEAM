@@ -3,6 +3,7 @@ import {
   BadRequestException,
   Injectable,
   Logger,
+  ServiceUnavailableException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import OpenAI, { toFile } from 'openai';
@@ -52,6 +53,7 @@ export class SpeechService {
   }
 
   async transcribe(audio: UploadedAudioFile) {
+    this.requireEnabled();
     if (!allowedAudioTypes.has(audio.mimetype)) {
       throw new BadRequestException(
         `Unsupported audio type: ${audio.mimetype}`,
@@ -114,6 +116,7 @@ export class SpeechService {
   }
 
   async synthesize(synthesisInput: SpeechSynthesisInput) {
+    this.requireEnabled();
     const input = synthesisInput?.text?.trim();
     if (!input) {
       throw new BadRequestException('Text is required');
@@ -147,7 +150,16 @@ export class SpeechService {
       throw new BadGatewayException('OPENAI_API_KEY is not configured');
     }
 
-    return new OpenAI({ apiKey });
+    return new OpenAI({ apiKey, timeout: 30000, maxRetries: 0 });
+  }
+
+  private requireEnabled() {
+    if (Number(this.configService.get<string>('API_BUDGET_USD')) > 0)
+      throw new ServiceUnavailableException('비용 제한 문진은 텍스트로 진행합니다.');
+    if (this.configService.get<string>('PATIENT_AI_ENABLED') !== 'true')
+      throw new ServiceUnavailableException(
+        '현재 음성 API 호출이 꺼져 있습니다. 텍스트로 문진해 주세요.',
+      );
   }
 
   private filenameFor(audio: UploadedAudioFile) {
@@ -183,7 +195,9 @@ export class SpeechService {
           ? 'Korean young girl patient voice. Bright but slightly anxious, natural and age-appropriate.'
           : 'Korean young boy patient voice. Clear, young, slightly anxious, natural and age-appropriate.',
         speed: 1.02,
-        voice: (isFemale ? 'shimmer' : 'echo') satisfies SpeechCreateParams['voice'],
+        voice: (isFemale
+          ? 'shimmer'
+          : 'echo') satisfies SpeechCreateParams['voice'],
       };
     }
 
@@ -195,7 +209,9 @@ export class SpeechService {
           ? 'Korean teenage female patient voice. Natural, a little nervous, not overly high-pitched.'
           : 'Korean teenage male patient voice. Natural lower teen male tone, a little nervous.',
         speed: 0.98,
-        voice: (isFemale ? 'coral' : 'ash') satisfies SpeechCreateParams['voice'],
+        voice: (isFemale
+          ? 'coral'
+          : 'ash') satisfies SpeechCreateParams['voice'],
       };
     }
 

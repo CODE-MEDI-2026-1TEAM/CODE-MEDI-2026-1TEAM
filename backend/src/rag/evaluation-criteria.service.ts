@@ -434,9 +434,9 @@ export class EvaluationCriteriaService {
 
   private resolveBaseDir(): string {
     const candidates = [
+      join(__dirname, 'evaluationRAG'),
       join(process.cwd(), 'src/rag/evaluationRAG'),
       join(process.cwd(), 'dist/src/rag/evaluationRAG'),
-      join(__dirname, 'evaluationRAG'),
     ];
 
     const found = candidates.find((candidate) => existsSync(candidate));

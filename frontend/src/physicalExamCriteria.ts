@@ -209,7 +209,7 @@ export function physicalExamMediaForEvent(
   caseSlug: string | null | undefined,
   event: PhysicalExamEvent,
 ) {
-  if (caseSlug !== 'seizure_case_05' || event.status !== 'abnormal') {
+  if (event.execution === 'attempted' || caseSlug !== 'seizure_case_05' || event.status !== 'abnormal') {
     return null;
   }
 

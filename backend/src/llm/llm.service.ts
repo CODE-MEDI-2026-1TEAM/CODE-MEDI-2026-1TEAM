@@ -1,12 +1,37 @@
-import { BadGatewayException, Injectable } from '@nestjs/common';
+import {
+  BadGatewayException,
+  Injectable,
+  Logger,
+  Optional,
+  ServiceUnavailableException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import OpenAI from 'openai';
+import { ApiCostService } from './api-cost.service';
 import type { EvaluationCriteriaPack } from '../rag/evaluation-criteria.service';
 
 type ConversationMessage = {
   role: 'user' | 'assistant';
   content: string;
 };
+
+export function evaluationFailureCode(error: unknown): string {
+  if (error instanceof SyntaxError) return 'evaluation_json_invalid';
+  if (!(error instanceof Error)) return 'evaluation_provider_unavailable';
+  const known: Record<string, string> = {
+    'Empty evaluation response': 'evaluation_output_incomplete',
+    'Invalid evaluation response': 'evaluation_schema_invalid',
+    'Invalid evaluation output limit': 'evaluation_config_invalid',
+    'Incomplete missed item status': 'evaluation_items_incomplete',
+    'Incomplete evaluation criteria': 'evaluation_items_incomplete',
+    'Invalid missed item status': 'evaluation_item_status_invalid',
+    'Invalid evaluation item status': 'evaluation_item_status_invalid',
+    'Evaluation evidence contradicts status': 'evaluation_evidence_invalid',
+    'Evaluation evidence missing': 'evaluation_evidence_missing',
+    'Evaluation evidence is not a student quote': 'evaluation_evidence_not_original',
+  };
+  return known[error.message] ?? 'evaluation_provider_unavailable';
+}
 
 type CpxCaseForPrompt = {
   title: string;
@@ -27,6 +52,11 @@ export type EvaluationItemStatus = {
 };
 
 type ClinicalActionSummary = {
+  processingRecords?: Array<{
+    requestId: string;
+    userMessageId: string;
+    processing: unknown;
+  }>;
   expectedPhysicalExamChecklist?: Array<{
     examKey: string;
     expectedPosition: string;
@@ -51,6 +81,8 @@ type ClinicalActionSummary = {
     position: string;
     result: string;
     status: string;
+    execution?: string;
+    resultAvailability?: string;
   }>;
 };
 
@@ -90,7 +122,7 @@ export type EvaluationResult = {
 export class LlmService {
   private readonly model: string;
 
-  constructor(private readonly configService: ConfigService) {
+  constructor(private readonly configService: ConfigService, @Optional() private readonly costs: ApiCostService = new ApiCostService(configService)) {
     this.model = this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-5.5';
   }
 
@@ -98,6 +130,7 @@ export class LlmService {
     cpxCase: CpxCaseForPrompt,
     messages: ConversationMessage[],
   ) {
+    if (Number(this.configService.get<string>('API_BUDGET_USD')) > 0) throw new ServiceUnavailableException('비용 제한 문진은 근거 기반 환자 경로를 사용합니다.');
     try {
       const completion = await this.getClient().chat.completions.create({
         model: this.model,
@@ -135,18 +168,25 @@ export class LlmService {
     clinicalActions?: ClinicalActionSummary,
   ): Promise<EvaluationResult> {
     try {
-      const completion = await this.getClient().chat.completions.create({
-        model: this.model,
-        ...this.temperatureOptions(0.2),
+      const model = this.configService.get<string>('PATIENT_EVALUATION_MODEL') ?? this.model;
+      const maxOutput = Number(this.configService.get<string>('PATIENT_EVALUATION_MAX_TOKENS') ?? '8192');
+      if (!Number.isInteger(maxOutput) || maxOutput < 512 || maxOutput > 32768) throw new Error('Invalid evaluation output limit');
+      const client = this.getClient();
+      const request: OpenAI.Chat.ChatCompletionCreateParamsNonStreaming = {
+        model,
+        ...(!/^(gpt-5|gpt-6|o)/.test(model) ? { temperature: 0.2 } : {}),
+        max_completion_tokens: maxOutput,
         response_format: { type: 'json_object' },
         messages: [
           {
             role: 'system',
-            content: this.buildEvaluationSystemPrompt(
-              cpxCase,
-              criteriaPack,
-              clinicalActions,
-            ),
+            content:
+              this.buildEvaluationSystemPrompt(
+                cpxCase,
+                criteriaPack,
+                clinicalActions,
+              ) +
+              '\n학생의 원래 질문·진찰 시도를 근거로 판정한다. processingRecords의 기술 실패·자료 미제공을 학생 미수행으로 감점하지 않는다. repairResolutions는 검증된 질문별 복구 연결이다. execution=attempted는 시나리오상 진찰을 시도한 기록이며 완료나 정상 소견을 뜻하지 않는다. execution=performed와 resultAvailability는 별개다. 실제 진찰과 검사 계획을 구분한다. 항목을 누락하거나 원문에 없는 근거를 만들지 않는다.',
           },
           {
             role: 'user',
@@ -160,26 +200,30 @@ export class LlmService {
                 },
                 conversation: messages,
               },
-              null,
-              2,
             ),
           },
         ],
-      });
+      };
+      const completion = await this.costs.execute('evaluation', model, request, maxOutput, () => client.chat.completions.create(request));
 
       const content = completion.choices[0]?.message?.content;
-      if (!content) {
+      if (!content || completion.choices[0]?.finish_reason !== 'stop') {
         throw new Error('Empty evaluation response');
       }
 
-      return this.normalizeEvaluation(
+      const result = this.normalizeEvaluation(
         JSON.parse(content) as Partial<EvaluationResult>,
         criteriaPack,
       );
+      this.validateEvaluationEvidence(result, messages, clinicalActions);
+      return result;
     } catch (error) {
+      const code = evaluationFailureCode(error);
+      // Only a bounded diagnostic is logged: provider errors may contain sensitive data.
+      new Logger(LlmService.name).warn(JSON.stringify({ event: 'evaluation.rejected', code }));
       throw new BadGatewayException({
         message: 'Failed to evaluate conversation',
-        detail: error instanceof Error ? error.message : 'Unknown LLM error',
+        detail: code,
       });
     }
   }
@@ -204,6 +248,10 @@ export class LlmService {
   }
 
   private getClient() {
+    if (this.configService.get<string>('PATIENT_AI_ENABLED') !== 'true')
+      throw new ServiceUnavailableException(
+        '자동 모델 호출이 비활성화되어 있습니다.',
+      );
     const apiKey = this.configService.get<string>('OPENAI_API_KEY');
 
     if (!apiKey || apiKey === 'sk-your-api-key') {
@@ -212,7 +260,7 @@ export class LlmService {
       });
     }
 
-    return new OpenAI({ apiKey });
+    return new OpenAI({ apiKey, timeout: 30000, maxRetries: 0 });
   }
 
   private temperatureOptions(temperature: number) {
@@ -240,7 +288,7 @@ export class LlmService {
       ? [
           '',
           'Evaluation RAG criteria pack:',
-          JSON.stringify(criteriaPack, null, 2),
+          JSON.stringify(criteriaPack),
           '',
           'Use the criteria pack as the primary evaluation reference.',
           'Case-specific checklist and red flags override general module guidance.',
@@ -258,7 +306,7 @@ export class LlmService {
     return [
       'You are an evaluator for Korean CPX medical interview practice.',
       'Evaluate only the student messages in the supplied conversation.',
-      'Also evaluate supplied clinicalActions as actions performed in the simulation UI.',
+      'Also evaluate supplied clinicalActions. execution=attempted with an unavailable scenario is an attempt, not a completed examination; do not invent findings or penalize source unavailability as student omission. Verified repairResolutions resolve only their referenced processing failures.',
       'Do not invent student actions or questions that are not present in the conversation.',
       'Hand hygiene scoring rule:',
       '- If clinicalActions.handHygieneCount is 0, mark missed hand hygiene as a missed item or suggestion under clinical etiquette/infection control.',
@@ -287,19 +335,13 @@ export class LlmService {
       'For patient education, met requires a patient-facing explanation in understandable Korean.',
       'Mentioning a diagnosis, test, or treatment only as internal reasoning is not enough for patientEducationStatus.',
       'Use partial when the student mentioned the topic but explanation was incomplete, unclear, or not patient-facing.',
-      'Evidence must quote or briefly paraphrase the relevant student utterance. Use an empty evidence array when unmet.',
+      'Evidence must contain exact continuous quotes from student utterances or physicalExamEvents.matchedText; never paraphrase. Every met/partial item needs at least one quote. Use an empty evidence array when unmet.',
       '',
       `Case title: ${cpxCase.title}`,
       `Chief complaint: ${cpxCase.chiefComplaint}`,
       `Hidden diagnosis: ${cpxCase.hiddenDiagnosis}`,
       `Checklist: ${JSON.stringify(cpxCase.checklist)}`,
       `Red flags: ${JSON.stringify(cpxCase.redFlags)}`,
-      `Clinical actions: ${JSON.stringify({
-        expectedPhysicalExamChecklist,
-        handHygieneCount,
-        handHygieneEvents,
-        physicalExamEvents,
-      })}`,
       criteriaSection,
     ].join('\n');
   }
@@ -311,7 +353,17 @@ export class LlmService {
     const score =
       typeof result.score === 'number' && Number.isInteger(result.score)
         ? result.score
-        : 0;
+        : NaN;
+    if (
+      !Number.isFinite(score) ||
+      score < 0 ||
+      score > 100 ||
+      typeof result.riskAssessment !== 'string' ||
+      !Array.isArray(result.strengths) ||
+      !Array.isArray(result.missedItems) ||
+      !Array.isArray(result.suggestions)
+    )
+      throw new Error('Invalid evaluation response');
     const missedItems = this.normalizeStringArray(result.missedItems);
 
     return {
@@ -344,19 +396,55 @@ export class LlmService {
       : [];
   }
 
+  private validateEvaluationEvidence(
+    result: EvaluationResult,
+    messages: ConversationMessage[],
+    actions?: ClinicalActionSummary,
+  ) {
+    const source = [
+      ...messages.filter((m) => m.role === 'user').map((m) => m.content),
+      ...(actions?.physicalExamEvents ?? []).map((e) => e.matchedText),
+    ];
+    for (const item of [
+      ...result.caseInstructionStatus,
+      ...result.patientEducationStatus,
+    ]) {
+      if (item.status === 'unmet' && item.evidence.length)
+        throw new Error('Evaluation evidence contradicts status');
+      if (item.status !== 'unmet' && !item.evidence.length)
+        throw new Error('Evaluation evidence missing');
+      if (
+        item.evidence.some(
+          (quote) =>
+            !quote.trim() || !source.some((text) => text.includes(quote)),
+        )
+      )
+        throw new Error('Evaluation evidence is not a student quote');
+    }
+  }
+
   private normalizeMissedItemStatus(
     statuses: unknown,
     missedItems: string[],
   ): MissedItemStatus[] {
     const normalizedByItem = new Map<string, MissedItemStatus>();
+    if (missedItems.length && !Array.isArray(statuses))
+      throw new Error('Incomplete missed item status');
 
     if (Array.isArray(statuses)) {
       for (const status of statuses) {
-        if (!status || typeof status !== 'object') continue;
+        if (!status || typeof status !== 'object')
+          throw new Error('Invalid missed item status');
         const candidate = status as Partial<MissedItemStatus>;
         if (typeof candidate.item !== 'string' || !candidate.item.trim()) {
-          continue;
+          throw new Error('Invalid missed item status');
         }
+        if (
+          !missedItems.includes(candidate.item) ||
+          normalizedByItem.has(candidate.item) ||
+          typeof candidate.isPerformed !== 'boolean'
+        )
+          throw new Error('Invalid missed item status');
 
         normalizedByItem.set(candidate.item, {
           item: candidate.item,
@@ -366,14 +454,9 @@ export class LlmService {
       }
     }
 
-    return missedItems.map(
-      (item) =>
-        normalizedByItem.get(item) ?? {
-          item,
-          historyCode: this.inferHistoryCode(item),
-          isPerformed: false,
-        },
-    );
+    if (missedItems.some((item) => !normalizedByItem.has(item)))
+      throw new Error('Incomplete missed item status');
+    return missedItems.map((item) => normalizedByItem.get(item)!);
   }
 
   private normalizeHistoryCode(value: unknown): HistoryTakingCode | null {
@@ -393,19 +476,32 @@ export class LlmService {
       '여',
     ]);
 
-    return typeof value === 'string' && allowedCodes.has(value as HistoryTakingCode)
+    return typeof value === 'string' &&
+      allowedCodes.has(value as HistoryTakingCode)
       ? (value as HistoryTakingCode)
       : null;
   }
 
   private inferHistoryCode(item: string): HistoryTakingCode | null {
-    if (/\btrauma\b|\bsurgery\b|외상|수술|다친|손상|교통사고|두부외상|머리.*다침/i.test(item)) {
+    if (
+      /\btrauma\b|\bsurgery\b|외상|수술|다친|손상|교통사고|두부외상|머리.*다침/i.test(
+        item,
+      )
+    ) {
       return '외';
     }
-    if (/\bpast medical\b|\bmedical history\b|과거력|기저질환|진단.*병|고혈압|당뇨|뇌졸중|뇌종양|뇌수막염/i.test(item)) {
+    if (
+      /\bpast medical\b|\bmedical history\b|과거력|기저질환|진단.*병|고혈압|당뇨|뇌졸중|뇌종양|뇌수막염/i.test(
+        item,
+      )
+    ) {
       return '과';
     }
-    if (/\bmedication\b|\bdrug\b|\ballergy\b|약물|복용|투약|항경련제|알레르기/i.test(item)) {
+    if (
+      /\bmedication\b|\bdrug\b|\ballergy\b|약물|복용|투약|항경련제|알레르기/i.test(
+        item,
+      )
+    ) {
       return '약';
     }
     if (/\bsocial\b|사회력|음주|흡연|직업|카페인|생활습관/i.test(item)) {
@@ -414,19 +510,33 @@ export class LlmService {
     if (/\bfamily\b|가족력|가족.*병|유전|부모|형제|자매/i.test(item)) {
       return '가';
     }
-    if (/\bgynecologic\b|\bobstetric\b|여성력|월경|생리|임신|출산|폐경|LMP/i.test(item)) {
+    if (
+      /\bgynecologic\b|\bobstetric\b|여성력|월경|생리|임신|출산|폐경|LMP/i.test(
+        item,
+      )
+    ) {
       return '여';
     }
-    if (/\bA_F\b|associated|trigger|동반|유발|악화|완화|요인|발열|두통|수면|음주|스트레스/i.test(item)) {
+    if (
+      /\bA_F\b|associated|trigger|동반|유발|악화|완화|요인|발열|두통|수면|음주|스트레스/i.test(
+        item,
+      )
+    ) {
       return 'A_F';
     }
-    if (/\bEx\b|experience|previous|이전|과거|처음|재발|경험|항경련제/i.test(item)) {
+    if (
+      /\bEx\b|experience|previous|이전|과거|처음|재발|경험|항경련제/i.test(item)
+    ) {
       return 'Ex';
     }
     if (/\bCo\b|course|progress|악화|호전|변화|경과|점점/i.test(item)) {
       return 'Co';
     }
-    if (/\bD\b|duration|frequency|지속|시간|몇 분|몇 초|반복|빈도|횟수/i.test(item)) {
+    if (
+      /\bD\b|duration|frequency|지속|시간|몇 분|몇 초|반복|빈도|횟수/i.test(
+        item,
+      )
+    ) {
       return 'D';
     }
     if (/\bL\b|location|부위|위치|어디/i.test(item)) {
@@ -435,7 +545,11 @@ export class LlmService {
     if (/\bO\b|onset|시작|발생 시점|언제부터|처음 발생/i.test(item)) {
       return 'O';
     }
-    if (/\bC\b|character|양상|전조|의식|목격|떨림|뻣뻣|눈|고개|혀|실금|자동증|경련 전|경련 중|경련 후/i.test(item)) {
+    if (
+      /\bC\b|character|양상|전조|의식|목격|떨림|뻣뻣|눈|고개|혀|실금|자동증|경련 전|경련 중|경련 후/i.test(
+        item,
+      )
+    ) {
       return 'C';
     }
 
@@ -461,13 +575,7 @@ export class LlmService {
     for (const expected of expectedItems) {
       const key = this.statusKey(expected.item, expected.category);
       if (!normalizedByKey.has(key)) {
-        normalizedByKey.set(key, {
-          item: expected.item,
-          category: expected.category,
-          status: 'unmet',
-          evidence: [],
-          feedback: '평가 응답에 해당 항목 근거가 없어 미충족으로 처리했습니다.',
-        });
+        throw new Error('Incomplete evaluation criteria');
       }
     }
 
@@ -483,16 +591,14 @@ export class LlmService {
     }
 
     const allowedStatuses = new Set(['met', 'partial', 'unmet']);
-    const normalizedStatus = allowedStatuses.has(candidate.status ?? '')
-      ? candidate.status
-      : 'unmet';
+    if (!allowedStatuses.has(candidate.status ?? ''))
+      throw new Error('Invalid evaluation item status');
+    const normalizedStatus = candidate.status;
 
     return {
       item: candidate.item,
       category:
-        typeof candidate.category === 'string'
-          ? candidate.category
-          : undefined,
+        typeof candidate.category === 'string' ? candidate.category : undefined,
       status: normalizedStatus as EvaluationItemStatus['status'],
       evidence: Array.isArray(candidate.evidence)
         ? candidate.evidence.filter(

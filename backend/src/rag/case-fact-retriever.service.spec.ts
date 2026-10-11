@@ -71,7 +71,7 @@ describe('CaseFactRetrieverService', () => {
     expect(repo.searchByCaseId.mock.calls).toContainEqual([
       CASE_A,
       DUMMY_EMBEDDING,
-      5,
+      20,
     ]);
   });
 
@@ -217,7 +217,7 @@ describe('CaseFactRetrieverService', () => {
     expect(repo.searchByCaseId.mock.calls).toContainEqual([
       CASE_A,
       DUMMY_EMBEDDING,
-      3,
+      12,
     ]);
     expect(result.facts.length).toBeLessThanOrEqual(3);
   });
@@ -242,8 +242,7 @@ describe('CaseFactRetrieverService', () => {
     expect(repo.searchByCaseId.mock.calls).toHaveLength(0);
   });
 
-  // Test 9: embedding 실패 시 UNKNOWN fallback
-  it('returns UNKNOWN fallback when embedding generation fails', async () => {
+  it('reports a retryable technical error when embedding generation fails', async () => {
     const repo = makeRepo([]);
     const embeddings = makeEmbeddings();
     embeddings.embed = jest.fn().mockRejectedValue(new Error('API error'));
@@ -253,13 +252,12 @@ describe('CaseFactRetrieverService', () => {
       makeConfig(),
     );
 
-    const result = await retriever.retrieve({
-      caseId: CASE_A,
-      question: '통증이 어디에 있어요?',
-    });
-
-    expect(result.isFallback).toBe(true);
-    expect(result.fallbackType).toBe('UNKNOWN');
+    await expect(
+      retriever.retrieve({
+        caseId: CASE_A,
+        question: '통증이 어디에 있어요?',
+      }),
+    ).rejects.toThrow('문진 검색에 실패');
   });
 
   // Test 10: 검색 결과 없을 때 BROAD_QUESTION fallback

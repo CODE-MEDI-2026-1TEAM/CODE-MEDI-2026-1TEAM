@@ -15,7 +15,14 @@ export async function request<T>(
 
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(text || `Request failed with ${response.status}`);
+    let message = text;
+    try {
+      const payload = JSON.parse(text) as { message?: string | string[] };
+      message = Array.isArray(payload.message)
+        ? payload.message.join('\n')
+        : payload.message ?? `요청 처리에 실패했습니다 (${response.status}).`;
+    } catch { /* Non-JSON server errors retain their message. */ }
+    throw new Error(message || `요청 처리에 실패했습니다 (${response.status}).`);
   }
 
   return response.json() as Promise<T>;

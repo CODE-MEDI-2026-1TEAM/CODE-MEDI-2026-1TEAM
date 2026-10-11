@@ -1,12 +1,13 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { useSpeechRecognition } from './useSpeechRecognition';
-import { useSpeechSynthesis } from './useSpeechSynthesis';
-import type { Session } from '../types';
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useSpeechRecognition } from "./useSpeechRecognition";
+import { useSpeechSynthesis } from "./useSpeechSynthesis";
+import type { Session } from "../types";
 
 const isConversationDebugEnabled =
-  import.meta.env.VITE_ENABLE_CONVERSATION_DEBUG === 'true';
+  import.meta.env.VITE_ENABLE_CONVERSATION_DEBUG === "true";
 
 interface UseVoiceConversationProps {
+  apiCallsEnabled?: boolean;
   session: Session | null;
   /** 메시지 전송(네트워크). 성공하면 true. */
   onSendMessage: (content: string) => Promise<boolean>;
@@ -20,21 +21,28 @@ interface UseVoiceConversationProps {
  * - 출력: 최신 환자(assistant) 응답을 음성으로 1회 재생
  */
 export function useVoiceConversation({
+  apiCallsEnabled=true,
   session,
   onSendMessage,
   onClearError,
 }: UseVoiceConversationProps) {
-  const [transcript, setTranscript] = useState('');
+  const [transcript, setTranscript] = useState("");
   const [isVoiceReplyEnabled, setIsVoiceReplyEnabled] = useState(true);
   const lastSpokenMessageIdRef = useRef<string | null>(null);
   const isSpeechOutputActiveRef = useRef(false);
   const ignoreTranscriptsUntilRef = useRef(0);
+  const pendingTranscriptRef = useRef(false);
+  const lastTranscriptRef = useRef<{
+    text: string;
+    sessionId?: string;
+    time: number;
+  } | null>(null);
   const speechSynthesis = useSpeechSynthesis();
 
   const latestAssistantMessage = useMemo(
     () =>
       session?.messages
-        .filter((message) => message.role === 'assistant')
+        .filter((message) => message.role === "assistant")
         .at(-1),
     [session],
   );
@@ -68,28 +76,48 @@ export function useVoiceConversation({
     async (content: string) => {
       const trimmed = content.trim();
       if (!trimmed) return;
+      const last = lastTranscriptRef.current;
+      if (
+        pendingTranscriptRef.current ||
+        (last?.text === trimmed &&
+          last.sessionId === session?.id &&
+          Date.now() - last.time < 1500)
+      )
+        return;
       if (
         isSpeechOutputActiveRef.current ||
         Date.now() < ignoreTranscriptsUntilRef.current
       ) {
-        debugConversation('voice.finalTranscript.ignoredDuringSpeechOutput', {
+        debugConversation("voice.finalTranscript.ignoredDuringSpeechOutput", {
           sessionId: session?.id ?? null,
           caseSlug: session?.case.slug ?? null,
           transcript: trimmed,
           transcriptLength: trimmed.length,
         });
-        setTranscript('');
+        setTranscript("");
         return;
       }
       setTranscript(trimmed);
-      debugConversation('voice.finalTranscript', {
+      debugConversation("voice.finalTranscript", {
         sessionId: session?.id ?? null,
         caseSlug: session?.case.slug ?? null,
         transcript: trimmed,
         transcriptLength: trimmed.length,
       });
-      const ok = await onSendMessage(trimmed);
-      if (ok) setTranscript('');
+      pendingTranscriptRef.current = true;
+      try {
+        const ok = await onSendMessage(trimmed);
+        if (ok) {
+          lastTranscriptRef.current = {
+            text: trimmed,
+            sessionId: session?.id,
+            time: Date.now(),
+          };
+          setTranscript("");
+        }
+      } finally {
+        pendingTranscriptRef.current = false;
+      }
     },
     [onSendMessage, session?.case.slug, session?.id],
   );
@@ -101,10 +129,10 @@ export function useVoiceConversation({
 
   // 마이크 토글 전 에러를 지운다(기존 handleVoiceToggle).
   const toggle = useCallback(() => {
-    if (speechSynthesis.isSpeaking) return;
+    if (!apiCallsEnabled || speechSynthesis.isSpeaking) return;
     onClearError();
     speechRecognition.toggle();
-  }, [onClearError, speechRecognition, speechSynthesis.isSpeaking]);
+  }, [apiCallsEnabled,onClearError, speechRecognition, speechSynthesis.isSpeaking]);
 
   // 음성 재생 토글: 끄면 진행 중인 TTS를 중단한다.
   const setVoiceReplyEnabled = useCallback(
@@ -123,14 +151,15 @@ export function useVoiceConversation({
 
   // 최신 환자 응답을 1회 발화(중복 방지: id 가드).
   useEffect(() => {
-    if (!latestAssistantMessage || !isVoiceReplyEnabled) return;
+    if (!apiCallsEnabled || !latestAssistantMessage || !isVoiceReplyEnabled) return;
     if (latestAssistantMessage.id === lastSpokenMessageIdRef.current) return;
     lastSpokenMessageIdRef.current = latestAssistantMessage.id;
     speechRecognition.cancel();
-    setTranscript('');
+    setTranscript("");
     ignoreTranscriptsUntilRef.current = Date.now() + 3_000;
     void speechSynthesis.speak(latestAssistantMessage.content, voiceProfile);
   }, [
+    apiCallsEnabled,
     isVoiceReplyEnabled,
     latestAssistantMessage,
     speechRecognition,

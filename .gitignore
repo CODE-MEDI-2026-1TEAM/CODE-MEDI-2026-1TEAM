@@ -8,3 +8,32 @@ coverage
 .agents
 skills-lock.json
 *.tsbuildinfo
+
+# Interview records, local plans, reports and run output stay on this computer.
+# Only the implementation guide is shared from this directory.
+/docs/*
+!/docs/rag-implementation-guide.md
+/.local/
+
+# One-off simulation and inspection scripts stay with their local records.
+/backend/scripts/apply-patient-schema.cjs
+/backend/scripts/audit-rag-effectiveness.cjs
+/backend/scripts/audit-student-simulation-data.cjs
+/backend/scripts/budget-run-config.cjs
+/backend/scripts/budgeted-student-simulation.cjs
+/backend/scripts/capture-v24-session.cjs
+/backend/scripts/correction-student-simulation.cjs
+/backend/scripts/live-student-simulation.cjs
+/backend/scripts/patient-offline-http.cjs
+/backend/scripts/start-budget-server.cjs
+/backend/scripts/summarize-budgeted-simulation.cjs
+/backend/scripts/summarize-correction-simulation.cjs
+/backend/scripts/summarize-student-simulation.cjs
+/backend/scripts/summarize-v24-live-simulation.cjs
+/backend/scripts/summarize-v25-natural-simulation.cjs
+/backend/scripts/v24-replay-simulation.cjs
+/backend/scripts/v25-natural-simulation.cjs
+/backend/scripts/verify-patient-dist.cjs
+/backend/scripts/verify-patient-evidence-db.cjs
+/backend/scripts/verify-student-simulation-records.cjs
+/backend/test/fixtures/patient-v25-natural-interview.json

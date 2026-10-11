@@ -1,6 +1,7 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { BadGatewayException, Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { EmbeddingsService } from '../llm/embeddings.service';
+import { isDiagnosisRequest } from '../patient/patient-question';
 import type { RetrievalResult } from './case-fact-retriever.service';
 import { SimulationChunkRepository } from './simulation-chunk.repository';
 
@@ -13,27 +14,6 @@ type IntentRule = {
   keywords: string[];
   sectionPatterns: RegExp[];
 };
-
-const DIAGNOSIS_PATTERNS = [
-  '무슨 병',
-  '어떤 병',
-  '병명',
-  '무슨 질환',
-  '어떤 질환',
-  '무슨 진단',
-  '진단',
-  '원인이 뭐',
-  '원인은 뭐',
-  '원인이 뭔',
-  '원인이 무엇',
-  '왜 아픈',
-  '왜 아프신',
-  '왜 아프세요',
-  '왜 이렇게 아프',
-  '치료는',
-  '어떻게 치료',
-  '나을 수 있',
-];
 
 const INTENT_RULES: IntentRule[] = [
   {
@@ -351,15 +331,10 @@ export class SimulationRagRetrieverService {
     try {
       queryEmbedding = await this.embeddingsService.embed(embeddingQuery);
     } catch {
-      this.logger.warn(
-        `SimulationRAG embedding failed for caseId ${caseId}, returning UNKNOWN fallback`,
+      this.logger.warn(`SimulationRAG embedding failed for caseId ${caseId}`);
+      throw new BadGatewayException(
+        '문진 검색에 실패했습니다. 같은 질문을 다시 보내 주세요.',
       );
-      return {
-        facts: [],
-        isFallback: true,
-        fallbackType: 'UNKNOWN',
-        hasSimulationChunks: true,
-      };
     }
 
     const searchResults = await this.simulationChunkRepository.searchByCaseId({
@@ -441,7 +416,7 @@ export class SimulationRagRetrieverService {
   }
 
   private isDiagnosisRequest(text: string): boolean {
-    return DIAGNOSIS_PATTERNS.some((pattern) => text.includes(pattern));
+    return isDiagnosisRequest(text);
   }
 
   private async retrieveByIntent({
@@ -454,7 +429,11 @@ export class SimulationRagRetrieverService {
     topK: number;
   }): Promise<SimulationRetrievalResult | null> {
     const matchedRules = INTENT_RULES.filter((rule) =>
-      rule.keywords.some((keyword) => normalizedQuestion.includes(keyword)),
+      rule.keywords.some((keyword) =>
+        keyword === '술'
+          ? /(?<![가-힣])술/.test(normalizedQuestion)
+          : normalizedQuestion.includes(keyword),
+      ),
     );
 
     const sectionPatterns = matchedRules.flatMap(
@@ -489,7 +468,7 @@ export class SimulationRagRetrieverService {
 
     const rawResults = matchedChunks.map((chunk) => ({
       label: chunk.section,
-      semanticScore: 1,
+      semanticScore: 0,
       keywordScore: 1,
       finalScore: 1,
     }));
@@ -504,7 +483,7 @@ export class SimulationRagRetrieverService {
         category: chunk.section,
         label: chunk.section,
         answer: chunk.text,
-        semanticScore: 1,
+        semanticScore: 0,
         keywordScore: 1,
         finalScore: 1,
         source: (chunk.metadata as Record<string, unknown> | null | undefined)

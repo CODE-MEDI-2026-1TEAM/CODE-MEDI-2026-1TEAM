@@ -254,8 +254,7 @@ function normalizeRelation(relation: string | null | undefined): string | null {
 function extractGuardianRole(caseRecord: CaseRecord): string | null {
   const info = caseRecord.문진및신체진찰정보;
   const social = (info.사회력_가족력 ?? info.사회력_가족력_여성력) as
-    | Record<string, unknown>
-    | undefined;
+    Record<string, unknown> | undefined;
   if (social?.주양육자) return social.주양육자 as string;
   if (social?.양육자) return social.양육자 as string;
   return normalizeRelation(caseRecord.목격자정보.관계 ?? null);
@@ -516,8 +515,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
 
   // 7. Social & family history
   const social = (info.사회력_가족력 ?? info.사회력_가족력_여성력) as
-    | Record<string, unknown>
-    | undefined;
+    Record<string, unknown> | undefined;
   if (social) {
     const socialSource = (social.source as string) ?? 'patient';
     const {
@@ -577,8 +575,7 @@ function buildChunksForCase(caseRecord: CaseRecord): PatientVisibleChunk[] {
 
   // 9. Physical exam
   const pe = (info.P_E ?? info.P_E_및_특이사항) as
-    | Record<string, unknown>
-    | undefined;
+    Record<string, unknown> | undefined;
   if (pe) {
     const peSource = (pe.source as string) ?? 'exam';
     const {
@@ -767,6 +764,7 @@ async function upsertChunk(
          text = $7,
          metadata = $8::jsonb,
          "contentHash" = $9,
+         embedding = CASE WHEN "contentHash" IS DISTINCT FROM $9 THEN NULL ELSE embedding END,
          "updatedAt" = NOW()
      WHERE id = $1`,
     values,

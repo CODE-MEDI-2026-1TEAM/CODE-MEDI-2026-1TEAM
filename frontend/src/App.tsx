@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { request } from './api';
 import ChatSidebar from './components/ChatSidebar';
@@ -20,6 +20,7 @@ import type {
   PhysicalExamEvent,
   Session,
   SystemTimelineEvent,
+  ServerCapabilities,
 } from './types';
 
 const isConversationDebugEnabled =
@@ -27,12 +28,17 @@ const isConversationDebugEnabled =
 
 export default function App() {
   const [cases, setCases] = useState<CpxCase[]>([]);
+  const [capabilities, setCapabilities] = useState<ServerCapabilities | null>(null);
   const [selectedCaseSlug, setSelectedCaseSlug] = useState('');
   const [assignedCase, setAssignedCase] = useState<CpxCase | null>(null);
   const [isCaseModalOpen, setIsCaseModalOpen] = useState(true);
   const [isAssigningCase, setIsAssigningCase] = useState(false);
   const [isManualSelectionOpen, setIsManualSelectionOpen] = useState(false);
   const [session, setSession] = useState<Session | null>(null);
+  const messageInFlight = useRef(false);
+  const retryRequests = useRef(new Map<string, string>());
+  const activeSessionId = useRef<string | undefined>(undefined);
+  activeSessionId.current = session?.id;
   const [isLoading, setIsLoading] = useState(false);
   const [isEvaluating, setIsEvaluating] = useState(false);
   const [isEvaluationModalOpen, setIsEvaluationModalOpen] = useState(false);
@@ -150,7 +156,14 @@ export default function App() {
   const sendMessage = useCallback(
     async (content: string): Promise<boolean> => {
       const trimmed = content.trim();
-      if (!session || session.status === 'completed' || !trimmed) return false;
+      if (!session || session.status === 'completed' || !trimmed || messageInFlight.current) return false;
+      messageInFlight.current = true;
+      const requestKey = JSON.stringify([session.id, trimmed, viewMode]);
+      let requestId = retryRequests.current.get(requestKey);
+      if (!requestId) {
+        requestId = crypto.randomUUID();
+        retryRequests.current.set(requestKey, requestId);
+      }
 
       setIsLoading(true);
       setError(null);
@@ -171,6 +184,7 @@ export default function App() {
         }>(`/sessions/${session.id}/messages`, {
           method: 'POST',
           body: JSON.stringify({
+            requestId,
             content: trimmed,
             patientPosition: viewMode === 'bed' ? 'supine' : 'sitting',
           }),
@@ -183,14 +197,16 @@ export default function App() {
         const refreshed = await request<{ session: Session }>(
           `/sessions/${session.id}`,
         );
-        setSession(refreshed.session);
+        if (activeSessionId.current === session.id) setSession(refreshed.session);
+        retryRequests.current.delete(requestKey);
         return true;
       } catch (err) {
-        setError(
+        if (activeSessionId.current === session.id) setError(
           err instanceof Error ? err.message : '환자 응답 생성에 실패했습니다.',
         );
         return false;
       } finally {
+        messageInFlight.current = false;
         setIsLoading(false);
       }
     },
@@ -276,6 +292,9 @@ export default function App() {
   }, [session, viewMode]);
 
   useEffect(() => {
+    request<{capabilities?:ServerCapabilities}>('/health')
+      .then(data=>setCapabilities(data.capabilities ?? {patientMode:'model_enabled',speech:true,evaluation:true}))
+      .catch(()=>setCapabilities({patientMode:'offline',speech:false,evaluation:false}));
     request<{ cases: CpxCase[] }>('/cases')
       .then((data) => {
         setCases(data.cases);
@@ -340,6 +359,7 @@ export default function App() {
       </div>
 
       <ChatSidebar
+        capabilities={capabilities}
         activeCase={activeCase}
         error={error}
         isEvaluating={isEvaluating}
@@ -782,7 +802,7 @@ function PhysicalExamChecklistGroup({
         {items.map((item, index) => {
           const finding = physicalExamFindingForCriteriaItem(findings, item);
           const statusLabel = finding
-            ? finding.status === 'abnormal'
+            ? finding.execution === 'attempted' ? '진찰 시도' : finding.status === 'abnormal'
               ? '비정상'
               : finding.status === 'unavailable'
                 ? '확인 불가'
@@ -796,7 +816,7 @@ function PhysicalExamChecklistGroup({
               className={finding ? finding.status : 'missing'}
               key={`${item.examKey}-${item.label}-${index}`}
             >
-              <span>{finding ? '✓' : '–'}</span>
+              <span>{finding?.execution === 'attempted' ? '–' : finding ? '✓' : '–'}</span>
               <p>{item.label}</p>
               <em>{statusLabel}</em>
             </li>

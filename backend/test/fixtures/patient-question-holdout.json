@@ -1,0 +1,22 @@
+[
+  { "text": "오줌 실수가 있었어요?", "topic": "urinary_incontinence" },
+  { "text": "똥을 참지 못했어요?", "topic": "fecal_incontinence" },
+  { "text": "온몸이 찌뿌둥하고 쑤셨나요?", "topic": "muscle_pain" },
+  { "text": "학업 때문에 부담이 컸나요?", "topic": "stress" },
+  { "text": "일은 뭘로 생계를 꾸리세요?", "topic": "occupation" },
+  { "text": "숨 쉬기 힘들었나요?", "topic": "dyspnea" },
+  { "text": "심장이 쿵쿵거렸나요?", "topic": "palpitations" },
+  { "text": "손끝이 찌릿찌릿했나요?", "topic": "tingling" },
+  { "text": "간밤에 충분히 주무셨어요?", "topic": "sleep" },
+  { "text": "니코틴 제품을 사용하세요?", "topic": "smoking" },
+  { "text": "삶의 긴장이 심한 편인가요?", "topic": "stress" },
+  { "text": "자녀분이 또래만큼 자라고 있나요?", "topic": "development" },
+  { "text": "가족들 중 비슷한 병을 가진 분이 있습니까?", "topic": "family_history" },
+  { "text": "예전에 뇌수막염 진단을 받았습니까?", "topic": "past_history" },
+  { "text": "사고로 머리를 부딪힌 일은 있었습니까?", "topic": "trauma" },
+  { "text": "입에서 침이 줄줄 나왔습니까?", "topic": "salivation" },
+  { "text": "눈동자가 위쪽으로 향했습니까?", "topic": "eye_deviation" },
+  { "text": "머리에 통증이 생겼던 시점은?", "topic": "headache", "aspect": "onset" },
+  { "text": "식은땀 말고 춥게 느껴지는 증상이 있었습니까?", "topic": "chills" },
+  { "text": "라면 물 몇 컵 넣는지 알려줘", "kind": "off_topic" }
+]
