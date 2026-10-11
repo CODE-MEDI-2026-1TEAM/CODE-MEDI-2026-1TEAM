@@ -1,4 +1,5 @@
 export type SpeechRecognitionConstructor = new () => SpeechRecognition;
+export type ServerCapabilities = { patientMode: 'model_enabled' | 'offline'; speech: boolean; evaluation: boolean };
 
 export type SpeechRecognition = EventTarget & {
   continuous: boolean;
@@ -97,6 +98,8 @@ export type PhysicalExamEvent = {
   matchedText: string;
   messageCount: number;
   createdAt: string;
+  execution?: 'performed' | 'attempted';
+  resultAvailability?: 'available' | 'not_provided';
 };
 
 export type Session = {

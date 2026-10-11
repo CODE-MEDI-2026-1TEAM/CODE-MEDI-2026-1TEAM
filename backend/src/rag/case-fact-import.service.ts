@@ -63,8 +63,8 @@ export class CaseFactImportService {
         const searchText = this.buildSearchText(rawFact);
         const contentHash = this.computeHash(searchText);
 
-        const { id, isNew, hashChanged } = await this.caseFactRepository.upsert(
-          {
+        const { id, isNew, hashChanged, needsEmbedding } =
+          await this.caseFactRepository.upsert({
             caseId,
             category: rawFact.category,
             label: rawFact.label,
@@ -75,8 +75,7 @@ export class CaseFactImportService {
             contentHash,
             priority: rawFact.priority ?? 0,
             isCritical: rawFact.isCritical ?? false,
-          },
-        );
+          });
 
         if (isNew) created++;
         else if (hashChanged) updated++;
@@ -85,7 +84,7 @@ export class CaseFactImportService {
           id,
           searchText,
           contentHash,
-          needsEmbedding: isNew || hashChanged,
+          needsEmbedding: needsEmbedding ?? (isNew || hashChanged),
         });
       } catch (error) {
         failed++;

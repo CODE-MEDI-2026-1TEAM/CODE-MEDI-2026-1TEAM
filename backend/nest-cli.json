@@ -3,6 +3,10 @@
   "collection": "@nestjs/schematics",
   "sourceRoot": "src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "assets": [
+      { "include": "rag/simulationRAG/**/*.json", "outDir": "dist/src", "watchAssets": true },
+      { "include": "rag/evaluationRAG/**/*.json", "outDir": "dist/src", "watchAssets": true }
+    ]
   }
 }

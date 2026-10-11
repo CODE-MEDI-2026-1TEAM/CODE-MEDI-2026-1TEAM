@@ -1,14 +1,40 @@
 import {
+  BadRequestException,
+  BadGatewayException,
   ConflictException,
   Injectable,
   Logger,
   NotFoundException,
+  Optional,
+  ServiceUnavailableException,
 } from '@nestjs/common';
+import { createHash, randomUUID } from 'crypto';
 import { ConfigService } from '@nestjs/config';
-import { MessageRole, SessionStatus } from '@prisma/client';
+import {
+  MessageRole,
+  Prisma,
+  SessionStatus,
+  type PhysicalExamEvent,
+} from '@prisma/client';
 import { CasesService } from '../cases/cases.service';
 import { LlmService } from '../llm/llm.service';
-import { PatientResponseService } from '../llm/patient-response.service';
+import {
+  PatientResponseService,
+  type PatientAnswer,
+} from '../llm/patient-response.service';
+import {
+  PatientFactCache,
+  selectPatientFacts,
+  type PatientPersona,
+  type PatientFact,
+} from '../patient/patient-facts';
+import { analyzePatientQuestions } from '../patient/patient-question';
+import { PatientPipelineService } from '../patient/patient-pipeline.service';
+import { ApiCostService } from '../llm/api-cost.service';
+import { hashContent } from '../patient/evidence-facts';
+import { PIPELINE_VERSION } from '../patient/evidence-contract';
+import { unresolvedProcessingRequests } from '../patient/evaluation-recovery';
+import { projectLegacyFacts } from '../patient/legacy-patient-facts';
 import { PrismaService } from '../prisma/prisma.service';
 import { CaseFactRetrieverService } from '../rag/case-fact-retriever.service';
 import { EvaluationCriteriaService } from '../rag/evaluation-criteria.service';
@@ -98,9 +124,7 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'sitting',
     key: 'head_trauma_inspection',
     label: '두부외상 시진',
-    patterns: [
-      /(두부|머리|외상|상처|멍).*(시진|흔적|확인|살펴|보겠|볼게)/i,
-    ],
+    patterns: [/(두부|머리|외상|상처|멍).*(시진|흔적|확인|살펴|보겠|볼게)/i],
   },
   {
     expectedPosition: 'sitting',
@@ -118,7 +142,7 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'sitting',
     key: 'pupil_light_reflex',
     label: '동공반사',
-    patterns: [/(동공반사|light reflex|빛.*반사).*(확인|검사|보겠|볼게)?/i],
+    patterns: [/(동공\s*(?:반사|반응)|light reflex|빛.*반사).*(확인|검사|보겠|볼게)?/i],
   },
   {
     expectedPosition: 'sitting',
@@ -154,13 +178,17 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'sitting',
     key: 'finger_to_nose',
     label: 'Finger-to-nose',
-    patterns: [/(finger.?to.?nose|손가락.*코|코.*찍).*(검사|확인|해보|보겠|볼게)?/i],
+    patterns: [
+      /(finger.?to.?nose|손가락.*코|코.*찍).*(검사|확인|해보|보겠|볼게)?/i,
+    ],
   },
   {
     expectedPosition: 'sitting',
     key: 'rapid_alternating',
     label: 'Rapid alternating movement',
-    patterns: [/(rapid alternating|교대운동|손바닥.*뒤집|빠른.*운동).*(검사|확인|해보|보겠|볼게)?/i],
+    patterns: [
+      /(rapid alternating|교대운동|손바닥.*뒤집|빠른.*운동).*(검사|확인|해보|보겠|볼게)?/i,
+    ],
   },
   {
     expectedPosition: 'sitting',
@@ -178,7 +206,9 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'sitting',
     key: 'extremity_neuro_exam',
     label: '팔다리 감각/운동 검사',
-    patterns: [/(팔다리|사지).*(감각.*운동|운동.*감각).*(확인|검사|보겠|볼게)?/i],
+    patterns: [
+      /(팔다리|사지).*(감각.*운동|운동.*감각).*(확인|검사|보겠|볼게)?/i,
+    ],
   },
   {
     expectedPosition: 'sitting',
@@ -246,9 +276,7 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
     expectedPosition: 'supine',
     key: 'neck_stiffness',
     label: '경부강직',
-    patterns: [
-      /(경부강직|목.*뻣뻣|목.*굳).*(검사|확인|보겠|볼게)?/i,
-    ],
+    patterns: [/(경부강직|목.*뻣뻣|목.*굳).*(검사|확인|보겠|볼게)?/i],
   },
   {
     expectedPosition: 'supine',
@@ -279,6 +307,7 @@ const PHYSICAL_EXAM_DEFINITIONS: PhysicalExamDefinition[] = [
 @Injectable()
 export class SessionsService {
   private readonly logger = new Logger(SessionsService.name);
+  private readonly patientFacts = new PatientFactCache();
 
   constructor(
     private readonly prisma: PrismaService,
@@ -289,6 +318,8 @@ export class SessionsService {
     private readonly evaluationCriteriaService: EvaluationCriteriaService,
     private readonly simulationRagRetriever: SimulationRagRetrieverService,
     private readonly configService: ConfigService,
+    @Optional() private readonly patientPipeline?: PatientPipelineService,
+    @Optional() private readonly costs?: ApiCostService,
   ) {}
 
   async create(createSessionDto: CreateSessionDto) {
@@ -325,269 +356,386 @@ export class SessionsService {
     return { session };
   }
 
-  async createMessage(sessionId: string, createMessageDto: CreateMessageDto) {
-    const session = await this.getSessionForWork(sessionId);
-
-    if (session.status === SessionStatus.completed) {
-      throw new ConflictException('Cannot add messages to a completed session');
-    }
-
-    const userQuestion = createMessageDto.content.trim();
-    const caseId = session.caseId;
-    const isConversationDebugEnabled = this.isConversationDebugEnabled();
-
-    this.debugConversation('message.received', {
-      sessionId,
-      caseId,
-      caseSlug: session.case.slug,
-      simulationCaseId: session.case.simulationCaseId,
-      rawContent: createMessageDto.content,
-      trimmedQuestion: userQuestion,
-      questionLength: userQuestion.length,
-    });
-
-    await this.prisma.message.create({
-      data: {
-        sessionId,
-        role: MessageRole.user,
-        content: userQuestion,
-      },
-    });
-
-    const patientPosition = createMessageDto.patientPosition ?? 'sitting';
-    const physicalExamMatches = this.matchPhysicalExamIntents(userQuestion);
-    if (physicalExamMatches.length > 0) {
-      const messageCount = await this.prisma.message.count({
-        where: {
-          sessionId,
-          role: MessageRole.user,
-        },
-      });
-      const physicalExamEvents = await this.prisma.$transaction((tx) =>
-        Promise.all(
-          physicalExamMatches.map((match) => {
-            const finding = this.buildPhysicalExamFinding(
-              session.case.slug,
-              session.case.patientPrompt,
-              match,
-            );
-
-            return tx.physicalExamEvent.create({
-              data: {
+  async createMessage(sessionId: string, dto: CreateMessageDto) {
+    const content = dto.content.trim();
+    if (!content) throw new BadRequestException('질문을 입력해 주세요.');
+    const requestId = dto.requestId ?? randomUUID();
+    const work = () => this.prisma.withSessionLock(sessionId, async () => {
+      try {
+        return await this.createMessageLocked(sessionId, {
+          ...dto,
+          content,
+          requestId,
+        });
+      } catch (error) {
+        if (
+          !(error instanceof ConflictException) &&
+          !(error instanceof NotFoundException)
+        ) {
+          try {
+            await this.prisma.sessionMessageRequest.updateMany({
+              where: {
                 sessionId,
-                examKey: match.key,
-                expectedPosition: match.expectedPosition,
-                label: match.label,
-                matchedText: userQuestion,
-                messageCount,
-                position: patientPosition,
-                result: finding.result,
-                status: finding.status,
+                requestId,
+                response: { equals: Prisma.DbNull },
+              },
+              data: {
+                processing: {
+                  status: 'failed',
+                  issues: [{ stage: 'turn', code: 'turn_processing_failed' }],
+                },
               },
             });
-          }),
-        ),
-      );
-      const updatedSession = await this.prisma.session.findUnique({
-        where: { id: sessionId },
-        include: this.sessionInclude(),
+          } catch {
+            this.logger.warn(
+              JSON.stringify({
+                event: 'patient.failure.recording_failed',
+                sessionId,
+                requestId,
+              }),
+            );
+          }
+        }
+        throw error;
+      }
+    });
+    return this.costs ? this.costs.context({ sessionId, requestId }, work) : work();
+  }
+
+  private async createMessageLocked(sessionId: string, dto: CreateMessageDto) {
+    const started = Date.now();
+    const requestId = dto.requestId ?? randomUUID();
+    const userQuestion = dto.content;
+    const patientPosition = dto.patientPosition ?? 'sitting';
+    const inputHash = createHash('sha256')
+      .update(JSON.stringify([userQuestion, patientPosition]))
+      .digest('hex');
+    const key = { sessionId_requestId: { sessionId, requestId } };
+    let receipt = await this.prisma.sessionMessageRequest.findUnique({
+      where: key,
+    });
+    if (receipt && receipt.inputHash !== inputHash)
+      throw new ConflictException('같은 요청 ID의 질문 내용이 변경되었습니다.');
+    if (receipt?.response) return receipt.response;
+
+    const session = await this.getSessionForWork(sessionId);
+    if (session.status === SessionStatus.completed)
+      throw new ConflictException('Cannot add messages to a completed session');
+    if (!receipt) {
+      receipt = await this.prisma.$transaction(async (tx) => {
+        const user = await tx.message.create({
+          data: { sessionId, role: MessageRole.user, content: userQuestion },
+        });
+        return tx.sessionMessageRequest.create({
+          data: { sessionId, requestId, inputHash, userMessageId: user.id },
+        });
       });
-
-      this.logger.log(
-        JSON.stringify({
-          event: 'clinicalAction.physicalExam.recorded',
-          sessionId,
-          caseId,
-          patientPosition,
-          exams: physicalExamEvents.map((event) => ({
-            examKey: event.examKey,
-            expectedPosition: event.expectedPosition,
-            label: event.label,
-            status: event.status,
-          })),
-        }),
-      );
-
-      return {
-        physicalExamEvents,
-        session: updatedSession,
-      };
     }
-
-    const recentConversation = (
+    // Exclude this request even on retry. Keep the student's original utterance for evaluation.
+    const history = (
       await this.prisma.message.findMany({
-        where: { sessionId },
+        where: { sessionId, id: { not: receipt.userMessageId } },
         orderBy: { createdAt: 'desc' },
-        select: { role: true, content: true },
         take: 10,
+        select: { role: true, content: true },
       })
     ).reverse();
-
-    const simulationCaseId = session.case.simulationCaseId;
-
-    const lastAssistantContent = recentConversation
-      .filter((m) => m.role === 'assistant')
-      .slice(-1)[0]?.content;
-    const conversationContext = lastAssistantContent
-      ? lastAssistantContent.slice(0, 80)
-      : undefined;
-
-    const simulationRetrieval = simulationCaseId
-      ? await this.simulationRagRetriever.retrieve({
-          caseId,
-          question: userQuestion,
-          conversationContext,
-        })
-      : null;
-    const retrieval =
-      simulationRetrieval?.hasSimulationChunks === true
-        ? simulationRetrieval
-        : await this.caseFactRetriever.retrieve({
-            caseId,
-            question: userQuestion,
-          });
-    const retrievalSource =
-      simulationRetrieval?.hasSimulationChunks === true
-        ? 'simulationRAG'
-        : 'caseFact';
-
+    const previousQuestion = history
+      .filter((m) => m.role === MessageRole.user)
+      .at(-1)?.content;
+    if (
+      session.case.simulationCaseId &&
+      this.patientPipeline &&
+      this.configService.get<string>('PATIENT_PIPELINE_V2') !== 'false'
+    ) {
+      return this.createEvidenceMessage(session, dto, key, started);
+    }
+    const questions = await this.patientResponseService.resolveQuestions(
+      analyzePatientQuestions(userQuestion, previousQuestion),
+      previousQuestion,
+      { sessionId, requestId },
+    );
+    const persona = (session.case.patientProfile ?? {}) as PatientPersona;
+    let facts: PatientFact[];
+    try {
+      facts = this.patientFacts.get(
+        session.caseId,
+        session.case.patientPrompt,
+        persona,
+        session.case.chiefComplaint,
+        !!session.case.simulationCaseId,
+      );
+    } catch {
+      throw new BadGatewayException(
+        '증례 정보를 읽지 못했습니다. 증례 설정을 확인한 뒤 다시 시도해 주세요.',
+      );
+    }
+    const answers: PatientAnswer[] = [];
+    const legacyFacts: PatientFact[] = [];
+    for (const question of questions) {
+      let selected = ['history', 'identity'].includes(question.kind)
+        ? selectPatientFacts(question, facts, persona)
+        : [];
+      // Structured cases do not depend on vectors. Old prose cases use tightly scoped, high-confidence retrieval.
+      if (
+        !session.case.simulationCaseId &&
+        question.kind === 'history' &&
+        !selected.length
+      ) {
+        const retrieval = await this.caseFactRetriever.retrieve({
+          caseId: session.caseId,
+          question: question.text,
+          questionIntent: question,
+        });
+        if (!retrieval.isFallback) {
+          selected =
+            retrieval.patientFacts ??
+            projectLegacyFacts(question, retrieval.facts);
+          legacyFacts.push(...selected);
+        }
+      }
+      answers.push({ question, facts: selected });
+    }
+    const patientReply = await this.patientResponseService.generateReply({
+      patientPersona: persona,
+      answers,
+      allowedFacts: [...facts, ...legacyFacts],
+    });
+    const examClauses = questions
+      .filter((q) => q.kind === 'exam')
+      .map((q) => q.text);
+    const physicalExamMatches = [
+      ...new Map(
+        examClauses
+          .flatMap((text) => this.matchPhysicalExamIntents(text))
+          .map((exam) => [exam.key, exam]),
+      ).values(),
+    ];
+    const messageCount = await this.prisma.message.count({
+      where: { sessionId, role: MessageRole.user },
+    });
+    const debug = {
+      questions: answers.map(({ question, facts: selected }) => ({
+        ...question,
+        factIds: selected.map((f) => f.id),
+        result: selected.length
+          ? 'known'
+          : ['history', 'identity'].includes(question.kind)
+            ? 'unknown'
+            : question.kind,
+      })),
+      retrievalSource: session.case.simulationCaseId
+        ? 'structured_case_cache'
+        : 'caseFact',
+      validation: 'passed',
+      elapsedMs: Date.now() - started,
+    };
+    const response = await this.prisma.$transaction(async (tx) => {
+      const physicalExamEvents: PhysicalExamEvent[] = [];
+      for (const match of physicalExamMatches) {
+        const finding = this.buildPhysicalExamFinding(
+          session.case.slug,
+          session.case.patientPrompt,
+          match,
+        );
+        physicalExamEvents.push(
+          await tx.physicalExamEvent.create({
+            data: {
+              sessionId,
+              examKey: match.key,
+              expectedPosition: match.expectedPosition,
+              label: match.label,
+              matchedText: examClauses.join(' / '),
+              messageCount,
+              position: patientPosition,
+              result: finding.result,
+              status: finding.status,
+            },
+          }),
+        );
+      }
+      const message = await tx.message.create({
+        data: { sessionId, role: MessageRole.assistant, content: patientReply },
+      });
+      const result = {
+        message,
+        physicalExamEvents,
+        ...(this.configService.get<string>('ENABLE_RAG_DEBUG') === 'true' ||
+        this.isConversationDebugEnabled()
+          ? { debug }
+          : {}),
+      };
+      await tx.sessionMessageRequest.update({
+        where: key,
+        data: { response: JSON.parse(JSON.stringify(result)) },
+      });
+      return result;
+    });
     this.logger.log(
       JSON.stringify({
-        event: 'rag.retrieval.summary',
+        event: 'patient.reply.validated',
         sessionId,
-        caseId,
-        caseSlug: session.case.slug,
-        simulationCaseId,
-        questionPreview: this.preview(userQuestion),
-        retrievedFactIds: retrieval.facts.map((f) => f.id),
-        retrievalScores: retrieval.facts.map((f) => ({
-          id: f.id,
-          finalScore: f.finalScore,
-        })),
-        isFallback: retrieval.isFallback,
-        fallbackType: retrieval.fallbackType ?? null,
-        retrievalSource,
+        requestId,
+        caseId: session.caseId,
+        questionCount: questions.length,
+        selectedFactIds: answers.flatMap((a) => a.facts.map((f) => f.id)),
+        unknownCount: debug.questions.filter((q) => q.result === 'unknown')
+          .length,
+        elapsedMs: Date.now() - started,
+        generationTokens: 0,
       }),
     );
-
-    this.debugConversation('rag.retrieval.detail', {
+    this.debugConversation('patient.turn', {
       sessionId,
-      caseId,
-      caseSlug: session.case.slug,
-      simulationCaseId,
-      question: userQuestion,
-      conversationContext,
-      retrievalSource,
-      hasSimulationChunks: simulationRetrieval?.hasSimulationChunks ?? null,
-      isFallback: retrieval.isFallback,
-      fallbackType: retrieval.fallbackType ?? null,
-      rawResults: retrieval.rawResults ?? [],
-      retrievedFacts: retrieval.facts.map((f) => ({
-        id: f.id,
-        category: f.category,
-        label: f.label,
-        source: f.source,
-        semanticScore: f.semanticScore,
-        keywordScore: f.keywordScore,
-        finalScore: f.finalScore,
-        answerPreview: this.preview(f.answer, 220),
-      })),
-    });
-
-    const patientProfile = session.case.patientProfile as {
-      name?: string | null;
-      birthDate?: string | null;
-      ageRaw?: string | null;
-      sex?: string | null;
-      tone?: string;
-      isGuardianCase?: boolean;
-      guardianRole?: string | null;
-      witnessPresent?: boolean;
-      witnessRelation?: string | null;
-    } | null;
-
-    const patientReply = await this.patientResponseService.generateReply({
-      patientPersona: {
-        name: patientProfile?.name ?? null,
-        birthDate: patientProfile?.birthDate ?? null,
-        ageRaw: patientProfile?.ageRaw ?? null,
-        sex: patientProfile?.sex ?? null,
-        tone: patientProfile?.tone ?? '불안하지만 협조적',
-        isGuardianCase: patientProfile?.isGuardianCase ?? false,
-        guardianRole: patientProfile?.guardianRole ?? null,
-        witnessPresent: patientProfile?.witnessPresent ?? true,
-        witnessRelation: patientProfile?.witnessRelation ?? null,
-      },
-      chiefComplaint: session.case.chiefComplaint,
-      recentConversation: recentConversation.map((m) => ({
-        role: m.role,
-        content: m.content,
-      })),
-      userQuestion,
-      allowedFacts: retrieval.facts.map((f) => ({
-        category: f.category,
-        answer: f.answer,
-        source: f.source,
-      })),
-      isFallback: retrieval.isFallback,
-      fallbackType: retrieval.fallbackType,
-      patientPrompt: retrieval.isFallback
-        ? session.case.patientPrompt
-        : undefined,
-    });
-
-    this.debugConversation('patient.reply.generated', {
-      sessionId,
-      caseId,
-      caseSlug: session.case.slug,
-      simulationCaseId,
-      question: userQuestion,
-      retrievalSource,
-      isFallback: retrieval.isFallback,
-      fallbackType: retrieval.fallbackType ?? null,
+      requestId,
+      originalQuestion: userQuestion,
+      ...debug,
       reply: patientReply,
-      allowedFactCount: retrieval.facts.length,
     });
-
-    const assistantMessage = await this.prisma.message.create({
-      data: {
-        sessionId,
-        role: MessageRole.assistant,
-        content: patientReply,
-      },
-    });
-
-    const isDebugEnabled =
-      this.configService.get<string>('ENABLE_RAG_DEBUG') === 'true' ||
-      isConversationDebugEnabled;
-
-    const response: {
-      message: typeof assistantMessage;
-      debug?: object;
-    } = { message: assistantMessage };
-
-    if (isDebugEnabled) {
-      response.debug = {
-        caseId,
-        query: userQuestion,
-        rawResults: retrieval.rawResults ?? [],
-        retrievedFacts: retrieval.facts.map((f) => ({
-          id: f.id,
-          category: f.category,
-          semanticScore: f.semanticScore,
-          keywordScore: f.keywordScore,
-          finalScore: f.finalScore,
-        })),
-        isFallback: retrieval.isFallback,
-        fallbackType: retrieval.fallbackType ?? null,
-        retrievalSource,
-        assistantReply: patientReply,
-      };
-    }
-
     return response;
   }
 
+  private async createEvidenceMessage(
+    session: Awaited<ReturnType<SessionsService['getSessionForWork']>>,
+    dto: CreateMessageDto,
+    key: { sessionId_requestId: { sessionId: string; requestId: string } },
+    started: number,
+  ) {
+    const turn = await this.patientPipeline!.turn({
+      caseId: session.caseId,
+      patientPrompt: session.case.patientPrompt,
+      persona: session.case.patientProfile as PatientPersona,
+      chiefComplaint: session.case.chiefComplaint,
+      content: dto.content,
+      state: session.dialogueState,
+      requestId: key.sessionId_requestId.requestId,
+    });
+    const examFrames = turn.frames.filter(
+      (f) => f.speechAct === 'perform_exam' && f.subjectId === 'patient',
+    );
+    const matches = [
+      ...new Map(
+        examFrames.flatMap((frame) =>
+          this.matchPhysicalExamIntents(frame.text).map(
+            (exam) => [exam.key, { exam, frame }] as const,
+          ),
+        ),
+      ).values(),
+    ];
+    const messageCount = await this.prisma.message.count({
+      where: { sessionId: session.id, role: MessageRole.user },
+    });
+    const result = await this.prisma.$transaction(async (tx) => {
+      const physicalExamEvents: PhysicalExamEvent[] = [];
+      for (const { exam, frame } of matches) {
+        const finding = this.buildPhysicalExamFinding(
+          session.case.slug,
+          session.case.patientPrompt,
+          exam,
+        );
+        physicalExamEvents.push(
+          await tx.physicalExamEvent.create({
+            data: {
+              sessionId: session.id,
+              examKey: exam.key,
+              expectedPosition: exam.expectedPosition,
+              label: exam.label,
+              matchedText: frame.text,
+              messageCount,
+              position: dto.patientPosition ?? 'sitting',
+              result: finding.result,
+              status: finding.status,
+              execution: getPhysicalExamCriteriaForCase(session.case.slug).physicalExamPerformed ? 'performed' : 'attempted',
+              resultAvailability:
+                finding.status === 'unavailable' ? 'not_provided' : 'available',
+              details: {
+                subject: 'patient',
+                bodyRegion: /facial/.test(exam.key)
+                  ? 'face'
+                  : /motor_exam|sensory_exam|dtr_exam|extremity/.test(exam.key)
+                    ? 'limbs'
+                    : /conjunctiva|sclera|eye|pupil|visual|extraocular/.test(
+                          exam.key,
+                        )
+                      ? 'eyes'
+                      : /neck|kernig|brudzinski|meningeal/.test(exam.key)
+                        ? 'neck'
+                        : /head/.test(exam.key)
+                          ? 'head'
+                          : 'general',
+                originalSpan: frame.originalSpan,
+                execution: getPhysicalExamCriteriaForCase(session.case.slug).physicalExamPerformed ? 'now' : 'attempted',
+              },
+            },
+          }),
+        );
+      }
+      const message = await tx.message.create({
+        data: {
+          sessionId: session.id,
+          role: MessageRole.assistant,
+          content: turn.reply,
+        },
+      });
+      await tx.session.update({
+        where: { id: session.id },
+        data: { dialogueState: JSON.parse(JSON.stringify(turn.state)) },
+      });
+      const response = {
+        message,
+        physicalExamEvents,
+        processing: {
+          status: turn.processing.status,
+          mode:
+            this.configService.get<string>('PATIENT_AI_ENABLED') === 'true'
+              ? 'model_enabled'
+              : 'offline',
+        },
+        ...(this.isConversationDebugEnabled() ||
+        this.configService.get<string>('ENABLE_RAG_DEBUG') === 'true'
+          ? {
+              debug: {
+                ...turn.processing,
+                retrieval: turn.trace,
+                questions: turn.answers.map((a) => ({
+                  ...a.frame,
+                  result: a.status,
+                  factIds: a.facts.map((f) => f.id),
+                })),
+                elapsedMs: Date.now() - started,
+              },
+            }
+          : {}),
+      };
+      await tx.sessionMessageRequest.update({
+        where: key,
+        data: {
+          response: JSON.parse(JSON.stringify(response)),
+          processing: JSON.parse(
+            JSON.stringify({
+              ...turn.processing,
+              frames: turn.frames,
+              selectedFactIds: turn.answers.flatMap((a) =>
+                a.facts.map((f) => f.id),
+              ),
+            }),
+          ),
+        },
+      });
+      return response;
+    });
+    this.logger.log(
+      JSON.stringify({
+        event: 'patient.evidence.reply',
+        sessionId: session.id,
+        requestId: dto.requestId,
+        ...turn.processing,
+        retrieval: turn.trace,
+        elapsedMs: Date.now() - started,
+      }),
+    );
+    return result;
+  }
   async recordHandHygiene(
     sessionId: string,
     input?: { label?: string; phase?: string },
@@ -609,8 +757,8 @@ export class SessionsService {
       },
     });
 
-    const { handHygieneEvent, updatedSession } =
-      await this.prisma.$transaction(async (tx) => {
+    const { handHygieneEvent, updatedSession } = await this.prisma.$transaction(
+      async (tx) => {
         const createdEvent = await tx.handHygieneEvent.create({
           data: {
             sessionId,
@@ -634,7 +782,8 @@ export class SessionsService {
           handHygieneEvent: createdEvent,
           updatedSession: nextSession,
         };
-      });
+      },
+    );
 
     const handHygieneEvents = await this.prisma.handHygieneEvent.findMany({
       where: { sessionId },
@@ -668,7 +817,6 @@ export class SessionsService {
       }),
     );
 
-
     return {
       handHygieneCount: updatedSession.handHygieneCount,
       handHygieneEvent,
@@ -677,11 +825,42 @@ export class SessionsService {
   }
 
   async evaluate(sessionId: string) {
+    const work = () => this.prisma.withSessionLock(sessionId, () =>
+      this.evaluateLocked(sessionId),
+    );
+    return this.costs ? this.costs.context({ sessionId, requestId: 'evaluation' }, work) : work();
+  }
+
+  private async evaluateLocked(sessionId: string) {
     const session = await this.getSessionForWork(sessionId);
 
     if (session.evaluation) {
       return { evaluation: session.evaluation };
     }
+    if (this.configService.get<string>('PATIENT_AI_ENABLED') !== 'true')
+      throw new ServiceUnavailableException({
+        code: 'evaluation_unavailable',
+        message:
+          '현재 자동 평가가 비활성화되어 있습니다. 문진 기록은 저장되며, API 사용이 가능해진 뒤 평가할 수 있습니다.',
+      });
+    const messageRequests = await this.prisma.sessionMessageRequest.findMany({
+      where: { sessionId },
+      orderBy: { createdAt: 'asc' },
+      select: {
+        requestId: true,
+        userMessageId: true,
+        response: true,
+        processing: true,
+      },
+    });
+    const unresolved = unresolvedProcessingRequests(messageRequests);
+    if (unresolved.length)
+      throw new ConflictException({
+        code: 'evaluation_blocked_by_system_error',
+        unresolvedRequestIds: unresolved,
+        message:
+          '질문 해석 또는 응답 처리에 실패한 요청이 있어 자동 평가를 보류했습니다. 실패한 요청을 확인한 뒤 평가해 주세요.',
+      });
 
     const messages = await this.prisma.message.findMany({
       where: { sessionId },
@@ -711,6 +890,8 @@ export class SessionsService {
         position: true,
         result: true,
         status: true,
+        execution: true,
+        resultAvailability: true,
       },
     });
 
@@ -732,6 +913,11 @@ export class SessionsService {
       messages,
       criteriaPack,
       {
+        processingRecords: messageRequests.map((r) => ({
+          requestId: r.requestId,
+          userMessageId: r.userMessageId,
+          processing: r.processing,
+        })),
         expectedPhysicalExamChecklist: getPhysicalExamCriteriaForCase(
           session.case.slug,
         ).items,
@@ -752,6 +938,8 @@ export class SessionsService {
           position: event.position,
           result: event.result,
           status: event.status,
+          execution: event.execution,
+          resultAvailability: event.resultAvailability,
         })),
       },
     );
@@ -761,6 +949,19 @@ export class SessionsService {
         data: {
           sessionId,
           score: evaluation.score,
+          provenance: {
+            pipelineVersion: PIPELINE_VERSION,
+            criteriaHash: hashContent(criteriaPack),
+            caseSourceHash: hashContent(session.case.patientPrompt),
+            dialogueState: session.dialogueState ?? null,
+            inputHash: hashContent([
+              messages,
+              physicalExamEvents,
+              messageRequests.map((r) => r.processing),
+            ]),
+            model: this.configService.get<string>('PATIENT_EVALUATION_MODEL') ?? this.configService.get<string>('OPENAI_MODEL') ?? 'gpt-5.5',
+            scoringPolicy: 'model_provisional',
+          },
           strengths: evaluation.strengths,
           missedItems: evaluation.missedItems,
           missedItemStatus: evaluation.missedItemStatus,
@@ -785,6 +986,8 @@ export class SessionsService {
             position: event.position,
             result: event.result,
             status: event.status,
+            execution: event.execution,
+            resultAvailability: event.resultAvailability,
           })),
         },
       });
@@ -849,7 +1052,9 @@ export class SessionsService {
   }
 
   private isConversationDebugEnabled() {
-    return this.configService.get<string>('ENABLE_CONVERSATION_DEBUG') === 'true';
+    return (
+      this.configService.get<string>('ENABLE_CONVERSATION_DEBUG') === 'true'
+    );
   }
 
   private debugConversation(event: string, payload: Record<string, unknown>) {
@@ -861,9 +1066,7 @@ export class SessionsService {
   private preview(value: string | null | undefined, maxLength = 120) {
     if (!value) return '';
 
-    return value.length > maxLength
-      ? `${value.slice(0, maxLength)}...`
-      : value;
+    return value.length > maxLength ? `${value.slice(0, maxLength)}...` : value;
   }
 
   private normalizeHandHygienePhase(phase?: string) {
@@ -892,9 +1095,15 @@ export class SessionsService {
 
   private matchPhysicalExamIntents(text: string) {
     const normalized = text.trim();
-    const matches = PHYSICAL_EXAM_DEFINITIONS.filter((definition) =>
-      definition.patterns.some((pattern) => pattern.test(normalized)),
-    );
+    const matches = PHYSICAL_EXAM_DEFINITIONS.filter((definition) => {
+      if (
+        /얼굴|안면/.test(normalized) &&
+        !/팔다리|사지|상지|하지/.test(normalized) &&
+        /extremity|motor_exam|sensory_exam|dtr_exam/.test(definition.key)
+      )
+        return false;
+      return definition.patterns.some((pattern) => pattern.test(normalized));
+    });
 
     return matches.length > 0 ? matches : [];
   }
@@ -965,9 +1174,12 @@ export class SessionsService {
     }
 
     if (
-      ['neck_stiffness', 'kernig_sign', 'brudzinski_sign', 'meningeal_sign'].includes(
-        examKey,
-      )
+      [
+        'neck_stiffness',
+        'kernig_sign',
+        'brudzinski_sign',
+        'meningeal_sign',
+      ].includes(examKey)
     ) {
       return /수막자극징후\s*있음|수막자극징후"?\s*:\s*true|뇌막\s*자극\s*징후|경부강직"?\s*[:：]\s*true|kernig"?\s*[:：]\s*true|brudzinski"?\s*[:：]\s*true|목이\s*뻣뻣/.test(
         sourceText,
@@ -995,7 +1207,8 @@ export class SessionsService {
       oral_tongue_exam:
         '구강과 혀에서 혀 깨문 흔적이나 뚜렷한 탈수 소견은 없습니다.',
       sensory_exam: '양측 상하지 감각 저하는 관찰되지 않습니다.',
-      skin_inspection: '피부 시진에서 발진, 청색증, 외상 소견은 뚜렷하지 않습니다.',
+      skin_inspection:
+        '피부 시진에서 발진, 청색증, 외상 소견은 뚜렷하지 않습니다.',
     };
 
     return results[examKey] ?? `${label}에서 뚜렷한 이상 소견은 없습니다.`;

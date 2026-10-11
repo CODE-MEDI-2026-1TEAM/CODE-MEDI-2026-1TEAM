@@ -1832,3 +1832,9 @@ h1 {
     display: none;
   }
 }
+.text-question-form { display: grid; gap: 8px; margin-bottom: 12px; }
+.text-question-form, .offline-notice { grid-column: 1 / -1; }
+.offline-notice { margin: 0 0 8px; color: #526277; font-size: 13px; line-height: 1.5; }
+.text-question-form label { font-size: 13px; color: #526277; }
+.text-question-form textarea { box-sizing: border-box; width: 100%; resize: vertical; min-height: 64px; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; font: inherit; }
+.text-question-form button { justify-self: end; }

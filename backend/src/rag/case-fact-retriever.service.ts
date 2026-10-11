@@ -1,6 +1,11 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { BadGatewayException, Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { EmbeddingsService } from '../llm/embeddings.service';
+import { isDiagnosisRequest } from '../patient/patient-question';
+import type { PatientQuestion } from '../patient/patient-question';
+import { projectLegacyFacts } from '../patient/legacy-patient-facts';
+import { isReviewedLegacyAnswer } from '../patient/legacy-patient-facts';
+import type { PatientFact } from '../patient/patient-facts';
 import { CaseFactRepository } from './case-fact.repository';
 
 export type FallbackType =
@@ -22,6 +27,7 @@ export type RetrievedFact = {
 };
 
 export type RetrievalResult = {
+  patientFacts?: PatientFact[];
   facts: RetrievedFact[];
   isFallback: boolean;
   fallbackType?: FallbackType;
@@ -32,32 +38,6 @@ export type RetrievalResult = {
     finalScore: number;
   }>;
 };
-
-const DIAGNOSIS_PATTERNS = [
-  // 병명/진단 직접 요구
-  '무슨 병',
-  '어떤 병',
-  '병명',
-  '무슨 질환',
-  '어떤 질환',
-  '무슨 진단',
-  '진단',
-  // 원인
-  '원인이 뭐',
-  '원인은 뭐',
-  '원인이 뭔',
-  '원인이 무엇',
-  // 왜 아픈 — 형태소 변형 포함
-  '왜 아픈',
-  '왜 아프신',
-  '왜 아프세요',
-  '왜 이렇게 아프',
-  '왜 이렇게 힘드',
-  // 예후/치료
-  '치료는',
-  '어떻게 치료',
-  '나을 수 있',
-];
 
 @Injectable()
 export class CaseFactRetrieverService {
@@ -73,10 +53,12 @@ export class CaseFactRetrieverService {
     caseId,
     question,
     limit,
+    questionIntent,
   }: {
     caseId: string;
     question: string;
     limit?: number;
+    questionIntent?: PatientQuestion;
   }): Promise<RetrievalResult> {
     const topK =
       limit ?? parseInt(this.configService.get('RAG_TOP_K') ?? '5', 10);
@@ -99,21 +81,44 @@ export class CaseFactRetrieverService {
       return { facts: [], isFallback: true, fallbackType: 'DIAGNOSIS_REQUEST' };
     }
 
+    if (questionIntent) {
+      const rows = await this.caseFactRepository.findByCaseId(caseId);
+      const projected = projectLegacyFacts(questionIntent, rows);
+      if (projected.length) {
+        return {
+          patientFacts: projected,
+          facts: projected.map((f) => ({
+            id: f.id,
+            category: f.topic,
+            label: f.label,
+            answer: f.reply,
+            source: f.source,
+            semanticScore: 0,
+            keywordScore: 1,
+            finalScore: 1,
+          })),
+          isFallback: false,
+        };
+      }
+      if (rows.length && rows.every((r) => isReviewedLegacyAnswer(r.answer)))
+        return { facts: [], isFallback: true, fallbackType: 'UNKNOWN' };
+    }
+
     let queryEmbedding: number[];
     try {
       const queryText = `의사가 환자에게 묻는 질문: ${normalized}`;
       queryEmbedding = await this.embeddingsService.embed(queryText);
     } catch {
-      this.logger.warn(
-        `Embedding failed for question in caseId ${caseId}, returning UNKNOWN fallback`,
+      this.logger.warn(`Embedding failed for question in caseId ${caseId}`);
+      throw new BadGatewayException(
+        '문진 검색에 실패했습니다. 같은 질문을 다시 보내 주세요.',
       );
-      return { facts: [], isFallback: true, fallbackType: 'UNKNOWN' };
     }
 
     const searchResults = await this.caseFactRepository.searchByCaseId(
       caseId,
       queryEmbedding,
-      topK,
+      Math.min(topK * 4, 40),
     );
 
     if (searchResults.length === 0) {
@@ -182,7 +187,7 @@ export class CaseFactRetrieverService {
   }
 
   private isDiagnosisRequest(text: string): boolean {
-    return DIAGNOSIS_PATTERNS.some((pattern) => text.includes(pattern));
+    return isDiagnosisRequest(text);
   }
 
   private computeKeywordScore(question: string, keywords: string[]): number {

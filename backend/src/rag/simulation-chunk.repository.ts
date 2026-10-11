@@ -20,8 +20,7 @@ export class SimulationChunkRepository {
     const result = await this.prisma.pgPool.query<{ count: string }>(
       `SELECT COUNT(*)::text as count
        FROM "SimulationChunk"
-       WHERE "caseId" = $1
-         AND embedding IS NOT NULL`,
+       WHERE "caseId" = $1`,
       [caseId],
     );
 

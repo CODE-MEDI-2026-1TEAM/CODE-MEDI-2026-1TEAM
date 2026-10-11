@@ -17,24 +17,26 @@ enum MessageRole {
 }
 
 model Case {
-  id              String     @id @default(uuid())
-  slug            String     @unique
-  title           String
-  chiefComplaint  String
-  difficulty      String
-  simulationCaseId String?   @unique
-  simulationTopicId String?
-  evaluationModuleId String?
-  patientProfile  Json
-  openingStatement String
-  hiddenDiagnosis String
-  checklist       Json
-  redFlags        Json
-  patientPrompt   String
-  createdAt       DateTime   @default(now())
-  sessions        Session[]
-  caseFacts       CaseFact[]
-  simulationChunks SimulationChunk[]
+  id                     String                 @id @default(uuid())
+  slug                   String                 @unique
+  title                  String
+  chiefComplaint         String
+  difficulty             String
+  simulationCaseId       String?                @unique
+  simulationTopicId      String?
+  evaluationModuleId     String?
+  patientProfile         Json
+  openingStatement       String
+  hiddenDiagnosis        String
+  checklist              Json
+  redFlags               Json
+  patientPrompt          String
+  createdAt              DateTime               @default(now())
+  sessions               Session[]
+  caseFacts              CaseFact[]
+  simulationChunks       SimulationChunk[]
+  patientEvidence        PatientEvidence[]
+  patientEvidenceIndexes PatientEvidenceIndex[]
 
   @@index([simulationTopicId])
   @@index([evaluationModuleId])
@@ -55,7 +57,7 @@ model CaseFact {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
-  case             Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
 
   @@index([caseId, category])
 }
@@ -73,7 +75,7 @@ model SimulationChunk {
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
-  case             Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  case Case @relation(fields: [caseId], references: [id], onDelete: Cascade)
 
   @@index([caseId, section])
   @@index([simulationCaseId])
@@ -81,34 +83,39 @@ model SimulationChunk {
 }
 
 model Session {
-  id                String         @id @default(uuid())
-  caseId            String
-  status            SessionStatus  @default(active)
-  startedAt         DateTime       @default(now())
-  endedAt           DateTime?
-  handHygieneCount  Int            @default(0)
-  case              Case           @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  messages          Message[]
-  handHygieneEvents HandHygieneEvent[]
+  id                 String                  @id @default(uuid())
+  caseId             String
+  status             SessionStatus           @default(active)
+  startedAt          DateTime                @default(now())
+  endedAt            DateTime?
+  handHygieneCount   Int                     @default(0)
+  dialogueState      Json?
+  case               Case                    @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  messages           Message[]
+  messageRequests    SessionMessageRequest[]
+  handHygieneEvents  HandHygieneEvent[]
   physicalExamEvents PhysicalExamEvent[]
-  evaluation        Evaluation?
+  evaluation         Evaluation?
 
   @@index([caseId])
 }
 
 model PhysicalExamEvent {
-  id               String   @id @default(uuid())
-  sessionId        String
-  examKey          String
-  label            String
-  position         String
-  expectedPosition String
-  status           String
-  result           String
-  matchedText      String
-  messageCount     Int      @default(0)
-  createdAt        DateTime @default(now())
-  session          Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  id                 String   @id @default(uuid())
+  sessionId          String
+  examKey            String
+  label              String
+  position           String
+  expectedPosition   String
+  status             String
+  execution          String   @default("performed")
+  resultAvailability String   @default("available")
+  details            Json?
+  result             String
+  matchedText        String
+  messageCount       Int      @default(0)
+  createdAt          DateTime @default(now())
+  session            Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 
   @@index([sessionId, createdAt])
   @@index([sessionId, examKey])
@@ -137,20 +144,63 @@ model Message {
   @@index([sessionId, createdAt])
 }
 
+model SessionMessageRequest {
+  id            String   @id @default(uuid())
+  sessionId     String
+  requestId     String
+  inputHash     String
+  userMessageId String
+  response      Json?
+  processing    Json?
+  createdAt     DateTime @default(now())
+  session       Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@unique([sessionId, requestId])
+}
+
 model Evaluation {
-  id                      String   @id @default(uuid())
-  sessionId               String   @unique
-  score                   Int
-  strengths               Json
-  missedItems             Json
-  missedItemStatus        Json     @default("[]")
-  riskAssessment          Json
-  suggestions             Json
-  caseInstructionStatus   Json     @default("[]")
-  patientEducationStatus  Json     @default("[]")
-  handHygieneCount        Int      @default(0)
-  handHygieneMoments      Json     @default("[]")
-  physicalExamFindings    Json     @default("[]")
-  createdAt               DateTime @default(now())
-  session                 Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  id                     String   @id @default(uuid())
+  sessionId              String   @unique
+  score                  Int
+  provenance             Json?
+  strengths              Json
+  missedItems            Json
+  missedItemStatus       Json     @default("[]")
+  riskAssessment         Json
+  suggestions            Json
+  caseInstructionStatus  Json     @default("[]")
+  patientEducationStatus Json     @default("[]")
+  handHygieneCount       Int      @default(0)
+  handHygieneMoments     Json     @default("[]")
+  physicalExamFindings   Json     @default("[]")
+  createdAt              DateTime @default(now())
+  session                Session  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+}
+
+model PatientEvidence {
+  id               String   @id
+  caseId           String
+  caseVersion      String
+  factId           String
+  searchText       String
+  payload          Json
+  embeddingProfile String   @default("lexical")
+  createdAt        DateTime @default(now())
+  case             Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@unique([caseId, caseVersion, factId, embeddingProfile], map: "PatientEvidence_scope_key")
+  @@index([caseId, caseVersion])
+}
+
+model PatientEvidenceIndex {
+  id               String   @id
+  caseId           String
+  caseVersion      String
+  embeddingProfile String
+  status           String
+  factCount        Int
+  createdAt        DateTime @default(now())
+  case             Case     @relation(fields: [caseId], references: [id], onDelete: Cascade)
+
+  @@unique([caseId, caseVersion, embeddingProfile], map: "PatientEvidenceIndex_scope_key")
 }

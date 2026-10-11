@@ -45,14 +45,16 @@ export class CaseFactRepository {
     id: string;
     isNew: boolean;
     hashChanged: boolean;
+    needsEmbedding: boolean;
   }> {
     const pool = this.prisma.pgPool;
 
     const existing = await pool.query<{
       id: string;
       content_hash: string | null;
+      has_embedding: boolean;
     }>(
-      `SELECT id, "contentHash" as content_hash FROM "CaseFact"
+      `SELECT id, "contentHash" as content_hash, (embedding IS NOT NULL) as has_embedding FROM "CaseFact"
        WHERE "caseId" = $1 AND category = $2 AND label = $3
        LIMIT 1`,
       [data.caseId, data.category, data.label],
@@ -82,7 +84,12 @@ export class CaseFactRepository {
           data.isCritical,
         ],
       );
-      return { id: result.rows[0].id, isNew: true, hashChanged: false };
+      return {
+        id: result.rows[0].id,
+        isNew: true,
+        hashChanged: false,
+        needsEmbedding: true,
+      };
     }
 
     const existingRow = existing.rows[0];
@@ -92,7 +99,8 @@ export class CaseFactRepository {
       `UPDATE "CaseFact"
        SET "answer" = $1, "questionExamples" = $2::jsonb, "triggerKeywords" = $3::jsonb,
            "searchText" = $4, "contentHash" = $5, "priority" = $6,
-           "isCritical" = $7, "updatedAt" = NOW()
+           "isCritical" = $7, "updatedAt" = NOW(),
+           embedding = CASE WHEN "contentHash" IS DISTINCT FROM $5 THEN NULL ELSE embedding END
        WHERE id = $8`,
       [
         data.answer,
@@ -106,7 +114,12 @@ export class CaseFactRepository {
       ],
     );
 
-    return { id: existingRow.id, isNew: false, hashChanged };
+    return {
+      id: existingRow.id,
+      isNew: false,
+      hashChanged,
+      needsEmbedding: hashChanged || !existingRow.has_embedding,
+    };
   }
 
   async updateEmbedding(id: string, embedding: number[]): Promise<void> {

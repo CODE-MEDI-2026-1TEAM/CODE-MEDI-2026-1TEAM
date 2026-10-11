@@ -10,11 +10,13 @@ import type {
   PhysicalExamEvent,
   Session,
   SystemTimelineEvent,
+  ServerCapabilities,
 } from '../types';
 import { DEFAULT_VITALS } from '../vitals';
 import type { VitalSigns } from '../vitals';
 
 type ChatSidebarProps = {
+  capabilities: ServerCapabilities | null;
   activeCase: CpxCase | undefined;
   session: Session | null;
   isLoading: boolean;
@@ -29,6 +31,7 @@ type ChatSidebarProps = {
 };
 
 export default function ChatSidebar({
+  capabilities,
   activeCase,
   session,
   isLoading,
@@ -46,7 +49,10 @@ export default function ChatSidebar({
   const lastOpenedPhysicalExamMediaKeyRef = useRef<string | null>(null);
   const [openPhysicalExamMedia, setOpenPhysicalExamMedia] =
     useState<PhysicalExamMedia | null>(null);
-  const voice = useVoiceConversation({ session, onSendMessage, onClearError });
+  const [textQuestion,setTextQuestion]=useState('');
+  const voiceEnabled=capabilities?.speech === true;
+  const evaluationEnabled=capabilities?.evaluation === true;
+  const voice = useVoiceConversation({ session, onSendMessage, onClearError,apiCallsEnabled:voiceEnabled });
   const isCompleted = session?.status === 'completed';
   const vitalSigns = [
     ['혈압', `${vitals.bp}mmHg`],
@@ -86,6 +92,7 @@ export default function ChatSidebar({
   useEffect(() => {
     if (
       !session ||
+      !evaluationEnabled ||
       isCompleted ||
       isEvaluating ||
       isLoading ||
@@ -99,6 +106,7 @@ export default function ChatSidebar({
     void onEvaluate();
   }, [
     isCompleted,
+    evaluationEnabled,
     isEvaluating,
     isLoading,
     onEvaluate,
@@ -136,7 +144,7 @@ export default function ChatSidebar({
   useEffect(() => {
     const events = session?.physicalExamEvents ?? [];
     const latestEvent = events[events.length - 1];
-    if (!latestEvent) return;
+    if (!latestEvent || latestEvent.execution === 'attempted') return;
 
     const media = physicalExamMediaForEvent(activeCase?.slug, latestEvent);
     if (!media) return;
@@ -193,7 +201,7 @@ export default function ChatSidebar({
           ) : (
             <button
               className="evaluate-button"
-              disabled={!session || isLoading || isEvaluating}
+              disabled={!session || isLoading || isEvaluating || !evaluationEnabled}
               onClick={() => void onEvaluate()}
               type="button"
             >
@@ -221,7 +229,7 @@ export default function ChatSidebar({
           </div>
         ) : null}
         {remainingSeconds === 0 && session && !isCompleted && !isEvaluating ? (
-          <p className="timer-note">제한 시간이 종료되어 자동 채점을 시작합니다.</p>
+          <p className="timer-note">{evaluationEnabled ? '제한 시간이 종료되어 자동 채점을 시작합니다.' : '제한 시간이 종료되었습니다. 대화 기록은 보존되며 자동 채점은 보류됩니다.'}</p>
         ) : null}
       </section>
 
@@ -253,23 +261,29 @@ export default function ChatSidebar({
       </section>
 
       <div className="voice-panel">
+        {capabilities?.patientMode==='offline' ? <p className="offline-notice" role="status">저장된 증례 정보로 텍스트 문진을 연습할 수 있습니다. 음성 기능과 자동 채점은 현재 꺼져 있습니다.</p> : null}
+        <form className="text-question-form" onSubmit={event=>{event.preventDefault();const sent=textQuestion.trim();if(sent)void onSendMessage(sent).then(ok=>{if(ok)setTextQuestion(current=>current.trim()===sent?'':current);});}}>
+          <label htmlFor="student-question">문진 질문</label>
+          <textarea id="student-question" rows={2} maxLength={2000} value={textQuestion} disabled={!session || isCompleted || isLoading} onChange={event=>setTextQuestion(event.target.value)} placeholder="환자에게 질문할 내용을 입력하세요." />
+          <button className="evaluate-button" type="submit" disabled={!session || isCompleted || isLoading || !textQuestion.trim()}>질문 보내기</button>
+        </form>
         <div className="voice-status">
           <span>{isLoading ? '환자 응답 생성 중' : voice.isSpeaking ? '환자 음성 재생 중' : voice.isListening ? '듣는 중' : session ? '진료 대기' : '세션 준비 중'}</span>
-          {voice.transcript ? <p>{voice.transcript}</p> : <p>{isCompleted ? '채점이 완료된 세션입니다.' : '마이크를 눌러 환자에게 질문하세요.'}</p>}
+          {voice.transcript ? <p>{voice.transcript}</p> : <p>{isCompleted ? '채점이 완료된 세션입니다.' : voiceEnabled ? '마이크나 텍스트로 환자에게 질문하세요.' : '텍스트로 환자에게 질문하세요.'}</p>}
           {error ? <p className="voice-error">{error}</p> : null}
         </div>
         <div className="voice-actions">
           <button
             aria-label={voice.isListening ? '음성 입력 중지' : '음성 입력 시작'}
             className={voice.isListening ? 'mic-button active' : 'mic-button'}
-            disabled={!session || isCompleted || isLoading || voice.isSpeaking || !voice.isSupported}
+            disabled={!session || isCompleted || isLoading || voice.isSpeaking || !voice.isSupported || !voiceEnabled}
             onClick={voice.toggle}
             title={voice.isSupported ? '음성 입력 시작/중지' : '이 브라우저는 음성 입력을 지원하지 않습니다'}
             type="button"
           >
             {voice.isListening ? <StopIcon /> : <MicIcon />}
           </button>
-          <label className="voice-toggle"><input type="checkbox" checked={voice.isVoiceReplyEnabled} onChange={(event) => voice.setVoiceReplyEnabled(event.target.checked)} /> 음성 재생</label>
+          <label className="voice-toggle"><input type="checkbox" disabled={!voiceEnabled} checked={voiceEnabled && voice.isVoiceReplyEnabled} onChange={(event) => voice.setVoiceReplyEnabled(event.target.checked)} /> 음성 재생</label>
         </div>
       </div>
       {openPhysicalExamMedia ? (
@@ -292,7 +306,7 @@ function PhysicalExamResultCard({
   onOpenMedia: (media: PhysicalExamMedia) => void;
 }) {
   const statusLabel =
-    event.status === 'abnormal'
+    event.execution === 'attempted' ? '진찰 시도' : event.status === 'abnormal'
       ? '비정상'
       : event.status === 'unavailable'
         ? '확인 불가'
@@ -305,18 +319,18 @@ function PhysicalExamResultCard({
   return (
     <article className={`physical-exam-card ${event.status}`}>
       <div>
-        <span>신체진찰 결과</span>
+        <span>{event.execution === 'attempted' ? '신체진찰 시도' : '신체진찰 결과'}</span>
         <strong>{event.label}</strong>
       </div>
       <p>{event.result}</p>
       <footer>
         <em>{statusLabel}</em>
         <span>
-          시행 자세 {positionLabel}
+          {event.execution === 'attempted' ? '선택 자세' : '시행 자세'} {positionLabel}
           {event.position !== event.expectedPosition ? ` / 권장 ${expectedLabel}` : ''}
         </span>
       </footer>
-      {media ? (
+      {event.execution !== 'attempted' && media ? (
         <button
           className="physical-exam-media-button"
           onClick={() => onOpenMedia(media)}
